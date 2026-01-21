@@ -6,35 +6,37 @@ class AppNameResolver {
   static List<AppInfo>? _allApps;
 
   static Future<void> _loadApps() async {
-    if (_allApps == null) {
-      _allApps = await DeviceInstalledApps.getApps(
-        includeSystemApps: true,
-        includeIcon: false,
-        permissions: [],
-        shouldHasAllPermissions: false,
-      );
+    _allApps ??= await DeviceInstalledApps.getApps(
+      includeSystemApps: true,
+      includeIcon: false,
+      permissions: [],
+      shouldHasAllPermissions: false,
+    );
+  }
+
+  static AppInfo? _findApp(String packageName) {
+    final apps = _allApps;
+    if (apps == null) return null;
+    for (final app in apps) {
+      if (app.bundleId == packageName) {
+        return app;
+      }
     }
+    return null;
   }
 
   static Future<String> getAppName(String packageName) async {
     await _loadApps();
 
-    if (_cachedNames.containsKey(packageName)) {
-      return _cachedNames[packageName]!;
+    final cached = _cachedNames[packageName];
+    if (cached != null) {
+      return cached;
     }
 
-    try {
-      final app = _allApps!.firstWhere(
-            (app) => app.id == packageName,
-        orElse: () => AppInfo(packageName, packageName), // ✅ Uses positional constructor
-      );
-
-      final appName = app.name ?? packageName;
-      _cachedNames[packageName] = appName;
-      return appName;
-    } catch (e) {
-      return packageName;
-    }
+    final app = _findApp(packageName);
+    final appName = app?.name ?? packageName;
+    _cachedNames[packageName] = appName;
+    return appName;
   }
 
   static Future<Map<String, String>> resolveNames(List<String> packageNames) async {
@@ -42,11 +44,8 @@ class AppNameResolver {
 
     final Map<String, String> result = {};
     for (final pkg in packageNames) {
-      final app = _allApps!.firstWhere(
-            (a) => a.id == pkg,
-        orElse: () => AppInfo(pkg, pkg), // ✅ Fallback with positional args
-      );
-      final appName = app.name ?? pkg;
+      final app = _findApp(pkg);
+      final appName = app?.name ?? pkg;
       result[pkg] = appName;
       _cachedNames[pkg] = appName;
     }

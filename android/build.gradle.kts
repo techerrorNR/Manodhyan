@@ -1,3 +1,5 @@
+import com.android.build.gradle.LibraryExtension
+
 allprojects {
     repositories {
         google()
@@ -14,6 +16,18 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+}
+
+subprojects {
+    plugins.withId("com.android.library") {
+        if (name == "device_installed_apps") {
+            extensions.findByType(LibraryExtension::class.java)?.let { androidExt ->
+                if (androidExt.namespace.isNullOrBlank()) {
+                    androidExt.namespace = "com.hofinity.device_installed_apps"
+                }
+            }
+        }
+    }
 }
 
 tasks.register<Delete>("clean") {

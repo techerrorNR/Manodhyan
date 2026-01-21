@@ -3,7 +3,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'home_screen.dart';
 import 'todo_screen.dart';
 import 'challenge_screen.dart';
-import 'score_screen.dart';
+import 'alarm_screen.dart';
 import 'create_task_modal.dart';
 
 class NavScreen extends StatefulWidget {
@@ -21,7 +21,7 @@ class _NavScreenState extends State<NavScreen> {
     const HomeScreen(),
     const SizedBox(), // FAB handler
     const ChallengeScreen(),
-    const ScoreScreen(),
+    const AlarmScreen(),
   ];
 
   void _onTabTapped(int index) {
@@ -60,7 +60,7 @@ class _NavScreenState extends State<NavScreen> {
               onPressed: () => _onTabTapped(3),
             ),
             IconButton(
-              icon: const Icon(LucideIcons.calendarDays, color: Colors.white),
+              icon: const Icon(LucideIcons.alarmClock, color: Colors.white),
               onPressed: () => _onTabTapped(4),
             ),
           ],

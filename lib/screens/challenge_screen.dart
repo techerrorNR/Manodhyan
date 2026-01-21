@@ -22,8 +22,10 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
     _loadUsage();
   }
 
-  void _loadUsage() async {
-    bool granted = await UsageStats.checkUsagePermission() ?? false;
+  Future<void> _loadUsage() async {
+    final permissionResult = await UsageStats.checkUsagePermission();
+    if (!mounted) return;
+    final granted = permissionResult ?? false;
 
     if (!granted) {
       await showDialog(
@@ -46,6 +48,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
           ],
         ),
       );
+      if (!mounted) return;
       setState(() => _loading = false);
       return;
     }
@@ -62,6 +65,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
       resolvedData[name] = time;
     });
 
+    if (!mounted) return;
     setState(() {
       _usageData = resolvedData;
       _loading = false;

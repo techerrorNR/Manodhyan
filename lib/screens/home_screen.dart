@@ -57,7 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   strokeWidth: 10,
                   valueColor:
                   const AlwaysStoppedAnimation<Color>(Colors.orange),
-                  backgroundColor: Colors.deepPurple.withOpacity(0.3),
+                  backgroundColor:
+                      Colors.deepPurple.withValues(alpha: 0.3),
                 ),
               ),
               ClipOval(
@@ -103,10 +104,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            onPressed: () {
-              timer.isRunning
-                  ? timer.stop()
-                  : timer.start(selectedTime);
+            onPressed: () async {
+              if (timer.isRunning) {
+                await timer.cancelSession();
+              } else {
+                await timer.startSession(selectedTime);
+              }
             },
             child: Text(
               timer.isRunning ? "Stop" : "Start Focusing",
