@@ -5,9 +5,12 @@ import 'package:uuid/uuid.dart';
 
 import '../models/alarm_payload.dart';
 import '../services/alarm_service.dart';
+import '../services/local_storage_service.dart';
 
 class TimerController extends ChangeNotifier {
-  TimerController({required this.alarmService});
+  TimerController({required this.alarmService}) {
+    loadStats();
+  }
 
   final AlarmService alarmService;
 
@@ -79,11 +82,31 @@ class TimerController extends ChangeNotifier {
       if (payload != null) {
         await alarmService.markCompleted(payload.alarmId);
       }
+      // Reintroduce Crystal Rewards & Streak
+      _crystals++;
+      _streak++;
+      await LocalStorageService.saveCrystals(_crystals);
+      await LocalStorageService.saveStreak(_streak);
     } else {
       if (payload != null) {
         await alarmService.cancelAlarmById(payload.alarmId);
       }
+      // Reset streak on failure if desired, or keep it.
+      // For now, we only increment on success.
     }
+    notifyListeners();
+  }
+
+  // State
+  int _crystals = 0;
+  int _streak = 0;
+
+  int get crystals => _crystals;
+  int get streak => _streak;
+
+  Future<void> loadStats() async {
+    _crystals = await LocalStorageService.getCrystals();
+    _streak = await LocalStorageService.getStreak();
     notifyListeners();
   }
 }

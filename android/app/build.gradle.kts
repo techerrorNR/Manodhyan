@@ -6,29 +6,34 @@ plugins {
 }
 
 android {
-    namespace = "com.example.manodhyan"
-    compileSdk = flutter.compileSdkVersion
+    namespace = "com.innovray.manodhyan"
+    compileSdk = 35
 //    ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-        isCoreLibraryDesugaringEnabled = true
-    }
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    isCoreLibraryDesugaringEnabled = true
+}
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
+kotlinOptions {
+    jvmTarget = "17"
+}
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.manodhyan"
+        applicationId = "com.innovray.manodhyan"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 22
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        ndk {
+            // Filter out x86 (32-bit) to avoid Flutter deprecation warnings
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86_64")
+        }
     }
 
     buildTypes {
@@ -46,4 +51,6 @@ flutter {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

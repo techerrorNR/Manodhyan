@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
-import 'package:mindful/core/database/adapters/time_of_day_adapter.dart';
+import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
 
 extension ExtDateTime on DateTime {
   /// Returns the number of milliseconds since the "Unix epoch" 1970-01-01T00:00:00Z (UTC).
@@ -101,5 +101,10 @@ extension ExtDateTime on DateTime {
         .add(end.toMinutes.minutes)
         .add(end.toMinutes < start.toMinutes ? 24.hours : 0.seconds);
     return isBetween(startDt, endDt);
+  }
+
+  /// Returns TRUE if the two [DateTime] objects are on the same day.
+  bool isSameDay(DateTime other) {
+    return year == other.year && month == other.month && day == other.day;
   }
 }

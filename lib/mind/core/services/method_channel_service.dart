@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -14,10 +14,10 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:mindful/core/database/app_database.dart';
-import 'package:mindful/models/usage_model.dart';
-import 'package:mindful/models/app_info.dart';
-import 'package:mindful/models/device_info_model.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:manodhyan/mind/models/usage_model.dart';
+import 'package:manodhyan/mind/models/app_info.dart';
+import 'package:manodhyan/mind/models/device_info_model.dart';
 
 /// This class handles the Flutter method channel and is responsible for invoking native Android Java code.
 ///
@@ -31,7 +31,7 @@ class MethodChannelService {
 
   /// The method channel object used for communication.
   final MethodChannel _methodChannel = const MethodChannel(
-    'com.mindful.android.methodchannel.fg',
+    'com.manodhyan.android.methodchannel.fg',
   );
 
   /// Flag indicating if the app is restarted by itself (after importing database).
@@ -41,6 +41,13 @@ class MethodChannelService {
   /// [DeviceInfoModel] containing information about this device on which app is running
   DeviceInfoModel get deviceInfo => _deviceInfo;
   late DeviceInfoModel _deviceInfo;
+  static const DeviceInfoModel _fallbackDeviceInfo = DeviceInfoModel(
+    manufacturer: 'Unknown',
+    model: 'Unknown',
+    androidVersion: '0',
+    sdkVersion: 33,
+    ManoDhyanVersion: '0.0.0',
+  );
 
   /// Initializes the method channel by setting a handler for incoming method calls from the native side.
   Future<void> init() async {
@@ -53,7 +60,12 @@ class MethodChannelService {
     );
 
     /// Load information about the device
-    _deviceInfo = await MethodChannelService.instance.getDeviceInfo();
+    try {
+      _deviceInfo = await MethodChannelService.instance.getDeviceInfo();
+    } catch (e) {
+      debugPrint('MethodChannelService.init(): $e');
+      _deviceInfo = _fallbackDeviceInfo;
+    }
   }
 
   // ===========================================================================================
@@ -387,7 +399,7 @@ class MethodChannelService {
   Future<bool> openDeviceDndSettings() async =>
       await _methodChannel.invokeMethod('openDeviceDndSettings');
 
-  /// Opens the device specific settings to whitelist mindful.
+  /// Opens the device specific settings to whitelist ManoDhyan.
   Future<bool> openAutoStartSettings() async =>
       await _methodChannel.invokeMethod('openAutoStartSettings');
 

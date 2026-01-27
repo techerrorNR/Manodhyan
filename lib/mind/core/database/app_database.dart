@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -12,38 +12,38 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
-import 'package:mindful/core/database/adapters/time_of_day_adapter.dart';
-import 'package:mindful/core/database/converters/bool_list_converter.dart';
-import 'package:mindful/core/database/converters/enum_list_converter.dart';
-import 'package:mindful/core/database/converters/notification_schedule_list_converter.dart';
-import 'package:mindful/core/database/converters/string_list_converter.dart';
-import 'package:mindful/core/database/daos/dynamic_records_dao.dart';
-import 'package:mindful/core/database/daos/unique_records_dao.dart';
-import 'package:mindful/core/database/schemas/schema_versions.dart';
-import 'package:mindful/core/database/tables/app_restriction_table.dart';
-import 'package:mindful/core/database/tables/app_usage_table.dart';
-import 'package:mindful/core/database/tables/bedtime_schedule_table.dart';
-import 'package:mindful/core/database/tables/crash_logs_table.dart';
-import 'package:mindful/core/database/tables/focus_mode_table.dart';
-import 'package:mindful/core/database/tables/focus_profile_table.dart';
-import 'package:mindful/core/database/tables/focus_sessions_table.dart';
-import 'package:mindful/core/database/tables/notification_settings_table.dart';
-import 'package:mindful/core/database/tables/notifications_table.dart';
-import 'package:mindful/core/database/tables/parental_controls_table.dart';
-import 'package:mindful/core/database/tables/mindful_settings_table.dart';
-import 'package:mindful/core/database/tables/restriction_groups_table.dart';
-import 'package:mindful/core/database/tables/shared_unique_data_table.dart';
-import 'package:mindful/core/database/tables/wellbeing_table.dart';
-import 'package:mindful/core/enums/app_theme_mode.dart';
-import 'package:mindful/core/enums/default_home_tab.dart';
-import 'package:mindful/core/enums/recap_type.dart';
-import 'package:mindful/core/enums/reminder_type.dart';
-import 'package:mindful/core/enums/session_type.dart';
-import 'package:mindful/core/enums/session_state.dart';
-import 'package:mindful/config/app_constants.dart';
-import 'package:mindful/core/enums/platform_features.dart';
-import 'package:mindful/core/utils/default_models_utils.dart';
-import 'package:mindful/models/notification_schedule.dart';
+import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:manodhyan/mind/core/database/converters/bool_list_converter.dart';
+import 'package:manodhyan/mind/core/database/converters/enum_list_converter.dart';
+import 'package:manodhyan/mind/core/database/converters/notification_schedule_list_converter.dart';
+import 'package:manodhyan/mind/core/database/converters/string_list_converter.dart';
+import 'package:manodhyan/mind/core/database/daos/dynamic_records_dao.dart';
+import 'package:manodhyan/mind/core/database/daos/unique_records_dao.dart';
+import 'package:manodhyan/mind/core/database/schemas/schema_versions.dart';
+import 'package:manodhyan/mind/core/database/tables/app_restriction_table.dart';
+import 'package:manodhyan/mind/core/database/tables/app_usage_table.dart';
+import 'package:manodhyan/mind/core/database/tables/bedtime_schedule_table.dart';
+import 'package:manodhyan/mind/core/database/tables/crash_logs_table.dart';
+import 'package:manodhyan/mind/core/database/tables/focus_mode_table.dart';
+import 'package:manodhyan/mind/core/database/tables/focus_profile_table.dart';
+import 'package:manodhyan/mind/core/database/tables/focus_sessions_table.dart';
+import 'package:manodhyan/mind/core/database/tables/notification_settings_table.dart';
+import 'package:manodhyan/mind/core/database/tables/notifications_table.dart';
+import 'package:manodhyan/mind/core/database/tables/parental_controls_table.dart';
+import 'package:manodhyan/mind/core/database/tables/manodhyan_settings_table.dart';
+import 'package:manodhyan/mind/core/database/tables/restriction_groups_table.dart';
+import 'package:manodhyan/mind/core/database/tables/shared_unique_data_table.dart';
+import 'package:manodhyan/mind/core/database/tables/wellbeing_table.dart';
+import 'package:manodhyan/mind/core/enums/app_theme_mode.dart';
+import 'package:manodhyan/mind/core/enums/default_home_tab.dart';
+import 'package:manodhyan/mind/core/enums/recap_type.dart';
+import 'package:manodhyan/mind/core/enums/reminder_type.dart';
+import 'package:manodhyan/mind/core/enums/session_type.dart';
+import 'package:manodhyan/mind/core/enums/session_state.dart';
+import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:manodhyan/mind/core/enums/platform_features.dart';
+import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
+import 'package:manodhyan/mind/models/notification_schedule.dart';
 import 'migrations/migrations.dart';
 
 part 'app_database.g.dart';
@@ -56,7 +56,7 @@ part 'app_database.g.dart';
     FocusModeTable,
     FocusProfileTable,
     FocusSessionsTable,
-    MindfulSettingsTable,
+    ManoDhyanSettingsTable,
     ParentalControlsTable,
     RestrictionGroupsTable,
     WellbeingTable,

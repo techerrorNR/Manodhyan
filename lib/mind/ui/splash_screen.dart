@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -15,19 +15,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/config/navigation/app_routes.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/core/services/auth_service.dart';
-import 'package:mindful/config/navigation/navigation_service.dart';
-import 'package:mindful/core/services/method_channel_service.dart';
-import 'package:mindful/providers/system/mindful_settings_provider.dart';
-import 'package:mindful/providers/system/parental_controls_provider.dart';
-import 'package:mindful/providers/system/permissions_provider.dart';
-import 'package:mindful/ui/common/breathing_widget.dart';
-import 'package:mindful/ui/common/rounded_container.dart';
-import 'package:mindful/ui/common/styled_text.dart';
-import 'package:mindful/ui/transitions/default_effects.dart';
+import 'package:manodhyan/mind/config/navigation/app_routes.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/core/services/auth_service.dart';
+import 'package:manodhyan/mind/config/navigation/navigation_service.dart';
+import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:manodhyan/mind/providers/system/manodhyan_settings_provider.dart';
+import 'package:manodhyan/mind/providers/system/parental_controls_provider.dart';
+import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
+import 'package:manodhyan/mind/ui/common/breathing_widget.dart';
+import 'package:manodhyan/mind/ui/common/rounded_container.dart';
+import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:manodhyan/mind/ui/transitions/default_effects.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -52,10 +52,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     final perms =
         await ref.read(permissionProvider.notifier).fetchPermissionsStatus();
 
-    final settings = await ref.read(mindfulSettingsProvider.notifier).init();
+    final settings = await ref.read(ManoDhyanSettingsProvider.notifier).init();
     _isOnboardingDone = settings.isOnboardingDone;
     _isAppUpdated = settings.appVersion !=
-        MethodChannelService.instance.deviceInfo.mindfulVersion;
+        MethodChannelService.instance.deviceInfo.ManoDhyanVersion;
 
     _isAccessProtected =
         (await ref.read(parentalControlsProvider.notifier).init())
@@ -144,7 +144,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
               children: [
                 /// Title
                 const StyledText(
-                  "Mindful",
+                  "ManoDhyan",
                   fontSize: 48,
                   fontWeight: FontWeight.bold,
                   height: 1,
@@ -152,7 +152,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
                 /// Tag line
                 StyledText(
-                  context.locale.mindful_tagline,
+                  context.locale.manodhyan_tagline,
                   fontSize: 16,
                   isSubtitle: true,
                 ),
@@ -169,11 +169,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                 : 0.vBox,
 
             /// Make
-            const StyledText(
-              "Made with ♥️ in 🇮🇳",
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
+            // Text removed
+            0.vBox,
           ].animate(
             effects: DefaultEffects.transitionIn,
             delay: 100.ms,

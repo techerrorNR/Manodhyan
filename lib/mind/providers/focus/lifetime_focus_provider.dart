@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -9,9 +9,9 @@
  */
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/core/services/drift_db_service.dart';
-import 'package:mindful/core/utils/date_time_utils.dart';
-import 'package:mindful/providers/focus/dated_focus_provider.dart';
+import 'package:manodhyan/mind/core/services/drift_db_service.dart';
+import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
+import 'package:manodhyan/mind/providers/focus/dated_focus_provider.dart';
 
 final lifetimeFocusProvider = FutureProvider<Duration>(
   (ref) {

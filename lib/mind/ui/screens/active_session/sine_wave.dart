@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -17,8 +17,8 @@ import 'package:flutter/material.dart';
 class SineWave extends StatefulWidget {
   const SineWave({
     super.key,
-    this.sinColor = Colors.red,
-    this.cosColor = Colors.blue,
+    this.sinColor = Colors.deepPurpleAccent,
+    this.cosColor = Colors.cyanAccent,
   });
 
   final Color sinColor;

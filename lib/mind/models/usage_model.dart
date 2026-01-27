@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'package:mindful/core/database/app_database.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
 
 @immutable
 class UsageModel {

@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -12,33 +12,33 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/config/navigation/app_routes.dart';
-import 'package:mindful/core/enums/item_position.dart';
-import 'package:mindful/core/enums/usage_type.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_date_time.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/core/extensions/ext_widget.dart';
-import 'package:mindful/core/services/method_channel_service.dart';
-import 'package:mindful/config/app_constants.dart';
-import 'package:mindful/core/utils/date_time_utils.dart';
-import 'package:mindful/models/app_info.dart';
-import 'package:mindful/models/usage_filter_model.dart';
-import 'package:mindful/models/usage_model.dart';
-import 'package:mindful/providers/restrictions/apps_restrictions_provider.dart';
-import 'package:mindful/providers/apps/apps_info_provider.dart';
-import 'package:mindful/providers/usage/weekly_app_usage_provider.dart';
-import 'package:mindful/providers/shared_unique_data_provider.dart';
-import 'package:mindful/ui/common/default_list_tile.dart';
-import 'package:mindful/ui/common/scaffold_shell.dart';
-import 'package:mindful/ui/common/sliver_usage_cards.dart';
-import 'package:mindful/ui/common/sliver_usage_chart_panel.dart';
-import 'package:mindful/ui/screens/app_dashboard/emergency_fab.dart';
-import 'package:mindful/ui/common/content_section_header.dart';
-import 'package:mindful/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:mindful/ui/common/styled_text.dart';
-import 'package:mindful/ui/common/application_icon.dart';
-import 'package:mindful/ui/screens/app_dashboard/app_dashboard_restrictions.dart';
+import 'package:manodhyan/mind/config/navigation/app_routes.dart';
+import 'package:manodhyan/mind/core/enums/item_position.dart';
+import 'package:manodhyan/mind/core/enums/usage_type.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
+import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
+import 'package:manodhyan/mind/models/app_info.dart';
+import 'package:manodhyan/mind/models/usage_filter_model.dart';
+import 'package:manodhyan/mind/models/usage_model.dart';
+import 'package:manodhyan/mind/providers/restrictions/apps_restrictions_provider.dart';
+import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
+import 'package:manodhyan/mind/providers/usage/weekly_app_usage_provider.dart';
+import 'package:manodhyan/mind/providers/shared_unique_data_provider.dart';
+import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
+import 'package:manodhyan/mind/ui/common/scaffold_shell.dart';
+import 'package:manodhyan/mind/ui/common/sliver_usage_cards.dart';
+import 'package:manodhyan/mind/ui/common/sliver_usage_chart_panel.dart';
+import 'package:manodhyan/mind/ui/screens/app_dashboard/emergency_fab.dart';
+import 'package:manodhyan/mind/ui/common/content_section_header.dart';
+import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:manodhyan/mind/ui/common/application_icon.dart';
+import 'package:manodhyan/mind/ui/screens/app_dashboard/app_dashboard_restrictions.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class AppDashboardScreen extends ConsumerStatefulWidget {
@@ -175,7 +175,7 @@ class _AppDashboardScreenState extends ConsumerState<AppDashboardScreen> {
 
                 /// Usage bar chart and selected day changer
                 SliverUsageChartPanel(
-                  chartHeight: 212,
+                  chartHeight: 460,
                   selectedDay: _filter.selectedDay,
                   selectedWeek: _filter.selectedWeek,
                   usageType: _filter.usageType,
@@ -184,6 +184,7 @@ class _AppDashboardScreenState extends ConsumerState<AppDashboardScreen> {
                       () => _filter = _filter.copyWith(selectedDay: day)),
                   onWeekChanged: (day) => setState(() =>
                       _filter = _filter.copyWith(selectedWeek: day.weekRange)),
+                  centerWidget: ApplicationIcon(appInfo: appInfo, size: 24),
                 ),
 
                 /// Available app setting or functions

@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -12,20 +12,20 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/core/extensions/ext_widget.dart';
-import 'package:mindful/providers/apps/apps_info_provider.dart';
-import 'package:mindful/providers/notifications/searched_notification_provider.dart';
-import 'package:mindful/ui/common/application_icon.dart';
-import 'package:mindful/ui/common/content_section_header.dart';
-import 'package:mindful/ui/common/empty_list_indicator.dart';
-import 'package:mindful/ui/common/search_bar.dart';
-import 'package:mindful/ui/common/sliver_implicitly_animated_list.dart';
-import 'package:mindful/ui/common/sliver_shimmer_list.dart';
-import 'package:mindful/ui/common/styled_text.dart';
-import 'package:mindful/ui/dialogs/modal_bottom_sheet.dart';
-import 'package:mindful/ui/screens/notifications/notification_tile.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
+import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
+import 'package:manodhyan/mind/providers/notifications/searched_notification_provider.dart';
+import 'package:manodhyan/mind/ui/common/application_icon.dart';
+import 'package:manodhyan/mind/ui/common/content_section_header.dart';
+import 'package:manodhyan/mind/ui/common/empty_list_indicator.dart';
+import 'package:manodhyan/mind/ui/common/search_bar.dart';
+import 'package:manodhyan/mind/ui/common/sliver_implicitly_animated_list.dart';
+import 'package:manodhyan/mind/ui/common/sliver_shimmer_list.dart';
+import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:manodhyan/mind/ui/dialogs/modal_bottom_sheet.dart';
+import 'package:manodhyan/mind/ui/screens/notifications/notification_tile.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class SearchNotificationButton extends StatelessWidget {

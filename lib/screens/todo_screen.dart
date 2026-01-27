@@ -31,94 +31,102 @@ class TodoScreen extends StatelessWidget {
     final completedToday = tasks.where((task) => task.isCompleted).length;
     final failedToday = tasks.length - completedToday;
 
-    return Container(
-      color: const Color(0xFF0F0D21),
-      child: RefreshIndicator(
-        onRefresh: () async => controller.refresh(),
-        child: ListView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          children: [
-            _HeroCard(
-              onAddTask: () => showCreateTaskModal(context),
-              recentDays: recentDays,
-            ),
-            const SizedBox(height: 20),
-            _StatsRow(
-              todayPoints: todayPoints,
-              totalPoints: totalPoints,
-              streak: streak,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: _SummaryBox(
-                    label: 'Completed',
-                    value: '$completedToday',
+    return Scaffold(
+      backgroundColor: const Color(0xFF0F0D21),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurpleAccent,
+        onPressed: () => showCreateTaskModal(context),
+        child: const Icon(Icons.add, color: Colors.white),
+      ),
+      body: Container(
+        color: const Color(0xFF0F0D21),
+        child: RefreshIndicator(
+          onRefresh: () async => controller.refresh(),
+          child: ListView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            children: [
+              _HeroCard(
+                onAddTask: () => showCreateTaskModal(context),
+                recentDays: recentDays,
+              ),
+              const SizedBox(height: 20),
+              _StatsRow(
+                todayPoints: todayPoints,
+                totalPoints: totalPoints,
+                streak: streak,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: _SummaryBox(
+                      label: 'Completed',
+                      value: '$completedToday',
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _SummaryBox(
+                      label: 'Failed',
+                      value: '$failedToday',
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              if (tasks.isEmpty)
+                Container(
+                  padding: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1B192F),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Text(
+                    'No tasks for today.\nAdd at least one task to keep your streak alive.',
+                    style: TextStyle(color: Colors.white70),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              else
+                ...tasks.map(
+                  (task) => _TaskTile(
+                    task: task,
+                    onToggle: (value) => context
+                        .read<TaskController>()
+                        .toggleTask(task.id, value),
+                    onDelete: () =>
+                        context.read<TaskController>().deleteTask(task.id),
                   ),
                 ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: _SummaryBox(
-                    label: 'Failed',
-                    value: '$failedToday',
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 24),
-            if (tasks.isEmpty)
+              const SizedBox(height: 32),
               Container(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: const Color(0xFF1B192F),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: const Text(
-                  'No tasks for today.\nAdd at least one task to keep your streak alive.',
-                  style: TextStyle(color: Colors.white70),
-                  textAlign: TextAlign.center,
-                ),
-              )
-            else
-              ...tasks.map(
-                (task) => _TaskTile(
-                  task: task,
-                  onToggle: (value) => context
-                      .read<TaskController>()
-                      .toggleTask(task.id, value),
-                  onDelete: () =>
-                      context.read<TaskController>().deleteTask(task.id),
-                ),
-              ),
-            const SizedBox(height: 32),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: const Color(0xFF1B192F),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Crystal Progress',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Crystal Progress',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Complete all tasks to earn task crystals. Meditation crystals still depend on focus session duration.',
-                    style: TextStyle(color: Colors.white70),
-                  ),
-                ],
+                    SizedBox(height: 8),
+                    Text(
+                      'Complete all tasks to earn task crystals. Meditation crystals still depend on focus session duration.',
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

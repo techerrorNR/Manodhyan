@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -51,10 +53,11 @@ dependencies:
   dynamic_color: ^1.7.0
   flutter_svg: ^2.0.17
   slide_action: ^0.0.2
+  fluentui_system_icons: ^1.1.210
   # Animation
   flutter_animate: ^4.2.0+1
   skeletonizer: ^1.4.3
-    # Database and Storage
+  # Database and Storage
   path: ^1.9.0
   path_provider: ^2.1.2
   file_picker: ^10.2.0
@@ -99,6 +102,8 @@ flutter:
   assets:
    - assets/crystals/
    - assets/logo/
+   - assets/illustrations/
+   - assets/vectors/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

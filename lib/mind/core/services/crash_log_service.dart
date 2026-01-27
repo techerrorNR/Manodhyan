@@ -2,8 +2,8 @@
 
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -12,10 +12,10 @@
 
 import 'package:drift/drift.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:mindful/core/database/app_database.dart';
-import 'package:mindful/core/services/drift_db_service.dart';
-import 'package:mindful/core/services/method_channel_service.dart';
-import 'package:mindful/core/utils/date_time_utils.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:manodhyan/mind/core/services/drift_db_service.dart';
+import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
 
 /// A service class responsible for logging Crashes in the Isar database.
 class CrashLogService {
@@ -53,7 +53,7 @@ class CrashLogService {
     /// Create log
     final crashLog = CrashLogsTableCompanion.insert(
       appVersion:
-          Value(MethodChannelService.instance.deviceInfo.mindfulVersion),
+          Value(MethodChannelService.instance.deviceInfo.ManoDhyanVersion),
       error: Value(error),
       stackTrace: Value(stackTrace),
       timeStamp: Value(DateTime.now()),

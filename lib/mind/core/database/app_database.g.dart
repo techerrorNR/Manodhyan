@@ -9,138 +9,188 @@ class $AppRestrictionTableTable extends AppRestrictionTable
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $AppRestrictionTableTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _appPackageMeta =
-      const VerificationMeta('appPackage');
+  static const VerificationMeta _appPackageMeta = const VerificationMeta(
+    'appPackage',
+  );
   @override
   late final GeneratedColumn<String> appPackage = GeneratedColumn<String>(
-      'app_package', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _timerSecMeta =
-      const VerificationMeta('timerSec');
+    'app_package',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _timerSecMeta = const VerificationMeta(
+    'timerSec',
+  );
   @override
   late final GeneratedColumn<int> timerSec = GeneratedColumn<int>(
-      'timer_sec', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _launchLimitMeta =
-      const VerificationMeta('launchLimit');
+    'timer_sec',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _launchLimitMeta = const VerificationMeta(
+    'launchLimit',
+  );
   @override
   late final GeneratedColumn<int> launchLimit = GeneratedColumn<int>(
-      'launch_limit', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'launch_limit',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      activePeriodStart = GeneratedColumn<int>(
-              'active_period_start', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $AppRestrictionTableTable.$converteractivePeriodStart);
+  activePeriodStart = GeneratedColumn<int>(
+    'active_period_start',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $AppRestrictionTableTable.$converteractivePeriodStart,
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      activePeriodEnd = GeneratedColumn<int>(
-              'active_period_end', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $AppRestrictionTableTable.$converteractivePeriodEnd);
+  activePeriodEnd = GeneratedColumn<int>(
+    'active_period_end',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $AppRestrictionTableTable.$converteractivePeriodEnd,
+  );
   static const VerificationMeta _periodDurationInMinsMeta =
       const VerificationMeta('periodDurationInMins');
   @override
   late final GeneratedColumn<int> periodDurationInMins = GeneratedColumn<int>(
-      'period_duration_in_mins', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _associatedGroupIdMeta =
-      const VerificationMeta('associatedGroupId');
+    'period_duration_in_mins',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _associatedGroupIdMeta = const VerificationMeta(
+    'associatedGroupId',
+  );
   @override
   late final GeneratedColumn<int> associatedGroupId = GeneratedColumn<int>(
-      'associated_group_id', aliasedName, true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(null));
-  static const VerificationMeta _canAccessInternetMeta =
-      const VerificationMeta('canAccessInternet');
+    'associated_group_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(null),
+  );
+  static const VerificationMeta _canAccessInternetMeta = const VerificationMeta(
+    'canAccessInternet',
+  );
   @override
   late final GeneratedColumn<bool> canAccessInternet = GeneratedColumn<bool>(
-      'can_access_internet', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("can_access_internet" IN (0, 1))'),
-      defaultValue: const Constant(true));
+    'can_access_internet',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_access_internet" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<ReminderType, String>
-      reminderType = GeneratedColumn<String>(
-              'reminder_type', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(ReminderType.toast.name))
-          .withConverter<ReminderType>(
-              $AppRestrictionTableTable.$converterreminderType);
+  reminderType = GeneratedColumn<String>(
+    'reminder_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(ReminderType.toast.name),
+  ).withConverter<ReminderType>(
+    $AppRestrictionTableTable.$converterreminderType,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        appPackage,
-        timerSec,
-        launchLimit,
-        activePeriodStart,
-        activePeriodEnd,
-        periodDurationInMins,
-        associatedGroupId,
-        canAccessInternet,
-        reminderType
-      ];
+    appPackage,
+    timerSec,
+    launchLimit,
+    activePeriodStart,
+    activePeriodEnd,
+    periodDurationInMins,
+    associatedGroupId,
+    canAccessInternet,
+    reminderType,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'app_restriction_table';
   @override
-  VerificationContext validateIntegrity(Insertable<AppRestriction> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<AppRestriction> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('app_package')) {
       context.handle(
-          _appPackageMeta,
-          appPackage.isAcceptableOrUnknown(
-              data['app_package']!, _appPackageMeta));
+        _appPackageMeta,
+        appPackage.isAcceptableOrUnknown(data['app_package']!, _appPackageMeta),
+      );
     } else if (isInserting) {
       context.missing(_appPackageMeta);
     }
     if (data.containsKey('timer_sec')) {
-      context.handle(_timerSecMeta,
-          timerSec.isAcceptableOrUnknown(data['timer_sec']!, _timerSecMeta));
+      context.handle(
+        _timerSecMeta,
+        timerSec.isAcceptableOrUnknown(data['timer_sec']!, _timerSecMeta),
+      );
     }
     if (data.containsKey('launch_limit')) {
       context.handle(
+        _launchLimitMeta,
+        launchLimit.isAcceptableOrUnknown(
+          data['launch_limit']!,
           _launchLimitMeta,
-          launchLimit.isAcceptableOrUnknown(
-              data['launch_limit']!, _launchLimitMeta));
+        ),
+      );
     }
     if (data.containsKey('period_duration_in_mins')) {
       context.handle(
+        _periodDurationInMinsMeta,
+        periodDurationInMins.isAcceptableOrUnknown(
+          data['period_duration_in_mins']!,
           _periodDurationInMinsMeta,
-          periodDurationInMins.isAcceptableOrUnknown(
-              data['period_duration_in_mins']!, _periodDurationInMinsMeta));
+        ),
+      );
     }
     if (data.containsKey('associated_group_id')) {
       context.handle(
+        _associatedGroupIdMeta,
+        associatedGroupId.isAcceptableOrUnknown(
+          data['associated_group_id']!,
           _associatedGroupIdMeta,
-          associatedGroupId.isAcceptableOrUnknown(
-              data['associated_group_id']!, _associatedGroupIdMeta));
+        ),
+      );
     }
     if (data.containsKey('can_access_internet')) {
       context.handle(
+        _canAccessInternetMeta,
+        canAccessInternet.isAcceptableOrUnknown(
+          data['can_access_internet']!,
           _canAccessInternetMeta,
-          canAccessInternet.isAcceptableOrUnknown(
-              data['can_access_internet']!, _canAccessInternetMeta));
+        ),
+      );
     }
     return context;
   }
@@ -151,27 +201,55 @@ class $AppRestrictionTableTable extends AppRestrictionTable
   AppRestriction map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return AppRestriction(
-      appPackage: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}app_package'])!,
-      timerSec: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}timer_sec'])!,
-      launchLimit: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}launch_limit'])!,
-      activePeriodStart: $AppRestrictionTableTable.$converteractivePeriodStart
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.int,
-              data['${effectivePrefix}active_period_start'])!),
-      activePeriodEnd: $AppRestrictionTableTable.$converteractivePeriodEnd
-          .fromSql(attachedDatabase.typeMapping.read(
-              DriftSqlType.int, data['${effectivePrefix}active_period_end'])!),
-      periodDurationInMins: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}period_duration_in_mins'])!,
-      associatedGroupId: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}associated_group_id']),
-      canAccessInternet: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}can_access_internet'])!,
-      reminderType: $AppRestrictionTableTable.$converterreminderType.fromSql(
+      appPackage:
           attachedDatabase.typeMapping.read(
-              DriftSqlType.string, data['${effectivePrefix}reminder_type'])!),
+            DriftSqlType.string,
+            data['${effectivePrefix}app_package'],
+          )!,
+      timerSec:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}timer_sec'],
+          )!,
+      launchLimit:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}launch_limit'],
+          )!,
+      activePeriodStart: $AppRestrictionTableTable.$converteractivePeriodStart
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}active_period_start'],
+            )!,
+          ),
+      activePeriodEnd: $AppRestrictionTableTable.$converteractivePeriodEnd
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}active_period_end'],
+            )!,
+          ),
+      periodDurationInMins:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}period_duration_in_mins'],
+          )!,
+      associatedGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}associated_group_id'],
+      ),
+      canAccessInternet:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}can_access_internet'],
+          )!,
+      reminderType: $AppRestrictionTableTable.$converterreminderType.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}reminder_type'],
+        )!,
+      ),
     );
   }
 
@@ -181,12 +259,13 @@ class $AppRestrictionTableTable extends AppRestrictionTable
   }
 
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converteractivePeriodStart = const TimeOfDayAdapterConverter();
+  $converteractivePeriodStart = const TimeOfDayAdapterConverter();
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converteractivePeriodEnd = const TimeOfDayAdapterConverter();
+  $converteractivePeriodEnd = const TimeOfDayAdapterConverter();
   static JsonTypeConverter2<ReminderType, String, String>
-      $converterreminderType =
-      const EnumNameConverter<ReminderType>(ReminderType.values);
+  $converterreminderType = const EnumNameConverter<ReminderType>(
+    ReminderType.values,
+  );
 }
 
 class AppRestriction extends DataClass implements Insertable<AppRestriction> {
@@ -218,16 +297,17 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
 
   /// [ReminderType] Type of reminders to show when using timed app
   final ReminderType reminderType;
-  const AppRestriction(
-      {required this.appPackage,
-      required this.timerSec,
-      required this.launchLimit,
-      required this.activePeriodStart,
-      required this.activePeriodEnd,
-      required this.periodDurationInMins,
-      this.associatedGroupId,
-      required this.canAccessInternet,
-      required this.reminderType});
+  const AppRestriction({
+    required this.appPackage,
+    required this.timerSec,
+    required this.launchLimit,
+    required this.activePeriodStart,
+    required this.activePeriodEnd,
+    required this.periodDurationInMins,
+    this.associatedGroupId,
+    required this.canAccessInternet,
+    required this.reminderType,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -235,14 +315,18 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
     map['timer_sec'] = Variable<int>(timerSec);
     map['launch_limit'] = Variable<int>(launchLimit);
     {
-      map['active_period_start'] = Variable<int>($AppRestrictionTableTable
-          .$converteractivePeriodStart
-          .toSql(activePeriodStart));
+      map['active_period_start'] = Variable<int>(
+        $AppRestrictionTableTable.$converteractivePeriodStart.toSql(
+          activePeriodStart,
+        ),
+      );
     }
     {
-      map['active_period_end'] = Variable<int>($AppRestrictionTableTable
-          .$converteractivePeriodEnd
-          .toSql(activePeriodEnd));
+      map['active_period_end'] = Variable<int>(
+        $AppRestrictionTableTable.$converteractivePeriodEnd.toSql(
+          activePeriodEnd,
+        ),
+      );
     }
     map['period_duration_in_mins'] = Variable<int>(periodDurationInMins);
     if (!nullToAbsent || associatedGroupId != null) {
@@ -251,7 +335,8 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
     map['can_access_internet'] = Variable<bool>(canAccessInternet);
     {
       map['reminder_type'] = Variable<String>(
-          $AppRestrictionTableTable.$converterreminderType.toSql(reminderType));
+        $AppRestrictionTableTable.$converterreminderType.toSql(reminderType),
+      );
     }
     return map;
   }
@@ -264,16 +349,19 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
       activePeriodStart: Value(activePeriodStart),
       activePeriodEnd: Value(activePeriodEnd),
       periodDurationInMins: Value(periodDurationInMins),
-      associatedGroupId: associatedGroupId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(associatedGroupId),
+      associatedGroupId:
+          associatedGroupId == null && nullToAbsent
+              ? const Value.absent()
+              : Value(associatedGroupId),
       canAccessInternet: Value(canAccessInternet),
       reminderType: Value(reminderType),
     );
   }
 
-  factory AppRestriction.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory AppRestriction.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return AppRestriction(
       appPackage: serializer.fromJson<String>(json['appPackage']),
@@ -283,12 +371,14 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
           .fromJson(serializer.fromJson<dynamic>(json['activePeriodStart'])),
       activePeriodEnd: $AppRestrictionTableTable.$converteractivePeriodEnd
           .fromJson(serializer.fromJson<dynamic>(json['activePeriodEnd'])),
-      periodDurationInMins:
-          serializer.fromJson<int>(json['periodDurationInMins']),
+      periodDurationInMins: serializer.fromJson<int>(
+        json['periodDurationInMins'],
+      ),
       associatedGroupId: serializer.fromJson<int?>(json['associatedGroupId']),
       canAccessInternet: serializer.fromJson<bool>(json['canAccessInternet']),
-      reminderType: $AppRestrictionTableTable.$converterreminderType
-          .fromJson(serializer.fromJson<String>(json['reminderType'])),
+      reminderType: $AppRestrictionTableTable.$converterreminderType.fromJson(
+        serializer.fromJson<String>(json['reminderType']),
+      ),
     );
   }
   @override
@@ -298,44 +388,49 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
       'appPackage': serializer.toJson<String>(appPackage),
       'timerSec': serializer.toJson<int>(timerSec),
       'launchLimit': serializer.toJson<int>(launchLimit),
-      'activePeriodStart': serializer.toJson<dynamic>($AppRestrictionTableTable
-          .$converteractivePeriodStart
-          .toJson(activePeriodStart)),
-      'activePeriodEnd': serializer.toJson<dynamic>($AppRestrictionTableTable
-          .$converteractivePeriodEnd
-          .toJson(activePeriodEnd)),
+      'activePeriodStart': serializer.toJson<dynamic>(
+        $AppRestrictionTableTable.$converteractivePeriodStart.toJson(
+          activePeriodStart,
+        ),
+      ),
+      'activePeriodEnd': serializer.toJson<dynamic>(
+        $AppRestrictionTableTable.$converteractivePeriodEnd.toJson(
+          activePeriodEnd,
+        ),
+      ),
       'periodDurationInMins': serializer.toJson<int>(periodDurationInMins),
       'associatedGroupId': serializer.toJson<int?>(associatedGroupId),
       'canAccessInternet': serializer.toJson<bool>(canAccessInternet),
-      'reminderType': serializer.toJson<String>($AppRestrictionTableTable
-          .$converterreminderType
-          .toJson(reminderType)),
+      'reminderType': serializer.toJson<String>(
+        $AppRestrictionTableTable.$converterreminderType.toJson(reminderType),
+      ),
     };
   }
 
-  AppRestriction copyWith(
-          {String? appPackage,
-          int? timerSec,
-          int? launchLimit,
-          TimeOfDayAdapter? activePeriodStart,
-          TimeOfDayAdapter? activePeriodEnd,
-          int? periodDurationInMins,
-          Value<int?> associatedGroupId = const Value.absent(),
-          bool? canAccessInternet,
-          ReminderType? reminderType}) =>
-      AppRestriction(
-        appPackage: appPackage ?? this.appPackage,
-        timerSec: timerSec ?? this.timerSec,
-        launchLimit: launchLimit ?? this.launchLimit,
-        activePeriodStart: activePeriodStart ?? this.activePeriodStart,
-        activePeriodEnd: activePeriodEnd ?? this.activePeriodEnd,
-        periodDurationInMins: periodDurationInMins ?? this.periodDurationInMins,
-        associatedGroupId: associatedGroupId.present
+  AppRestriction copyWith({
+    String? appPackage,
+    int? timerSec,
+    int? launchLimit,
+    TimeOfDayAdapter? activePeriodStart,
+    TimeOfDayAdapter? activePeriodEnd,
+    int? periodDurationInMins,
+    Value<int?> associatedGroupId = const Value.absent(),
+    bool? canAccessInternet,
+    ReminderType? reminderType,
+  }) => AppRestriction(
+    appPackage: appPackage ?? this.appPackage,
+    timerSec: timerSec ?? this.timerSec,
+    launchLimit: launchLimit ?? this.launchLimit,
+    activePeriodStart: activePeriodStart ?? this.activePeriodStart,
+    activePeriodEnd: activePeriodEnd ?? this.activePeriodEnd,
+    periodDurationInMins: periodDurationInMins ?? this.periodDurationInMins,
+    associatedGroupId:
+        associatedGroupId.present
             ? associatedGroupId.value
             : this.associatedGroupId,
-        canAccessInternet: canAccessInternet ?? this.canAccessInternet,
-        reminderType: reminderType ?? this.reminderType,
-      );
+    canAccessInternet: canAccessInternet ?? this.canAccessInternet,
+    reminderType: reminderType ?? this.reminderType,
+  );
   AppRestriction copyWithCompanion(AppRestrictionTableCompanion data) {
     return AppRestriction(
       appPackage:
@@ -343,24 +438,30 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
       timerSec: data.timerSec.present ? data.timerSec.value : this.timerSec,
       launchLimit:
           data.launchLimit.present ? data.launchLimit.value : this.launchLimit,
-      activePeriodStart: data.activePeriodStart.present
-          ? data.activePeriodStart.value
-          : this.activePeriodStart,
-      activePeriodEnd: data.activePeriodEnd.present
-          ? data.activePeriodEnd.value
-          : this.activePeriodEnd,
-      periodDurationInMins: data.periodDurationInMins.present
-          ? data.periodDurationInMins.value
-          : this.periodDurationInMins,
-      associatedGroupId: data.associatedGroupId.present
-          ? data.associatedGroupId.value
-          : this.associatedGroupId,
-      canAccessInternet: data.canAccessInternet.present
-          ? data.canAccessInternet.value
-          : this.canAccessInternet,
-      reminderType: data.reminderType.present
-          ? data.reminderType.value
-          : this.reminderType,
+      activePeriodStart:
+          data.activePeriodStart.present
+              ? data.activePeriodStart.value
+              : this.activePeriodStart,
+      activePeriodEnd:
+          data.activePeriodEnd.present
+              ? data.activePeriodEnd.value
+              : this.activePeriodEnd,
+      periodDurationInMins:
+          data.periodDurationInMins.present
+              ? data.periodDurationInMins.value
+              : this.periodDurationInMins,
+      associatedGroupId:
+          data.associatedGroupId.present
+              ? data.associatedGroupId.value
+              : this.associatedGroupId,
+      canAccessInternet:
+          data.canAccessInternet.present
+              ? data.canAccessInternet.value
+              : this.canAccessInternet,
+      reminderType:
+          data.reminderType.present
+              ? data.reminderType.value
+              : this.reminderType,
     );
   }
 
@@ -382,15 +483,16 @@ class AppRestriction extends DataClass implements Insertable<AppRestriction> {
 
   @override
   int get hashCode => Object.hash(
-      appPackage,
-      timerSec,
-      launchLimit,
-      activePeriodStart,
-      activePeriodEnd,
-      periodDurationInMins,
-      associatedGroupId,
-      canAccessInternet,
-      reminderType);
+    appPackage,
+    timerSec,
+    launchLimit,
+    activePeriodStart,
+    activePeriodEnd,
+    periodDurationInMins,
+    associatedGroupId,
+    canAccessInternet,
+    reminderType,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -468,17 +570,18 @@ class AppRestrictionTableCompanion extends UpdateCompanion<AppRestriction> {
     });
   }
 
-  AppRestrictionTableCompanion copyWith(
-      {Value<String>? appPackage,
-      Value<int>? timerSec,
-      Value<int>? launchLimit,
-      Value<TimeOfDayAdapter>? activePeriodStart,
-      Value<TimeOfDayAdapter>? activePeriodEnd,
-      Value<int>? periodDurationInMins,
-      Value<int?>? associatedGroupId,
-      Value<bool>? canAccessInternet,
-      Value<ReminderType>? reminderType,
-      Value<int>? rowid}) {
+  AppRestrictionTableCompanion copyWith({
+    Value<String>? appPackage,
+    Value<int>? timerSec,
+    Value<int>? launchLimit,
+    Value<TimeOfDayAdapter>? activePeriodStart,
+    Value<TimeOfDayAdapter>? activePeriodEnd,
+    Value<int>? periodDurationInMins,
+    Value<int?>? associatedGroupId,
+    Value<bool>? canAccessInternet,
+    Value<ReminderType>? reminderType,
+    Value<int>? rowid,
+  }) {
     return AppRestrictionTableCompanion(
       appPackage: appPackage ?? this.appPackage,
       timerSec: timerSec ?? this.timerSec,
@@ -506,18 +609,23 @@ class AppRestrictionTableCompanion extends UpdateCompanion<AppRestriction> {
       map['launch_limit'] = Variable<int>(launchLimit.value);
     }
     if (activePeriodStart.present) {
-      map['active_period_start'] = Variable<int>($AppRestrictionTableTable
-          .$converteractivePeriodStart
-          .toSql(activePeriodStart.value));
+      map['active_period_start'] = Variable<int>(
+        $AppRestrictionTableTable.$converteractivePeriodStart.toSql(
+          activePeriodStart.value,
+        ),
+      );
     }
     if (activePeriodEnd.present) {
-      map['active_period_end'] = Variable<int>($AppRestrictionTableTable
-          .$converteractivePeriodEnd
-          .toSql(activePeriodEnd.value));
+      map['active_period_end'] = Variable<int>(
+        $AppRestrictionTableTable.$converteractivePeriodEnd.toSql(
+          activePeriodEnd.value,
+        ),
+      );
     }
     if (periodDurationInMins.present) {
-      map['period_duration_in_mins'] =
-          Variable<int>(periodDurationInMins.value);
+      map['period_duration_in_mins'] = Variable<int>(
+        periodDurationInMins.value,
+      );
     }
     if (associatedGroupId.present) {
       map['associated_group_id'] = Variable<int>(associatedGroupId.value);
@@ -526,9 +634,11 @@ class AppRestrictionTableCompanion extends UpdateCompanion<AppRestriction> {
       map['can_access_internet'] = Variable<bool>(canAccessInternet.value);
     }
     if (reminderType.present) {
-      map['reminder_type'] = Variable<String>($AppRestrictionTableTable
-          .$converterreminderType
-          .toSql(reminderType.value));
+      map['reminder_type'] = Variable<String>(
+        $AppRestrictionTableTable.$converterreminderType.toSql(
+          reminderType.value,
+        ),
+      );
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -563,93 +673,125 @@ class $BedtimeScheduleTableTable extends BedtimeScheduleTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      scheduleStartTime = GeneratedColumn<int>(
-              'schedule_start_time', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $BedtimeScheduleTableTable.$converterscheduleStartTime);
+  scheduleStartTime = GeneratedColumn<int>(
+    'schedule_start_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $BedtimeScheduleTableTable.$converterscheduleStartTime,
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      scheduleEndTime = GeneratedColumn<int>(
-              'schedule_end_time', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $BedtimeScheduleTableTable.$converterscheduleEndTime);
+  scheduleEndTime = GeneratedColumn<int>(
+    'schedule_end_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $BedtimeScheduleTableTable.$converterscheduleEndTime,
+  );
   static const VerificationMeta _scheduleDurationInMinsMeta =
       const VerificationMeta('scheduleDurationInMins');
   @override
   late final GeneratedColumn<int> scheduleDurationInMins = GeneratedColumn<int>(
-      'schedule_duration_in_mins', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'schedule_duration_in_mins',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<bool>, String> scheduleDays =
-      GeneratedColumn<String>('schedule_days', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(
-                  jsonEncode([true, true, true, true, true, false, false])))
-          .withConverter<List<bool>>(
-              $BedtimeScheduleTableTable.$converterscheduleDays);
-  static const VerificationMeta _isScheduleOnMeta =
-      const VerificationMeta('isScheduleOn');
+      GeneratedColumn<String>(
+        'schedule_days',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: Constant(
+          jsonEncode([true, true, true, true, true, false, false]),
+        ),
+      ).withConverter<List<bool>>(
+        $BedtimeScheduleTableTable.$converterscheduleDays,
+      );
+  static const VerificationMeta _isScheduleOnMeta = const VerificationMeta(
+    'isScheduleOn',
+  );
   @override
   late final GeneratedColumn<bool> isScheduleOn = GeneratedColumn<bool>(
-      'is_schedule_on', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("is_schedule_on" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _shouldStartDndMeta =
-      const VerificationMeta('shouldStartDnd');
+    'is_schedule_on',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_schedule_on" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _shouldStartDndMeta = const VerificationMeta(
+    'shouldStartDnd',
+  );
   @override
   late final GeneratedColumn<bool> shouldStartDnd = GeneratedColumn<bool>(
-      'should_start_dnd', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("should_start_dnd" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'should_start_dnd',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("should_start_dnd" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      distractingApps = GeneratedColumn<String>(
-              'distracting_apps', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $BedtimeScheduleTableTable.$converterdistractingApps);
+  distractingApps = GeneratedColumn<String>(
+    'distracting_apps',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>(
+    $BedtimeScheduleTableTable.$converterdistractingApps,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        scheduleStartTime,
-        scheduleEndTime,
-        scheduleDurationInMins,
-        scheduleDays,
-        isScheduleOn,
-        shouldStartDnd,
-        distractingApps
-      ];
+    id,
+    scheduleStartTime,
+    scheduleEndTime,
+    scheduleDurationInMins,
+    scheduleDays,
+    isScheduleOn,
+    shouldStartDnd,
+    distractingApps,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'bedtime_schedule_table';
   @override
-  VerificationContext validateIntegrity(Insertable<BedtimeSchedule> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<BedtimeSchedule> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -657,21 +799,30 @@ class $BedtimeScheduleTableTable extends BedtimeScheduleTable
     }
     if (data.containsKey('schedule_duration_in_mins')) {
       context.handle(
+        _scheduleDurationInMinsMeta,
+        scheduleDurationInMins.isAcceptableOrUnknown(
+          data['schedule_duration_in_mins']!,
           _scheduleDurationInMinsMeta,
-          scheduleDurationInMins.isAcceptableOrUnknown(
-              data['schedule_duration_in_mins']!, _scheduleDurationInMinsMeta));
+        ),
+      );
     }
     if (data.containsKey('is_schedule_on')) {
       context.handle(
+        _isScheduleOnMeta,
+        isScheduleOn.isAcceptableOrUnknown(
+          data['is_schedule_on']!,
           _isScheduleOnMeta,
-          isScheduleOn.isAcceptableOrUnknown(
-              data['is_schedule_on']!, _isScheduleOnMeta));
+        ),
+      );
     }
     if (data.containsKey('should_start_dnd')) {
       context.handle(
+        _shouldStartDndMeta,
+        shouldStartDnd.isAcceptableOrUnknown(
+          data['should_start_dnd']!,
           _shouldStartDndMeta,
-          shouldStartDnd.isAcceptableOrUnknown(
-              data['should_start_dnd']!, _shouldStartDndMeta));
+        ),
+      );
     }
     return context;
   }
@@ -682,27 +833,53 @@ class $BedtimeScheduleTableTable extends BedtimeScheduleTable
   BedtimeSchedule map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return BedtimeSchedule(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      scheduleStartTime: $BedtimeScheduleTableTable.$converterscheduleStartTime
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.int,
-              data['${effectivePrefix}schedule_start_time'])!),
-      scheduleEndTime: $BedtimeScheduleTableTable.$converterscheduleEndTime
-          .fromSql(attachedDatabase.typeMapping.read(
-              DriftSqlType.int, data['${effectivePrefix}schedule_end_time'])!),
-      scheduleDurationInMins: attachedDatabase.typeMapping.read(
-          DriftSqlType.int,
-          data['${effectivePrefix}schedule_duration_in_mins'])!,
-      scheduleDays: $BedtimeScheduleTableTable.$converterscheduleDays.fromSql(
+      id:
           attachedDatabase.typeMapping.read(
-              DriftSqlType.string, data['${effectivePrefix}schedule_days'])!),
-      isScheduleOn: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_schedule_on'])!,
-      shouldStartDnd: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}should_start_dnd'])!,
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      scheduleStartTime: $BedtimeScheduleTableTable.$converterscheduleStartTime
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}schedule_start_time'],
+            )!,
+          ),
+      scheduleEndTime: $BedtimeScheduleTableTable.$converterscheduleEndTime
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}schedule_end_time'],
+            )!,
+          ),
+      scheduleDurationInMins:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}schedule_duration_in_mins'],
+          )!,
+      scheduleDays: $BedtimeScheduleTableTable.$converterscheduleDays.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}schedule_days'],
+        )!,
+      ),
+      isScheduleOn:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}is_schedule_on'],
+          )!,
+      shouldStartDnd:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}should_start_dnd'],
+          )!,
       distractingApps: $BedtimeScheduleTableTable.$converterdistractingApps
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.string,
-              data['${effectivePrefix}distracting_apps'])!),
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}distracting_apps'],
+            )!,
+          ),
     );
   }
 
@@ -712,9 +889,9 @@ class $BedtimeScheduleTableTable extends BedtimeScheduleTable
   }
 
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converterscheduleStartTime = const TimeOfDayAdapterConverter();
+  $converterscheduleStartTime = const TimeOfDayAdapterConverter();
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converterscheduleEndTime = const TimeOfDayAdapterConverter();
+  $converterscheduleEndTime = const TimeOfDayAdapterConverter();
   static TypeConverter<List<bool>, String> $converterscheduleDays =
       const BoolListConverter();
   static TypeConverter<List<String>, String> $converterdistractingApps =
@@ -752,41 +929,48 @@ class BedtimeSchedule extends DataClass implements Insertable<BedtimeSchedule> {
 
   /// List of app's packages which are selected as distracting apps.
   final List<String> distractingApps;
-  const BedtimeSchedule(
-      {required this.id,
-      required this.scheduleStartTime,
-      required this.scheduleEndTime,
-      required this.scheduleDurationInMins,
-      required this.scheduleDays,
-      required this.isScheduleOn,
-      required this.shouldStartDnd,
-      required this.distractingApps});
+  const BedtimeSchedule({
+    required this.id,
+    required this.scheduleStartTime,
+    required this.scheduleEndTime,
+    required this.scheduleDurationInMins,
+    required this.scheduleDays,
+    required this.isScheduleOn,
+    required this.shouldStartDnd,
+    required this.distractingApps,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     {
-      map['schedule_start_time'] = Variable<int>($BedtimeScheduleTableTable
-          .$converterscheduleStartTime
-          .toSql(scheduleStartTime));
+      map['schedule_start_time'] = Variable<int>(
+        $BedtimeScheduleTableTable.$converterscheduleStartTime.toSql(
+          scheduleStartTime,
+        ),
+      );
     }
     {
-      map['schedule_end_time'] = Variable<int>($BedtimeScheduleTableTable
-          .$converterscheduleEndTime
-          .toSql(scheduleEndTime));
+      map['schedule_end_time'] = Variable<int>(
+        $BedtimeScheduleTableTable.$converterscheduleEndTime.toSql(
+          scheduleEndTime,
+        ),
+      );
     }
     map['schedule_duration_in_mins'] = Variable<int>(scheduleDurationInMins);
     {
-      map['schedule_days'] = Variable<String>($BedtimeScheduleTableTable
-          .$converterscheduleDays
-          .toSql(scheduleDays));
+      map['schedule_days'] = Variable<String>(
+        $BedtimeScheduleTableTable.$converterscheduleDays.toSql(scheduleDays),
+      );
     }
     map['is_schedule_on'] = Variable<bool>(isScheduleOn);
     map['should_start_dnd'] = Variable<bool>(shouldStartDnd);
     {
-      map['distracting_apps'] = Variable<String>($BedtimeScheduleTableTable
-          .$converterdistractingApps
-          .toSql(distractingApps));
+      map['distracting_apps'] = Variable<String>(
+        $BedtimeScheduleTableTable.$converterdistractingApps.toSql(
+          distractingApps,
+        ),
+      );
     }
     return map;
   }
@@ -804,8 +988,10 @@ class BedtimeSchedule extends DataClass implements Insertable<BedtimeSchedule> {
     );
   }
 
-  factory BedtimeSchedule.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory BedtimeSchedule.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return BedtimeSchedule(
       id: serializer.fromJson<int>(json['id']),
@@ -813,13 +999,15 @@ class BedtimeSchedule extends DataClass implements Insertable<BedtimeSchedule> {
           .fromJson(serializer.fromJson<dynamic>(json['scheduleStartTime'])),
       scheduleEndTime: $BedtimeScheduleTableTable.$converterscheduleEndTime
           .fromJson(serializer.fromJson<dynamic>(json['scheduleEndTime'])),
-      scheduleDurationInMins:
-          serializer.fromJson<int>(json['scheduleDurationInMins']),
+      scheduleDurationInMins: serializer.fromJson<int>(
+        json['scheduleDurationInMins'],
+      ),
       scheduleDays: serializer.fromJson<List<bool>>(json['scheduleDays']),
       isScheduleOn: serializer.fromJson<bool>(json['isScheduleOn']),
       shouldStartDnd: serializer.fromJson<bool>(json['shouldStartDnd']),
-      distractingApps:
-          serializer.fromJson<List<String>>(json['distractingApps']),
+      distractingApps: serializer.fromJson<List<String>>(
+        json['distractingApps'],
+      ),
     );
   }
   @override
@@ -827,12 +1015,16 @@ class BedtimeSchedule extends DataClass implements Insertable<BedtimeSchedule> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'scheduleStartTime': serializer.toJson<dynamic>($BedtimeScheduleTableTable
-          .$converterscheduleStartTime
-          .toJson(scheduleStartTime)),
-      'scheduleEndTime': serializer.toJson<dynamic>($BedtimeScheduleTableTable
-          .$converterscheduleEndTime
-          .toJson(scheduleEndTime)),
+      'scheduleStartTime': serializer.toJson<dynamic>(
+        $BedtimeScheduleTableTable.$converterscheduleStartTime.toJson(
+          scheduleStartTime,
+        ),
+      ),
+      'scheduleEndTime': serializer.toJson<dynamic>(
+        $BedtimeScheduleTableTable.$converterscheduleEndTime.toJson(
+          scheduleEndTime,
+        ),
+      ),
       'scheduleDurationInMins': serializer.toJson<int>(scheduleDurationInMins),
       'scheduleDays': serializer.toJson<List<bool>>(scheduleDays),
       'isScheduleOn': serializer.toJson<bool>(isScheduleOn),
@@ -841,50 +1033,57 @@ class BedtimeSchedule extends DataClass implements Insertable<BedtimeSchedule> {
     };
   }
 
-  BedtimeSchedule copyWith(
-          {int? id,
-          TimeOfDayAdapter? scheduleStartTime,
-          TimeOfDayAdapter? scheduleEndTime,
-          int? scheduleDurationInMins,
-          List<bool>? scheduleDays,
-          bool? isScheduleOn,
-          bool? shouldStartDnd,
-          List<String>? distractingApps}) =>
-      BedtimeSchedule(
-        id: id ?? this.id,
-        scheduleStartTime: scheduleStartTime ?? this.scheduleStartTime,
-        scheduleEndTime: scheduleEndTime ?? this.scheduleEndTime,
-        scheduleDurationInMins:
-            scheduleDurationInMins ?? this.scheduleDurationInMins,
-        scheduleDays: scheduleDays ?? this.scheduleDays,
-        isScheduleOn: isScheduleOn ?? this.isScheduleOn,
-        shouldStartDnd: shouldStartDnd ?? this.shouldStartDnd,
-        distractingApps: distractingApps ?? this.distractingApps,
-      );
+  BedtimeSchedule copyWith({
+    int? id,
+    TimeOfDayAdapter? scheduleStartTime,
+    TimeOfDayAdapter? scheduleEndTime,
+    int? scheduleDurationInMins,
+    List<bool>? scheduleDays,
+    bool? isScheduleOn,
+    bool? shouldStartDnd,
+    List<String>? distractingApps,
+  }) => BedtimeSchedule(
+    id: id ?? this.id,
+    scheduleStartTime: scheduleStartTime ?? this.scheduleStartTime,
+    scheduleEndTime: scheduleEndTime ?? this.scheduleEndTime,
+    scheduleDurationInMins:
+        scheduleDurationInMins ?? this.scheduleDurationInMins,
+    scheduleDays: scheduleDays ?? this.scheduleDays,
+    isScheduleOn: isScheduleOn ?? this.isScheduleOn,
+    shouldStartDnd: shouldStartDnd ?? this.shouldStartDnd,
+    distractingApps: distractingApps ?? this.distractingApps,
+  );
   BedtimeSchedule copyWithCompanion(BedtimeScheduleTableCompanion data) {
     return BedtimeSchedule(
       id: data.id.present ? data.id.value : this.id,
-      scheduleStartTime: data.scheduleStartTime.present
-          ? data.scheduleStartTime.value
-          : this.scheduleStartTime,
-      scheduleEndTime: data.scheduleEndTime.present
-          ? data.scheduleEndTime.value
-          : this.scheduleEndTime,
-      scheduleDurationInMins: data.scheduleDurationInMins.present
-          ? data.scheduleDurationInMins.value
-          : this.scheduleDurationInMins,
-      scheduleDays: data.scheduleDays.present
-          ? data.scheduleDays.value
-          : this.scheduleDays,
-      isScheduleOn: data.isScheduleOn.present
-          ? data.isScheduleOn.value
-          : this.isScheduleOn,
-      shouldStartDnd: data.shouldStartDnd.present
-          ? data.shouldStartDnd.value
-          : this.shouldStartDnd,
-      distractingApps: data.distractingApps.present
-          ? data.distractingApps.value
-          : this.distractingApps,
+      scheduleStartTime:
+          data.scheduleStartTime.present
+              ? data.scheduleStartTime.value
+              : this.scheduleStartTime,
+      scheduleEndTime:
+          data.scheduleEndTime.present
+              ? data.scheduleEndTime.value
+              : this.scheduleEndTime,
+      scheduleDurationInMins:
+          data.scheduleDurationInMins.present
+              ? data.scheduleDurationInMins.value
+              : this.scheduleDurationInMins,
+      scheduleDays:
+          data.scheduleDays.present
+              ? data.scheduleDays.value
+              : this.scheduleDays,
+      isScheduleOn:
+          data.isScheduleOn.present
+              ? data.isScheduleOn.value
+              : this.isScheduleOn,
+      shouldStartDnd:
+          data.shouldStartDnd.present
+              ? data.shouldStartDnd.value
+              : this.shouldStartDnd,
+      distractingApps:
+          data.distractingApps.present
+              ? data.distractingApps.value
+              : this.distractingApps,
     );
   }
 
@@ -905,14 +1104,15 @@ class BedtimeSchedule extends DataClass implements Insertable<BedtimeSchedule> {
 
   @override
   int get hashCode => Object.hash(
-      id,
-      scheduleStartTime,
-      scheduleEndTime,
-      scheduleDurationInMins,
-      scheduleDays,
-      isScheduleOn,
-      shouldStartDnd,
-      distractingApps);
+    id,
+    scheduleStartTime,
+    scheduleEndTime,
+    scheduleDurationInMins,
+    scheduleDays,
+    isScheduleOn,
+    shouldStartDnd,
+    distractingApps,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -979,15 +1179,16 @@ class BedtimeScheduleTableCompanion extends UpdateCompanion<BedtimeSchedule> {
     });
   }
 
-  BedtimeScheduleTableCompanion copyWith(
-      {Value<int>? id,
-      Value<TimeOfDayAdapter>? scheduleStartTime,
-      Value<TimeOfDayAdapter>? scheduleEndTime,
-      Value<int>? scheduleDurationInMins,
-      Value<List<bool>>? scheduleDays,
-      Value<bool>? isScheduleOn,
-      Value<bool>? shouldStartDnd,
-      Value<List<String>>? distractingApps}) {
+  BedtimeScheduleTableCompanion copyWith({
+    Value<int>? id,
+    Value<TimeOfDayAdapter>? scheduleStartTime,
+    Value<TimeOfDayAdapter>? scheduleEndTime,
+    Value<int>? scheduleDurationInMins,
+    Value<List<bool>>? scheduleDays,
+    Value<bool>? isScheduleOn,
+    Value<bool>? shouldStartDnd,
+    Value<List<String>>? distractingApps,
+  }) {
     return BedtimeScheduleTableCompanion(
       id: id ?? this.id,
       scheduleStartTime: scheduleStartTime ?? this.scheduleStartTime,
@@ -1008,23 +1209,30 @@ class BedtimeScheduleTableCompanion extends UpdateCompanion<BedtimeSchedule> {
       map['id'] = Variable<int>(id.value);
     }
     if (scheduleStartTime.present) {
-      map['schedule_start_time'] = Variable<int>($BedtimeScheduleTableTable
-          .$converterscheduleStartTime
-          .toSql(scheduleStartTime.value));
+      map['schedule_start_time'] = Variable<int>(
+        $BedtimeScheduleTableTable.$converterscheduleStartTime.toSql(
+          scheduleStartTime.value,
+        ),
+      );
     }
     if (scheduleEndTime.present) {
-      map['schedule_end_time'] = Variable<int>($BedtimeScheduleTableTable
-          .$converterscheduleEndTime
-          .toSql(scheduleEndTime.value));
+      map['schedule_end_time'] = Variable<int>(
+        $BedtimeScheduleTableTable.$converterscheduleEndTime.toSql(
+          scheduleEndTime.value,
+        ),
+      );
     }
     if (scheduleDurationInMins.present) {
-      map['schedule_duration_in_mins'] =
-          Variable<int>(scheduleDurationInMins.value);
+      map['schedule_duration_in_mins'] = Variable<int>(
+        scheduleDurationInMins.value,
+      );
     }
     if (scheduleDays.present) {
-      map['schedule_days'] = Variable<String>($BedtimeScheduleTableTable
-          .$converterscheduleDays
-          .toSql(scheduleDays.value));
+      map['schedule_days'] = Variable<String>(
+        $BedtimeScheduleTableTable.$converterscheduleDays.toSql(
+          scheduleDays.value,
+        ),
+      );
     }
     if (isScheduleOn.present) {
       map['is_schedule_on'] = Variable<bool>(isScheduleOn.value);
@@ -1033,9 +1241,11 @@ class BedtimeScheduleTableCompanion extends UpdateCompanion<BedtimeSchedule> {
       map['should_start_dnd'] = Variable<bool>(shouldStartDnd.value);
     }
     if (distractingApps.present) {
-      map['distracting_apps'] = Variable<String>($BedtimeScheduleTableTable
-          .$converterdistractingApps
-          .toSql(distractingApps.value));
+      map['distracting_apps'] = Variable<String>(
+        $BedtimeScheduleTableTable.$converterdistractingApps.toSql(
+          distractingApps.value,
+        ),
+      );
     }
     return map;
   }
@@ -1065,54 +1275,80 @@ class $CrashLogsTableTable extends CrashLogsTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _appVersionMeta =
-      const VerificationMeta('appVersion');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _appVersionMeta = const VerificationMeta(
+    'appVersion',
+  );
   @override
   late final GeneratedColumn<String> appVersion = GeneratedColumn<String>(
-      'app_version', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
-  static const VerificationMeta _timeStampMeta =
-      const VerificationMeta('timeStamp');
+    'app_version',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
+  static const VerificationMeta _timeStampMeta = const VerificationMeta(
+    'timeStamp',
+  );
   @override
   late final GeneratedColumn<DateTime> timeStamp = GeneratedColumn<DateTime>(
-      'time_stamp', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      defaultValue: Constant(DateTime(0)));
+    'time_stamp',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: Constant(DateTime(0)),
+  );
   static const VerificationMeta _errorMeta = const VerificationMeta('error');
   @override
   late final GeneratedColumn<String> error = GeneratedColumn<String>(
-      'error', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
-  static const VerificationMeta _stackTraceMeta =
-      const VerificationMeta('stackTrace');
+    'error',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
+  static const VerificationMeta _stackTraceMeta = const VerificationMeta(
+    'stackTrace',
+  );
   @override
   late final GeneratedColumn<String> stackTrace = GeneratedColumn<String>(
-      'stack_trace', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
+    'stack_trace',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, appVersion, timeStamp, error, stackTrace];
+  List<GeneratedColumn> get $columns => [
+    id,
+    appVersion,
+    timeStamp,
+    error,
+    stackTrace,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'crash_logs_table';
   @override
-  VerificationContext validateIntegrity(Insertable<CrashLog> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<CrashLog> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -1120,23 +1356,27 @@ class $CrashLogsTableTable extends CrashLogsTable
     }
     if (data.containsKey('app_version')) {
       context.handle(
-          _appVersionMeta,
-          appVersion.isAcceptableOrUnknown(
-              data['app_version']!, _appVersionMeta));
+        _appVersionMeta,
+        appVersion.isAcceptableOrUnknown(data['app_version']!, _appVersionMeta),
+      );
     }
     if (data.containsKey('time_stamp')) {
-      context.handle(_timeStampMeta,
-          timeStamp.isAcceptableOrUnknown(data['time_stamp']!, _timeStampMeta));
+      context.handle(
+        _timeStampMeta,
+        timeStamp.isAcceptableOrUnknown(data['time_stamp']!, _timeStampMeta),
+      );
     }
     if (data.containsKey('error')) {
       context.handle(
-          _errorMeta, error.isAcceptableOrUnknown(data['error']!, _errorMeta));
+        _errorMeta,
+        error.isAcceptableOrUnknown(data['error']!, _errorMeta),
+      );
     }
     if (data.containsKey('stack_trace')) {
       context.handle(
-          _stackTraceMeta,
-          stackTrace.isAcceptableOrUnknown(
-              data['stack_trace']!, _stackTraceMeta));
+        _stackTraceMeta,
+        stackTrace.isAcceptableOrUnknown(data['stack_trace']!, _stackTraceMeta),
+      );
     }
     return context;
   }
@@ -1147,16 +1387,31 @@ class $CrashLogsTableTable extends CrashLogsTable
   CrashLog map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return CrashLog(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      appVersion: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}app_version'])!,
-      timeStamp: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}time_stamp'])!,
-      error: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}error'])!,
-      stackTrace: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}stack_trace'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      appVersion:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}app_version'],
+          )!,
+      timeStamp:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.dateTime,
+            data['${effectivePrefix}time_stamp'],
+          )!,
+      error:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}error'],
+          )!,
+      stackTrace:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}stack_trace'],
+          )!,
     );
   }
 
@@ -1170,7 +1425,7 @@ class CrashLog extends DataClass implements Insertable<CrashLog> {
   /// Unique ID for crash logs
   final int id;
 
-  /// Current version of Mindful app
+  /// Current version of ManoDhyan app
   final String appVersion;
 
   /// [DateTime] when the error was thrown
@@ -1181,12 +1436,13 @@ class CrashLog extends DataClass implements Insertable<CrashLog> {
 
   /// Stack trace when the error or exception was thrown
   final String stackTrace;
-  const CrashLog(
-      {required this.id,
-      required this.appVersion,
-      required this.timeStamp,
-      required this.error,
-      required this.stackTrace});
+  const CrashLog({
+    required this.id,
+    required this.appVersion,
+    required this.timeStamp,
+    required this.error,
+    required this.stackTrace,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -1208,8 +1464,10 @@ class CrashLog extends DataClass implements Insertable<CrashLog> {
     );
   }
 
-  factory CrashLog.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory CrashLog.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return CrashLog(
       id: serializer.fromJson<int>(json['id']),
@@ -1231,19 +1489,19 @@ class CrashLog extends DataClass implements Insertable<CrashLog> {
     };
   }
 
-  CrashLog copyWith(
-          {int? id,
-          String? appVersion,
-          DateTime? timeStamp,
-          String? error,
-          String? stackTrace}) =>
-      CrashLog(
-        id: id ?? this.id,
-        appVersion: appVersion ?? this.appVersion,
-        timeStamp: timeStamp ?? this.timeStamp,
-        error: error ?? this.error,
-        stackTrace: stackTrace ?? this.stackTrace,
-      );
+  CrashLog copyWith({
+    int? id,
+    String? appVersion,
+    DateTime? timeStamp,
+    String? error,
+    String? stackTrace,
+  }) => CrashLog(
+    id: id ?? this.id,
+    appVersion: appVersion ?? this.appVersion,
+    timeStamp: timeStamp ?? this.timeStamp,
+    error: error ?? this.error,
+    stackTrace: stackTrace ?? this.stackTrace,
+  );
   CrashLog copyWithCompanion(CrashLogsTableCompanion data) {
     return CrashLog(
       id: data.id.present ? data.id.value : this.id,
@@ -1317,12 +1575,13 @@ class CrashLogsTableCompanion extends UpdateCompanion<CrashLog> {
     });
   }
 
-  CrashLogsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? appVersion,
-      Value<DateTime>? timeStamp,
-      Value<String>? error,
-      Value<String>? stackTrace}) {
+  CrashLogsTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? appVersion,
+    Value<DateTime>? timeStamp,
+    Value<String>? error,
+    Value<String>? stackTrace,
+  }) {
     return CrashLogsTableCompanion(
       id: id ?? this.id,
       appVersion: appVersion ?? this.appVersion,
@@ -1375,53 +1634,77 @@ class $FocusModeTableTable extends FocusModeTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<SessionType, int> sessionType =
-      GeneratedColumn<int>('session_type', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<SessionType>(
-              $FocusModeTableTable.$convertersessionType);
-  static const VerificationMeta _longestStreakMeta =
-      const VerificationMeta('longestStreak');
+      GeneratedColumn<int>(
+        'session_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      ).withConverter<SessionType>($FocusModeTableTable.$convertersessionType);
+  static const VerificationMeta _longestStreakMeta = const VerificationMeta(
+    'longestStreak',
+  );
   @override
   late final GeneratedColumn<int> longestStreak = GeneratedColumn<int>(
-      'longest_streak', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _currentStreakMeta =
-      const VerificationMeta('currentStreak');
+    'longest_streak',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _currentStreakMeta = const VerificationMeta(
+    'currentStreak',
+  );
   @override
   late final GeneratedColumn<int> currentStreak = GeneratedColumn<int>(
-      'current_streak', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'current_streak',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   static const VerificationMeta _lastTimeStreakUpdatedMeta =
       const VerificationMeta('lastTimeStreakUpdated');
   @override
   late final GeneratedColumn<DateTime> lastTimeStreakUpdated =
-      GeneratedColumn<DateTime>('last_time_streak_updated', aliasedName, false,
-          type: DriftSqlType.dateTime,
-          requiredDuringInsert: false,
-          defaultValue: Constant(DateTime(0)));
+      GeneratedColumn<DateTime>(
+        'last_time_streak_updated',
+        aliasedName,
+        false,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+        defaultValue: Constant(DateTime(0)),
+      );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, sessionType, longestStreak, currentStreak, lastTimeStreakUpdated];
+  List<GeneratedColumn> get $columns => [
+    id,
+    sessionType,
+    longestStreak,
+    currentStreak,
+    lastTimeStreakUpdated,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'focus_mode_table';
   @override
-  VerificationContext validateIntegrity(Insertable<FocusMode> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<FocusMode> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -1429,21 +1712,30 @@ class $FocusModeTableTable extends FocusModeTable
     }
     if (data.containsKey('longest_streak')) {
       context.handle(
+        _longestStreakMeta,
+        longestStreak.isAcceptableOrUnknown(
+          data['longest_streak']!,
           _longestStreakMeta,
-          longestStreak.isAcceptableOrUnknown(
-              data['longest_streak']!, _longestStreakMeta));
+        ),
+      );
     }
     if (data.containsKey('current_streak')) {
       context.handle(
+        _currentStreakMeta,
+        currentStreak.isAcceptableOrUnknown(
+          data['current_streak']!,
           _currentStreakMeta,
-          currentStreak.isAcceptableOrUnknown(
-              data['current_streak']!, _currentStreakMeta));
+        ),
+      );
     }
     if (data.containsKey('last_time_streak_updated')) {
       context.handle(
+        _lastTimeStreakUpdatedMeta,
+        lastTimeStreakUpdated.isAcceptableOrUnknown(
+          data['last_time_streak_updated']!,
           _lastTimeStreakUpdatedMeta,
-          lastTimeStreakUpdated.isAcceptableOrUnknown(
-              data['last_time_streak_updated']!, _lastTimeStreakUpdatedMeta));
+        ),
+      );
     }
     return context;
   }
@@ -1454,18 +1746,32 @@ class $FocusModeTableTable extends FocusModeTable
   FocusMode map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return FocusMode(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
       sessionType: $FocusModeTableTable.$convertersessionType.fromSql(
-          attachedDatabase.typeMapping
-              .read(DriftSqlType.int, data['${effectivePrefix}session_type'])!),
-      longestStreak: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}longest_streak'])!,
-      currentStreak: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}current_streak'])!,
-      lastTimeStreakUpdated: attachedDatabase.typeMapping.read(
-          DriftSqlType.dateTime,
-          data['${effectivePrefix}last_time_streak_updated'])!,
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}session_type'],
+        )!,
+      ),
+      longestStreak:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}longest_streak'],
+          )!,
+      currentStreak:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}current_streak'],
+          )!,
+      lastTimeStreakUpdated:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.dateTime,
+            data['${effectivePrefix}last_time_streak_updated'],
+          )!,
     );
   }
 
@@ -1493,19 +1799,21 @@ class FocusMode extends DataClass implements Insertable<FocusMode> {
 
   /// The [DateTime] when the streak was updated last time
   final DateTime lastTimeStreakUpdated;
-  const FocusMode(
-      {required this.id,
-      required this.sessionType,
-      required this.longestStreak,
-      required this.currentStreak,
-      required this.lastTimeStreakUpdated});
+  const FocusMode({
+    required this.id,
+    required this.sessionType,
+    required this.longestStreak,
+    required this.currentStreak,
+    required this.lastTimeStreakUpdated,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     {
       map['session_type'] = Variable<int>(
-          $FocusModeTableTable.$convertersessionType.toSql(sessionType));
+        $FocusModeTableTable.$convertersessionType.toSql(sessionType),
+      );
     }
     map['longest_streak'] = Variable<int>(longestStreak);
     map['current_streak'] = Variable<int>(currentStreak);
@@ -1523,17 +1831,21 @@ class FocusMode extends DataClass implements Insertable<FocusMode> {
     );
   }
 
-  factory FocusMode.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory FocusMode.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return FocusMode(
       id: serializer.fromJson<int>(json['id']),
-      sessionType: $FocusModeTableTable.$convertersessionType
-          .fromJson(serializer.fromJson<int>(json['sessionType'])),
+      sessionType: $FocusModeTableTable.$convertersessionType.fromJson(
+        serializer.fromJson<int>(json['sessionType']),
+      ),
       longestStreak: serializer.fromJson<int>(json['longestStreak']),
       currentStreak: serializer.fromJson<int>(json['currentStreak']),
-      lastTimeStreakUpdated:
-          serializer.fromJson<DateTime>(json['lastTimeStreakUpdated']),
+      lastTimeStreakUpdated: serializer.fromJson<DateTime>(
+        json['lastTimeStreakUpdated'],
+      ),
     );
   }
   @override
@@ -1542,42 +1854,46 @@ class FocusMode extends DataClass implements Insertable<FocusMode> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'sessionType': serializer.toJson<int>(
-          $FocusModeTableTable.$convertersessionType.toJson(sessionType)),
+        $FocusModeTableTable.$convertersessionType.toJson(sessionType),
+      ),
       'longestStreak': serializer.toJson<int>(longestStreak),
       'currentStreak': serializer.toJson<int>(currentStreak),
-      'lastTimeStreakUpdated':
-          serializer.toJson<DateTime>(lastTimeStreakUpdated),
+      'lastTimeStreakUpdated': serializer.toJson<DateTime>(
+        lastTimeStreakUpdated,
+      ),
     };
   }
 
-  FocusMode copyWith(
-          {int? id,
-          SessionType? sessionType,
-          int? longestStreak,
-          int? currentStreak,
-          DateTime? lastTimeStreakUpdated}) =>
-      FocusMode(
-        id: id ?? this.id,
-        sessionType: sessionType ?? this.sessionType,
-        longestStreak: longestStreak ?? this.longestStreak,
-        currentStreak: currentStreak ?? this.currentStreak,
-        lastTimeStreakUpdated:
-            lastTimeStreakUpdated ?? this.lastTimeStreakUpdated,
-      );
+  FocusMode copyWith({
+    int? id,
+    SessionType? sessionType,
+    int? longestStreak,
+    int? currentStreak,
+    DateTime? lastTimeStreakUpdated,
+  }) => FocusMode(
+    id: id ?? this.id,
+    sessionType: sessionType ?? this.sessionType,
+    longestStreak: longestStreak ?? this.longestStreak,
+    currentStreak: currentStreak ?? this.currentStreak,
+    lastTimeStreakUpdated: lastTimeStreakUpdated ?? this.lastTimeStreakUpdated,
+  );
   FocusMode copyWithCompanion(FocusModeTableCompanion data) {
     return FocusMode(
       id: data.id.present ? data.id.value : this.id,
       sessionType:
           data.sessionType.present ? data.sessionType.value : this.sessionType,
-      longestStreak: data.longestStreak.present
-          ? data.longestStreak.value
-          : this.longestStreak,
-      currentStreak: data.currentStreak.present
-          ? data.currentStreak.value
-          : this.currentStreak,
-      lastTimeStreakUpdated: data.lastTimeStreakUpdated.present
-          ? data.lastTimeStreakUpdated.value
-          : this.lastTimeStreakUpdated,
+      longestStreak:
+          data.longestStreak.present
+              ? data.longestStreak.value
+              : this.longestStreak,
+      currentStreak:
+          data.currentStreak.present
+              ? data.currentStreak.value
+              : this.currentStreak,
+      lastTimeStreakUpdated:
+          data.lastTimeStreakUpdated.present
+              ? data.lastTimeStreakUpdated.value
+              : this.lastTimeStreakUpdated,
     );
   }
 
@@ -1595,7 +1911,12 @@ class FocusMode extends DataClass implements Insertable<FocusMode> {
 
   @override
   int get hashCode => Object.hash(
-      id, sessionType, longestStreak, currentStreak, lastTimeStreakUpdated);
+    id,
+    sessionType,
+    longestStreak,
+    currentStreak,
+    lastTimeStreakUpdated,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1644,12 +1965,13 @@ class FocusModeTableCompanion extends UpdateCompanion<FocusMode> {
     });
   }
 
-  FocusModeTableCompanion copyWith(
-      {Value<int>? id,
-      Value<SessionType>? sessionType,
-      Value<int>? longestStreak,
-      Value<int>? currentStreak,
-      Value<DateTime>? lastTimeStreakUpdated}) {
+  FocusModeTableCompanion copyWith({
+    Value<int>? id,
+    Value<SessionType>? sessionType,
+    Value<int>? longestStreak,
+    Value<int>? currentStreak,
+    Value<DateTime>? lastTimeStreakUpdated,
+  }) {
     return FocusModeTableCompanion(
       id: id ?? this.id,
       sessionType: sessionType ?? this.sessionType,
@@ -1668,7 +1990,8 @@ class FocusModeTableCompanion extends UpdateCompanion<FocusMode> {
     }
     if (sessionType.present) {
       map['session_type'] = Variable<int>(
-          $FocusModeTableTable.$convertersessionType.toSql(sessionType.value));
+        $FocusModeTableTable.$convertersessionType.toSql(sessionType.value),
+      );
     }
     if (longestStreak.present) {
       map['longest_streak'] = Variable<int>(longestStreak.value);
@@ -1677,8 +2000,9 @@ class FocusModeTableCompanion extends UpdateCompanion<FocusMode> {
       map['current_streak'] = Variable<int>(currentStreak.value);
     }
     if (lastTimeStreakUpdated.present) {
-      map['last_time_streak_updated'] =
-          Variable<DateTime>(lastTimeStreakUpdated.value);
+      map['last_time_streak_updated'] = Variable<DateTime>(
+        lastTimeStreakUpdated.value,
+      );
     }
     return map;
   }
@@ -1704,82 +2028,115 @@ class $FocusProfileTableTable extends FocusProfileTable
   $FocusProfileTableTable(this.attachedDatabase, [this._alias]);
   @override
   late final GeneratedColumnWithTypeConverter<SessionType, int> sessionType =
-      GeneratedColumn<int>('session_type', aliasedName, false,
-              type: DriftSqlType.int, requiredDuringInsert: false)
-          .withConverter<SessionType>(
-              $FocusProfileTableTable.$convertersessionType);
-  static const VerificationMeta _sessionDurationMeta =
-      const VerificationMeta('sessionDuration');
+      GeneratedColumn<int>(
+        'session_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+      ).withConverter<SessionType>(
+        $FocusProfileTableTable.$convertersessionType,
+      );
+  static const VerificationMeta _sessionDurationMeta = const VerificationMeta(
+    'sessionDuration',
+  );
   @override
   late final GeneratedColumn<int> sessionDuration = GeneratedColumn<int>(
-      'session_duration', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _enforceSessionMeta =
-      const VerificationMeta('enforceSession');
+    'session_duration',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _enforceSessionMeta = const VerificationMeta(
+    'enforceSession',
+  );
   @override
   late final GeneratedColumn<bool> enforceSession = GeneratedColumn<bool>(
-      'enforce_session', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("enforce_session" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _shouldStartDndMeta =
-      const VerificationMeta('shouldStartDnd');
+    'enforce_session',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("enforce_session" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _shouldStartDndMeta = const VerificationMeta(
+    'shouldStartDnd',
+  );
   @override
   late final GeneratedColumn<bool> shouldStartDnd = GeneratedColumn<bool>(
-      'should_start_dnd', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("should_start_dnd" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'should_start_dnd',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("should_start_dnd" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      distractingApps = GeneratedColumn<String>(
-              'distracting_apps', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $FocusProfileTableTable.$converterdistractingApps);
+  distractingApps = GeneratedColumn<String>(
+    'distracting_apps',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>(
+    $FocusProfileTableTable.$converterdistractingApps,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        sessionType,
-        sessionDuration,
-        enforceSession,
-        shouldStartDnd,
-        distractingApps
-      ];
+    sessionType,
+    sessionDuration,
+    enforceSession,
+    shouldStartDnd,
+    distractingApps,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'focus_profile_table';
   @override
-  VerificationContext validateIntegrity(Insertable<FocusProfile> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<FocusProfile> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('session_duration')) {
       context.handle(
+        _sessionDurationMeta,
+        sessionDuration.isAcceptableOrUnknown(
+          data['session_duration']!,
           _sessionDurationMeta,
-          sessionDuration.isAcceptableOrUnknown(
-              data['session_duration']!, _sessionDurationMeta));
+        ),
+      );
     }
     if (data.containsKey('enforce_session')) {
       context.handle(
+        _enforceSessionMeta,
+        enforceSession.isAcceptableOrUnknown(
+          data['enforce_session']!,
           _enforceSessionMeta,
-          enforceSession.isAcceptableOrUnknown(
-              data['enforce_session']!, _enforceSessionMeta));
+        ),
+      );
     }
     if (data.containsKey('should_start_dnd')) {
       context.handle(
+        _shouldStartDndMeta,
+        shouldStartDnd.isAcceptableOrUnknown(
+          data['should_start_dnd']!,
           _shouldStartDndMeta,
-          shouldStartDnd.isAcceptableOrUnknown(
-              data['should_start_dnd']!, _shouldStartDndMeta));
+        ),
+      );
     }
     return context;
   }
@@ -1791,17 +2148,33 @@ class $FocusProfileTableTable extends FocusProfileTable
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return FocusProfile(
       sessionType: $FocusProfileTableTable.$convertersessionType.fromSql(
-          attachedDatabase.typeMapping
-              .read(DriftSqlType.int, data['${effectivePrefix}session_type'])!),
-      sessionDuration: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}session_duration'])!,
-      enforceSession: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}enforce_session'])!,
-      shouldStartDnd: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}should_start_dnd'])!,
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}session_type'],
+        )!,
+      ),
+      sessionDuration:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}session_duration'],
+          )!,
+      enforceSession:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}enforce_session'],
+          )!,
+      shouldStartDnd:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}should_start_dnd'],
+          )!,
       distractingApps: $FocusProfileTableTable.$converterdistractingApps
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.string,
-              data['${effectivePrefix}distracting_apps'])!),
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}distracting_apps'],
+            )!,
+          ),
     );
   }
 
@@ -1832,26 +2205,30 @@ class FocusProfile extends DataClass implements Insertable<FocusProfile> {
 
   /// List of app's packages which are selected as distracting apps.
   final List<String> distractingApps;
-  const FocusProfile(
-      {required this.sessionType,
-      required this.sessionDuration,
-      required this.enforceSession,
-      required this.shouldStartDnd,
-      required this.distractingApps});
+  const FocusProfile({
+    required this.sessionType,
+    required this.sessionDuration,
+    required this.enforceSession,
+    required this.shouldStartDnd,
+    required this.distractingApps,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     {
       map['session_type'] = Variable<int>(
-          $FocusProfileTableTable.$convertersessionType.toSql(sessionType));
+        $FocusProfileTableTable.$convertersessionType.toSql(sessionType),
+      );
     }
     map['session_duration'] = Variable<int>(sessionDuration);
     map['enforce_session'] = Variable<bool>(enforceSession);
     map['should_start_dnd'] = Variable<bool>(shouldStartDnd);
     {
-      map['distracting_apps'] = Variable<String>($FocusProfileTableTable
-          .$converterdistractingApps
-          .toSql(distractingApps));
+      map['distracting_apps'] = Variable<String>(
+        $FocusProfileTableTable.$converterdistractingApps.toSql(
+          distractingApps,
+        ),
+      );
     }
     return map;
   }
@@ -1866,17 +2243,21 @@ class FocusProfile extends DataClass implements Insertable<FocusProfile> {
     );
   }
 
-  factory FocusProfile.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory FocusProfile.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return FocusProfile(
-      sessionType: $FocusProfileTableTable.$convertersessionType
-          .fromJson(serializer.fromJson<int>(json['sessionType'])),
+      sessionType: $FocusProfileTableTable.$convertersessionType.fromJson(
+        serializer.fromJson<int>(json['sessionType']),
+      ),
       sessionDuration: serializer.fromJson<int>(json['sessionDuration']),
       enforceSession: serializer.fromJson<bool>(json['enforceSession']),
       shouldStartDnd: serializer.fromJson<bool>(json['shouldStartDnd']),
-      distractingApps:
-          serializer.fromJson<List<String>>(json['distractingApps']),
+      distractingApps: serializer.fromJson<List<String>>(
+        json['distractingApps'],
+      ),
     );
   }
   @override
@@ -1884,7 +2265,8 @@ class FocusProfile extends DataClass implements Insertable<FocusProfile> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'sessionType': serializer.toJson<int>(
-          $FocusProfileTableTable.$convertersessionType.toJson(sessionType)),
+        $FocusProfileTableTable.$convertersessionType.toJson(sessionType),
+      ),
       'sessionDuration': serializer.toJson<int>(sessionDuration),
       'enforceSession': serializer.toJson<bool>(enforceSession),
       'shouldStartDnd': serializer.toJson<bool>(shouldStartDnd),
@@ -1892,35 +2274,39 @@ class FocusProfile extends DataClass implements Insertable<FocusProfile> {
     };
   }
 
-  FocusProfile copyWith(
-          {SessionType? sessionType,
-          int? sessionDuration,
-          bool? enforceSession,
-          bool? shouldStartDnd,
-          List<String>? distractingApps}) =>
-      FocusProfile(
-        sessionType: sessionType ?? this.sessionType,
-        sessionDuration: sessionDuration ?? this.sessionDuration,
-        enforceSession: enforceSession ?? this.enforceSession,
-        shouldStartDnd: shouldStartDnd ?? this.shouldStartDnd,
-        distractingApps: distractingApps ?? this.distractingApps,
-      );
+  FocusProfile copyWith({
+    SessionType? sessionType,
+    int? sessionDuration,
+    bool? enforceSession,
+    bool? shouldStartDnd,
+    List<String>? distractingApps,
+  }) => FocusProfile(
+    sessionType: sessionType ?? this.sessionType,
+    sessionDuration: sessionDuration ?? this.sessionDuration,
+    enforceSession: enforceSession ?? this.enforceSession,
+    shouldStartDnd: shouldStartDnd ?? this.shouldStartDnd,
+    distractingApps: distractingApps ?? this.distractingApps,
+  );
   FocusProfile copyWithCompanion(FocusProfileTableCompanion data) {
     return FocusProfile(
       sessionType:
           data.sessionType.present ? data.sessionType.value : this.sessionType,
-      sessionDuration: data.sessionDuration.present
-          ? data.sessionDuration.value
-          : this.sessionDuration,
-      enforceSession: data.enforceSession.present
-          ? data.enforceSession.value
-          : this.enforceSession,
-      shouldStartDnd: data.shouldStartDnd.present
-          ? data.shouldStartDnd.value
-          : this.shouldStartDnd,
-      distractingApps: data.distractingApps.present
-          ? data.distractingApps.value
-          : this.distractingApps,
+      sessionDuration:
+          data.sessionDuration.present
+              ? data.sessionDuration.value
+              : this.sessionDuration,
+      enforceSession:
+          data.enforceSession.present
+              ? data.enforceSession.value
+              : this.enforceSession,
+      shouldStartDnd:
+          data.shouldStartDnd.present
+              ? data.shouldStartDnd.value
+              : this.shouldStartDnd,
+      distractingApps:
+          data.distractingApps.present
+              ? data.distractingApps.value
+              : this.distractingApps,
     );
   }
 
@@ -1937,8 +2323,13 @@ class FocusProfile extends DataClass implements Insertable<FocusProfile> {
   }
 
   @override
-  int get hashCode => Object.hash(sessionType, sessionDuration, enforceSession,
-      shouldStartDnd, distractingApps);
+  int get hashCode => Object.hash(
+    sessionType,
+    sessionDuration,
+    enforceSession,
+    shouldStartDnd,
+    distractingApps,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1986,12 +2377,13 @@ class FocusProfileTableCompanion extends UpdateCompanion<FocusProfile> {
     });
   }
 
-  FocusProfileTableCompanion copyWith(
-      {Value<SessionType>? sessionType,
-      Value<int>? sessionDuration,
-      Value<bool>? enforceSession,
-      Value<bool>? shouldStartDnd,
-      Value<List<String>>? distractingApps}) {
+  FocusProfileTableCompanion copyWith({
+    Value<SessionType>? sessionType,
+    Value<int>? sessionDuration,
+    Value<bool>? enforceSession,
+    Value<bool>? shouldStartDnd,
+    Value<List<String>>? distractingApps,
+  }) {
     return FocusProfileTableCompanion(
       sessionType: sessionType ?? this.sessionType,
       sessionDuration: sessionDuration ?? this.sessionDuration,
@@ -2005,9 +2397,9 @@ class FocusProfileTableCompanion extends UpdateCompanion<FocusProfile> {
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     if (sessionType.present) {
-      map['session_type'] = Variable<int>($FocusProfileTableTable
-          .$convertersessionType
-          .toSql(sessionType.value));
+      map['session_type'] = Variable<int>(
+        $FocusProfileTableTable.$convertersessionType.toSql(sessionType.value),
+      );
     }
     if (sessionDuration.present) {
       map['session_duration'] = Variable<int>(sessionDuration.value);
@@ -2019,9 +2411,11 @@ class FocusProfileTableCompanion extends UpdateCompanion<FocusProfile> {
       map['should_start_dnd'] = Variable<bool>(shouldStartDnd.value);
     }
     if (distractingApps.present) {
-      map['distracting_apps'] = Variable<String>($FocusProfileTableTable
-          .$converterdistractingApps
-          .toSql(distractingApps.value));
+      map['distracting_apps'] = Variable<String>(
+        $FocusProfileTableTable.$converterdistractingApps.toSql(
+          distractingApps.value,
+        ),
+      );
     }
     return map;
   }
@@ -2048,62 +2442,92 @@ class $FocusSessionsTableTable extends FocusSessionsTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<SessionType, int> type =
-      GeneratedColumn<int>('type', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<SessionType>($FocusSessionsTableTable.$convertertype);
+      GeneratedColumn<int>(
+        'type',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      ).withConverter<SessionType>($FocusSessionsTableTable.$convertertype);
   @override
   late final GeneratedColumnWithTypeConverter<SessionState, int> state =
-      GeneratedColumn<int>('state', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<SessionState>(
-              $FocusSessionsTableTable.$converterstate);
-  static const VerificationMeta _startDateTimeMeta =
-      const VerificationMeta('startDateTime');
+      GeneratedColumn<int>(
+        'state',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      ).withConverter<SessionState>($FocusSessionsTableTable.$converterstate);
+  static const VerificationMeta _startDateTimeMeta = const VerificationMeta(
+    'startDateTime',
+  );
   @override
   late final GeneratedColumn<DateTime> startDateTime =
-      GeneratedColumn<DateTime>('start_date_time', aliasedName, false,
-          type: DriftSqlType.dateTime,
-          requiredDuringInsert: false,
-          defaultValue: Constant(DateTime(0)));
-  static const VerificationMeta _durationSecsMeta =
-      const VerificationMeta('durationSecs');
+      GeneratedColumn<DateTime>(
+        'start_date_time',
+        aliasedName,
+        false,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+        defaultValue: Constant(DateTime(0)),
+      );
+  static const VerificationMeta _durationSecsMeta = const VerificationMeta(
+    'durationSecs',
+  );
   @override
   late final GeneratedColumn<int> durationSecs = GeneratedColumn<int>(
-      'duration_secs', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _reflectionMeta =
-      const VerificationMeta('reflection');
+    'duration_secs',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _reflectionMeta = const VerificationMeta(
+    'reflection',
+  );
   @override
   late final GeneratedColumn<String> reflection = GeneratedColumn<String>(
-      'reflection', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
+    'reflection',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, type, state, startDateTime, durationSecs, reflection];
+  List<GeneratedColumn> get $columns => [
+    id,
+    type,
+    state,
+    startDateTime,
+    durationSecs,
+    reflection,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'focus_sessions_table';
   @override
-  VerificationContext validateIntegrity(Insertable<FocusSession> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<FocusSession> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -2111,21 +2535,27 @@ class $FocusSessionsTableTable extends FocusSessionsTable
     }
     if (data.containsKey('start_date_time')) {
       context.handle(
+        _startDateTimeMeta,
+        startDateTime.isAcceptableOrUnknown(
+          data['start_date_time']!,
           _startDateTimeMeta,
-          startDateTime.isAcceptableOrUnknown(
-              data['start_date_time']!, _startDateTimeMeta));
+        ),
+      );
     }
     if (data.containsKey('duration_secs')) {
       context.handle(
+        _durationSecsMeta,
+        durationSecs.isAcceptableOrUnknown(
+          data['duration_secs']!,
           _durationSecsMeta,
-          durationSecs.isAcceptableOrUnknown(
-              data['duration_secs']!, _durationSecsMeta));
+        ),
+      );
     }
     if (data.containsKey('reflection')) {
       context.handle(
-          _reflectionMeta,
-          reflection.isAcceptableOrUnknown(
-              data['reflection']!, _reflectionMeta));
+        _reflectionMeta,
+        reflection.isAcceptableOrUnknown(data['reflection']!, _reflectionMeta),
+      );
     }
     return context;
   }
@@ -2136,20 +2566,38 @@ class $FocusSessionsTableTable extends FocusSessionsTable
   FocusSession map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return FocusSession(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      type: $FocusSessionsTableTable.$convertertype.fromSql(attachedDatabase
-          .typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}type'])!),
-      state: $FocusSessionsTableTable.$converterstate.fromSql(attachedDatabase
-          .typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}state'])!),
-      startDateTime: attachedDatabase.typeMapping.read(
-          DriftSqlType.dateTime, data['${effectivePrefix}start_date_time'])!,
-      durationSecs: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}duration_secs'])!,
-      reflection: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}reflection'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      type: $FocusSessionsTableTable.$convertertype.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}type'],
+        )!,
+      ),
+      state: $FocusSessionsTableTable.$converterstate.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}state'],
+        )!,
+      ),
+      startDateTime:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.dateTime,
+            data['${effectivePrefix}start_date_time'],
+          )!,
+      durationSecs:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}duration_secs'],
+          )!,
+      reflection:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}reflection'],
+          )!,
     );
   }
 
@@ -2185,24 +2633,27 @@ class FocusSession extends DataClass implements Insertable<FocusSession> {
   /// Reflection about the focus session. Means what did the user achieved with the session.
   /// By default empty string.
   final String reflection;
-  const FocusSession(
-      {required this.id,
-      required this.type,
-      required this.state,
-      required this.startDateTime,
-      required this.durationSecs,
-      required this.reflection});
+  const FocusSession({
+    required this.id,
+    required this.type,
+    required this.state,
+    required this.startDateTime,
+    required this.durationSecs,
+    required this.reflection,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     {
-      map['type'] =
-          Variable<int>($FocusSessionsTableTable.$convertertype.toSql(type));
+      map['type'] = Variable<int>(
+        $FocusSessionsTableTable.$convertertype.toSql(type),
+      );
     }
     {
-      map['state'] =
-          Variable<int>($FocusSessionsTableTable.$converterstate.toSql(state));
+      map['state'] = Variable<int>(
+        $FocusSessionsTableTable.$converterstate.toSql(state),
+      );
     }
     map['start_date_time'] = Variable<DateTime>(startDateTime);
     map['duration_secs'] = Variable<int>(durationSecs);
@@ -2221,15 +2672,19 @@ class FocusSession extends DataClass implements Insertable<FocusSession> {
     );
   }
 
-  factory FocusSession.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory FocusSession.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return FocusSession(
       id: serializer.fromJson<int>(json['id']),
-      type: $FocusSessionsTableTable.$convertertype
-          .fromJson(serializer.fromJson<int>(json['type'])),
-      state: $FocusSessionsTableTable.$converterstate
-          .fromJson(serializer.fromJson<int>(json['state'])),
+      type: $FocusSessionsTableTable.$convertertype.fromJson(
+        serializer.fromJson<int>(json['type']),
+      ),
+      state: $FocusSessionsTableTable.$converterstate.fromJson(
+        serializer.fromJson<int>(json['state']),
+      ),
       startDateTime: serializer.fromJson<DateTime>(json['startDateTime']),
       durationSecs: serializer.fromJson<int>(json['durationSecs']),
       reflection: serializer.fromJson<String>(json['reflection']),
@@ -2240,42 +2695,46 @@ class FocusSession extends DataClass implements Insertable<FocusSession> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'type': serializer
-          .toJson<int>($FocusSessionsTableTable.$convertertype.toJson(type)),
-      'state': serializer
-          .toJson<int>($FocusSessionsTableTable.$converterstate.toJson(state)),
+      'type': serializer.toJson<int>(
+        $FocusSessionsTableTable.$convertertype.toJson(type),
+      ),
+      'state': serializer.toJson<int>(
+        $FocusSessionsTableTable.$converterstate.toJson(state),
+      ),
       'startDateTime': serializer.toJson<DateTime>(startDateTime),
       'durationSecs': serializer.toJson<int>(durationSecs),
       'reflection': serializer.toJson<String>(reflection),
     };
   }
 
-  FocusSession copyWith(
-          {int? id,
-          SessionType? type,
-          SessionState? state,
-          DateTime? startDateTime,
-          int? durationSecs,
-          String? reflection}) =>
-      FocusSession(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        state: state ?? this.state,
-        startDateTime: startDateTime ?? this.startDateTime,
-        durationSecs: durationSecs ?? this.durationSecs,
-        reflection: reflection ?? this.reflection,
-      );
+  FocusSession copyWith({
+    int? id,
+    SessionType? type,
+    SessionState? state,
+    DateTime? startDateTime,
+    int? durationSecs,
+    String? reflection,
+  }) => FocusSession(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    state: state ?? this.state,
+    startDateTime: startDateTime ?? this.startDateTime,
+    durationSecs: durationSecs ?? this.durationSecs,
+    reflection: reflection ?? this.reflection,
+  );
   FocusSession copyWithCompanion(FocusSessionsTableCompanion data) {
     return FocusSession(
       id: data.id.present ? data.id.value : this.id,
       type: data.type.present ? data.type.value : this.type,
       state: data.state.present ? data.state.value : this.state,
-      startDateTime: data.startDateTime.present
-          ? data.startDateTime.value
-          : this.startDateTime,
-      durationSecs: data.durationSecs.present
-          ? data.durationSecs.value
-          : this.durationSecs,
+      startDateTime:
+          data.startDateTime.present
+              ? data.startDateTime.value
+              : this.startDateTime,
+      durationSecs:
+          data.durationSecs.present
+              ? data.durationSecs.value
+              : this.durationSecs,
       reflection:
           data.reflection.present ? data.reflection.value : this.reflection,
     );
@@ -2350,13 +2809,14 @@ class FocusSessionsTableCompanion extends UpdateCompanion<FocusSession> {
     });
   }
 
-  FocusSessionsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<SessionType>? type,
-      Value<SessionState>? state,
-      Value<DateTime>? startDateTime,
-      Value<int>? durationSecs,
-      Value<String>? reflection}) {
+  FocusSessionsTableCompanion copyWith({
+    Value<int>? id,
+    Value<SessionType>? type,
+    Value<SessionState>? state,
+    Value<DateTime>? startDateTime,
+    Value<int>? durationSecs,
+    Value<String>? reflection,
+  }) {
     return FocusSessionsTableCompanion(
       id: id ?? this.id,
       type: type ?? this.type,
@@ -2375,11 +2835,13 @@ class FocusSessionsTableCompanion extends UpdateCompanion<FocusSession> {
     }
     if (type.present) {
       map['type'] = Variable<int>(
-          $FocusSessionsTableTable.$convertertype.toSql(type.value));
+        $FocusSessionsTableTable.$convertertype.toSql(type.value),
+      );
     }
     if (state.present) {
       map['state'] = Variable<int>(
-          $FocusSessionsTableTable.$converterstate.toSql(state.value));
+        $FocusSessionsTableTable.$converterstate.toSql(state.value),
+      );
     }
     if (startDateTime.present) {
       map['start_date_time'] = Variable<DateTime>(startDateTime.value);
@@ -2407,146 +2869,201 @@ class FocusSessionsTableCompanion extends UpdateCompanion<FocusSession> {
   }
 }
 
-class $MindfulSettingsTableTable extends MindfulSettingsTable
-    with TableInfo<$MindfulSettingsTableTable, MindfulSettings> {
+class $ManoDhyanSettingsTableTable extends ManoDhyanSettingsTable
+    with TableInfo<$ManoDhyanSettingsTableTable, ManoDhyanSettings> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $MindfulSettingsTableTable(this.attachedDatabase, [this._alias]);
+  $ManoDhyanSettingsTableTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<AppThemeMode, int> themeMode =
-      GeneratedColumn<int>('theme_mode', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: Constant(AppConstants.defaultThemeMode.index))
-          .withConverter<AppThemeMode>(
-              $MindfulSettingsTableTable.$converterthemeMode);
-  static const VerificationMeta _accentColorMeta =
-      const VerificationMeta('accentColor');
+      GeneratedColumn<int>(
+        'theme_mode',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: Constant(AppConstants.defaultThemeMode.index),
+      ).withConverter<AppThemeMode>(
+        $ManoDhyanSettingsTableTable.$converterthemeMode,
+      );
+  static const VerificationMeta _accentColorMeta = const VerificationMeta(
+    'accentColor',
+  );
   @override
   late final GeneratedColumn<String> accentColor = GeneratedColumn<String>(
-      'accent_color', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(AppConstants.defaultMaterialColor));
-  static const VerificationMeta _usernameMeta =
-      const VerificationMeta('username');
+    'accent_color',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(AppConstants.defaultMaterialColor),
+  );
+  static const VerificationMeta _usernameMeta = const VerificationMeta(
+    'username',
+  );
   @override
   late final GeneratedColumn<String> username = GeneratedColumn<String>(
-      'username', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(AppConstants.defaultUsername));
-  static const VerificationMeta _localeCodeMeta =
-      const VerificationMeta('localeCode');
+    'username',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(AppConstants.defaultUsername),
+  );
+  static const VerificationMeta _localeCodeMeta = const VerificationMeta(
+    'localeCode',
+  );
   @override
   late final GeneratedColumn<String> localeCode = GeneratedColumn<String>(
-      'locale_code', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(AppConstants.defaultLocale));
-  static const VerificationMeta _useAmoledDarkMeta =
-      const VerificationMeta('useAmoledDark');
+    'locale_code',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(AppConstants.defaultLocale),
+  );
+  static const VerificationMeta _useAmoledDarkMeta = const VerificationMeta(
+    'useAmoledDark',
+  );
   @override
   late final GeneratedColumn<bool> useAmoledDark = GeneratedColumn<bool>(
-      'use_amoled_dark', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("use_amoled_dark" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _useDynamicColorsMeta =
-      const VerificationMeta('useDynamicColors');
+    'use_amoled_dark',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("use_amoled_dark" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _useDynamicColorsMeta = const VerificationMeta(
+    'useDynamicColors',
+  );
   @override
   late final GeneratedColumn<bool> useDynamicColors = GeneratedColumn<bool>(
-      'use_dynamic_colors', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("use_dynamic_colors" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'use_dynamic_colors',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("use_dynamic_colors" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<DefaultHomeTab, int>
-      defaultHomeTab = GeneratedColumn<int>(
-              'default_home_tab', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: Constant(DefaultHomeTab.dashboard.index))
-          .withConverter<DefaultHomeTab>(
-              $MindfulSettingsTableTable.$converterdefaultHomeTab);
-  static const VerificationMeta _usageHistoryWeeksMeta =
-      const VerificationMeta('usageHistoryWeeks');
+  defaultHomeTab = GeneratedColumn<int>(
+    'default_home_tab',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: Constant(DefaultHomeTab.dashboard.index),
+  ).withConverter<DefaultHomeTab>(
+    $ManoDhyanSettingsTableTable.$converterdefaultHomeTab,
+  );
+  static const VerificationMeta _usageHistoryWeeksMeta = const VerificationMeta(
+    'usageHistoryWeeks',
+  );
   @override
   late final GeneratedColumn<int> usageHistoryWeeks = GeneratedColumn<int>(
-      'usage_history_weeks', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(4));
+    'usage_history_weeks',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(4),
+  );
   static const VerificationMeta _leftEmergencyPassesMeta =
       const VerificationMeta('leftEmergencyPasses');
   @override
   late final GeneratedColumn<int> leftEmergencyPasses = GeneratedColumn<int>(
-      'left_emergency_passes', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(3));
-  static const VerificationMeta _lastEmergencyUsedMeta =
-      const VerificationMeta('lastEmergencyUsed');
+    'left_emergency_passes',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(3),
+  );
+  static const VerificationMeta _lastEmergencyUsedMeta = const VerificationMeta(
+    'lastEmergencyUsed',
+  );
   @override
   late final GeneratedColumn<DateTime> lastEmergencyUsed =
-      GeneratedColumn<DateTime>('last_emergency_used', aliasedName, false,
-          type: DriftSqlType.dateTime,
-          requiredDuringInsert: false,
-          defaultValue: Constant(DateTime(0)));
-  static const VerificationMeta _isOnboardingDoneMeta =
-      const VerificationMeta('isOnboardingDone');
+      GeneratedColumn<DateTime>(
+        'last_emergency_used',
+        aliasedName,
+        false,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+        defaultValue: Constant(DateTime(0)),
+      );
+  static const VerificationMeta _isOnboardingDoneMeta = const VerificationMeta(
+    'isOnboardingDone',
+  );
   @override
   late final GeneratedColumn<bool> isOnboardingDone = GeneratedColumn<bool>(
-      'is_onboarding_done', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("is_onboarding_done" IN (0, 1))'),
-      defaultValue: const Constant(false));
-  static const VerificationMeta _appVersionMeta =
-      const VerificationMeta('appVersion');
+    'is_onboarding_done',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_onboarding_done" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _appVersionMeta = const VerificationMeta(
+    'appVersion',
+  );
   @override
   late final GeneratedColumn<String> appVersion = GeneratedColumn<String>(
-      'app_version', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
+    'app_version',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        themeMode,
-        accentColor,
-        username,
-        localeCode,
-        useAmoledDark,
-        useDynamicColors,
-        defaultHomeTab,
-        usageHistoryWeeks,
-        leftEmergencyPasses,
-        lastEmergencyUsed,
-        isOnboardingDone,
-        appVersion
-      ];
+    id,
+    themeMode,
+    accentColor,
+    username,
+    localeCode,
+    useAmoledDark,
+    useDynamicColors,
+    defaultHomeTab,
+    usageHistoryWeeks,
+    leftEmergencyPasses,
+    lastEmergencyUsed,
+    isOnboardingDone,
+    appVersion,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
-  static const String $name = 'mindful_settings_table';
+  static const String $name = 'mano_dhyan_settings_table';
   @override
-  VerificationContext validateIntegrity(Insertable<MindfulSettings> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<ManoDhyanSettings> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -2554,61 +3071,84 @@ class $MindfulSettingsTableTable extends MindfulSettingsTable
     }
     if (data.containsKey('accent_color')) {
       context.handle(
+        _accentColorMeta,
+        accentColor.isAcceptableOrUnknown(
+          data['accent_color']!,
           _accentColorMeta,
-          accentColor.isAcceptableOrUnknown(
-              data['accent_color']!, _accentColorMeta));
+        ),
+      );
     }
     if (data.containsKey('username')) {
-      context.handle(_usernameMeta,
-          username.isAcceptableOrUnknown(data['username']!, _usernameMeta));
+      context.handle(
+        _usernameMeta,
+        username.isAcceptableOrUnknown(data['username']!, _usernameMeta),
+      );
     }
     if (data.containsKey('locale_code')) {
       context.handle(
-          _localeCodeMeta,
-          localeCode.isAcceptableOrUnknown(
-              data['locale_code']!, _localeCodeMeta));
+        _localeCodeMeta,
+        localeCode.isAcceptableOrUnknown(data['locale_code']!, _localeCodeMeta),
+      );
     }
     if (data.containsKey('use_amoled_dark')) {
       context.handle(
+        _useAmoledDarkMeta,
+        useAmoledDark.isAcceptableOrUnknown(
+          data['use_amoled_dark']!,
           _useAmoledDarkMeta,
-          useAmoledDark.isAcceptableOrUnknown(
-              data['use_amoled_dark']!, _useAmoledDarkMeta));
+        ),
+      );
     }
     if (data.containsKey('use_dynamic_colors')) {
       context.handle(
+        _useDynamicColorsMeta,
+        useDynamicColors.isAcceptableOrUnknown(
+          data['use_dynamic_colors']!,
           _useDynamicColorsMeta,
-          useDynamicColors.isAcceptableOrUnknown(
-              data['use_dynamic_colors']!, _useDynamicColorsMeta));
+        ),
+      );
     }
     if (data.containsKey('usage_history_weeks')) {
       context.handle(
+        _usageHistoryWeeksMeta,
+        usageHistoryWeeks.isAcceptableOrUnknown(
+          data['usage_history_weeks']!,
           _usageHistoryWeeksMeta,
-          usageHistoryWeeks.isAcceptableOrUnknown(
-              data['usage_history_weeks']!, _usageHistoryWeeksMeta));
+        ),
+      );
     }
     if (data.containsKey('left_emergency_passes')) {
       context.handle(
+        _leftEmergencyPassesMeta,
+        leftEmergencyPasses.isAcceptableOrUnknown(
+          data['left_emergency_passes']!,
           _leftEmergencyPassesMeta,
-          leftEmergencyPasses.isAcceptableOrUnknown(
-              data['left_emergency_passes']!, _leftEmergencyPassesMeta));
+        ),
+      );
     }
     if (data.containsKey('last_emergency_used')) {
       context.handle(
+        _lastEmergencyUsedMeta,
+        lastEmergencyUsed.isAcceptableOrUnknown(
+          data['last_emergency_used']!,
           _lastEmergencyUsedMeta,
-          lastEmergencyUsed.isAcceptableOrUnknown(
-              data['last_emergency_used']!, _lastEmergencyUsedMeta));
+        ),
+      );
     }
     if (data.containsKey('is_onboarding_done')) {
       context.handle(
+        _isOnboardingDoneMeta,
+        isOnboardingDone.isAcceptableOrUnknown(
+          data['is_onboarding_done']!,
           _isOnboardingDoneMeta,
-          isOnboardingDone.isAcceptableOrUnknown(
-              data['is_onboarding_done']!, _isOnboardingDoneMeta));
+        ),
+      );
     }
     if (data.containsKey('app_version')) {
       context.handle(
-          _appVersionMeta,
-          appVersion.isAcceptableOrUnknown(
-              data['app_version']!, _appVersionMeta));
+        _appVersionMeta,
+        appVersion.isAcceptableOrUnknown(data['app_version']!, _appVersionMeta),
+      );
     }
     return context;
   }
@@ -2616,44 +3156,83 @@ class $MindfulSettingsTableTable extends MindfulSettingsTable
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  MindfulSettings map(Map<String, dynamic> data, {String? tablePrefix}) {
+  ManoDhyanSettings map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return MindfulSettings(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      themeMode: $MindfulSettingsTableTable.$converterthemeMode.fromSql(
-          attachedDatabase.typeMapping
-              .read(DriftSqlType.int, data['${effectivePrefix}theme_mode'])!),
-      accentColor: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}accent_color'])!,
-      username: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}username'])!,
-      localeCode: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}locale_code'])!,
-      useAmoledDark: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}use_amoled_dark'])!,
-      useDynamicColors: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}use_dynamic_colors'])!,
-      defaultHomeTab: $MindfulSettingsTableTable.$converterdefaultHomeTab
-          .fromSql(attachedDatabase.typeMapping.read(
-              DriftSqlType.int, data['${effectivePrefix}default_home_tab'])!),
-      usageHistoryWeeks: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}usage_history_weeks'])!,
-      leftEmergencyPasses: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}left_emergency_passes'])!,
-      lastEmergencyUsed: attachedDatabase.typeMapping.read(
-          DriftSqlType.dateTime,
-          data['${effectivePrefix}last_emergency_used'])!,
-      isOnboardingDone: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}is_onboarding_done'])!,
-      appVersion: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}app_version'])!,
+    return ManoDhyanSettings(
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      themeMode: $ManoDhyanSettingsTableTable.$converterthemeMode.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}theme_mode'],
+        )!,
+      ),
+      accentColor:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}accent_color'],
+          )!,
+      username:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}username'],
+          )!,
+      localeCode:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}locale_code'],
+          )!,
+      useAmoledDark:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}use_amoled_dark'],
+          )!,
+      useDynamicColors:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}use_dynamic_colors'],
+          )!,
+      defaultHomeTab: $ManoDhyanSettingsTableTable.$converterdefaultHomeTab
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}default_home_tab'],
+            )!,
+          ),
+      usageHistoryWeeks:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}usage_history_weeks'],
+          )!,
+      leftEmergencyPasses:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}left_emergency_passes'],
+          )!,
+      lastEmergencyUsed:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.dateTime,
+            data['${effectivePrefix}last_emergency_used'],
+          )!,
+      isOnboardingDone:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}is_onboarding_done'],
+          )!,
+      appVersion:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}app_version'],
+          )!,
     );
   }
 
   @override
-  $MindfulSettingsTableTable createAlias(String alias) {
-    return $MindfulSettingsTableTable(attachedDatabase, alias);
+  $ManoDhyanSettingsTableTable createAlias(String alias) {
+    return $ManoDhyanSettingsTableTable(attachedDatabase, alias);
   }
 
   static JsonTypeConverter2<AppThemeMode, int, int> $converterthemeMode =
@@ -2662,7 +3241,8 @@ class $MindfulSettingsTableTable extends MindfulSettingsTable
       const EnumIndexConverter<DefaultHomeTab>(DefaultHomeTab.values);
 }
 
-class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
+class ManoDhyanSettings extends DataClass
+    implements Insertable<ManoDhyanSettings> {
   /// Unique ID for app settings
   final int id;
 
@@ -2699,30 +3279,32 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
   /// Flag indicating if onboarding is completed or not
   final bool isOnboardingDone;
 
-  /// The currently installed version of Mindful.
+  /// The currently installed version of ManoDhyan.
   /// Mainly used to show changelogs screen.
   final String appVersion;
-  const MindfulSettings(
-      {required this.id,
-      required this.themeMode,
-      required this.accentColor,
-      required this.username,
-      required this.localeCode,
-      required this.useAmoledDark,
-      required this.useDynamicColors,
-      required this.defaultHomeTab,
-      required this.usageHistoryWeeks,
-      required this.leftEmergencyPasses,
-      required this.lastEmergencyUsed,
-      required this.isOnboardingDone,
-      required this.appVersion});
+  const ManoDhyanSettings({
+    required this.id,
+    required this.themeMode,
+    required this.accentColor,
+    required this.username,
+    required this.localeCode,
+    required this.useAmoledDark,
+    required this.useDynamicColors,
+    required this.defaultHomeTab,
+    required this.usageHistoryWeeks,
+    required this.leftEmergencyPasses,
+    required this.lastEmergencyUsed,
+    required this.isOnboardingDone,
+    required this.appVersion,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     {
       map['theme_mode'] = Variable<int>(
-          $MindfulSettingsTableTable.$converterthemeMode.toSql(themeMode));
+        $ManoDhyanSettingsTableTable.$converterthemeMode.toSql(themeMode),
+      );
     }
     map['accent_color'] = Variable<String>(accentColor);
     map['username'] = Variable<String>(username);
@@ -2730,9 +3312,11 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
     map['use_amoled_dark'] = Variable<bool>(useAmoledDark);
     map['use_dynamic_colors'] = Variable<bool>(useDynamicColors);
     {
-      map['default_home_tab'] = Variable<int>($MindfulSettingsTableTable
-          .$converterdefaultHomeTab
-          .toSql(defaultHomeTab));
+      map['default_home_tab'] = Variable<int>(
+        $ManoDhyanSettingsTableTable.$converterdefaultHomeTab.toSql(
+          defaultHomeTab,
+        ),
+      );
     }
     map['usage_history_weeks'] = Variable<int>(usageHistoryWeeks);
     map['left_emergency_passes'] = Variable<int>(leftEmergencyPasses);
@@ -2742,8 +3326,8 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
     return map;
   }
 
-  MindfulSettingsTableCompanion toCompanion(bool nullToAbsent) {
-    return MindfulSettingsTableCompanion(
+  ManoDhyanSettingsTableCompanion toCompanion(bool nullToAbsent) {
+    return ManoDhyanSettingsTableCompanion(
       id: Value(id),
       themeMode: Value(themeMode),
       accentColor: Value(accentColor),
@@ -2760,25 +3344,30 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
     );
   }
 
-  factory MindfulSettings.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory ManoDhyanSettings.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return MindfulSettings(
+    return ManoDhyanSettings(
       id: serializer.fromJson<int>(json['id']),
-      themeMode: $MindfulSettingsTableTable.$converterthemeMode
-          .fromJson(serializer.fromJson<int>(json['themeMode'])),
+      themeMode: $ManoDhyanSettingsTableTable.$converterthemeMode.fromJson(
+        serializer.fromJson<int>(json['themeMode']),
+      ),
       accentColor: serializer.fromJson<String>(json['accentColor']),
       username: serializer.fromJson<String>(json['username']),
       localeCode: serializer.fromJson<String>(json['localeCode']),
       useAmoledDark: serializer.fromJson<bool>(json['useAmoledDark']),
       useDynamicColors: serializer.fromJson<bool>(json['useDynamicColors']),
-      defaultHomeTab: $MindfulSettingsTableTable.$converterdefaultHomeTab
+      defaultHomeTab: $ManoDhyanSettingsTableTable.$converterdefaultHomeTab
           .fromJson(serializer.fromJson<int>(json['defaultHomeTab'])),
       usageHistoryWeeks: serializer.fromJson<int>(json['usageHistoryWeeks']),
-      leftEmergencyPasses:
-          serializer.fromJson<int>(json['leftEmergencyPasses']),
-      lastEmergencyUsed:
-          serializer.fromJson<DateTime>(json['lastEmergencyUsed']),
+      leftEmergencyPasses: serializer.fromJson<int>(
+        json['leftEmergencyPasses'],
+      ),
+      lastEmergencyUsed: serializer.fromJson<DateTime>(
+        json['lastEmergencyUsed'],
+      ),
       isOnboardingDone: serializer.fromJson<bool>(json['isOnboardingDone']),
       appVersion: serializer.fromJson<String>(json['appVersion']),
     );
@@ -2789,15 +3378,18 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'themeMode': serializer.toJson<int>(
-          $MindfulSettingsTableTable.$converterthemeMode.toJson(themeMode)),
+        $ManoDhyanSettingsTableTable.$converterthemeMode.toJson(themeMode),
+      ),
       'accentColor': serializer.toJson<String>(accentColor),
       'username': serializer.toJson<String>(username),
       'localeCode': serializer.toJson<String>(localeCode),
       'useAmoledDark': serializer.toJson<bool>(useAmoledDark),
       'useDynamicColors': serializer.toJson<bool>(useDynamicColors),
-      'defaultHomeTab': serializer.toJson<int>($MindfulSettingsTableTable
-          .$converterdefaultHomeTab
-          .toJson(defaultHomeTab)),
+      'defaultHomeTab': serializer.toJson<int>(
+        $ManoDhyanSettingsTableTable.$converterdefaultHomeTab.toJson(
+          defaultHomeTab,
+        ),
+      ),
       'usageHistoryWeeks': serializer.toJson<int>(usageHistoryWeeks),
       'leftEmergencyPasses': serializer.toJson<int>(leftEmergencyPasses),
       'lastEmergencyUsed': serializer.toJson<DateTime>(lastEmergencyUsed),
@@ -2806,37 +3398,37 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
     };
   }
 
-  MindfulSettings copyWith(
-          {int? id,
-          AppThemeMode? themeMode,
-          String? accentColor,
-          String? username,
-          String? localeCode,
-          bool? useAmoledDark,
-          bool? useDynamicColors,
-          DefaultHomeTab? defaultHomeTab,
-          int? usageHistoryWeeks,
-          int? leftEmergencyPasses,
-          DateTime? lastEmergencyUsed,
-          bool? isOnboardingDone,
-          String? appVersion}) =>
-      MindfulSettings(
-        id: id ?? this.id,
-        themeMode: themeMode ?? this.themeMode,
-        accentColor: accentColor ?? this.accentColor,
-        username: username ?? this.username,
-        localeCode: localeCode ?? this.localeCode,
-        useAmoledDark: useAmoledDark ?? this.useAmoledDark,
-        useDynamicColors: useDynamicColors ?? this.useDynamicColors,
-        defaultHomeTab: defaultHomeTab ?? this.defaultHomeTab,
-        usageHistoryWeeks: usageHistoryWeeks ?? this.usageHistoryWeeks,
-        leftEmergencyPasses: leftEmergencyPasses ?? this.leftEmergencyPasses,
-        lastEmergencyUsed: lastEmergencyUsed ?? this.lastEmergencyUsed,
-        isOnboardingDone: isOnboardingDone ?? this.isOnboardingDone,
-        appVersion: appVersion ?? this.appVersion,
-      );
-  MindfulSettings copyWithCompanion(MindfulSettingsTableCompanion data) {
-    return MindfulSettings(
+  ManoDhyanSettings copyWith({
+    int? id,
+    AppThemeMode? themeMode,
+    String? accentColor,
+    String? username,
+    String? localeCode,
+    bool? useAmoledDark,
+    bool? useDynamicColors,
+    DefaultHomeTab? defaultHomeTab,
+    int? usageHistoryWeeks,
+    int? leftEmergencyPasses,
+    DateTime? lastEmergencyUsed,
+    bool? isOnboardingDone,
+    String? appVersion,
+  }) => ManoDhyanSettings(
+    id: id ?? this.id,
+    themeMode: themeMode ?? this.themeMode,
+    accentColor: accentColor ?? this.accentColor,
+    username: username ?? this.username,
+    localeCode: localeCode ?? this.localeCode,
+    useAmoledDark: useAmoledDark ?? this.useAmoledDark,
+    useDynamicColors: useDynamicColors ?? this.useDynamicColors,
+    defaultHomeTab: defaultHomeTab ?? this.defaultHomeTab,
+    usageHistoryWeeks: usageHistoryWeeks ?? this.usageHistoryWeeks,
+    leftEmergencyPasses: leftEmergencyPasses ?? this.leftEmergencyPasses,
+    lastEmergencyUsed: lastEmergencyUsed ?? this.lastEmergencyUsed,
+    isOnboardingDone: isOnboardingDone ?? this.isOnboardingDone,
+    appVersion: appVersion ?? this.appVersion,
+  );
+  ManoDhyanSettings copyWithCompanion(ManoDhyanSettingsTableCompanion data) {
+    return ManoDhyanSettings(
       id: data.id.present ? data.id.value : this.id,
       themeMode: data.themeMode.present ? data.themeMode.value : this.themeMode,
       accentColor:
@@ -2844,27 +3436,34 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
       username: data.username.present ? data.username.value : this.username,
       localeCode:
           data.localeCode.present ? data.localeCode.value : this.localeCode,
-      useAmoledDark: data.useAmoledDark.present
-          ? data.useAmoledDark.value
-          : this.useAmoledDark,
-      useDynamicColors: data.useDynamicColors.present
-          ? data.useDynamicColors.value
-          : this.useDynamicColors,
-      defaultHomeTab: data.defaultHomeTab.present
-          ? data.defaultHomeTab.value
-          : this.defaultHomeTab,
-      usageHistoryWeeks: data.usageHistoryWeeks.present
-          ? data.usageHistoryWeeks.value
-          : this.usageHistoryWeeks,
-      leftEmergencyPasses: data.leftEmergencyPasses.present
-          ? data.leftEmergencyPasses.value
-          : this.leftEmergencyPasses,
-      lastEmergencyUsed: data.lastEmergencyUsed.present
-          ? data.lastEmergencyUsed.value
-          : this.lastEmergencyUsed,
-      isOnboardingDone: data.isOnboardingDone.present
-          ? data.isOnboardingDone.value
-          : this.isOnboardingDone,
+      useAmoledDark:
+          data.useAmoledDark.present
+              ? data.useAmoledDark.value
+              : this.useAmoledDark,
+      useDynamicColors:
+          data.useDynamicColors.present
+              ? data.useDynamicColors.value
+              : this.useDynamicColors,
+      defaultHomeTab:
+          data.defaultHomeTab.present
+              ? data.defaultHomeTab.value
+              : this.defaultHomeTab,
+      usageHistoryWeeks:
+          data.usageHistoryWeeks.present
+              ? data.usageHistoryWeeks.value
+              : this.usageHistoryWeeks,
+      leftEmergencyPasses:
+          data.leftEmergencyPasses.present
+              ? data.leftEmergencyPasses.value
+              : this.leftEmergencyPasses,
+      lastEmergencyUsed:
+          data.lastEmergencyUsed.present
+              ? data.lastEmergencyUsed.value
+              : this.lastEmergencyUsed,
+      isOnboardingDone:
+          data.isOnboardingDone.present
+              ? data.isOnboardingDone.value
+              : this.isOnboardingDone,
       appVersion:
           data.appVersion.present ? data.appVersion.value : this.appVersion,
     );
@@ -2872,7 +3471,7 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
 
   @override
   String toString() {
-    return (StringBuffer('MindfulSettings(')
+    return (StringBuffer('ManoDhyanSettings(')
           ..write('id: $id, ')
           ..write('themeMode: $themeMode, ')
           ..write('accentColor: $accentColor, ')
@@ -2892,23 +3491,24 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
 
   @override
   int get hashCode => Object.hash(
-      id,
-      themeMode,
-      accentColor,
-      username,
-      localeCode,
-      useAmoledDark,
-      useDynamicColors,
-      defaultHomeTab,
-      usageHistoryWeeks,
-      leftEmergencyPasses,
-      lastEmergencyUsed,
-      isOnboardingDone,
-      appVersion);
+    id,
+    themeMode,
+    accentColor,
+    username,
+    localeCode,
+    useAmoledDark,
+    useDynamicColors,
+    defaultHomeTab,
+    usageHistoryWeeks,
+    leftEmergencyPasses,
+    lastEmergencyUsed,
+    isOnboardingDone,
+    appVersion,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is MindfulSettings &&
+      (other is ManoDhyanSettings &&
           other.id == this.id &&
           other.themeMode == this.themeMode &&
           other.accentColor == this.accentColor &&
@@ -2924,7 +3524,8 @@ class MindfulSettings extends DataClass implements Insertable<MindfulSettings> {
           other.appVersion == this.appVersion);
 }
 
-class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
+class ManoDhyanSettingsTableCompanion
+    extends UpdateCompanion<ManoDhyanSettings> {
   final Value<int> id;
   final Value<AppThemeMode> themeMode;
   final Value<String> accentColor;
@@ -2938,7 +3539,7 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
   final Value<DateTime> lastEmergencyUsed;
   final Value<bool> isOnboardingDone;
   final Value<String> appVersion;
-  const MindfulSettingsTableCompanion({
+  const ManoDhyanSettingsTableCompanion({
     this.id = const Value.absent(),
     this.themeMode = const Value.absent(),
     this.accentColor = const Value.absent(),
@@ -2953,7 +3554,7 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
     this.isOnboardingDone = const Value.absent(),
     this.appVersion = const Value.absent(),
   });
-  MindfulSettingsTableCompanion.insert({
+  ManoDhyanSettingsTableCompanion.insert({
     this.id = const Value.absent(),
     this.themeMode = const Value.absent(),
     this.accentColor = const Value.absent(),
@@ -2968,7 +3569,7 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
     this.isOnboardingDone = const Value.absent(),
     this.appVersion = const Value.absent(),
   });
-  static Insertable<MindfulSettings> custom({
+  static Insertable<ManoDhyanSettings> custom({
     Expression<int>? id,
     Expression<int>? themeMode,
     Expression<String>? accentColor,
@@ -3001,21 +3602,22 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
     });
   }
 
-  MindfulSettingsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<AppThemeMode>? themeMode,
-      Value<String>? accentColor,
-      Value<String>? username,
-      Value<String>? localeCode,
-      Value<bool>? useAmoledDark,
-      Value<bool>? useDynamicColors,
-      Value<DefaultHomeTab>? defaultHomeTab,
-      Value<int>? usageHistoryWeeks,
-      Value<int>? leftEmergencyPasses,
-      Value<DateTime>? lastEmergencyUsed,
-      Value<bool>? isOnboardingDone,
-      Value<String>? appVersion}) {
-    return MindfulSettingsTableCompanion(
+  ManoDhyanSettingsTableCompanion copyWith({
+    Value<int>? id,
+    Value<AppThemeMode>? themeMode,
+    Value<String>? accentColor,
+    Value<String>? username,
+    Value<String>? localeCode,
+    Value<bool>? useAmoledDark,
+    Value<bool>? useDynamicColors,
+    Value<DefaultHomeTab>? defaultHomeTab,
+    Value<int>? usageHistoryWeeks,
+    Value<int>? leftEmergencyPasses,
+    Value<DateTime>? lastEmergencyUsed,
+    Value<bool>? isOnboardingDone,
+    Value<String>? appVersion,
+  }) {
+    return ManoDhyanSettingsTableCompanion(
       id: id ?? this.id,
       themeMode: themeMode ?? this.themeMode,
       accentColor: accentColor ?? this.accentColor,
@@ -3039,9 +3641,9 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
       map['id'] = Variable<int>(id.value);
     }
     if (themeMode.present) {
-      map['theme_mode'] = Variable<int>($MindfulSettingsTableTable
-          .$converterthemeMode
-          .toSql(themeMode.value));
+      map['theme_mode'] = Variable<int>(
+        $ManoDhyanSettingsTableTable.$converterthemeMode.toSql(themeMode.value),
+      );
     }
     if (accentColor.present) {
       map['accent_color'] = Variable<String>(accentColor.value);
@@ -3059,9 +3661,11 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
       map['use_dynamic_colors'] = Variable<bool>(useDynamicColors.value);
     }
     if (defaultHomeTab.present) {
-      map['default_home_tab'] = Variable<int>($MindfulSettingsTableTable
-          .$converterdefaultHomeTab
-          .toSql(defaultHomeTab.value));
+      map['default_home_tab'] = Variable<int>(
+        $ManoDhyanSettingsTableTable.$converterdefaultHomeTab.toSql(
+          defaultHomeTab.value,
+        ),
+      );
     }
     if (usageHistoryWeeks.present) {
       map['usage_history_weeks'] = Variable<int>(usageHistoryWeeks.value);
@@ -3083,7 +3687,7 @@ class MindfulSettingsTableCompanion extends UpdateCompanion<MindfulSettings> {
 
   @override
   String toString() {
-    return (StringBuffer('MindfulSettingsTableCompanion(')
+    return (StringBuffer('ManoDhyanSettingsTableCompanion(')
           ..write('id: $id, ')
           ..write('themeMode: $themeMode, ')
           ..write('accentColor: $accentColor, ')
@@ -3111,141 +3715,194 @@ class $ParentalControlsTableTable extends ParentalControlsTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _protectedAccessMeta =
-      const VerificationMeta('protectedAccess');
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _protectedAccessMeta = const VerificationMeta(
+    'protectedAccess',
+  );
   @override
   late final GeneratedColumn<bool> protectedAccess = GeneratedColumn<bool>(
-      'protected_access', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("protected_access" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'protected_access',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("protected_access" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      uninstallWindowTime = GeneratedColumn<int>(
-              'uninstall_window_time', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $ParentalControlsTableTable.$converteruninstallWindowTime);
+  uninstallWindowTime = GeneratedColumn<int>(
+    'uninstall_window_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $ParentalControlsTableTable.$converteruninstallWindowTime,
+  );
   static const VerificationMeta _isInvincibleModeOnMeta =
       const VerificationMeta('isInvincibleModeOn');
   @override
   late final GeneratedColumn<bool> isInvincibleModeOn = GeneratedColumn<bool>(
-      'is_invincible_mode_on', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("is_invincible_mode_on" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'is_invincible_mode_on',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_invincible_mode_on" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      invincibleWindowTime = GeneratedColumn<int>(
-              'invincible_window_time', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $ParentalControlsTableTable.$converterinvincibleWindowTime);
-  static const VerificationMeta _includeAppsTimerMeta =
-      const VerificationMeta('includeAppsTimer');
+  invincibleWindowTime = GeneratedColumn<int>(
+    'invincible_window_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $ParentalControlsTableTable.$converterinvincibleWindowTime,
+  );
+  static const VerificationMeta _includeAppsTimerMeta = const VerificationMeta(
+    'includeAppsTimer',
+  );
   @override
   late final GeneratedColumn<bool> includeAppsTimer = GeneratedColumn<bool>(
-      'include_apps_timer', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("include_apps_timer" IN (0, 1))'),
-      defaultValue: const Constant(true));
+    'include_apps_timer',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("include_apps_timer" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
   static const VerificationMeta _includeAppsLaunchLimitMeta =
       const VerificationMeta('includeAppsLaunchLimit');
   @override
   late final GeneratedColumn<bool> includeAppsLaunchLimit =
-      GeneratedColumn<bool>('include_apps_launch_limit', aliasedName, false,
-          type: DriftSqlType.bool,
-          requiredDuringInsert: false,
-          defaultConstraints: GeneratedColumn.constraintIsAlways(
-              'CHECK ("include_apps_launch_limit" IN (0, 1))'),
-          defaultValue: const Constant(false));
+      GeneratedColumn<bool>(
+        'include_apps_launch_limit',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("include_apps_launch_limit" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
   static const VerificationMeta _includeAppsActivePeriodMeta =
       const VerificationMeta('includeAppsActivePeriod');
   @override
   late final GeneratedColumn<bool> includeAppsActivePeriod =
-      GeneratedColumn<bool>('include_apps_active_period', aliasedName, false,
-          type: DriftSqlType.bool,
-          requiredDuringInsert: false,
-          defaultConstraints: GeneratedColumn.constraintIsAlways(
-              'CHECK ("include_apps_active_period" IN (0, 1))'),
-          defaultValue: const Constant(false));
+      GeneratedColumn<bool>(
+        'include_apps_active_period',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("include_apps_active_period" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
   static const VerificationMeta _includeGroupsTimerMeta =
       const VerificationMeta('includeGroupsTimer');
   @override
   late final GeneratedColumn<bool> includeGroupsTimer = GeneratedColumn<bool>(
-      'include_groups_timer', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("include_groups_timer" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'include_groups_timer',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("include_groups_timer" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   static const VerificationMeta _includeGroupsActivePeriodMeta =
       const VerificationMeta('includeGroupsActivePeriod');
   @override
   late final GeneratedColumn<bool> includeGroupsActivePeriod =
-      GeneratedColumn<bool>('include_groups_active_period', aliasedName, false,
-          type: DriftSqlType.bool,
-          requiredDuringInsert: false,
-          defaultConstraints: GeneratedColumn.constraintIsAlways(
-              'CHECK ("include_groups_active_period" IN (0, 1))'),
-          defaultValue: const Constant(false));
+      GeneratedColumn<bool>(
+        'include_groups_active_period',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("include_groups_active_period" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
   static const VerificationMeta _includeShortsTimerMeta =
       const VerificationMeta('includeShortsTimer');
   @override
   late final GeneratedColumn<bool> includeShortsTimer = GeneratedColumn<bool>(
-      'include_shorts_timer', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("include_shorts_timer" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'include_shorts_timer',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("include_shorts_timer" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   static const VerificationMeta _includeBedtimeScheduleMeta =
       const VerificationMeta('includeBedtimeSchedule');
   @override
   late final GeneratedColumn<bool> includeBedtimeSchedule =
-      GeneratedColumn<bool>('include_bedtime_schedule', aliasedName, false,
-          type: DriftSqlType.bool,
-          requiredDuringInsert: false,
-          defaultConstraints: GeneratedColumn.constraintIsAlways(
-              'CHECK ("include_bedtime_schedule" IN (0, 1))'),
-          defaultValue: const Constant(false));
+      GeneratedColumn<bool>(
+        'include_bedtime_schedule',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("include_bedtime_schedule" IN (0, 1))',
+        ),
+        defaultValue: const Constant(false),
+      );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        protectedAccess,
-        uninstallWindowTime,
-        isInvincibleModeOn,
-        invincibleWindowTime,
-        includeAppsTimer,
-        includeAppsLaunchLimit,
-        includeAppsActivePeriod,
-        includeGroupsTimer,
-        includeGroupsActivePeriod,
-        includeShortsTimer,
-        includeBedtimeSchedule
-      ];
+    id,
+    protectedAccess,
+    uninstallWindowTime,
+    isInvincibleModeOn,
+    invincibleWindowTime,
+    includeAppsTimer,
+    includeAppsLaunchLimit,
+    includeAppsActivePeriod,
+    includeGroupsTimer,
+    includeGroupsActivePeriod,
+    includeShortsTimer,
+    includeBedtimeSchedule,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'parental_controls_table';
   @override
-  VerificationContext validateIntegrity(Insertable<ParentalControls> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<ParentalControls> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -3253,59 +3910,84 @@ class $ParentalControlsTableTable extends ParentalControlsTable
     }
     if (data.containsKey('protected_access')) {
       context.handle(
+        _protectedAccessMeta,
+        protectedAccess.isAcceptableOrUnknown(
+          data['protected_access']!,
           _protectedAccessMeta,
-          protectedAccess.isAcceptableOrUnknown(
-              data['protected_access']!, _protectedAccessMeta));
+        ),
+      );
     }
     if (data.containsKey('is_invincible_mode_on')) {
       context.handle(
+        _isInvincibleModeOnMeta,
+        isInvincibleModeOn.isAcceptableOrUnknown(
+          data['is_invincible_mode_on']!,
           _isInvincibleModeOnMeta,
-          isInvincibleModeOn.isAcceptableOrUnknown(
-              data['is_invincible_mode_on']!, _isInvincibleModeOnMeta));
+        ),
+      );
     }
     if (data.containsKey('include_apps_timer')) {
       context.handle(
+        _includeAppsTimerMeta,
+        includeAppsTimer.isAcceptableOrUnknown(
+          data['include_apps_timer']!,
           _includeAppsTimerMeta,
-          includeAppsTimer.isAcceptableOrUnknown(
-              data['include_apps_timer']!, _includeAppsTimerMeta));
+        ),
+      );
     }
     if (data.containsKey('include_apps_launch_limit')) {
       context.handle(
+        _includeAppsLaunchLimitMeta,
+        includeAppsLaunchLimit.isAcceptableOrUnknown(
+          data['include_apps_launch_limit']!,
           _includeAppsLaunchLimitMeta,
-          includeAppsLaunchLimit.isAcceptableOrUnknown(
-              data['include_apps_launch_limit']!, _includeAppsLaunchLimitMeta));
+        ),
+      );
     }
     if (data.containsKey('include_apps_active_period')) {
       context.handle(
+        _includeAppsActivePeriodMeta,
+        includeAppsActivePeriod.isAcceptableOrUnknown(
+          data['include_apps_active_period']!,
           _includeAppsActivePeriodMeta,
-          includeAppsActivePeriod.isAcceptableOrUnknown(
-              data['include_apps_active_period']!,
-              _includeAppsActivePeriodMeta));
+        ),
+      );
     }
     if (data.containsKey('include_groups_timer')) {
       context.handle(
+        _includeGroupsTimerMeta,
+        includeGroupsTimer.isAcceptableOrUnknown(
+          data['include_groups_timer']!,
           _includeGroupsTimerMeta,
-          includeGroupsTimer.isAcceptableOrUnknown(
-              data['include_groups_timer']!, _includeGroupsTimerMeta));
+        ),
+      );
     }
     if (data.containsKey('include_groups_active_period')) {
       context.handle(
+        _includeGroupsActivePeriodMeta,
+        includeGroupsActivePeriod.isAcceptableOrUnknown(
+          data['include_groups_active_period']!,
           _includeGroupsActivePeriodMeta,
-          includeGroupsActivePeriod.isAcceptableOrUnknown(
-              data['include_groups_active_period']!,
-              _includeGroupsActivePeriodMeta));
+        ),
+      );
     }
     if (data.containsKey('include_shorts_timer')) {
       context.handle(
+        _includeShortsTimerMeta,
+        includeShortsTimer.isAcceptableOrUnknown(
+          data['include_shorts_timer']!,
           _includeShortsTimerMeta,
-          includeShortsTimer.isAcceptableOrUnknown(
-              data['include_shorts_timer']!, _includeShortsTimerMeta));
+        ),
+      );
     }
     if (data.containsKey('include_bedtime_schedule')) {
       context.handle(
+        _includeBedtimeScheduleMeta,
+        includeBedtimeSchedule.isAcceptableOrUnknown(
+          data['include_bedtime_schedule']!,
           _includeBedtimeScheduleMeta,
-          includeBedtimeSchedule.isAcceptableOrUnknown(
-              data['include_bedtime_schedule']!, _includeBedtimeScheduleMeta));
+        ),
+      );
     }
     return context;
   }
@@ -3316,38 +3998,72 @@ class $ParentalControlsTableTable extends ParentalControlsTable
   ParentalControls map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ParentalControls(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      protectedAccess: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}protected_access'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      protectedAccess:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}protected_access'],
+          )!,
       uninstallWindowTime: $ParentalControlsTableTable
           .$converteruninstallWindowTime
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.int,
-              data['${effectivePrefix}uninstall_window_time'])!),
-      isInvincibleModeOn: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}is_invincible_mode_on'])!,
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}uninstall_window_time'],
+            )!,
+          ),
+      isInvincibleModeOn:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}is_invincible_mode_on'],
+          )!,
       invincibleWindowTime: $ParentalControlsTableTable
           .$converterinvincibleWindowTime
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.int,
-              data['${effectivePrefix}invincible_window_time'])!),
-      includeAppsTimer: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}include_apps_timer'])!,
-      includeAppsLaunchLimit: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool,
-          data['${effectivePrefix}include_apps_launch_limit'])!,
-      includeAppsActivePeriod: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool,
-          data['${effectivePrefix}include_apps_active_period'])!,
-      includeGroupsTimer: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}include_groups_timer'])!,
-      includeGroupsActivePeriod: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool,
-          data['${effectivePrefix}include_groups_active_period'])!,
-      includeShortsTimer: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}include_shorts_timer'])!,
-      includeBedtimeSchedule: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool,
-          data['${effectivePrefix}include_bedtime_schedule'])!,
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}invincible_window_time'],
+            )!,
+          ),
+      includeAppsTimer:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_apps_timer'],
+          )!,
+      includeAppsLaunchLimit:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_apps_launch_limit'],
+          )!,
+      includeAppsActivePeriod:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_apps_active_period'],
+          )!,
+      includeGroupsTimer:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_groups_timer'],
+          )!,
+      includeGroupsActivePeriod:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_groups_active_period'],
+          )!,
+      includeShortsTimer:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_shorts_timer'],
+          )!,
+      includeBedtimeSchedule:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}include_bedtime_schedule'],
+          )!,
     );
   }
 
@@ -3357,9 +4073,9 @@ class $ParentalControlsTableTable extends ParentalControlsTable
   }
 
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converteruninstallWindowTime = const TimeOfDayAdapterConverter();
+  $converteruninstallWindowTime = const TimeOfDayAdapterConverter();
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converterinvincibleWindowTime = const TimeOfDayAdapterConverter();
+  $converterinvincibleWindowTime = const TimeOfDayAdapterConverter();
 }
 
 class ParentalControls extends DataClass
@@ -3367,7 +4083,7 @@ class ParentalControls extends DataClass
   /// Unique ID for Invincible Mode settings
   final int id;
 
-  /// Flag indicating whether to authenticate before opening Mindful or not
+  /// Flag indicating whether to authenticate before opening ManoDhyan or not
   final bool protectedAccess;
 
   /// Daily uninstall window start time [TimeOfDay] stored as minutes
@@ -3413,41 +4129,47 @@ class ParentalControls extends DataClass
   ///
   /// If included user cannot modify bedtime schedule during the active period
   final bool includeBedtimeSchedule;
-  const ParentalControls(
-      {required this.id,
-      required this.protectedAccess,
-      required this.uninstallWindowTime,
-      required this.isInvincibleModeOn,
-      required this.invincibleWindowTime,
-      required this.includeAppsTimer,
-      required this.includeAppsLaunchLimit,
-      required this.includeAppsActivePeriod,
-      required this.includeGroupsTimer,
-      required this.includeGroupsActivePeriod,
-      required this.includeShortsTimer,
-      required this.includeBedtimeSchedule});
+  const ParentalControls({
+    required this.id,
+    required this.protectedAccess,
+    required this.uninstallWindowTime,
+    required this.isInvincibleModeOn,
+    required this.invincibleWindowTime,
+    required this.includeAppsTimer,
+    required this.includeAppsLaunchLimit,
+    required this.includeAppsActivePeriod,
+    required this.includeGroupsTimer,
+    required this.includeGroupsActivePeriod,
+    required this.includeShortsTimer,
+    required this.includeBedtimeSchedule,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['protected_access'] = Variable<bool>(protectedAccess);
     {
-      map['uninstall_window_time'] = Variable<int>($ParentalControlsTableTable
-          .$converteruninstallWindowTime
-          .toSql(uninstallWindowTime));
+      map['uninstall_window_time'] = Variable<int>(
+        $ParentalControlsTableTable.$converteruninstallWindowTime.toSql(
+          uninstallWindowTime,
+        ),
+      );
     }
     map['is_invincible_mode_on'] = Variable<bool>(isInvincibleModeOn);
     {
-      map['invincible_window_time'] = Variable<int>($ParentalControlsTableTable
-          .$converterinvincibleWindowTime
-          .toSql(invincibleWindowTime));
+      map['invincible_window_time'] = Variable<int>(
+        $ParentalControlsTableTable.$converterinvincibleWindowTime.toSql(
+          invincibleWindowTime,
+        ),
+      );
     }
     map['include_apps_timer'] = Variable<bool>(includeAppsTimer);
     map['include_apps_launch_limit'] = Variable<bool>(includeAppsLaunchLimit);
     map['include_apps_active_period'] = Variable<bool>(includeAppsActivePeriod);
     map['include_groups_timer'] = Variable<bool>(includeGroupsTimer);
-    map['include_groups_active_period'] =
-        Variable<bool>(includeGroupsActivePeriod);
+    map['include_groups_active_period'] = Variable<bool>(
+      includeGroupsActivePeriod,
+    );
     map['include_shorts_timer'] = Variable<bool>(includeShortsTimer);
     map['include_bedtime_schedule'] = Variable<bool>(includeBedtimeSchedule);
     return map;
@@ -3470,8 +4192,10 @@ class ParentalControls extends DataClass
     );
   }
 
-  factory ParentalControls.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory ParentalControls.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ParentalControls(
       id: serializer.fromJson<int>(json['id']),
@@ -3484,16 +4208,20 @@ class ParentalControls extends DataClass
           .$converterinvincibleWindowTime
           .fromJson(serializer.fromJson<dynamic>(json['invincibleWindowTime'])),
       includeAppsTimer: serializer.fromJson<bool>(json['includeAppsTimer']),
-      includeAppsLaunchLimit:
-          serializer.fromJson<bool>(json['includeAppsLaunchLimit']),
-      includeAppsActivePeriod:
-          serializer.fromJson<bool>(json['includeAppsActivePeriod']),
+      includeAppsLaunchLimit: serializer.fromJson<bool>(
+        json['includeAppsLaunchLimit'],
+      ),
+      includeAppsActivePeriod: serializer.fromJson<bool>(
+        json['includeAppsActivePeriod'],
+      ),
       includeGroupsTimer: serializer.fromJson<bool>(json['includeGroupsTimer']),
-      includeGroupsActivePeriod:
-          serializer.fromJson<bool>(json['includeGroupsActivePeriod']),
+      includeGroupsActivePeriod: serializer.fromJson<bool>(
+        json['includeGroupsActivePeriod'],
+      ),
       includeShortsTimer: serializer.fromJson<bool>(json['includeShortsTimer']),
-      includeBedtimeSchedule:
-          serializer.fromJson<bool>(json['includeBedtimeSchedule']),
+      includeBedtimeSchedule: serializer.fromJson<bool>(
+        json['includeBedtimeSchedule'],
+      ),
     );
   }
   @override
@@ -3503,91 +4231,108 @@ class ParentalControls extends DataClass
       'id': serializer.toJson<int>(id),
       'protectedAccess': serializer.toJson<bool>(protectedAccess),
       'uninstallWindowTime': serializer.toJson<dynamic>(
-          $ParentalControlsTableTable.$converteruninstallWindowTime
-              .toJson(uninstallWindowTime)),
+        $ParentalControlsTableTable.$converteruninstallWindowTime.toJson(
+          uninstallWindowTime,
+        ),
+      ),
       'isInvincibleModeOn': serializer.toJson<bool>(isInvincibleModeOn),
       'invincibleWindowTime': serializer.toJson<dynamic>(
-          $ParentalControlsTableTable.$converterinvincibleWindowTime
-              .toJson(invincibleWindowTime)),
+        $ParentalControlsTableTable.$converterinvincibleWindowTime.toJson(
+          invincibleWindowTime,
+        ),
+      ),
       'includeAppsTimer': serializer.toJson<bool>(includeAppsTimer),
       'includeAppsLaunchLimit': serializer.toJson<bool>(includeAppsLaunchLimit),
-      'includeAppsActivePeriod':
-          serializer.toJson<bool>(includeAppsActivePeriod),
+      'includeAppsActivePeriod': serializer.toJson<bool>(
+        includeAppsActivePeriod,
+      ),
       'includeGroupsTimer': serializer.toJson<bool>(includeGroupsTimer),
-      'includeGroupsActivePeriod':
-          serializer.toJson<bool>(includeGroupsActivePeriod),
+      'includeGroupsActivePeriod': serializer.toJson<bool>(
+        includeGroupsActivePeriod,
+      ),
       'includeShortsTimer': serializer.toJson<bool>(includeShortsTimer),
       'includeBedtimeSchedule': serializer.toJson<bool>(includeBedtimeSchedule),
     };
   }
 
-  ParentalControls copyWith(
-          {int? id,
-          bool? protectedAccess,
-          TimeOfDayAdapter? uninstallWindowTime,
-          bool? isInvincibleModeOn,
-          TimeOfDayAdapter? invincibleWindowTime,
-          bool? includeAppsTimer,
-          bool? includeAppsLaunchLimit,
-          bool? includeAppsActivePeriod,
-          bool? includeGroupsTimer,
-          bool? includeGroupsActivePeriod,
-          bool? includeShortsTimer,
-          bool? includeBedtimeSchedule}) =>
-      ParentalControls(
-        id: id ?? this.id,
-        protectedAccess: protectedAccess ?? this.protectedAccess,
-        uninstallWindowTime: uninstallWindowTime ?? this.uninstallWindowTime,
-        isInvincibleModeOn: isInvincibleModeOn ?? this.isInvincibleModeOn,
-        invincibleWindowTime: invincibleWindowTime ?? this.invincibleWindowTime,
-        includeAppsTimer: includeAppsTimer ?? this.includeAppsTimer,
-        includeAppsLaunchLimit:
-            includeAppsLaunchLimit ?? this.includeAppsLaunchLimit,
-        includeAppsActivePeriod:
-            includeAppsActivePeriod ?? this.includeAppsActivePeriod,
-        includeGroupsTimer: includeGroupsTimer ?? this.includeGroupsTimer,
-        includeGroupsActivePeriod:
-            includeGroupsActivePeriod ?? this.includeGroupsActivePeriod,
-        includeShortsTimer: includeShortsTimer ?? this.includeShortsTimer,
-        includeBedtimeSchedule:
-            includeBedtimeSchedule ?? this.includeBedtimeSchedule,
-      );
+  ParentalControls copyWith({
+    int? id,
+    bool? protectedAccess,
+    TimeOfDayAdapter? uninstallWindowTime,
+    bool? isInvincibleModeOn,
+    TimeOfDayAdapter? invincibleWindowTime,
+    bool? includeAppsTimer,
+    bool? includeAppsLaunchLimit,
+    bool? includeAppsActivePeriod,
+    bool? includeGroupsTimer,
+    bool? includeGroupsActivePeriod,
+    bool? includeShortsTimer,
+    bool? includeBedtimeSchedule,
+  }) => ParentalControls(
+    id: id ?? this.id,
+    protectedAccess: protectedAccess ?? this.protectedAccess,
+    uninstallWindowTime: uninstallWindowTime ?? this.uninstallWindowTime,
+    isInvincibleModeOn: isInvincibleModeOn ?? this.isInvincibleModeOn,
+    invincibleWindowTime: invincibleWindowTime ?? this.invincibleWindowTime,
+    includeAppsTimer: includeAppsTimer ?? this.includeAppsTimer,
+    includeAppsLaunchLimit:
+        includeAppsLaunchLimit ?? this.includeAppsLaunchLimit,
+    includeAppsActivePeriod:
+        includeAppsActivePeriod ?? this.includeAppsActivePeriod,
+    includeGroupsTimer: includeGroupsTimer ?? this.includeGroupsTimer,
+    includeGroupsActivePeriod:
+        includeGroupsActivePeriod ?? this.includeGroupsActivePeriod,
+    includeShortsTimer: includeShortsTimer ?? this.includeShortsTimer,
+    includeBedtimeSchedule:
+        includeBedtimeSchedule ?? this.includeBedtimeSchedule,
+  );
   ParentalControls copyWithCompanion(ParentalControlsTableCompanion data) {
     return ParentalControls(
       id: data.id.present ? data.id.value : this.id,
-      protectedAccess: data.protectedAccess.present
-          ? data.protectedAccess.value
-          : this.protectedAccess,
-      uninstallWindowTime: data.uninstallWindowTime.present
-          ? data.uninstallWindowTime.value
-          : this.uninstallWindowTime,
-      isInvincibleModeOn: data.isInvincibleModeOn.present
-          ? data.isInvincibleModeOn.value
-          : this.isInvincibleModeOn,
-      invincibleWindowTime: data.invincibleWindowTime.present
-          ? data.invincibleWindowTime.value
-          : this.invincibleWindowTime,
-      includeAppsTimer: data.includeAppsTimer.present
-          ? data.includeAppsTimer.value
-          : this.includeAppsTimer,
-      includeAppsLaunchLimit: data.includeAppsLaunchLimit.present
-          ? data.includeAppsLaunchLimit.value
-          : this.includeAppsLaunchLimit,
-      includeAppsActivePeriod: data.includeAppsActivePeriod.present
-          ? data.includeAppsActivePeriod.value
-          : this.includeAppsActivePeriod,
-      includeGroupsTimer: data.includeGroupsTimer.present
-          ? data.includeGroupsTimer.value
-          : this.includeGroupsTimer,
-      includeGroupsActivePeriod: data.includeGroupsActivePeriod.present
-          ? data.includeGroupsActivePeriod.value
-          : this.includeGroupsActivePeriod,
-      includeShortsTimer: data.includeShortsTimer.present
-          ? data.includeShortsTimer.value
-          : this.includeShortsTimer,
-      includeBedtimeSchedule: data.includeBedtimeSchedule.present
-          ? data.includeBedtimeSchedule.value
-          : this.includeBedtimeSchedule,
+      protectedAccess:
+          data.protectedAccess.present
+              ? data.protectedAccess.value
+              : this.protectedAccess,
+      uninstallWindowTime:
+          data.uninstallWindowTime.present
+              ? data.uninstallWindowTime.value
+              : this.uninstallWindowTime,
+      isInvincibleModeOn:
+          data.isInvincibleModeOn.present
+              ? data.isInvincibleModeOn.value
+              : this.isInvincibleModeOn,
+      invincibleWindowTime:
+          data.invincibleWindowTime.present
+              ? data.invincibleWindowTime.value
+              : this.invincibleWindowTime,
+      includeAppsTimer:
+          data.includeAppsTimer.present
+              ? data.includeAppsTimer.value
+              : this.includeAppsTimer,
+      includeAppsLaunchLimit:
+          data.includeAppsLaunchLimit.present
+              ? data.includeAppsLaunchLimit.value
+              : this.includeAppsLaunchLimit,
+      includeAppsActivePeriod:
+          data.includeAppsActivePeriod.present
+              ? data.includeAppsActivePeriod.value
+              : this.includeAppsActivePeriod,
+      includeGroupsTimer:
+          data.includeGroupsTimer.present
+              ? data.includeGroupsTimer.value
+              : this.includeGroupsTimer,
+      includeGroupsActivePeriod:
+          data.includeGroupsActivePeriod.present
+              ? data.includeGroupsActivePeriod.value
+              : this.includeGroupsActivePeriod,
+      includeShortsTimer:
+          data.includeShortsTimer.present
+              ? data.includeShortsTimer.value
+              : this.includeShortsTimer,
+      includeBedtimeSchedule:
+          data.includeBedtimeSchedule.present
+              ? data.includeBedtimeSchedule.value
+              : this.includeBedtimeSchedule,
     );
   }
 
@@ -3612,18 +4357,19 @@ class ParentalControls extends DataClass
 
   @override
   int get hashCode => Object.hash(
-      id,
-      protectedAccess,
-      uninstallWindowTime,
-      isInvincibleModeOn,
-      invincibleWindowTime,
-      includeAppsTimer,
-      includeAppsLaunchLimit,
-      includeAppsActivePeriod,
-      includeGroupsTimer,
-      includeGroupsActivePeriod,
-      includeShortsTimer,
-      includeBedtimeSchedule);
+    id,
+    protectedAccess,
+    uninstallWindowTime,
+    isInvincibleModeOn,
+    invincibleWindowTime,
+    includeAppsTimer,
+    includeAppsLaunchLimit,
+    includeAppsActivePeriod,
+    includeGroupsTimer,
+    includeGroupsActivePeriod,
+    includeShortsTimer,
+    includeBedtimeSchedule,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -3722,19 +4468,20 @@ class ParentalControlsTableCompanion extends UpdateCompanion<ParentalControls> {
     });
   }
 
-  ParentalControlsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<bool>? protectedAccess,
-      Value<TimeOfDayAdapter>? uninstallWindowTime,
-      Value<bool>? isInvincibleModeOn,
-      Value<TimeOfDayAdapter>? invincibleWindowTime,
-      Value<bool>? includeAppsTimer,
-      Value<bool>? includeAppsLaunchLimit,
-      Value<bool>? includeAppsActivePeriod,
-      Value<bool>? includeGroupsTimer,
-      Value<bool>? includeGroupsActivePeriod,
-      Value<bool>? includeShortsTimer,
-      Value<bool>? includeBedtimeSchedule}) {
+  ParentalControlsTableCompanion copyWith({
+    Value<int>? id,
+    Value<bool>? protectedAccess,
+    Value<TimeOfDayAdapter>? uninstallWindowTime,
+    Value<bool>? isInvincibleModeOn,
+    Value<TimeOfDayAdapter>? invincibleWindowTime,
+    Value<bool>? includeAppsTimer,
+    Value<bool>? includeAppsLaunchLimit,
+    Value<bool>? includeAppsActivePeriod,
+    Value<bool>? includeGroupsTimer,
+    Value<bool>? includeGroupsActivePeriod,
+    Value<bool>? includeShortsTimer,
+    Value<bool>? includeBedtimeSchedule,
+  }) {
     return ParentalControlsTableCompanion(
       id: id ?? this.id,
       protectedAccess: protectedAccess ?? this.protectedAccess,
@@ -3765,42 +4512,50 @@ class ParentalControlsTableCompanion extends UpdateCompanion<ParentalControls> {
       map['protected_access'] = Variable<bool>(protectedAccess.value);
     }
     if (uninstallWindowTime.present) {
-      map['uninstall_window_time'] = Variable<int>($ParentalControlsTableTable
-          .$converteruninstallWindowTime
-          .toSql(uninstallWindowTime.value));
+      map['uninstall_window_time'] = Variable<int>(
+        $ParentalControlsTableTable.$converteruninstallWindowTime.toSql(
+          uninstallWindowTime.value,
+        ),
+      );
     }
     if (isInvincibleModeOn.present) {
       map['is_invincible_mode_on'] = Variable<bool>(isInvincibleModeOn.value);
     }
     if (invincibleWindowTime.present) {
-      map['invincible_window_time'] = Variable<int>($ParentalControlsTableTable
-          .$converterinvincibleWindowTime
-          .toSql(invincibleWindowTime.value));
+      map['invincible_window_time'] = Variable<int>(
+        $ParentalControlsTableTable.$converterinvincibleWindowTime.toSql(
+          invincibleWindowTime.value,
+        ),
+      );
     }
     if (includeAppsTimer.present) {
       map['include_apps_timer'] = Variable<bool>(includeAppsTimer.value);
     }
     if (includeAppsLaunchLimit.present) {
-      map['include_apps_launch_limit'] =
-          Variable<bool>(includeAppsLaunchLimit.value);
+      map['include_apps_launch_limit'] = Variable<bool>(
+        includeAppsLaunchLimit.value,
+      );
     }
     if (includeAppsActivePeriod.present) {
-      map['include_apps_active_period'] =
-          Variable<bool>(includeAppsActivePeriod.value);
+      map['include_apps_active_period'] = Variable<bool>(
+        includeAppsActivePeriod.value,
+      );
     }
     if (includeGroupsTimer.present) {
       map['include_groups_timer'] = Variable<bool>(includeGroupsTimer.value);
     }
     if (includeGroupsActivePeriod.present) {
-      map['include_groups_active_period'] =
-          Variable<bool>(includeGroupsActivePeriod.value);
+      map['include_groups_active_period'] = Variable<bool>(
+        includeGroupsActivePeriod.value,
+      );
     }
     if (includeShortsTimer.present) {
       map['include_shorts_timer'] = Variable<bool>(includeShortsTimer.value);
     }
     if (includeBedtimeSchedule.present) {
-      map['include_bedtime_schedule'] =
-          Variable<bool>(includeBedtimeSchedule.value);
+      map['include_bedtime_schedule'] = Variable<bool>(
+        includeBedtimeSchedule.value,
+      );
     }
     return map;
   }
@@ -3834,99 +4589,132 @@ class $RestrictionGroupsTableTable extends RestrictionGroupsTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _groupNameMeta =
-      const VerificationMeta('groupName');
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _groupNameMeta = const VerificationMeta(
+    'groupName',
+  );
   @override
   late final GeneratedColumn<String> groupName = GeneratedColumn<String>(
-      'group_name', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant("Social"));
-  static const VerificationMeta _timerSecMeta =
-      const VerificationMeta('timerSec');
+    'group_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant("Social"),
+  );
+  static const VerificationMeta _timerSecMeta = const VerificationMeta(
+    'timerSec',
+  );
   @override
   late final GeneratedColumn<int> timerSec = GeneratedColumn<int>(
-      'timer_sec', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'timer_sec',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      activePeriodStart = GeneratedColumn<int>(
-              'active_period_start', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $RestrictionGroupsTableTable.$converteractivePeriodStart);
+  activePeriodStart = GeneratedColumn<int>(
+    'active_period_start',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $RestrictionGroupsTableTable.$converteractivePeriodStart,
+  );
   @override
   late final GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      activePeriodEnd = GeneratedColumn<int>(
-              'active_period_end', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<TimeOfDayAdapter>(
-              $RestrictionGroupsTableTable.$converteractivePeriodEnd);
+  activePeriodEnd = GeneratedColumn<int>(
+    'active_period_end',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  ).withConverter<TimeOfDayAdapter>(
+    $RestrictionGroupsTableTable.$converteractivePeriodEnd,
+  );
   static const VerificationMeta _periodDurationInMinsMeta =
       const VerificationMeta('periodDurationInMins');
   @override
   late final GeneratedColumn<int> periodDurationInMins = GeneratedColumn<int>(
-      'period_duration_in_mins', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'period_duration_in_mins',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      distractingApps = GeneratedColumn<String>(
-              'distracting_apps', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $RestrictionGroupsTableTable.$converterdistractingApps);
+  distractingApps = GeneratedColumn<String>(
+    'distracting_apps',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>(
+    $RestrictionGroupsTableTable.$converterdistractingApps,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        groupName,
-        timerSec,
-        activePeriodStart,
-        activePeriodEnd,
-        periodDurationInMins,
-        distractingApps
-      ];
+    id,
+    groupName,
+    timerSec,
+    activePeriodStart,
+    activePeriodEnd,
+    periodDurationInMins,
+    distractingApps,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'restriction_groups_table';
   @override
-  VerificationContext validateIntegrity(Insertable<RestrictionGroup> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<RestrictionGroup> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
     if (data.containsKey('group_name')) {
-      context.handle(_groupNameMeta,
-          groupName.isAcceptableOrUnknown(data['group_name']!, _groupNameMeta));
+      context.handle(
+        _groupNameMeta,
+        groupName.isAcceptableOrUnknown(data['group_name']!, _groupNameMeta),
+      );
     }
     if (data.containsKey('timer_sec')) {
-      context.handle(_timerSecMeta,
-          timerSec.isAcceptableOrUnknown(data['timer_sec']!, _timerSecMeta));
+      context.handle(
+        _timerSecMeta,
+        timerSec.isAcceptableOrUnknown(data['timer_sec']!, _timerSecMeta),
+      );
     }
     if (data.containsKey('period_duration_in_mins')) {
       context.handle(
+        _periodDurationInMinsMeta,
+        periodDurationInMins.isAcceptableOrUnknown(
+          data['period_duration_in_mins']!,
           _periodDurationInMinsMeta,
-          periodDurationInMins.isAcceptableOrUnknown(
-              data['period_duration_in_mins']!, _periodDurationInMinsMeta));
+        ),
+      );
     }
     return context;
   }
@@ -3937,24 +4725,48 @@ class $RestrictionGroupsTableTable extends RestrictionGroupsTable
   RestrictionGroup map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return RestrictionGroup(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      groupName: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}group_name'])!,
-      timerSec: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}timer_sec'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      groupName:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}group_name'],
+          )!,
+      timerSec:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}timer_sec'],
+          )!,
       activePeriodStart: $RestrictionGroupsTableTable
           .$converteractivePeriodStart
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.int,
-              data['${effectivePrefix}active_period_start'])!),
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}active_period_start'],
+            )!,
+          ),
       activePeriodEnd: $RestrictionGroupsTableTable.$converteractivePeriodEnd
-          .fromSql(attachedDatabase.typeMapping.read(
-              DriftSqlType.int, data['${effectivePrefix}active_period_end'])!),
-      periodDurationInMins: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}period_duration_in_mins'])!,
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.int,
+              data['${effectivePrefix}active_period_end'],
+            )!,
+          ),
+      periodDurationInMins:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}period_duration_in_mins'],
+          )!,
       distractingApps: $RestrictionGroupsTableTable.$converterdistractingApps
-          .fromSql(attachedDatabase.typeMapping.read(DriftSqlType.string,
-              data['${effectivePrefix}distracting_apps'])!),
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}distracting_apps'],
+            )!,
+          ),
     );
   }
 
@@ -3964,9 +4776,9 @@ class $RestrictionGroupsTableTable extends RestrictionGroupsTable
   }
 
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converteractivePeriodStart = const TimeOfDayAdapterConverter();
+  $converteractivePeriodStart = const TimeOfDayAdapterConverter();
   static JsonTypeConverter2<TimeOfDayAdapter, int, dynamic>
-      $converteractivePeriodEnd = const TimeOfDayAdapterConverter();
+  $converteractivePeriodEnd = const TimeOfDayAdapterConverter();
   static TypeConverter<List<String>, String> $converterdistractingApps =
       const StringListConverter();
 }
@@ -3995,14 +4807,15 @@ class RestrictionGroup extends DataClass
 
   /// List of app's packages which are associated with the group.
   final List<String> distractingApps;
-  const RestrictionGroup(
-      {required this.id,
-      required this.groupName,
-      required this.timerSec,
-      required this.activePeriodStart,
-      required this.activePeriodEnd,
-      required this.periodDurationInMins,
-      required this.distractingApps});
+  const RestrictionGroup({
+    required this.id,
+    required this.groupName,
+    required this.timerSec,
+    required this.activePeriodStart,
+    required this.activePeriodEnd,
+    required this.periodDurationInMins,
+    required this.distractingApps,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -4010,20 +4823,26 @@ class RestrictionGroup extends DataClass
     map['group_name'] = Variable<String>(groupName);
     map['timer_sec'] = Variable<int>(timerSec);
     {
-      map['active_period_start'] = Variable<int>($RestrictionGroupsTableTable
-          .$converteractivePeriodStart
-          .toSql(activePeriodStart));
+      map['active_period_start'] = Variable<int>(
+        $RestrictionGroupsTableTable.$converteractivePeriodStart.toSql(
+          activePeriodStart,
+        ),
+      );
     }
     {
-      map['active_period_end'] = Variable<int>($RestrictionGroupsTableTable
-          .$converteractivePeriodEnd
-          .toSql(activePeriodEnd));
+      map['active_period_end'] = Variable<int>(
+        $RestrictionGroupsTableTable.$converteractivePeriodEnd.toSql(
+          activePeriodEnd,
+        ),
+      );
     }
     map['period_duration_in_mins'] = Variable<int>(periodDurationInMins);
     {
-      map['distracting_apps'] = Variable<String>($RestrictionGroupsTableTable
-          .$converterdistractingApps
-          .toSql(distractingApps));
+      map['distracting_apps'] = Variable<String>(
+        $RestrictionGroupsTableTable.$converterdistractingApps.toSql(
+          distractingApps,
+        ),
+      );
     }
     return map;
   }
@@ -4040,8 +4859,10 @@ class RestrictionGroup extends DataClass
     );
   }
 
-  factory RestrictionGroup.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory RestrictionGroup.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return RestrictionGroup(
       id: serializer.fromJson<int>(json['id']),
@@ -4052,10 +4873,12 @@ class RestrictionGroup extends DataClass
           .fromJson(serializer.fromJson<dynamic>(json['activePeriodStart'])),
       activePeriodEnd: $RestrictionGroupsTableTable.$converteractivePeriodEnd
           .fromJson(serializer.fromJson<dynamic>(json['activePeriodEnd'])),
-      periodDurationInMins:
-          serializer.fromJson<int>(json['periodDurationInMins']),
-      distractingApps:
-          serializer.fromJson<List<String>>(json['distractingApps']),
+      periodDurationInMins: serializer.fromJson<int>(
+        json['periodDurationInMins'],
+      ),
+      distractingApps: serializer.fromJson<List<String>>(
+        json['distractingApps'],
+      ),
     );
   }
   @override
@@ -4066,50 +4889,58 @@ class RestrictionGroup extends DataClass
       'groupName': serializer.toJson<String>(groupName),
       'timerSec': serializer.toJson<int>(timerSec),
       'activePeriodStart': serializer.toJson<dynamic>(
-          $RestrictionGroupsTableTable.$converteractivePeriodStart
-              .toJson(activePeriodStart)),
-      'activePeriodEnd': serializer.toJson<dynamic>($RestrictionGroupsTableTable
-          .$converteractivePeriodEnd
-          .toJson(activePeriodEnd)),
+        $RestrictionGroupsTableTable.$converteractivePeriodStart.toJson(
+          activePeriodStart,
+        ),
+      ),
+      'activePeriodEnd': serializer.toJson<dynamic>(
+        $RestrictionGroupsTableTable.$converteractivePeriodEnd.toJson(
+          activePeriodEnd,
+        ),
+      ),
       'periodDurationInMins': serializer.toJson<int>(periodDurationInMins),
       'distractingApps': serializer.toJson<List<String>>(distractingApps),
     };
   }
 
-  RestrictionGroup copyWith(
-          {int? id,
-          String? groupName,
-          int? timerSec,
-          TimeOfDayAdapter? activePeriodStart,
-          TimeOfDayAdapter? activePeriodEnd,
-          int? periodDurationInMins,
-          List<String>? distractingApps}) =>
-      RestrictionGroup(
-        id: id ?? this.id,
-        groupName: groupName ?? this.groupName,
-        timerSec: timerSec ?? this.timerSec,
-        activePeriodStart: activePeriodStart ?? this.activePeriodStart,
-        activePeriodEnd: activePeriodEnd ?? this.activePeriodEnd,
-        periodDurationInMins: periodDurationInMins ?? this.periodDurationInMins,
-        distractingApps: distractingApps ?? this.distractingApps,
-      );
+  RestrictionGroup copyWith({
+    int? id,
+    String? groupName,
+    int? timerSec,
+    TimeOfDayAdapter? activePeriodStart,
+    TimeOfDayAdapter? activePeriodEnd,
+    int? periodDurationInMins,
+    List<String>? distractingApps,
+  }) => RestrictionGroup(
+    id: id ?? this.id,
+    groupName: groupName ?? this.groupName,
+    timerSec: timerSec ?? this.timerSec,
+    activePeriodStart: activePeriodStart ?? this.activePeriodStart,
+    activePeriodEnd: activePeriodEnd ?? this.activePeriodEnd,
+    periodDurationInMins: periodDurationInMins ?? this.periodDurationInMins,
+    distractingApps: distractingApps ?? this.distractingApps,
+  );
   RestrictionGroup copyWithCompanion(RestrictionGroupsTableCompanion data) {
     return RestrictionGroup(
       id: data.id.present ? data.id.value : this.id,
       groupName: data.groupName.present ? data.groupName.value : this.groupName,
       timerSec: data.timerSec.present ? data.timerSec.value : this.timerSec,
-      activePeriodStart: data.activePeriodStart.present
-          ? data.activePeriodStart.value
-          : this.activePeriodStart,
-      activePeriodEnd: data.activePeriodEnd.present
-          ? data.activePeriodEnd.value
-          : this.activePeriodEnd,
-      periodDurationInMins: data.periodDurationInMins.present
-          ? data.periodDurationInMins.value
-          : this.periodDurationInMins,
-      distractingApps: data.distractingApps.present
-          ? data.distractingApps.value
-          : this.distractingApps,
+      activePeriodStart:
+          data.activePeriodStart.present
+              ? data.activePeriodStart.value
+              : this.activePeriodStart,
+      activePeriodEnd:
+          data.activePeriodEnd.present
+              ? data.activePeriodEnd.value
+              : this.activePeriodEnd,
+      periodDurationInMins:
+          data.periodDurationInMins.present
+              ? data.periodDurationInMins.value
+              : this.periodDurationInMins,
+      distractingApps:
+          data.distractingApps.present
+              ? data.distractingApps.value
+              : this.distractingApps,
     );
   }
 
@@ -4128,8 +4959,15 @@ class RestrictionGroup extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, groupName, timerSec, activePeriodStart,
-      activePeriodEnd, periodDurationInMins, distractingApps);
+  int get hashCode => Object.hash(
+    id,
+    groupName,
+    timerSec,
+    activePeriodStart,
+    activePeriodEnd,
+    periodDurationInMins,
+    distractingApps,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -4191,14 +5029,15 @@ class RestrictionGroupsTableCompanion
     });
   }
 
-  RestrictionGroupsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? groupName,
-      Value<int>? timerSec,
-      Value<TimeOfDayAdapter>? activePeriodStart,
-      Value<TimeOfDayAdapter>? activePeriodEnd,
-      Value<int>? periodDurationInMins,
-      Value<List<String>>? distractingApps}) {
+  RestrictionGroupsTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? groupName,
+    Value<int>? timerSec,
+    Value<TimeOfDayAdapter>? activePeriodStart,
+    Value<TimeOfDayAdapter>? activePeriodEnd,
+    Value<int>? periodDurationInMins,
+    Value<List<String>>? distractingApps,
+  }) {
     return RestrictionGroupsTableCompanion(
       id: id ?? this.id,
       groupName: groupName ?? this.groupName,
@@ -4223,23 +5062,30 @@ class RestrictionGroupsTableCompanion
       map['timer_sec'] = Variable<int>(timerSec.value);
     }
     if (activePeriodStart.present) {
-      map['active_period_start'] = Variable<int>($RestrictionGroupsTableTable
-          .$converteractivePeriodStart
-          .toSql(activePeriodStart.value));
+      map['active_period_start'] = Variable<int>(
+        $RestrictionGroupsTableTable.$converteractivePeriodStart.toSql(
+          activePeriodStart.value,
+        ),
+      );
     }
     if (activePeriodEnd.present) {
-      map['active_period_end'] = Variable<int>($RestrictionGroupsTableTable
-          .$converteractivePeriodEnd
-          .toSql(activePeriodEnd.value));
+      map['active_period_end'] = Variable<int>(
+        $RestrictionGroupsTableTable.$converteractivePeriodEnd.toSql(
+          activePeriodEnd.value,
+        ),
+      );
     }
     if (periodDurationInMins.present) {
-      map['period_duration_in_mins'] =
-          Variable<int>(periodDurationInMins.value);
+      map['period_duration_in_mins'] = Variable<int>(
+        periodDurationInMins.value,
+      );
     }
     if (distractingApps.present) {
-      map['distracting_apps'] = Variable<String>($RestrictionGroupsTableTable
-          .$converterdistractingApps
-          .toSql(distractingApps.value));
+      map['distracting_apps'] = Variable<String>(
+        $RestrictionGroupsTableTable.$converterdistractingApps.toSql(
+          distractingApps.value,
+        ),
+      );
     }
     return map;
   }
@@ -4268,72 +5114,90 @@ class $WellbeingTableTable extends WellbeingTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   static const VerificationMeta _allowedShortsTimeSecMeta =
       const VerificationMeta('allowedShortsTimeSec');
   @override
   late final GeneratedColumn<int> allowedShortsTimeSec = GeneratedColumn<int>(
-      'allowed_shorts_time_sec', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(30 * 60));
+    'allowed_shorts_time_sec',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(30 * 60),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<PlatformFeatures>, String>
-      blockedFeatures = GeneratedColumn<String>(
-              'blocked_features', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<PlatformFeatures>>(
-              $WellbeingTableTable.$converterblockedFeatures);
-  static const VerificationMeta _blockNsfwSitesMeta =
-      const VerificationMeta('blockNsfwSites');
+  blockedFeatures = GeneratedColumn<String>(
+    'blocked_features',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<PlatformFeatures>>(
+    $WellbeingTableTable.$converterblockedFeatures,
+  );
+  static const VerificationMeta _blockNsfwSitesMeta = const VerificationMeta(
+    'blockNsfwSites',
+  );
   @override
   late final GeneratedColumn<bool> blockNsfwSites = GeneratedColumn<bool>(
-      'block_nsfw_sites', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("block_nsfw_sites" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'block_nsfw_sites',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("block_nsfw_sites" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      blockedWebsites = GeneratedColumn<String>(
-              'blocked_websites', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $WellbeingTableTable.$converterblockedWebsites);
+  blockedWebsites = GeneratedColumn<String>(
+    'blocked_websites',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>($WellbeingTableTable.$converterblockedWebsites);
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      nsfwWebsites = GeneratedColumn<String>(
-              'nsfw_websites', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $WellbeingTableTable.$converternsfwWebsites);
+  nsfwWebsites = GeneratedColumn<String>(
+    'nsfw_websites',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>($WellbeingTableTable.$converternsfwWebsites);
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        allowedShortsTimeSec,
-        blockedFeatures,
-        blockNsfwSites,
-        blockedWebsites,
-        nsfwWebsites
-      ];
+    id,
+    allowedShortsTimeSec,
+    blockedFeatures,
+    blockNsfwSites,
+    blockedWebsites,
+    nsfwWebsites,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'wellbeing_table';
   @override
-  VerificationContext validateIntegrity(Insertable<Wellbeing> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Wellbeing> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -4341,15 +5205,21 @@ class $WellbeingTableTable extends WellbeingTable
     }
     if (data.containsKey('allowed_shorts_time_sec')) {
       context.handle(
+        _allowedShortsTimeSecMeta,
+        allowedShortsTimeSec.isAcceptableOrUnknown(
+          data['allowed_shorts_time_sec']!,
           _allowedShortsTimeSecMeta,
-          allowedShortsTimeSec.isAcceptableOrUnknown(
-              data['allowed_shorts_time_sec']!, _allowedShortsTimeSecMeta));
+        ),
+      );
     }
     if (data.containsKey('block_nsfw_sites')) {
       context.handle(
+        _blockNsfwSitesMeta,
+        blockNsfwSites.isAcceptableOrUnknown(
+          data['block_nsfw_sites']!,
           _blockNsfwSitesMeta,
-          blockNsfwSites.isAcceptableOrUnknown(
-              data['block_nsfw_sites']!, _blockNsfwSitesMeta));
+        ),
+      );
     }
     return context;
   }
@@ -4360,21 +5230,39 @@ class $WellbeingTableTable extends WellbeingTable
   Wellbeing map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Wellbeing(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      allowedShortsTimeSec: attachedDatabase.typeMapping.read(
-          DriftSqlType.int, data['${effectivePrefix}allowed_shorts_time_sec'])!,
-      blockedFeatures: $WellbeingTableTable.$converterblockedFeatures.fromSql(
-          attachedDatabase.typeMapping.read(DriftSqlType.string,
-              data['${effectivePrefix}blocked_features'])!),
-      blockNsfwSites: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}block_nsfw_sites'])!,
-      blockedWebsites: $WellbeingTableTable.$converterblockedWebsites.fromSql(
-          attachedDatabase.typeMapping.read(DriftSqlType.string,
-              data['${effectivePrefix}blocked_websites'])!),
-      nsfwWebsites: $WellbeingTableTable.$converternsfwWebsites.fromSql(
+      id:
           attachedDatabase.typeMapping.read(
-              DriftSqlType.string, data['${effectivePrefix}nsfw_websites'])!),
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      allowedShortsTimeSec:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}allowed_shorts_time_sec'],
+          )!,
+      blockedFeatures: $WellbeingTableTable.$converterblockedFeatures.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}blocked_features'],
+        )!,
+      ),
+      blockNsfwSites:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}block_nsfw_sites'],
+          )!,
+      blockedWebsites: $WellbeingTableTable.$converterblockedWebsites.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}blocked_websites'],
+        )!,
+      ),
+      nsfwWebsites: $WellbeingTableTable.$converternsfwWebsites.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}nsfw_websites'],
+        )!,
+      ),
     );
   }
 
@@ -4384,8 +5272,9 @@ class $WellbeingTableTable extends WellbeingTable
   }
 
   static TypeConverter<List<PlatformFeatures>, String>
-      $converterblockedFeatures =
-      const EnumListConverter<PlatformFeatures>(PlatformFeatures.values);
+  $converterblockedFeatures = const EnumListConverter<PlatformFeatures>(
+    PlatformFeatures.values,
+  );
   static TypeConverter<List<String>, String> $converterblockedWebsites =
       const StringListConverter();
   static TypeConverter<List<String>, String> $converternsfwWebsites =
@@ -4411,32 +5300,34 @@ class Wellbeing extends DataClass implements Insertable<Wellbeing> {
 
   /// List of website hosts which are nsfw.
   final List<String> nsfwWebsites;
-  const Wellbeing(
-      {required this.id,
-      required this.allowedShortsTimeSec,
-      required this.blockedFeatures,
-      required this.blockNsfwSites,
-      required this.blockedWebsites,
-      required this.nsfwWebsites});
+  const Wellbeing({
+    required this.id,
+    required this.allowedShortsTimeSec,
+    required this.blockedFeatures,
+    required this.blockNsfwSites,
+    required this.blockedWebsites,
+    required this.nsfwWebsites,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['allowed_shorts_time_sec'] = Variable<int>(allowedShortsTimeSec);
     {
-      map['blocked_features'] = Variable<String>($WellbeingTableTable
-          .$converterblockedFeatures
-          .toSql(blockedFeatures));
+      map['blocked_features'] = Variable<String>(
+        $WellbeingTableTable.$converterblockedFeatures.toSql(blockedFeatures),
+      );
     }
     map['block_nsfw_sites'] = Variable<bool>(blockNsfwSites);
     {
-      map['blocked_websites'] = Variable<String>($WellbeingTableTable
-          .$converterblockedWebsites
-          .toSql(blockedWebsites));
+      map['blocked_websites'] = Variable<String>(
+        $WellbeingTableTable.$converterblockedWebsites.toSql(blockedWebsites),
+      );
     }
     {
       map['nsfw_websites'] = Variable<String>(
-          $WellbeingTableTable.$converternsfwWebsites.toSql(nsfwWebsites));
+        $WellbeingTableTable.$converternsfwWebsites.toSql(nsfwWebsites),
+      );
     }
     return map;
   }
@@ -4452,18 +5343,23 @@ class Wellbeing extends DataClass implements Insertable<Wellbeing> {
     );
   }
 
-  factory Wellbeing.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Wellbeing.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Wellbeing(
       id: serializer.fromJson<int>(json['id']),
-      allowedShortsTimeSec:
-          serializer.fromJson<int>(json['allowedShortsTimeSec']),
-      blockedFeatures:
-          serializer.fromJson<List<PlatformFeatures>>(json['blockedFeatures']),
+      allowedShortsTimeSec: serializer.fromJson<int>(
+        json['allowedShortsTimeSec'],
+      ),
+      blockedFeatures: serializer.fromJson<List<PlatformFeatures>>(
+        json['blockedFeatures'],
+      ),
       blockNsfwSites: serializer.fromJson<bool>(json['blockNsfwSites']),
-      blockedWebsites:
-          serializer.fromJson<List<String>>(json['blockedWebsites']),
+      blockedWebsites: serializer.fromJson<List<String>>(
+        json['blockedWebsites'],
+      ),
       nsfwWebsites: serializer.fromJson<List<String>>(json['nsfwWebsites']),
     );
   }
@@ -4473,47 +5369,53 @@ class Wellbeing extends DataClass implements Insertable<Wellbeing> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'allowedShortsTimeSec': serializer.toJson<int>(allowedShortsTimeSec),
-      'blockedFeatures':
-          serializer.toJson<List<PlatformFeatures>>(blockedFeatures),
+      'blockedFeatures': serializer.toJson<List<PlatformFeatures>>(
+        blockedFeatures,
+      ),
       'blockNsfwSites': serializer.toJson<bool>(blockNsfwSites),
       'blockedWebsites': serializer.toJson<List<String>>(blockedWebsites),
       'nsfwWebsites': serializer.toJson<List<String>>(nsfwWebsites),
     };
   }
 
-  Wellbeing copyWith(
-          {int? id,
-          int? allowedShortsTimeSec,
-          List<PlatformFeatures>? blockedFeatures,
-          bool? blockNsfwSites,
-          List<String>? blockedWebsites,
-          List<String>? nsfwWebsites}) =>
-      Wellbeing(
-        id: id ?? this.id,
-        allowedShortsTimeSec: allowedShortsTimeSec ?? this.allowedShortsTimeSec,
-        blockedFeatures: blockedFeatures ?? this.blockedFeatures,
-        blockNsfwSites: blockNsfwSites ?? this.blockNsfwSites,
-        blockedWebsites: blockedWebsites ?? this.blockedWebsites,
-        nsfwWebsites: nsfwWebsites ?? this.nsfwWebsites,
-      );
+  Wellbeing copyWith({
+    int? id,
+    int? allowedShortsTimeSec,
+    List<PlatformFeatures>? blockedFeatures,
+    bool? blockNsfwSites,
+    List<String>? blockedWebsites,
+    List<String>? nsfwWebsites,
+  }) => Wellbeing(
+    id: id ?? this.id,
+    allowedShortsTimeSec: allowedShortsTimeSec ?? this.allowedShortsTimeSec,
+    blockedFeatures: blockedFeatures ?? this.blockedFeatures,
+    blockNsfwSites: blockNsfwSites ?? this.blockNsfwSites,
+    blockedWebsites: blockedWebsites ?? this.blockedWebsites,
+    nsfwWebsites: nsfwWebsites ?? this.nsfwWebsites,
+  );
   Wellbeing copyWithCompanion(WellbeingTableCompanion data) {
     return Wellbeing(
       id: data.id.present ? data.id.value : this.id,
-      allowedShortsTimeSec: data.allowedShortsTimeSec.present
-          ? data.allowedShortsTimeSec.value
-          : this.allowedShortsTimeSec,
-      blockedFeatures: data.blockedFeatures.present
-          ? data.blockedFeatures.value
-          : this.blockedFeatures,
-      blockNsfwSites: data.blockNsfwSites.present
-          ? data.blockNsfwSites.value
-          : this.blockNsfwSites,
-      blockedWebsites: data.blockedWebsites.present
-          ? data.blockedWebsites.value
-          : this.blockedWebsites,
-      nsfwWebsites: data.nsfwWebsites.present
-          ? data.nsfwWebsites.value
-          : this.nsfwWebsites,
+      allowedShortsTimeSec:
+          data.allowedShortsTimeSec.present
+              ? data.allowedShortsTimeSec.value
+              : this.allowedShortsTimeSec,
+      blockedFeatures:
+          data.blockedFeatures.present
+              ? data.blockedFeatures.value
+              : this.blockedFeatures,
+      blockNsfwSites:
+          data.blockNsfwSites.present
+              ? data.blockNsfwSites.value
+              : this.blockNsfwSites,
+      blockedWebsites:
+          data.blockedWebsites.present
+              ? data.blockedWebsites.value
+              : this.blockedWebsites,
+      nsfwWebsites:
+          data.nsfwWebsites.present
+              ? data.nsfwWebsites.value
+              : this.nsfwWebsites,
     );
   }
 
@@ -4531,8 +5433,14 @@ class Wellbeing extends DataClass implements Insertable<Wellbeing> {
   }
 
   @override
-  int get hashCode => Object.hash(id, allowedShortsTimeSec, blockedFeatures,
-      blockNsfwSites, blockedWebsites, nsfwWebsites);
+  int get hashCode => Object.hash(
+    id,
+    allowedShortsTimeSec,
+    blockedFeatures,
+    blockNsfwSites,
+    blockedWebsites,
+    nsfwWebsites,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -4587,13 +5495,14 @@ class WellbeingTableCompanion extends UpdateCompanion<Wellbeing> {
     });
   }
 
-  WellbeingTableCompanion copyWith(
-      {Value<int>? id,
-      Value<int>? allowedShortsTimeSec,
-      Value<List<PlatformFeatures>>? blockedFeatures,
-      Value<bool>? blockNsfwSites,
-      Value<List<String>>? blockedWebsites,
-      Value<List<String>>? nsfwWebsites}) {
+  WellbeingTableCompanion copyWith({
+    Value<int>? id,
+    Value<int>? allowedShortsTimeSec,
+    Value<List<PlatformFeatures>>? blockedFeatures,
+    Value<bool>? blockNsfwSites,
+    Value<List<String>>? blockedWebsites,
+    Value<List<String>>? nsfwWebsites,
+  }) {
     return WellbeingTableCompanion(
       id: id ?? this.id,
       allowedShortsTimeSec: allowedShortsTimeSec ?? this.allowedShortsTimeSec,
@@ -4611,26 +5520,31 @@ class WellbeingTableCompanion extends UpdateCompanion<Wellbeing> {
       map['id'] = Variable<int>(id.value);
     }
     if (allowedShortsTimeSec.present) {
-      map['allowed_shorts_time_sec'] =
-          Variable<int>(allowedShortsTimeSec.value);
+      map['allowed_shorts_time_sec'] = Variable<int>(
+        allowedShortsTimeSec.value,
+      );
     }
     if (blockedFeatures.present) {
-      map['blocked_features'] = Variable<String>($WellbeingTableTable
-          .$converterblockedFeatures
-          .toSql(blockedFeatures.value));
+      map['blocked_features'] = Variable<String>(
+        $WellbeingTableTable.$converterblockedFeatures.toSql(
+          blockedFeatures.value,
+        ),
+      );
     }
     if (blockNsfwSites.present) {
       map['block_nsfw_sites'] = Variable<bool>(blockNsfwSites.value);
     }
     if (blockedWebsites.present) {
-      map['blocked_websites'] = Variable<String>($WellbeingTableTable
-          .$converterblockedWebsites
-          .toSql(blockedWebsites.value));
+      map['blocked_websites'] = Variable<String>(
+        $WellbeingTableTable.$converterblockedWebsites.toSql(
+          blockedWebsites.value,
+        ),
+      );
     }
     if (nsfwWebsites.present) {
-      map['nsfw_websites'] = Variable<String>($WellbeingTableTable
-          .$converternsfwWebsites
-          .toSql(nsfwWebsites.value));
+      map['nsfw_websites'] = Variable<String>(
+        $WellbeingTableTable.$converternsfwWebsites.toSql(nsfwWebsites.value),
+      );
     }
     return map;
   }
@@ -4658,19 +5572,25 @@ class $SharedUniqueDataTableTable extends SharedUniqueDataTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      excludedApps = GeneratedColumn<String>(
-              'excluded_apps', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $SharedUniqueDataTableTable.$converterexcludedApps);
+  excludedApps = GeneratedColumn<String>(
+    'excluded_apps',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>(
+    $SharedUniqueDataTableTable.$converterexcludedApps,
+  );
   @override
   List<GeneratedColumn> get $columns => [id, excludedApps];
   @override
@@ -4679,8 +5599,10 @@ class $SharedUniqueDataTableTable extends SharedUniqueDataTable
   String get actualTableName => $name;
   static const String $name = 'shared_unique_data_table';
   @override
-  VerificationContext validateIntegrity(Insertable<SharedUniqueData> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<SharedUniqueData> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -4695,11 +5617,17 @@ class $SharedUniqueDataTableTable extends SharedUniqueDataTable
   SharedUniqueData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SharedUniqueData(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      excludedApps: $SharedUniqueDataTableTable.$converterexcludedApps.fromSql(
+      id:
           attachedDatabase.typeMapping.read(
-              DriftSqlType.string, data['${effectivePrefix}excluded_apps'])!),
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      excludedApps: $SharedUniqueDataTableTable.$converterexcludedApps.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}excluded_apps'],
+        )!,
+      ),
     );
   }
 
@@ -4725,9 +5653,9 @@ class SharedUniqueData extends DataClass
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     {
-      map['excluded_apps'] = Variable<String>($SharedUniqueDataTableTable
-          .$converterexcludedApps
-          .toSql(excludedApps));
+      map['excluded_apps'] = Variable<String>(
+        $SharedUniqueDataTableTable.$converterexcludedApps.toSql(excludedApps),
+      );
     }
     return map;
   }
@@ -4739,8 +5667,10 @@ class SharedUniqueData extends DataClass
     );
   }
 
-  factory SharedUniqueData.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory SharedUniqueData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return SharedUniqueData(
       id: serializer.fromJson<int>(json['id']),
@@ -4764,9 +5694,10 @@ class SharedUniqueData extends DataClass
   SharedUniqueData copyWithCompanion(SharedUniqueDataTableCompanion data) {
     return SharedUniqueData(
       id: data.id.present ? data.id.value : this.id,
-      excludedApps: data.excludedApps.present
-          ? data.excludedApps.value
-          : this.excludedApps,
+      excludedApps:
+          data.excludedApps.present
+              ? data.excludedApps.value
+              : this.excludedApps,
     );
   }
 
@@ -4810,8 +5741,10 @@ class SharedUniqueDataTableCompanion extends UpdateCompanion<SharedUniqueData> {
     });
   }
 
-  SharedUniqueDataTableCompanion copyWith(
-      {Value<int>? id, Value<List<String>>? excludedApps}) {
+  SharedUniqueDataTableCompanion copyWith({
+    Value<int>? id,
+    Value<List<String>>? excludedApps,
+  }) {
     return SharedUniqueDataTableCompanion(
       id: id ?? this.id,
       excludedApps: excludedApps ?? this.excludedApps,
@@ -4825,9 +5758,11 @@ class SharedUniqueDataTableCompanion extends UpdateCompanion<SharedUniqueData> {
       map['id'] = Variable<int>(id.value);
     }
     if (excludedApps.present) {
-      map['excluded_apps'] = Variable<String>($SharedUniqueDataTableTable
-          .$converterexcludedApps
-          .toSql(excludedApps.value));
+      map['excluded_apps'] = Variable<String>(
+        $SharedUniqueDataTableTable.$converterexcludedApps.toSql(
+          excludedApps.value,
+        ),
+      );
     }
     return map;
   }
@@ -4848,83 +5783,117 @@ class $AppUsageTableTable extends AppUsageTable
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $AppUsageTableTable(this.attachedDatabase, [this._alias]);
-  static const VerificationMeta _packageNameMeta =
-      const VerificationMeta('packageName');
+  static const VerificationMeta _packageNameMeta = const VerificationMeta(
+    'packageName',
+  );
   @override
   late final GeneratedColumn<String> packageName = GeneratedColumn<String>(
-      'package_name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+    'package_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   static const VerificationMeta _dateMeta = const VerificationMeta('date');
   @override
   late final GeneratedColumn<DateTime> date = GeneratedColumn<DateTime>(
-      'date', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      defaultValue: Constant(DateTime(0)));
-  static const VerificationMeta _screenTimeMeta =
-      const VerificationMeta('screenTime');
+    'date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: Constant(DateTime(0)),
+  );
+  static const VerificationMeta _screenTimeMeta = const VerificationMeta(
+    'screenTime',
+  );
   @override
   late final GeneratedColumn<int> screenTime = GeneratedColumn<int>(
-      'screen_time', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _mobileDataMeta =
-      const VerificationMeta('mobileData');
+    'screen_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _mobileDataMeta = const VerificationMeta(
+    'mobileData',
+  );
   @override
   late final GeneratedColumn<int> mobileData = GeneratedColumn<int>(
-      'mobile_data', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
-  static const VerificationMeta _wifiDataMeta =
-      const VerificationMeta('wifiData');
+    'mobile_data',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _wifiDataMeta = const VerificationMeta(
+    'wifiData',
+  );
   @override
   late final GeneratedColumn<int> wifiData = GeneratedColumn<int>(
-      'wifi_data', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'wifi_data',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [packageName, date, screenTime, mobileData, wifiData];
+  List<GeneratedColumn> get $columns => [
+    packageName,
+    date,
+    screenTime,
+    mobileData,
+    wifiData,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'app_usage_table';
   @override
-  VerificationContext validateIntegrity(Insertable<AppUsage> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<AppUsage> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('package_name')) {
       context.handle(
+        _packageNameMeta,
+        packageName.isAcceptableOrUnknown(
+          data['package_name']!,
           _packageNameMeta,
-          packageName.isAcceptableOrUnknown(
-              data['package_name']!, _packageNameMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_packageNameMeta);
     }
     if (data.containsKey('date')) {
       context.handle(
-          _dateMeta, date.isAcceptableOrUnknown(data['date']!, _dateMeta));
+        _dateMeta,
+        date.isAcceptableOrUnknown(data['date']!, _dateMeta),
+      );
     }
     if (data.containsKey('screen_time')) {
       context.handle(
-          _screenTimeMeta,
-          screenTime.isAcceptableOrUnknown(
-              data['screen_time']!, _screenTimeMeta));
+        _screenTimeMeta,
+        screenTime.isAcceptableOrUnknown(data['screen_time']!, _screenTimeMeta),
+      );
     }
     if (data.containsKey('mobile_data')) {
       context.handle(
-          _mobileDataMeta,
-          mobileData.isAcceptableOrUnknown(
-              data['mobile_data']!, _mobileDataMeta));
+        _mobileDataMeta,
+        mobileData.isAcceptableOrUnknown(data['mobile_data']!, _mobileDataMeta),
+      );
     }
     if (data.containsKey('wifi_data')) {
-      context.handle(_wifiDataMeta,
-          wifiData.isAcceptableOrUnknown(data['wifi_data']!, _wifiDataMeta));
+      context.handle(
+        _wifiDataMeta,
+        wifiData.isAcceptableOrUnknown(data['wifi_data']!, _wifiDataMeta),
+      );
     }
     return context;
   }
@@ -4935,16 +5904,31 @@ class $AppUsageTableTable extends AppUsageTable
   AppUsage map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return AppUsage(
-      packageName: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}package_name'])!,
-      date: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}date'])!,
-      screenTime: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}screen_time'])!,
-      mobileData: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}mobile_data'])!,
-      wifiData: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}wifi_data'])!,
+      packageName:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}package_name'],
+          )!,
+      date:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.dateTime,
+            data['${effectivePrefix}date'],
+          )!,
+      screenTime:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}screen_time'],
+          )!,
+      mobileData:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}mobile_data'],
+          )!,
+      wifiData:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}wifi_data'],
+          )!,
     );
   }
 
@@ -4969,12 +5953,13 @@ class AppUsage extends DataClass implements Insertable<AppUsage> {
 
   /// Package wifi data usage of the related app
   final int wifiData;
-  const AppUsage(
-      {required this.packageName,
-      required this.date,
-      required this.screenTime,
-      required this.mobileData,
-      required this.wifiData});
+  const AppUsage({
+    required this.packageName,
+    required this.date,
+    required this.screenTime,
+    required this.mobileData,
+    required this.wifiData,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -4996,8 +5981,10 @@ class AppUsage extends DataClass implements Insertable<AppUsage> {
     );
   }
 
-  factory AppUsage.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory AppUsage.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return AppUsage(
       packageName: serializer.fromJson<String>(json['packageName']),
@@ -5019,19 +6006,19 @@ class AppUsage extends DataClass implements Insertable<AppUsage> {
     };
   }
 
-  AppUsage copyWith(
-          {String? packageName,
-          DateTime? date,
-          int? screenTime,
-          int? mobileData,
-          int? wifiData}) =>
-      AppUsage(
-        packageName: packageName ?? this.packageName,
-        date: date ?? this.date,
-        screenTime: screenTime ?? this.screenTime,
-        mobileData: mobileData ?? this.mobileData,
-        wifiData: wifiData ?? this.wifiData,
-      );
+  AppUsage copyWith({
+    String? packageName,
+    DateTime? date,
+    int? screenTime,
+    int? mobileData,
+    int? wifiData,
+  }) => AppUsage(
+    packageName: packageName ?? this.packageName,
+    date: date ?? this.date,
+    screenTime: screenTime ?? this.screenTime,
+    mobileData: mobileData ?? this.mobileData,
+    wifiData: wifiData ?? this.wifiData,
+  );
   AppUsage copyWithCompanion(AppUsageTableCompanion data) {
     return AppUsage(
       packageName:
@@ -5112,13 +6099,14 @@ class AppUsageTableCompanion extends UpdateCompanion<AppUsage> {
     });
   }
 
-  AppUsageTableCompanion copyWith(
-      {Value<String>? packageName,
-      Value<DateTime>? date,
-      Value<int>? screenTime,
-      Value<int>? mobileData,
-      Value<int>? wifiData,
-      Value<int>? rowid}) {
+  AppUsageTableCompanion copyWith({
+    Value<String>? packageName,
+    Value<DateTime>? date,
+    Value<int>? screenTime,
+    Value<int>? mobileData,
+    Value<int>? wifiData,
+    Value<int>? rowid,
+  }) {
     return AppUsageTableCompanion(
       packageName: packageName ?? this.packageName,
       date: date ?? this.date,
@@ -5176,63 +6164,89 @@ class $NotificationSettingsTableTable extends NotificationSettingsTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(0));
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<RecapType, int> recapType =
-      GeneratedColumn<int>('recap_type', aliasedName, false,
-              type: DriftSqlType.int,
-              requiredDuringInsert: false,
-              defaultValue: const Constant(0))
-          .withConverter<RecapType>(
-              $NotificationSettingsTableTable.$converterrecapType);
+      GeneratedColumn<int>(
+        'recap_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(0),
+      ).withConverter<RecapType>(
+        $NotificationSettingsTableTable.$converterrecapType,
+      );
   static const VerificationMeta _notificationHistoryWeeksMeta =
       const VerificationMeta('notificationHistoryWeeks');
   @override
   late final GeneratedColumn<int> notificationHistoryWeeks =
-      GeneratedColumn<int>('notification_history_weeks', aliasedName, false,
-          type: DriftSqlType.int,
-          requiredDuringInsert: false,
-          defaultValue: const Constant(2));
+      GeneratedColumn<int>(
+        'notification_history_weeks',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: false,
+        defaultValue: const Constant(2),
+      );
   static const VerificationMeta _storeNonBatchedTooMeta =
       const VerificationMeta('storeNonBatchedToo');
   @override
   late final GeneratedColumn<bool> storeNonBatchedToo = GeneratedColumn<bool>(
-      'store_non_batched_too', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'CHECK ("store_non_batched_too" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'store_non_batched_too',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("store_non_batched_too" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
   late final GeneratedColumnWithTypeConverter<List<String>, String>
-      batchedApps = GeneratedColumn<String>('batched_apps', aliasedName, false,
-              type: DriftSqlType.string,
-              requiredDuringInsert: false,
-              defaultValue: Constant(jsonEncode([])))
-          .withConverter<List<String>>(
-              $NotificationSettingsTableTable.$converterbatchedApps);
+  batchedApps = GeneratedColumn<String>(
+    'batched_apps',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(jsonEncode([])),
+  ).withConverter<List<String>>(
+    $NotificationSettingsTableTable.$converterbatchedApps,
+  );
   @override
-  late final GeneratedColumnWithTypeConverter<List<NotificationSchedule>,
-      String> schedules = GeneratedColumn<String>(
-          'schedules', aliasedName, false,
-          type: DriftSqlType.string,
-          requiredDuringInsert: false,
-          defaultValue:
-              Constant(jsonEncode(defaultNotificationSettingsModel.schedules)))
-      .withConverter<List<NotificationSchedule>>(
-          $NotificationSettingsTableTable.$converterschedules);
+  late final GeneratedColumnWithTypeConverter<
+    List<NotificationSchedule>,
+    String
+  >
+  schedules = GeneratedColumn<String>(
+    'schedules',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: Constant(
+      jsonEncode(defaultNotificationSettingsModel.schedules),
+    ),
+  ).withConverter<List<NotificationSchedule>>(
+    $NotificationSettingsTableTable.$converterschedules,
+  );
   @override
   List<GeneratedColumn> get $columns => [
-        id,
-        recapType,
-        notificationHistoryWeeks,
-        storeNonBatchedToo,
-        batchedApps,
-        schedules
-      ];
+    id,
+    recapType,
+    notificationHistoryWeeks,
+    storeNonBatchedToo,
+    batchedApps,
+    schedules,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -5240,8 +6254,9 @@ class $NotificationSettingsTableTable extends NotificationSettingsTable
   static const String $name = 'notification_settings_table';
   @override
   VerificationContext validateIntegrity(
-      Insertable<NotificationSettings> instance,
-      {bool isInserting = false}) {
+    Insertable<NotificationSettings> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -5249,16 +6264,21 @@ class $NotificationSettingsTableTable extends NotificationSettingsTable
     }
     if (data.containsKey('notification_history_weeks')) {
       context.handle(
+        _notificationHistoryWeeksMeta,
+        notificationHistoryWeeks.isAcceptableOrUnknown(
+          data['notification_history_weeks']!,
           _notificationHistoryWeeksMeta,
-          notificationHistoryWeeks.isAcceptableOrUnknown(
-              data['notification_history_weeks']!,
-              _notificationHistoryWeeksMeta));
+        ),
+      );
     }
     if (data.containsKey('store_non_batched_too')) {
       context.handle(
+        _storeNonBatchedTooMeta,
+        storeNonBatchedToo.isAcceptableOrUnknown(
+          data['store_non_batched_too']!,
           _storeNonBatchedTooMeta,
-          storeNonBatchedToo.isAcceptableOrUnknown(
-              data['store_non_batched_too']!, _storeNonBatchedTooMeta));
+        ),
+      );
     }
     return context;
   }
@@ -5269,22 +6289,40 @@ class $NotificationSettingsTableTable extends NotificationSettingsTable
   NotificationSettings map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return NotificationSettings(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
       recapType: $NotificationSettingsTableTable.$converterrecapType.fromSql(
-          attachedDatabase.typeMapping
-              .read(DriftSqlType.int, data['${effectivePrefix}recap_type'])!),
-      notificationHistoryWeeks: attachedDatabase.typeMapping.read(
+        attachedDatabase.typeMapping.read(
           DriftSqlType.int,
-          data['${effectivePrefix}notification_history_weeks'])!,
-      storeNonBatchedToo: attachedDatabase.typeMapping.read(
-          DriftSqlType.bool, data['${effectivePrefix}store_non_batched_too'])!,
+          data['${effectivePrefix}recap_type'],
+        )!,
+      ),
+      notificationHistoryWeeks:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}notification_history_weeks'],
+          )!,
+      storeNonBatchedToo:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}store_non_batched_too'],
+          )!,
       batchedApps: $NotificationSettingsTableTable.$converterbatchedApps
-          .fromSql(attachedDatabase.typeMapping.read(
-              DriftSqlType.string, data['${effectivePrefix}batched_apps'])!),
+          .fromSql(
+            attachedDatabase.typeMapping.read(
+              DriftSqlType.string,
+              data['${effectivePrefix}batched_apps'],
+            )!,
+          ),
       schedules: $NotificationSettingsTableTable.$converterschedules.fromSql(
-          attachedDatabase.typeMapping
-              .read(DriftSqlType.string, data['${effectivePrefix}schedules'])!),
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}schedules'],
+        )!,
+      ),
     );
   }
 
@@ -5321,31 +6359,36 @@ class NotificationSettings extends DataClass
 
   /// List of batching schedules
   final List<NotificationSchedule> schedules;
-  const NotificationSettings(
-      {required this.id,
-      required this.recapType,
-      required this.notificationHistoryWeeks,
-      required this.storeNonBatchedToo,
-      required this.batchedApps,
-      required this.schedules});
+  const NotificationSettings({
+    required this.id,
+    required this.recapType,
+    required this.notificationHistoryWeeks,
+    required this.storeNonBatchedToo,
+    required this.batchedApps,
+    required this.schedules,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     {
       map['recap_type'] = Variable<int>(
-          $NotificationSettingsTableTable.$converterrecapType.toSql(recapType));
+        $NotificationSettingsTableTable.$converterrecapType.toSql(recapType),
+      );
     }
     map['notification_history_weeks'] = Variable<int>(notificationHistoryWeeks);
     map['store_non_batched_too'] = Variable<bool>(storeNonBatchedToo);
     {
-      map['batched_apps'] = Variable<String>($NotificationSettingsTableTable
-          .$converterbatchedApps
-          .toSql(batchedApps));
+      map['batched_apps'] = Variable<String>(
+        $NotificationSettingsTableTable.$converterbatchedApps.toSql(
+          batchedApps,
+        ),
+      );
     }
     {
       map['schedules'] = Variable<String>(
-          $NotificationSettingsTableTable.$converterschedules.toSql(schedules));
+        $NotificationSettingsTableTable.$converterschedules.toSql(schedules),
+      );
     }
     return map;
   }
@@ -5361,19 +6404,24 @@ class NotificationSettings extends DataClass
     );
   }
 
-  factory NotificationSettings.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory NotificationSettings.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return NotificationSettings(
       id: serializer.fromJson<int>(json['id']),
-      recapType: $NotificationSettingsTableTable.$converterrecapType
-          .fromJson(serializer.fromJson<int>(json['recapType'])),
-      notificationHistoryWeeks:
-          serializer.fromJson<int>(json['notificationHistoryWeeks']),
+      recapType: $NotificationSettingsTableTable.$converterrecapType.fromJson(
+        serializer.fromJson<int>(json['recapType']),
+      ),
+      notificationHistoryWeeks: serializer.fromJson<int>(
+        json['notificationHistoryWeeks'],
+      ),
       storeNonBatchedToo: serializer.fromJson<bool>(json['storeNonBatchedToo']),
       batchedApps: serializer.fromJson<List<String>>(json['batchedApps']),
-      schedules:
-          serializer.fromJson<List<NotificationSchedule>>(json['schedules']),
+      schedules: serializer.fromJson<List<NotificationSchedule>>(
+        json['schedules'],
+      ),
     );
   }
   @override
@@ -5381,44 +6429,48 @@ class NotificationSettings extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'recapType': serializer.toJson<int>($NotificationSettingsTableTable
-          .$converterrecapType
-          .toJson(recapType)),
-      'notificationHistoryWeeks':
-          serializer.toJson<int>(notificationHistoryWeeks),
+      'recapType': serializer.toJson<int>(
+        $NotificationSettingsTableTable.$converterrecapType.toJson(recapType),
+      ),
+      'notificationHistoryWeeks': serializer.toJson<int>(
+        notificationHistoryWeeks,
+      ),
       'storeNonBatchedToo': serializer.toJson<bool>(storeNonBatchedToo),
       'batchedApps': serializer.toJson<List<String>>(batchedApps),
       'schedules': serializer.toJson<List<NotificationSchedule>>(schedules),
     };
   }
 
-  NotificationSettings copyWith(
-          {int? id,
-          RecapType? recapType,
-          int? notificationHistoryWeeks,
-          bool? storeNonBatchedToo,
-          List<String>? batchedApps,
-          List<NotificationSchedule>? schedules}) =>
-      NotificationSettings(
-        id: id ?? this.id,
-        recapType: recapType ?? this.recapType,
-        notificationHistoryWeeks:
-            notificationHistoryWeeks ?? this.notificationHistoryWeeks,
-        storeNonBatchedToo: storeNonBatchedToo ?? this.storeNonBatchedToo,
-        batchedApps: batchedApps ?? this.batchedApps,
-        schedules: schedules ?? this.schedules,
-      );
+  NotificationSettings copyWith({
+    int? id,
+    RecapType? recapType,
+    int? notificationHistoryWeeks,
+    bool? storeNonBatchedToo,
+    List<String>? batchedApps,
+    List<NotificationSchedule>? schedules,
+  }) => NotificationSettings(
+    id: id ?? this.id,
+    recapType: recapType ?? this.recapType,
+    notificationHistoryWeeks:
+        notificationHistoryWeeks ?? this.notificationHistoryWeeks,
+    storeNonBatchedToo: storeNonBatchedToo ?? this.storeNonBatchedToo,
+    batchedApps: batchedApps ?? this.batchedApps,
+    schedules: schedules ?? this.schedules,
+  );
   NotificationSettings copyWithCompanion(
-      NotificationSettingsTableCompanion data) {
+    NotificationSettingsTableCompanion data,
+  ) {
     return NotificationSettings(
       id: data.id.present ? data.id.value : this.id,
       recapType: data.recapType.present ? data.recapType.value : this.recapType,
-      notificationHistoryWeeks: data.notificationHistoryWeeks.present
-          ? data.notificationHistoryWeeks.value
-          : this.notificationHistoryWeeks,
-      storeNonBatchedToo: data.storeNonBatchedToo.present
-          ? data.storeNonBatchedToo.value
-          : this.storeNonBatchedToo,
+      notificationHistoryWeeks:
+          data.notificationHistoryWeeks.present
+              ? data.notificationHistoryWeeks.value
+              : this.notificationHistoryWeeks,
+      storeNonBatchedToo:
+          data.storeNonBatchedToo.present
+              ? data.storeNonBatchedToo.value
+              : this.storeNonBatchedToo,
       batchedApps:
           data.batchedApps.present ? data.batchedApps.value : this.batchedApps,
       schedules: data.schedules.present ? data.schedules.value : this.schedules,
@@ -5439,8 +6491,14 @@ class NotificationSettings extends DataClass
   }
 
   @override
-  int get hashCode => Object.hash(id, recapType, notificationHistoryWeeks,
-      storeNonBatchedToo, batchedApps, schedules);
+  int get hashCode => Object.hash(
+    id,
+    recapType,
+    notificationHistoryWeeks,
+    storeNonBatchedToo,
+    batchedApps,
+    schedules,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -5497,13 +6555,14 @@ class NotificationSettingsTableCompanion
     });
   }
 
-  NotificationSettingsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<RecapType>? recapType,
-      Value<int>? notificationHistoryWeeks,
-      Value<bool>? storeNonBatchedToo,
-      Value<List<String>>? batchedApps,
-      Value<List<NotificationSchedule>>? schedules}) {
+  NotificationSettingsTableCompanion copyWith({
+    Value<int>? id,
+    Value<RecapType>? recapType,
+    Value<int>? notificationHistoryWeeks,
+    Value<bool>? storeNonBatchedToo,
+    Value<List<String>>? batchedApps,
+    Value<List<NotificationSchedule>>? schedules,
+  }) {
     return NotificationSettingsTableCompanion(
       id: id ?? this.id,
       recapType: recapType ?? this.recapType,
@@ -5522,26 +6581,33 @@ class NotificationSettingsTableCompanion
       map['id'] = Variable<int>(id.value);
     }
     if (recapType.present) {
-      map['recap_type'] = Variable<int>($NotificationSettingsTableTable
-          .$converterrecapType
-          .toSql(recapType.value));
+      map['recap_type'] = Variable<int>(
+        $NotificationSettingsTableTable.$converterrecapType.toSql(
+          recapType.value,
+        ),
+      );
     }
     if (notificationHistoryWeeks.present) {
-      map['notification_history_weeks'] =
-          Variable<int>(notificationHistoryWeeks.value);
+      map['notification_history_weeks'] = Variable<int>(
+        notificationHistoryWeeks.value,
+      );
     }
     if (storeNonBatchedToo.present) {
       map['store_non_batched_too'] = Variable<bool>(storeNonBatchedToo.value);
     }
     if (batchedApps.present) {
-      map['batched_apps'] = Variable<String>($NotificationSettingsTableTable
-          .$converterbatchedApps
-          .toSql(batchedApps.value));
+      map['batched_apps'] = Variable<String>(
+        $NotificationSettingsTableTable.$converterbatchedApps.toSql(
+          batchedApps.value,
+        ),
+      );
     }
     if (schedules.present) {
-      map['schedules'] = Variable<String>($NotificationSettingsTableTable
-          .$converterschedules
-          .toSql(schedules.value));
+      map['schedules'] = Variable<String>(
+        $NotificationSettingsTableTable.$converterschedules.toSql(
+          schedules.value,
+        ),
+      );
     }
     return map;
   }
@@ -5569,74 +6635,116 @@ class $NotificationsTableTable extends NotificationsTable
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
-      'id', aliasedName, false,
-      hasAutoIncrement: true,
-      type: DriftSqlType.int,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
   static const VerificationMeta _keyMeta = const VerificationMeta('key');
   @override
   late final GeneratedColumn<String> key = GeneratedColumn<String>(
-      'key', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _packageNameMeta =
-      const VerificationMeta('packageName');
+    'key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _packageNameMeta = const VerificationMeta(
+    'packageName',
+  );
   @override
   late final GeneratedColumn<String> packageName = GeneratedColumn<String>(
-      'package_name', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
-  static const VerificationMeta _timeStampMeta =
-      const VerificationMeta('timeStamp');
+    'package_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _timeStampMeta = const VerificationMeta(
+    'timeStamp',
+  );
   @override
   late final GeneratedColumn<DateTime> timeStamp = GeneratedColumn<DateTime>(
-      'time_stamp', aliasedName, false,
-      type: DriftSqlType.dateTime,
-      requiredDuringInsert: false,
-      defaultValue: Constant(DateTime(0)));
+    'time_stamp',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: Constant(DateTime(0)),
+  );
   static const VerificationMeta _titleMeta = const VerificationMeta('title');
   @override
   late final GeneratedColumn<String> title = GeneratedColumn<String>(
-      'title', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
-  static const VerificationMeta _contentMeta =
-      const VerificationMeta('content');
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
+  static const VerificationMeta _contentMeta = const VerificationMeta(
+    'content',
+  );
   @override
   late final GeneratedColumn<String> content = GeneratedColumn<String>(
-      'content', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
-  static const VerificationMeta _categoryMeta =
-      const VerificationMeta('category');
+    'content',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
   @override
   late final GeneratedColumn<String> category = GeneratedColumn<String>(
-      'category', aliasedName, false,
-      type: DriftSqlType.string,
-      requiredDuringInsert: false,
-      defaultValue: const Constant(""));
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(""),
+  );
   static const VerificationMeta _isReadMeta = const VerificationMeta('isRead');
   @override
   late final GeneratedColumn<bool> isRead = GeneratedColumn<bool>(
-      'is_read', aliasedName, false,
-      type: DriftSqlType.bool,
-      requiredDuringInsert: false,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('CHECK ("is_read" IN (0, 1))'),
-      defaultValue: const Constant(false));
+    'is_read',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_read" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, key, packageName, timeStamp, title, content, category, isRead];
+  List<GeneratedColumn> get $columns => [
+    id,
+    key,
+    packageName,
+    timeStamp,
+    title,
+    content,
+    category,
+    isRead,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
   static const String $name = 'notifications_table';
   @override
-  VerificationContext validateIntegrity(Insertable<Notification> instance,
-      {bool isInserting = false}) {
+  VerificationContext validateIntegrity(
+    Insertable<Notification> instance, {
+    bool isInserting = false,
+  }) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
@@ -5644,37 +6752,52 @@ class $NotificationsTableTable extends NotificationsTable
     }
     if (data.containsKey('key')) {
       context.handle(
-          _keyMeta, key.isAcceptableOrUnknown(data['key']!, _keyMeta));
+        _keyMeta,
+        key.isAcceptableOrUnknown(data['key']!, _keyMeta),
+      );
     } else if (isInserting) {
       context.missing(_keyMeta);
     }
     if (data.containsKey('package_name')) {
       context.handle(
+        _packageNameMeta,
+        packageName.isAcceptableOrUnknown(
+          data['package_name']!,
           _packageNameMeta,
-          packageName.isAcceptableOrUnknown(
-              data['package_name']!, _packageNameMeta));
+        ),
+      );
     } else if (isInserting) {
       context.missing(_packageNameMeta);
     }
     if (data.containsKey('time_stamp')) {
-      context.handle(_timeStampMeta,
-          timeStamp.isAcceptableOrUnknown(data['time_stamp']!, _timeStampMeta));
+      context.handle(
+        _timeStampMeta,
+        timeStamp.isAcceptableOrUnknown(data['time_stamp']!, _timeStampMeta),
+      );
     }
     if (data.containsKey('title')) {
       context.handle(
-          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
     }
     if (data.containsKey('content')) {
-      context.handle(_contentMeta,
-          content.isAcceptableOrUnknown(data['content']!, _contentMeta));
+      context.handle(
+        _contentMeta,
+        content.isAcceptableOrUnknown(data['content']!, _contentMeta),
+      );
     }
     if (data.containsKey('category')) {
-      context.handle(_categoryMeta,
-          category.isAcceptableOrUnknown(data['category']!, _categoryMeta));
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
     }
     if (data.containsKey('is_read')) {
-      context.handle(_isReadMeta,
-          isRead.isAcceptableOrUnknown(data['is_read']!, _isReadMeta));
+      context.handle(
+        _isReadMeta,
+        isRead.isAcceptableOrUnknown(data['is_read']!, _isReadMeta),
+      );
     }
     return context;
   }
@@ -5685,22 +6808,46 @@ class $NotificationsTableTable extends NotificationsTable
   Notification map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return Notification(
-      id: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      key: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}key'])!,
-      packageName: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}package_name'])!,
-      timeStamp: attachedDatabase.typeMapping
-          .read(DriftSqlType.dateTime, data['${effectivePrefix}time_stamp'])!,
-      title: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
-      content: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}content'])!,
-      category: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}category'])!,
-      isRead: attachedDatabase.typeMapping
-          .read(DriftSqlType.bool, data['${effectivePrefix}is_read'])!,
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      key:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}key'],
+          )!,
+      packageName:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}package_name'],
+          )!,
+      timeStamp:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.dateTime,
+            data['${effectivePrefix}time_stamp'],
+          )!,
+      title:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}title'],
+          )!,
+      content:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}content'],
+          )!,
+      category:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}category'],
+          )!,
+      isRead:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.bool,
+            data['${effectivePrefix}is_read'],
+          )!,
     );
   }
 
@@ -5734,15 +6881,16 @@ class Notification extends DataClass implements Insertable<Notification> {
 
   /// Boolean denoting the status of this notification (Read/Unread)
   final bool isRead;
-  const Notification(
-      {required this.id,
-      required this.key,
-      required this.packageName,
-      required this.timeStamp,
-      required this.title,
-      required this.content,
-      required this.category,
-      required this.isRead});
+  const Notification({
+    required this.id,
+    required this.key,
+    required this.packageName,
+    required this.timeStamp,
+    required this.title,
+    required this.content,
+    required this.category,
+    required this.isRead,
+  });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -5770,8 +6918,10 @@ class Notification extends DataClass implements Insertable<Notification> {
     );
   }
 
-  factory Notification.fromJson(Map<String, dynamic> json,
-      {ValueSerializer? serializer}) {
+  factory Notification.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Notification(
       id: serializer.fromJson<int>(json['id']),
@@ -5799,25 +6949,25 @@ class Notification extends DataClass implements Insertable<Notification> {
     };
   }
 
-  Notification copyWith(
-          {int? id,
-          String? key,
-          String? packageName,
-          DateTime? timeStamp,
-          String? title,
-          String? content,
-          String? category,
-          bool? isRead}) =>
-      Notification(
-        id: id ?? this.id,
-        key: key ?? this.key,
-        packageName: packageName ?? this.packageName,
-        timeStamp: timeStamp ?? this.timeStamp,
-        title: title ?? this.title,
-        content: content ?? this.content,
-        category: category ?? this.category,
-        isRead: isRead ?? this.isRead,
-      );
+  Notification copyWith({
+    int? id,
+    String? key,
+    String? packageName,
+    DateTime? timeStamp,
+    String? title,
+    String? content,
+    String? category,
+    bool? isRead,
+  }) => Notification(
+    id: id ?? this.id,
+    key: key ?? this.key,
+    packageName: packageName ?? this.packageName,
+    timeStamp: timeStamp ?? this.timeStamp,
+    title: title ?? this.title,
+    content: content ?? this.content,
+    category: category ?? this.category,
+    isRead: isRead ?? this.isRead,
+  );
   Notification copyWithCompanion(NotificationsTableCompanion data) {
     return Notification(
       id: data.id.present ? data.id.value : this.id,
@@ -5849,7 +6999,15 @@ class Notification extends DataClass implements Insertable<Notification> {
 
   @override
   int get hashCode => Object.hash(
-      id, key, packageName, timeStamp, title, content, category, isRead);
+    id,
+    key,
+    packageName,
+    timeStamp,
+    title,
+    content,
+    category,
+    isRead,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -5892,8 +7050,8 @@ class NotificationsTableCompanion extends UpdateCompanion<Notification> {
     this.content = const Value.absent(),
     this.category = const Value.absent(),
     this.isRead = const Value.absent(),
-  })  : key = Value(key),
-        packageName = Value(packageName);
+  }) : key = Value(key),
+       packageName = Value(packageName);
   static Insertable<Notification> custom({
     Expression<int>? id,
     Expression<String>? key,
@@ -5916,15 +7074,16 @@ class NotificationsTableCompanion extends UpdateCompanion<Notification> {
     });
   }
 
-  NotificationsTableCompanion copyWith(
-      {Value<int>? id,
-      Value<String>? key,
-      Value<String>? packageName,
-      Value<DateTime>? timeStamp,
-      Value<String>? title,
-      Value<String>? content,
-      Value<String>? category,
-      Value<bool>? isRead}) {
+  NotificationsTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? key,
+    Value<String>? packageName,
+    Value<DateTime>? timeStamp,
+    Value<String>? title,
+    Value<String>? content,
+    Value<String>? category,
+    Value<bool>? isRead,
+  }) {
     return NotificationsTableCompanion(
       id: id ?? this.id,
       key: key ?? this.key,
@@ -5996,8 +7155,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $FocusProfileTableTable(this);
   late final $FocusSessionsTableTable focusSessionsTable =
       $FocusSessionsTableTable(this);
-  late final $MindfulSettingsTableTable mindfulSettingsTable =
-      $MindfulSettingsTableTable(this);
+  late final $ManoDhyanSettingsTableTable manoDhyanSettingsTable =
+      $ManoDhyanSettingsTableTable(this);
   late final $ParentalControlsTableTable parentalControlsTable =
       $ParentalControlsTableTable(this);
   late final $RestrictionGroupsTableTable restrictionGroupsTable =
@@ -6010,58 +7169,60 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $NotificationSettingsTableTable(this);
   late final $NotificationsTableTable notificationsTable =
       $NotificationsTableTable(this);
-  late final UniqueRecordsDao uniqueRecordsDao =
-      UniqueRecordsDao(this as AppDatabase);
-  late final DynamicRecordsDao dynamicRecordsDao =
-      DynamicRecordsDao(this as AppDatabase);
+  late final UniqueRecordsDao uniqueRecordsDao = UniqueRecordsDao(
+    this as AppDatabase,
+  );
+  late final DynamicRecordsDao dynamicRecordsDao = DynamicRecordsDao(
+    this as AppDatabase,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [
-        appRestrictionTable,
-        bedtimeScheduleTable,
-        crashLogsTable,
-        focusModeTable,
-        focusProfileTable,
-        focusSessionsTable,
-        mindfulSettingsTable,
-        parentalControlsTable,
-        restrictionGroupsTable,
-        wellbeingTable,
-        sharedUniqueDataTable,
-        appUsageTable,
-        notificationSettingsTable,
-        notificationsTable
-      ];
+    appRestrictionTable,
+    bedtimeScheduleTable,
+    crashLogsTable,
+    focusModeTable,
+    focusProfileTable,
+    focusSessionsTable,
+    manoDhyanSettingsTable,
+    parentalControlsTable,
+    restrictionGroupsTable,
+    wellbeingTable,
+    sharedUniqueDataTable,
+    appUsageTable,
+    notificationSettingsTable,
+    notificationsTable,
+  ];
 }
 
-typedef $$AppRestrictionTableTableCreateCompanionBuilder
-    = AppRestrictionTableCompanion Function({
-  required String appPackage,
-  Value<int> timerSec,
-  Value<int> launchLimit,
-  Value<TimeOfDayAdapter> activePeriodStart,
-  Value<TimeOfDayAdapter> activePeriodEnd,
-  Value<int> periodDurationInMins,
-  Value<int?> associatedGroupId,
-  Value<bool> canAccessInternet,
-  Value<ReminderType> reminderType,
-  Value<int> rowid,
-});
-typedef $$AppRestrictionTableTableUpdateCompanionBuilder
-    = AppRestrictionTableCompanion Function({
-  Value<String> appPackage,
-  Value<int> timerSec,
-  Value<int> launchLimit,
-  Value<TimeOfDayAdapter> activePeriodStart,
-  Value<TimeOfDayAdapter> activePeriodEnd,
-  Value<int> periodDurationInMins,
-  Value<int?> associatedGroupId,
-  Value<bool> canAccessInternet,
-  Value<ReminderType> reminderType,
-  Value<int> rowid,
-});
+typedef $$AppRestrictionTableTableCreateCompanionBuilder =
+    AppRestrictionTableCompanion Function({
+      required String appPackage,
+      Value<int> timerSec,
+      Value<int> launchLimit,
+      Value<TimeOfDayAdapter> activePeriodStart,
+      Value<TimeOfDayAdapter> activePeriodEnd,
+      Value<int> periodDurationInMins,
+      Value<int?> associatedGroupId,
+      Value<bool> canAccessInternet,
+      Value<ReminderType> reminderType,
+      Value<int> rowid,
+    });
+typedef $$AppRestrictionTableTableUpdateCompanionBuilder =
+    AppRestrictionTableCompanion Function({
+      Value<String> appPackage,
+      Value<int> timerSec,
+      Value<int> launchLimit,
+      Value<TimeOfDayAdapter> activePeriodStart,
+      Value<TimeOfDayAdapter> activePeriodEnd,
+      Value<int> periodDurationInMins,
+      Value<int?> associatedGroupId,
+      Value<bool> canAccessInternet,
+      Value<ReminderType> reminderType,
+      Value<int> rowid,
+    });
 
 class $$AppRestrictionTableTableFilterComposer
     extends Composer<_$AppDatabase, $AppRestrictionTableTable> {
@@ -6073,40 +7234,52 @@ class $$AppRestrictionTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get appPackage => $composableBuilder(
-      column: $table.appPackage, builder: (column) => ColumnFilters(column));
+    column: $table.appPackage,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get timerSec => $composableBuilder(
-      column: $table.timerSec, builder: (column) => ColumnFilters(column));
+    column: $table.timerSec,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get launchLimit => $composableBuilder(
-      column: $table.launchLimit, builder: (column) => ColumnFilters(column));
+    column: $table.launchLimit,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get activePeriodStart => $composableBuilder(
-          column: $table.activePeriodStart,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get activePeriodStart => $composableBuilder(
+    column: $table.activePeriodStart,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get activePeriodEnd => $composableBuilder(
-          column: $table.activePeriodEnd,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get activePeriodEnd => $composableBuilder(
+    column: $table.activePeriodEnd,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<int> get periodDurationInMins => $composableBuilder(
-      column: $table.periodDurationInMins,
-      builder: (column) => ColumnFilters(column));
+    column: $table.periodDurationInMins,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get associatedGroupId => $composableBuilder(
-      column: $table.associatedGroupId,
-      builder: (column) => ColumnFilters(column));
+    column: $table.associatedGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get canAccessInternet => $composableBuilder(
-      column: $table.canAccessInternet,
-      builder: (column) => ColumnFilters(column));
+    column: $table.canAccessInternet,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<ReminderType, ReminderType, String>
-      get reminderType => $composableBuilder(
-          column: $table.reminderType,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get reminderType => $composableBuilder(
+    column: $table.reminderType,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$AppRestrictionTableTableOrderingComposer
@@ -6119,37 +7292,49 @@ class $$AppRestrictionTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get appPackage => $composableBuilder(
-      column: $table.appPackage, builder: (column) => ColumnOrderings(column));
+    column: $table.appPackage,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get timerSec => $composableBuilder(
-      column: $table.timerSec, builder: (column) => ColumnOrderings(column));
+    column: $table.timerSec,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get launchLimit => $composableBuilder(
-      column: $table.launchLimit, builder: (column) => ColumnOrderings(column));
+    column: $table.launchLimit,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get activePeriodStart => $composableBuilder(
-      column: $table.activePeriodStart,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.activePeriodStart,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get activePeriodEnd => $composableBuilder(
-      column: $table.activePeriodEnd,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.activePeriodEnd,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get periodDurationInMins => $composableBuilder(
-      column: $table.periodDurationInMins,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.periodDurationInMins,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get associatedGroupId => $composableBuilder(
-      column: $table.associatedGroupId,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.associatedGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get canAccessInternet => $composableBuilder(
-      column: $table.canAccessInternet,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.canAccessInternet,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get reminderType => $composableBuilder(
-      column: $table.reminderType,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.reminderType,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$AppRestrictionTableTableAnnotationComposer
@@ -6162,156 +7347,204 @@ class $$AppRestrictionTableTableAnnotationComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   GeneratedColumn<String> get appPackage => $composableBuilder(
-      column: $table.appPackage, builder: (column) => column);
+    column: $table.appPackage,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get timerSec =>
       $composableBuilder(column: $table.timerSec, builder: (column) => column);
 
   GeneratedColumn<int> get launchLimit => $composableBuilder(
-      column: $table.launchLimit, builder: (column) => column);
+    column: $table.launchLimit,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      get activePeriodStart => $composableBuilder(
-          column: $table.activePeriodStart, builder: (column) => column);
+  get activePeriodStart => $composableBuilder(
+    column: $table.activePeriodStart,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int> get activePeriodEnd =>
       $composableBuilder(
-          column: $table.activePeriodEnd, builder: (column) => column);
+        column: $table.activePeriodEnd,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<int> get periodDurationInMins => $composableBuilder(
-      column: $table.periodDurationInMins, builder: (column) => column);
+    column: $table.periodDurationInMins,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get associatedGroupId => $composableBuilder(
-      column: $table.associatedGroupId, builder: (column) => column);
+    column: $table.associatedGroupId,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get canAccessInternet => $composableBuilder(
-      column: $table.canAccessInternet, builder: (column) => column);
+    column: $table.canAccessInternet,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<ReminderType, String> get reminderType =>
       $composableBuilder(
-          column: $table.reminderType, builder: (column) => column);
+        column: $table.reminderType,
+        builder: (column) => column,
+      );
 }
 
-class $$AppRestrictionTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $AppRestrictionTableTable,
-    AppRestriction,
-    $$AppRestrictionTableTableFilterComposer,
-    $$AppRestrictionTableTableOrderingComposer,
-    $$AppRestrictionTableTableAnnotationComposer,
-    $$AppRestrictionTableTableCreateCompanionBuilder,
-    $$AppRestrictionTableTableUpdateCompanionBuilder,
-    (
-      AppRestriction,
-      BaseReferences<_$AppDatabase, $AppRestrictionTableTable, AppRestriction>
-    ),
-    AppRestriction,
-    PrefetchHooks Function()> {
+class $$AppRestrictionTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AppRestrictionTableTable,
+          AppRestriction,
+          $$AppRestrictionTableTableFilterComposer,
+          $$AppRestrictionTableTableOrderingComposer,
+          $$AppRestrictionTableTableAnnotationComposer,
+          $$AppRestrictionTableTableCreateCompanionBuilder,
+          $$AppRestrictionTableTableUpdateCompanionBuilder,
+          (
+            AppRestriction,
+            BaseReferences<
+              _$AppDatabase,
+              $AppRestrictionTableTable,
+              AppRestriction
+            >,
+          ),
+          AppRestriction,
+          PrefetchHooks Function()
+        > {
   $$AppRestrictionTableTableTableManager(
-      _$AppDatabase db, $AppRestrictionTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $AppRestrictionTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$AppRestrictionTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$AppRestrictionTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$AppRestrictionTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<String> appPackage = const Value.absent(),
-            Value<int> timerSec = const Value.absent(),
-            Value<int> launchLimit = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodStart = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
-            Value<int> periodDurationInMins = const Value.absent(),
-            Value<int?> associatedGroupId = const Value.absent(),
-            Value<bool> canAccessInternet = const Value.absent(),
-            Value<ReminderType> reminderType = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              AppRestrictionTableCompanion(
-            appPackage: appPackage,
-            timerSec: timerSec,
-            launchLimit: launchLimit,
-            activePeriodStart: activePeriodStart,
-            activePeriodEnd: activePeriodEnd,
-            periodDurationInMins: periodDurationInMins,
-            associatedGroupId: associatedGroupId,
-            canAccessInternet: canAccessInternet,
-            reminderType: reminderType,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String appPackage,
-            Value<int> timerSec = const Value.absent(),
-            Value<int> launchLimit = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodStart = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
-            Value<int> periodDurationInMins = const Value.absent(),
-            Value<int?> associatedGroupId = const Value.absent(),
-            Value<bool> canAccessInternet = const Value.absent(),
-            Value<ReminderType> reminderType = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              AppRestrictionTableCompanion.insert(
-            appPackage: appPackage,
-            timerSec: timerSec,
-            launchLimit: launchLimit,
-            activePeriodStart: activePeriodStart,
-            activePeriodEnd: activePeriodEnd,
-            periodDurationInMins: periodDurationInMins,
-            associatedGroupId: associatedGroupId,
-            canAccessInternet: canAccessInternet,
-            reminderType: reminderType,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$AppRestrictionTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$AppRestrictionTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$AppRestrictionTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> appPackage = const Value.absent(),
+                Value<int> timerSec = const Value.absent(),
+                Value<int> launchLimit = const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodStart =
+                    const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
+                Value<int> periodDurationInMins = const Value.absent(),
+                Value<int?> associatedGroupId = const Value.absent(),
+                Value<bool> canAccessInternet = const Value.absent(),
+                Value<ReminderType> reminderType = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AppRestrictionTableCompanion(
+                appPackage: appPackage,
+                timerSec: timerSec,
+                launchLimit: launchLimit,
+                activePeriodStart: activePeriodStart,
+                activePeriodEnd: activePeriodEnd,
+                periodDurationInMins: periodDurationInMins,
+                associatedGroupId: associatedGroupId,
+                canAccessInternet: canAccessInternet,
+                reminderType: reminderType,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String appPackage,
+                Value<int> timerSec = const Value.absent(),
+                Value<int> launchLimit = const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodStart =
+                    const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
+                Value<int> periodDurationInMins = const Value.absent(),
+                Value<int?> associatedGroupId = const Value.absent(),
+                Value<bool> canAccessInternet = const Value.absent(),
+                Value<ReminderType> reminderType = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AppRestrictionTableCompanion.insert(
+                appPackage: appPackage,
+                timerSec: timerSec,
+                launchLimit: launchLimit,
+                activePeriodStart: activePeriodStart,
+                activePeriodEnd: activePeriodEnd,
+                periodDurationInMins: periodDurationInMins,
+                associatedGroupId: associatedGroupId,
+                canAccessInternet: canAccessInternet,
+                reminderType: reminderType,
+                rowid: rowid,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$AppRestrictionTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $AppRestrictionTableTable,
-    AppRestriction,
-    $$AppRestrictionTableTableFilterComposer,
-    $$AppRestrictionTableTableOrderingComposer,
-    $$AppRestrictionTableTableAnnotationComposer,
-    $$AppRestrictionTableTableCreateCompanionBuilder,
-    $$AppRestrictionTableTableUpdateCompanionBuilder,
-    (
+typedef $$AppRestrictionTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AppRestrictionTableTable,
       AppRestriction,
-      BaseReferences<_$AppDatabase, $AppRestrictionTableTable, AppRestriction>
-    ),
-    AppRestriction,
-    PrefetchHooks Function()>;
-typedef $$BedtimeScheduleTableTableCreateCompanionBuilder
-    = BedtimeScheduleTableCompanion Function({
-  Value<int> id,
-  Value<TimeOfDayAdapter> scheduleStartTime,
-  Value<TimeOfDayAdapter> scheduleEndTime,
-  Value<int> scheduleDurationInMins,
-  Value<List<bool>> scheduleDays,
-  Value<bool> isScheduleOn,
-  Value<bool> shouldStartDnd,
-  Value<List<String>> distractingApps,
-});
-typedef $$BedtimeScheduleTableTableUpdateCompanionBuilder
-    = BedtimeScheduleTableCompanion Function({
-  Value<int> id,
-  Value<TimeOfDayAdapter> scheduleStartTime,
-  Value<TimeOfDayAdapter> scheduleEndTime,
-  Value<int> scheduleDurationInMins,
-  Value<List<bool>> scheduleDays,
-  Value<bool> isScheduleOn,
-  Value<bool> shouldStartDnd,
-  Value<List<String>> distractingApps,
-});
+      $$AppRestrictionTableTableFilterComposer,
+      $$AppRestrictionTableTableOrderingComposer,
+      $$AppRestrictionTableTableAnnotationComposer,
+      $$AppRestrictionTableTableCreateCompanionBuilder,
+      $$AppRestrictionTableTableUpdateCompanionBuilder,
+      (
+        AppRestriction,
+        BaseReferences<
+          _$AppDatabase,
+          $AppRestrictionTableTable,
+          AppRestriction
+        >,
+      ),
+      AppRestriction,
+      PrefetchHooks Function()
+    >;
+typedef $$BedtimeScheduleTableTableCreateCompanionBuilder =
+    BedtimeScheduleTableCompanion Function({
+      Value<int> id,
+      Value<TimeOfDayAdapter> scheduleStartTime,
+      Value<TimeOfDayAdapter> scheduleEndTime,
+      Value<int> scheduleDurationInMins,
+      Value<List<bool>> scheduleDays,
+      Value<bool> isScheduleOn,
+      Value<bool> shouldStartDnd,
+      Value<List<String>> distractingApps,
+    });
+typedef $$BedtimeScheduleTableTableUpdateCompanionBuilder =
+    BedtimeScheduleTableCompanion Function({
+      Value<int> id,
+      Value<TimeOfDayAdapter> scheduleStartTime,
+      Value<TimeOfDayAdapter> scheduleEndTime,
+      Value<int> scheduleDurationInMins,
+      Value<List<bool>> scheduleDays,
+      Value<bool> isScheduleOn,
+      Value<bool> shouldStartDnd,
+      Value<List<String>> distractingApps,
+    });
 
 class $$BedtimeScheduleTableTableFilterComposer
     extends Composer<_$AppDatabase, $BedtimeScheduleTableTable> {
@@ -6323,38 +7556,48 @@ class $$BedtimeScheduleTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get scheduleStartTime => $composableBuilder(
-          column: $table.scheduleStartTime,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get scheduleStartTime => $composableBuilder(
+    column: $table.scheduleStartTime,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get scheduleEndTime => $composableBuilder(
-          column: $table.scheduleEndTime,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get scheduleEndTime => $composableBuilder(
+    column: $table.scheduleEndTime,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<int> get scheduleDurationInMins => $composableBuilder(
-      column: $table.scheduleDurationInMins,
-      builder: (column) => ColumnFilters(column));
+    column: $table.scheduleDurationInMins,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<bool>, List<bool>, String>
-      get scheduleDays => $composableBuilder(
-          column: $table.scheduleDays,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get scheduleDays => $composableBuilder(
+    column: $table.scheduleDays,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<bool> get isScheduleOn => $composableBuilder(
-      column: $table.isScheduleOn, builder: (column) => ColumnFilters(column));
+    column: $table.isScheduleOn,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get shouldStartDnd => $composableBuilder(
-      column: $table.shouldStartDnd,
-      builder: (column) => ColumnFilters(column));
+    column: $table.shouldStartDnd,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get distractingApps => $composableBuilder(
-          column: $table.distractingApps,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get distractingApps => $composableBuilder(
+    column: $table.distractingApps,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$BedtimeScheduleTableTableOrderingComposer
@@ -6367,35 +7610,44 @@ class $$BedtimeScheduleTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get scheduleStartTime => $composableBuilder(
-      column: $table.scheduleStartTime,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.scheduleStartTime,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get scheduleEndTime => $composableBuilder(
-      column: $table.scheduleEndTime,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.scheduleEndTime,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get scheduleDurationInMins => $composableBuilder(
-      column: $table.scheduleDurationInMins,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.scheduleDurationInMins,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get scheduleDays => $composableBuilder(
-      column: $table.scheduleDays,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.scheduleDays,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isScheduleOn => $composableBuilder(
-      column: $table.isScheduleOn,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.isScheduleOn,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get shouldStartDnd => $composableBuilder(
-      column: $table.shouldStartDnd,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.shouldStartDnd,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get distractingApps => $composableBuilder(
-      column: $table.distractingApps,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.distractingApps,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$BedtimeScheduleTableTableAnnotationComposer
@@ -6411,139 +7663,183 @@ class $$BedtimeScheduleTableTableAnnotationComposer
       $composableBuilder(column: $table.id, builder: (column) => column);
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      get scheduleStartTime => $composableBuilder(
-          column: $table.scheduleStartTime, builder: (column) => column);
+  get scheduleStartTime => $composableBuilder(
+    column: $table.scheduleStartTime,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int> get scheduleEndTime =>
       $composableBuilder(
-          column: $table.scheduleEndTime, builder: (column) => column);
+        column: $table.scheduleEndTime,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<int> get scheduleDurationInMins => $composableBuilder(
-      column: $table.scheduleDurationInMins, builder: (column) => column);
+    column: $table.scheduleDurationInMins,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<bool>, String> get scheduleDays =>
       $composableBuilder(
-          column: $table.scheduleDays, builder: (column) => column);
+        column: $table.scheduleDays,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<bool> get isScheduleOn => $composableBuilder(
-      column: $table.isScheduleOn, builder: (column) => column);
+    column: $table.isScheduleOn,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get shouldStartDnd => $composableBuilder(
-      column: $table.shouldStartDnd, builder: (column) => column);
+    column: $table.shouldStartDnd,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<String>, String> get distractingApps =>
       $composableBuilder(
-          column: $table.distractingApps, builder: (column) => column);
+        column: $table.distractingApps,
+        builder: (column) => column,
+      );
 }
 
-class $$BedtimeScheduleTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $BedtimeScheduleTableTable,
-    BedtimeSchedule,
-    $$BedtimeScheduleTableTableFilterComposer,
-    $$BedtimeScheduleTableTableOrderingComposer,
-    $$BedtimeScheduleTableTableAnnotationComposer,
-    $$BedtimeScheduleTableTableCreateCompanionBuilder,
-    $$BedtimeScheduleTableTableUpdateCompanionBuilder,
-    (
-      BedtimeSchedule,
-      BaseReferences<_$AppDatabase, $BedtimeScheduleTableTable, BedtimeSchedule>
-    ),
-    BedtimeSchedule,
-    PrefetchHooks Function()> {
+class $$BedtimeScheduleTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BedtimeScheduleTableTable,
+          BedtimeSchedule,
+          $$BedtimeScheduleTableTableFilterComposer,
+          $$BedtimeScheduleTableTableOrderingComposer,
+          $$BedtimeScheduleTableTableAnnotationComposer,
+          $$BedtimeScheduleTableTableCreateCompanionBuilder,
+          $$BedtimeScheduleTableTableUpdateCompanionBuilder,
+          (
+            BedtimeSchedule,
+            BaseReferences<
+              _$AppDatabase,
+              $BedtimeScheduleTableTable,
+              BedtimeSchedule
+            >,
+          ),
+          BedtimeSchedule,
+          PrefetchHooks Function()
+        > {
   $$BedtimeScheduleTableTableTableManager(
-      _$AppDatabase db, $BedtimeScheduleTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $BedtimeScheduleTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$BedtimeScheduleTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$BedtimeScheduleTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$BedtimeScheduleTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<TimeOfDayAdapter> scheduleStartTime = const Value.absent(),
-            Value<TimeOfDayAdapter> scheduleEndTime = const Value.absent(),
-            Value<int> scheduleDurationInMins = const Value.absent(),
-            Value<List<bool>> scheduleDays = const Value.absent(),
-            Value<bool> isScheduleOn = const Value.absent(),
-            Value<bool> shouldStartDnd = const Value.absent(),
-            Value<List<String>> distractingApps = const Value.absent(),
-          }) =>
-              BedtimeScheduleTableCompanion(
-            id: id,
-            scheduleStartTime: scheduleStartTime,
-            scheduleEndTime: scheduleEndTime,
-            scheduleDurationInMins: scheduleDurationInMins,
-            scheduleDays: scheduleDays,
-            isScheduleOn: isScheduleOn,
-            shouldStartDnd: shouldStartDnd,
-            distractingApps: distractingApps,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<TimeOfDayAdapter> scheduleStartTime = const Value.absent(),
-            Value<TimeOfDayAdapter> scheduleEndTime = const Value.absent(),
-            Value<int> scheduleDurationInMins = const Value.absent(),
-            Value<List<bool>> scheduleDays = const Value.absent(),
-            Value<bool> isScheduleOn = const Value.absent(),
-            Value<bool> shouldStartDnd = const Value.absent(),
-            Value<List<String>> distractingApps = const Value.absent(),
-          }) =>
-              BedtimeScheduleTableCompanion.insert(
-            id: id,
-            scheduleStartTime: scheduleStartTime,
-            scheduleEndTime: scheduleEndTime,
-            scheduleDurationInMins: scheduleDurationInMins,
-            scheduleDays: scheduleDays,
-            isScheduleOn: isScheduleOn,
-            shouldStartDnd: shouldStartDnd,
-            distractingApps: distractingApps,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$BedtimeScheduleTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$BedtimeScheduleTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$BedtimeScheduleTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<TimeOfDayAdapter> scheduleStartTime =
+                    const Value.absent(),
+                Value<TimeOfDayAdapter> scheduleEndTime = const Value.absent(),
+                Value<int> scheduleDurationInMins = const Value.absent(),
+                Value<List<bool>> scheduleDays = const Value.absent(),
+                Value<bool> isScheduleOn = const Value.absent(),
+                Value<bool> shouldStartDnd = const Value.absent(),
+                Value<List<String>> distractingApps = const Value.absent(),
+              }) => BedtimeScheduleTableCompanion(
+                id: id,
+                scheduleStartTime: scheduleStartTime,
+                scheduleEndTime: scheduleEndTime,
+                scheduleDurationInMins: scheduleDurationInMins,
+                scheduleDays: scheduleDays,
+                isScheduleOn: isScheduleOn,
+                shouldStartDnd: shouldStartDnd,
+                distractingApps: distractingApps,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<TimeOfDayAdapter> scheduleStartTime =
+                    const Value.absent(),
+                Value<TimeOfDayAdapter> scheduleEndTime = const Value.absent(),
+                Value<int> scheduleDurationInMins = const Value.absent(),
+                Value<List<bool>> scheduleDays = const Value.absent(),
+                Value<bool> isScheduleOn = const Value.absent(),
+                Value<bool> shouldStartDnd = const Value.absent(),
+                Value<List<String>> distractingApps = const Value.absent(),
+              }) => BedtimeScheduleTableCompanion.insert(
+                id: id,
+                scheduleStartTime: scheduleStartTime,
+                scheduleEndTime: scheduleEndTime,
+                scheduleDurationInMins: scheduleDurationInMins,
+                scheduleDays: scheduleDays,
+                isScheduleOn: isScheduleOn,
+                shouldStartDnd: shouldStartDnd,
+                distractingApps: distractingApps,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$BedtimeScheduleTableTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $BedtimeScheduleTableTable,
+typedef $$BedtimeScheduleTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BedtimeScheduleTableTable,
+      BedtimeSchedule,
+      $$BedtimeScheduleTableTableFilterComposer,
+      $$BedtimeScheduleTableTableOrderingComposer,
+      $$BedtimeScheduleTableTableAnnotationComposer,
+      $$BedtimeScheduleTableTableCreateCompanionBuilder,
+      $$BedtimeScheduleTableTableUpdateCompanionBuilder,
+      (
         BedtimeSchedule,
-        $$BedtimeScheduleTableTableFilterComposer,
-        $$BedtimeScheduleTableTableOrderingComposer,
-        $$BedtimeScheduleTableTableAnnotationComposer,
-        $$BedtimeScheduleTableTableCreateCompanionBuilder,
-        $$BedtimeScheduleTableTableUpdateCompanionBuilder,
-        (
-          BedtimeSchedule,
-          BaseReferences<_$AppDatabase, $BedtimeScheduleTableTable,
-              BedtimeSchedule>
-        ),
-        BedtimeSchedule,
-        PrefetchHooks Function()>;
-typedef $$CrashLogsTableTableCreateCompanionBuilder = CrashLogsTableCompanion
-    Function({
-  Value<int> id,
-  Value<String> appVersion,
-  Value<DateTime> timeStamp,
-  Value<String> error,
-  Value<String> stackTrace,
-});
-typedef $$CrashLogsTableTableUpdateCompanionBuilder = CrashLogsTableCompanion
-    Function({
-  Value<int> id,
-  Value<String> appVersion,
-  Value<DateTime> timeStamp,
-  Value<String> error,
-  Value<String> stackTrace,
-});
+        BaseReferences<
+          _$AppDatabase,
+          $BedtimeScheduleTableTable,
+          BedtimeSchedule
+        >,
+      ),
+      BedtimeSchedule,
+      PrefetchHooks Function()
+    >;
+typedef $$CrashLogsTableTableCreateCompanionBuilder =
+    CrashLogsTableCompanion Function({
+      Value<int> id,
+      Value<String> appVersion,
+      Value<DateTime> timeStamp,
+      Value<String> error,
+      Value<String> stackTrace,
+    });
+typedef $$CrashLogsTableTableUpdateCompanionBuilder =
+    CrashLogsTableCompanion Function({
+      Value<int> id,
+      Value<String> appVersion,
+      Value<DateTime> timeStamp,
+      Value<String> error,
+      Value<String> stackTrace,
+    });
 
 class $$CrashLogsTableTableFilterComposer
     extends Composer<_$AppDatabase, $CrashLogsTableTable> {
@@ -6555,19 +7851,29 @@ class $$CrashLogsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get appVersion => $composableBuilder(
-      column: $table.appVersion, builder: (column) => ColumnFilters(column));
+    column: $table.appVersion,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get timeStamp => $composableBuilder(
-      column: $table.timeStamp, builder: (column) => ColumnFilters(column));
+    column: $table.timeStamp,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get error => $composableBuilder(
-      column: $table.error, builder: (column) => ColumnFilters(column));
+    column: $table.error,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get stackTrace => $composableBuilder(
-      column: $table.stackTrace, builder: (column) => ColumnFilters(column));
+    column: $table.stackTrace,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$CrashLogsTableTableOrderingComposer
@@ -6580,19 +7886,29 @@ class $$CrashLogsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get appVersion => $composableBuilder(
-      column: $table.appVersion, builder: (column) => ColumnOrderings(column));
+    column: $table.appVersion,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get timeStamp => $composableBuilder(
-      column: $table.timeStamp, builder: (column) => ColumnOrderings(column));
+    column: $table.timeStamp,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get error => $composableBuilder(
-      column: $table.error, builder: (column) => ColumnOrderings(column));
+    column: $table.error,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get stackTrace => $composableBuilder(
-      column: $table.stackTrace, builder: (column) => ColumnOrderings(column));
+    column: $table.stackTrace,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$CrashLogsTableTableAnnotationComposer
@@ -6608,7 +7924,9 @@ class $$CrashLogsTableTableAnnotationComposer
       $composableBuilder(column: $table.id, builder: (column) => column);
 
   GeneratedColumn<String> get appVersion => $composableBuilder(
-      column: $table.appVersion, builder: (column) => column);
+    column: $table.appVersion,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get timeStamp =>
       $composableBuilder(column: $table.timeStamp, builder: (column) => column);
@@ -6617,95 +7935,119 @@ class $$CrashLogsTableTableAnnotationComposer
       $composableBuilder(column: $table.error, builder: (column) => column);
 
   GeneratedColumn<String> get stackTrace => $composableBuilder(
-      column: $table.stackTrace, builder: (column) => column);
+    column: $table.stackTrace,
+    builder: (column) => column,
+  );
 }
 
-class $$CrashLogsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $CrashLogsTableTable,
-    CrashLog,
-    $$CrashLogsTableTableFilterComposer,
-    $$CrashLogsTableTableOrderingComposer,
-    $$CrashLogsTableTableAnnotationComposer,
-    $$CrashLogsTableTableCreateCompanionBuilder,
-    $$CrashLogsTableTableUpdateCompanionBuilder,
-    (CrashLog, BaseReferences<_$AppDatabase, $CrashLogsTableTable, CrashLog>),
-    CrashLog,
-    PrefetchHooks Function()> {
+class $$CrashLogsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CrashLogsTableTable,
+          CrashLog,
+          $$CrashLogsTableTableFilterComposer,
+          $$CrashLogsTableTableOrderingComposer,
+          $$CrashLogsTableTableAnnotationComposer,
+          $$CrashLogsTableTableCreateCompanionBuilder,
+          $$CrashLogsTableTableUpdateCompanionBuilder,
+          (
+            CrashLog,
+            BaseReferences<_$AppDatabase, $CrashLogsTableTable, CrashLog>,
+          ),
+          CrashLog,
+          PrefetchHooks Function()
+        > {
   $$CrashLogsTableTableTableManager(
-      _$AppDatabase db, $CrashLogsTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $CrashLogsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$CrashLogsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$CrashLogsTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$CrashLogsTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> appVersion = const Value.absent(),
-            Value<DateTime> timeStamp = const Value.absent(),
-            Value<String> error = const Value.absent(),
-            Value<String> stackTrace = const Value.absent(),
-          }) =>
-              CrashLogsTableCompanion(
-            id: id,
-            appVersion: appVersion,
-            timeStamp: timeStamp,
-            error: error,
-            stackTrace: stackTrace,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> appVersion = const Value.absent(),
-            Value<DateTime> timeStamp = const Value.absent(),
-            Value<String> error = const Value.absent(),
-            Value<String> stackTrace = const Value.absent(),
-          }) =>
-              CrashLogsTableCompanion.insert(
-            id: id,
-            appVersion: appVersion,
-            timeStamp: timeStamp,
-            error: error,
-            stackTrace: stackTrace,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$CrashLogsTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$CrashLogsTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$CrashLogsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> appVersion = const Value.absent(),
+                Value<DateTime> timeStamp = const Value.absent(),
+                Value<String> error = const Value.absent(),
+                Value<String> stackTrace = const Value.absent(),
+              }) => CrashLogsTableCompanion(
+                id: id,
+                appVersion: appVersion,
+                timeStamp: timeStamp,
+                error: error,
+                stackTrace: stackTrace,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> appVersion = const Value.absent(),
+                Value<DateTime> timeStamp = const Value.absent(),
+                Value<String> error = const Value.absent(),
+                Value<String> stackTrace = const Value.absent(),
+              }) => CrashLogsTableCompanion.insert(
+                id: id,
+                appVersion: appVersion,
+                timeStamp: timeStamp,
+                error: error,
+                stackTrace: stackTrace,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$CrashLogsTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $CrashLogsTableTable,
-    CrashLog,
-    $$CrashLogsTableTableFilterComposer,
-    $$CrashLogsTableTableOrderingComposer,
-    $$CrashLogsTableTableAnnotationComposer,
-    $$CrashLogsTableTableCreateCompanionBuilder,
-    $$CrashLogsTableTableUpdateCompanionBuilder,
-    (CrashLog, BaseReferences<_$AppDatabase, $CrashLogsTableTable, CrashLog>),
-    CrashLog,
-    PrefetchHooks Function()>;
-typedef $$FocusModeTableTableCreateCompanionBuilder = FocusModeTableCompanion
-    Function({
-  Value<int> id,
-  Value<SessionType> sessionType,
-  Value<int> longestStreak,
-  Value<int> currentStreak,
-  Value<DateTime> lastTimeStreakUpdated,
-});
-typedef $$FocusModeTableTableUpdateCompanionBuilder = FocusModeTableCompanion
-    Function({
-  Value<int> id,
-  Value<SessionType> sessionType,
-  Value<int> longestStreak,
-  Value<int> currentStreak,
-  Value<DateTime> lastTimeStreakUpdated,
-});
+typedef $$CrashLogsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CrashLogsTableTable,
+      CrashLog,
+      $$CrashLogsTableTableFilterComposer,
+      $$CrashLogsTableTableOrderingComposer,
+      $$CrashLogsTableTableAnnotationComposer,
+      $$CrashLogsTableTableCreateCompanionBuilder,
+      $$CrashLogsTableTableUpdateCompanionBuilder,
+      (CrashLog, BaseReferences<_$AppDatabase, $CrashLogsTableTable, CrashLog>),
+      CrashLog,
+      PrefetchHooks Function()
+    >;
+typedef $$FocusModeTableTableCreateCompanionBuilder =
+    FocusModeTableCompanion Function({
+      Value<int> id,
+      Value<SessionType> sessionType,
+      Value<int> longestStreak,
+      Value<int> currentStreak,
+      Value<DateTime> lastTimeStreakUpdated,
+    });
+typedef $$FocusModeTableTableUpdateCompanionBuilder =
+    FocusModeTableCompanion Function({
+      Value<int> id,
+      Value<SessionType> sessionType,
+      Value<int> longestStreak,
+      Value<int> currentStreak,
+      Value<DateTime> lastTimeStreakUpdated,
+    });
 
 class $$FocusModeTableTableFilterComposer
     extends Composer<_$AppDatabase, $FocusModeTableTable> {
@@ -6717,22 +8059,30 @@ class $$FocusModeTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<SessionType, SessionType, int>
-      get sessionType => $composableBuilder(
-          column: $table.sessionType,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get sessionType => $composableBuilder(
+    column: $table.sessionType,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<int> get longestStreak => $composableBuilder(
-      column: $table.longestStreak, builder: (column) => ColumnFilters(column));
+    column: $table.longestStreak,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get currentStreak => $composableBuilder(
-      column: $table.currentStreak, builder: (column) => ColumnFilters(column));
+    column: $table.currentStreak,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get lastTimeStreakUpdated => $composableBuilder(
-      column: $table.lastTimeStreakUpdated,
-      builder: (column) => ColumnFilters(column));
+    column: $table.lastTimeStreakUpdated,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$FocusModeTableTableOrderingComposer
@@ -6745,22 +8095,29 @@ class $$FocusModeTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get sessionType => $composableBuilder(
-      column: $table.sessionType, builder: (column) => ColumnOrderings(column));
+    column: $table.sessionType,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get longestStreak => $composableBuilder(
-      column: $table.longestStreak,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.longestStreak,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get currentStreak => $composableBuilder(
-      column: $table.currentStreak,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.currentStreak,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get lastTimeStreakUpdated => $composableBuilder(
-      column: $table.lastTimeStreakUpdated,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.lastTimeStreakUpdated,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$FocusModeTableTableAnnotationComposer
@@ -6777,104 +8134,137 @@ class $$FocusModeTableTableAnnotationComposer
 
   GeneratedColumnWithTypeConverter<SessionType, int> get sessionType =>
       $composableBuilder(
-          column: $table.sessionType, builder: (column) => column);
+        column: $table.sessionType,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<int> get longestStreak => $composableBuilder(
-      column: $table.longestStreak, builder: (column) => column);
+    column: $table.longestStreak,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get currentStreak => $composableBuilder(
-      column: $table.currentStreak, builder: (column) => column);
+    column: $table.currentStreak,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get lastTimeStreakUpdated => $composableBuilder(
-      column: $table.lastTimeStreakUpdated, builder: (column) => column);
+    column: $table.lastTimeStreakUpdated,
+    builder: (column) => column,
+  );
 }
 
-class $$FocusModeTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $FocusModeTableTable,
-    FocusMode,
-    $$FocusModeTableTableFilterComposer,
-    $$FocusModeTableTableOrderingComposer,
-    $$FocusModeTableTableAnnotationComposer,
-    $$FocusModeTableTableCreateCompanionBuilder,
-    $$FocusModeTableTableUpdateCompanionBuilder,
-    (FocusMode, BaseReferences<_$AppDatabase, $FocusModeTableTable, FocusMode>),
-    FocusMode,
-    PrefetchHooks Function()> {
+class $$FocusModeTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FocusModeTableTable,
+          FocusMode,
+          $$FocusModeTableTableFilterComposer,
+          $$FocusModeTableTableOrderingComposer,
+          $$FocusModeTableTableAnnotationComposer,
+          $$FocusModeTableTableCreateCompanionBuilder,
+          $$FocusModeTableTableUpdateCompanionBuilder,
+          (
+            FocusMode,
+            BaseReferences<_$AppDatabase, $FocusModeTableTable, FocusMode>,
+          ),
+          FocusMode,
+          PrefetchHooks Function()
+        > {
   $$FocusModeTableTableTableManager(
-      _$AppDatabase db, $FocusModeTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $FocusModeTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$FocusModeTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$FocusModeTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$FocusModeTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<SessionType> sessionType = const Value.absent(),
-            Value<int> longestStreak = const Value.absent(),
-            Value<int> currentStreak = const Value.absent(),
-            Value<DateTime> lastTimeStreakUpdated = const Value.absent(),
-          }) =>
-              FocusModeTableCompanion(
-            id: id,
-            sessionType: sessionType,
-            longestStreak: longestStreak,
-            currentStreak: currentStreak,
-            lastTimeStreakUpdated: lastTimeStreakUpdated,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<SessionType> sessionType = const Value.absent(),
-            Value<int> longestStreak = const Value.absent(),
-            Value<int> currentStreak = const Value.absent(),
-            Value<DateTime> lastTimeStreakUpdated = const Value.absent(),
-          }) =>
-              FocusModeTableCompanion.insert(
-            id: id,
-            sessionType: sessionType,
-            longestStreak: longestStreak,
-            currentStreak: currentStreak,
-            lastTimeStreakUpdated: lastTimeStreakUpdated,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$FocusModeTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$FocusModeTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$FocusModeTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<SessionType> sessionType = const Value.absent(),
+                Value<int> longestStreak = const Value.absent(),
+                Value<int> currentStreak = const Value.absent(),
+                Value<DateTime> lastTimeStreakUpdated = const Value.absent(),
+              }) => FocusModeTableCompanion(
+                id: id,
+                sessionType: sessionType,
+                longestStreak: longestStreak,
+                currentStreak: currentStreak,
+                lastTimeStreakUpdated: lastTimeStreakUpdated,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<SessionType> sessionType = const Value.absent(),
+                Value<int> longestStreak = const Value.absent(),
+                Value<int> currentStreak = const Value.absent(),
+                Value<DateTime> lastTimeStreakUpdated = const Value.absent(),
+              }) => FocusModeTableCompanion.insert(
+                id: id,
+                sessionType: sessionType,
+                longestStreak: longestStreak,
+                currentStreak: currentStreak,
+                lastTimeStreakUpdated: lastTimeStreakUpdated,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$FocusModeTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $FocusModeTableTable,
-    FocusMode,
-    $$FocusModeTableTableFilterComposer,
-    $$FocusModeTableTableOrderingComposer,
-    $$FocusModeTableTableAnnotationComposer,
-    $$FocusModeTableTableCreateCompanionBuilder,
-    $$FocusModeTableTableUpdateCompanionBuilder,
-    (FocusMode, BaseReferences<_$AppDatabase, $FocusModeTableTable, FocusMode>),
-    FocusMode,
-    PrefetchHooks Function()>;
-typedef $$FocusProfileTableTableCreateCompanionBuilder
-    = FocusProfileTableCompanion Function({
-  Value<SessionType> sessionType,
-  Value<int> sessionDuration,
-  Value<bool> enforceSession,
-  Value<bool> shouldStartDnd,
-  Value<List<String>> distractingApps,
-});
-typedef $$FocusProfileTableTableUpdateCompanionBuilder
-    = FocusProfileTableCompanion Function({
-  Value<SessionType> sessionType,
-  Value<int> sessionDuration,
-  Value<bool> enforceSession,
-  Value<bool> shouldStartDnd,
-  Value<List<String>> distractingApps,
-});
+typedef $$FocusModeTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FocusModeTableTable,
+      FocusMode,
+      $$FocusModeTableTableFilterComposer,
+      $$FocusModeTableTableOrderingComposer,
+      $$FocusModeTableTableAnnotationComposer,
+      $$FocusModeTableTableCreateCompanionBuilder,
+      $$FocusModeTableTableUpdateCompanionBuilder,
+      (
+        FocusMode,
+        BaseReferences<_$AppDatabase, $FocusModeTableTable, FocusMode>,
+      ),
+      FocusMode,
+      PrefetchHooks Function()
+    >;
+typedef $$FocusProfileTableTableCreateCompanionBuilder =
+    FocusProfileTableCompanion Function({
+      Value<SessionType> sessionType,
+      Value<int> sessionDuration,
+      Value<bool> enforceSession,
+      Value<bool> shouldStartDnd,
+      Value<List<String>> distractingApps,
+    });
+typedef $$FocusProfileTableTableUpdateCompanionBuilder =
+    FocusProfileTableCompanion Function({
+      Value<SessionType> sessionType,
+      Value<int> sessionDuration,
+      Value<bool> enforceSession,
+      Value<bool> shouldStartDnd,
+      Value<List<String>> distractingApps,
+    });
 
 class $$FocusProfileTableTableFilterComposer
     extends Composer<_$AppDatabase, $FocusProfileTableTable> {
@@ -6886,26 +8276,31 @@ class $$FocusProfileTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnWithTypeConverterFilters<SessionType, SessionType, int>
-      get sessionType => $composableBuilder(
-          column: $table.sessionType,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get sessionType => $composableBuilder(
+    column: $table.sessionType,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<int> get sessionDuration => $composableBuilder(
-      column: $table.sessionDuration,
-      builder: (column) => ColumnFilters(column));
+    column: $table.sessionDuration,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get enforceSession => $composableBuilder(
-      column: $table.enforceSession,
-      builder: (column) => ColumnFilters(column));
+    column: $table.enforceSession,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get shouldStartDnd => $composableBuilder(
-      column: $table.shouldStartDnd,
-      builder: (column) => ColumnFilters(column));
+    column: $table.shouldStartDnd,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get distractingApps => $composableBuilder(
-          column: $table.distractingApps,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get distractingApps => $composableBuilder(
+    column: $table.distractingApps,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$FocusProfileTableTableOrderingComposer
@@ -6918,23 +8313,29 @@ class $$FocusProfileTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get sessionType => $composableBuilder(
-      column: $table.sessionType, builder: (column) => ColumnOrderings(column));
+    column: $table.sessionType,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get sessionDuration => $composableBuilder(
-      column: $table.sessionDuration,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.sessionDuration,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get enforceSession => $composableBuilder(
-      column: $table.enforceSession,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.enforceSession,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get shouldStartDnd => $composableBuilder(
-      column: $table.shouldStartDnd,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.shouldStartDnd,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get distractingApps => $composableBuilder(
-      column: $table.distractingApps,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.distractingApps,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$FocusProfileTableTableAnnotationComposer
@@ -6948,117 +8349,154 @@ class $$FocusProfileTableTableAnnotationComposer
   });
   GeneratedColumnWithTypeConverter<SessionType, int> get sessionType =>
       $composableBuilder(
-          column: $table.sessionType, builder: (column) => column);
+        column: $table.sessionType,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<int> get sessionDuration => $composableBuilder(
-      column: $table.sessionDuration, builder: (column) => column);
+    column: $table.sessionDuration,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get enforceSession => $composableBuilder(
-      column: $table.enforceSession, builder: (column) => column);
+    column: $table.enforceSession,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get shouldStartDnd => $composableBuilder(
-      column: $table.shouldStartDnd, builder: (column) => column);
+    column: $table.shouldStartDnd,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<String>, String> get distractingApps =>
       $composableBuilder(
-          column: $table.distractingApps, builder: (column) => column);
+        column: $table.distractingApps,
+        builder: (column) => column,
+      );
 }
 
-class $$FocusProfileTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $FocusProfileTableTable,
-    FocusProfile,
-    $$FocusProfileTableTableFilterComposer,
-    $$FocusProfileTableTableOrderingComposer,
-    $$FocusProfileTableTableAnnotationComposer,
-    $$FocusProfileTableTableCreateCompanionBuilder,
-    $$FocusProfileTableTableUpdateCompanionBuilder,
-    (
-      FocusProfile,
-      BaseReferences<_$AppDatabase, $FocusProfileTableTable, FocusProfile>
-    ),
-    FocusProfile,
-    PrefetchHooks Function()> {
+class $$FocusProfileTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FocusProfileTableTable,
+          FocusProfile,
+          $$FocusProfileTableTableFilterComposer,
+          $$FocusProfileTableTableOrderingComposer,
+          $$FocusProfileTableTableAnnotationComposer,
+          $$FocusProfileTableTableCreateCompanionBuilder,
+          $$FocusProfileTableTableUpdateCompanionBuilder,
+          (
+            FocusProfile,
+            BaseReferences<
+              _$AppDatabase,
+              $FocusProfileTableTable,
+              FocusProfile
+            >,
+          ),
+          FocusProfile,
+          PrefetchHooks Function()
+        > {
   $$FocusProfileTableTableTableManager(
-      _$AppDatabase db, $FocusProfileTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $FocusProfileTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$FocusProfileTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$FocusProfileTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$FocusProfileTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<SessionType> sessionType = const Value.absent(),
-            Value<int> sessionDuration = const Value.absent(),
-            Value<bool> enforceSession = const Value.absent(),
-            Value<bool> shouldStartDnd = const Value.absent(),
-            Value<List<String>> distractingApps = const Value.absent(),
-          }) =>
-              FocusProfileTableCompanion(
-            sessionType: sessionType,
-            sessionDuration: sessionDuration,
-            enforceSession: enforceSession,
-            shouldStartDnd: shouldStartDnd,
-            distractingApps: distractingApps,
-          ),
-          createCompanionCallback: ({
-            Value<SessionType> sessionType = const Value.absent(),
-            Value<int> sessionDuration = const Value.absent(),
-            Value<bool> enforceSession = const Value.absent(),
-            Value<bool> shouldStartDnd = const Value.absent(),
-            Value<List<String>> distractingApps = const Value.absent(),
-          }) =>
-              FocusProfileTableCompanion.insert(
-            sessionType: sessionType,
-            sessionDuration: sessionDuration,
-            enforceSession: enforceSession,
-            shouldStartDnd: shouldStartDnd,
-            distractingApps: distractingApps,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$FocusProfileTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$FocusProfileTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$FocusProfileTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<SessionType> sessionType = const Value.absent(),
+                Value<int> sessionDuration = const Value.absent(),
+                Value<bool> enforceSession = const Value.absent(),
+                Value<bool> shouldStartDnd = const Value.absent(),
+                Value<List<String>> distractingApps = const Value.absent(),
+              }) => FocusProfileTableCompanion(
+                sessionType: sessionType,
+                sessionDuration: sessionDuration,
+                enforceSession: enforceSession,
+                shouldStartDnd: shouldStartDnd,
+                distractingApps: distractingApps,
+              ),
+          createCompanionCallback:
+              ({
+                Value<SessionType> sessionType = const Value.absent(),
+                Value<int> sessionDuration = const Value.absent(),
+                Value<bool> enforceSession = const Value.absent(),
+                Value<bool> shouldStartDnd = const Value.absent(),
+                Value<List<String>> distractingApps = const Value.absent(),
+              }) => FocusProfileTableCompanion.insert(
+                sessionType: sessionType,
+                sessionDuration: sessionDuration,
+                enforceSession: enforceSession,
+                shouldStartDnd: shouldStartDnd,
+                distractingApps: distractingApps,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$FocusProfileTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $FocusProfileTableTable,
-    FocusProfile,
-    $$FocusProfileTableTableFilterComposer,
-    $$FocusProfileTableTableOrderingComposer,
-    $$FocusProfileTableTableAnnotationComposer,
-    $$FocusProfileTableTableCreateCompanionBuilder,
-    $$FocusProfileTableTableUpdateCompanionBuilder,
-    (
+typedef $$FocusProfileTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FocusProfileTableTable,
       FocusProfile,
-      BaseReferences<_$AppDatabase, $FocusProfileTableTable, FocusProfile>
-    ),
-    FocusProfile,
-    PrefetchHooks Function()>;
-typedef $$FocusSessionsTableTableCreateCompanionBuilder
-    = FocusSessionsTableCompanion Function({
-  Value<int> id,
-  Value<SessionType> type,
-  Value<SessionState> state,
-  Value<DateTime> startDateTime,
-  Value<int> durationSecs,
-  Value<String> reflection,
-});
-typedef $$FocusSessionsTableTableUpdateCompanionBuilder
-    = FocusSessionsTableCompanion Function({
-  Value<int> id,
-  Value<SessionType> type,
-  Value<SessionState> state,
-  Value<DateTime> startDateTime,
-  Value<int> durationSecs,
-  Value<String> reflection,
-});
+      $$FocusProfileTableTableFilterComposer,
+      $$FocusProfileTableTableOrderingComposer,
+      $$FocusProfileTableTableAnnotationComposer,
+      $$FocusProfileTableTableCreateCompanionBuilder,
+      $$FocusProfileTableTableUpdateCompanionBuilder,
+      (
+        FocusProfile,
+        BaseReferences<_$AppDatabase, $FocusProfileTableTable, FocusProfile>,
+      ),
+      FocusProfile,
+      PrefetchHooks Function()
+    >;
+typedef $$FocusSessionsTableTableCreateCompanionBuilder =
+    FocusSessionsTableCompanion Function({
+      Value<int> id,
+      Value<SessionType> type,
+      Value<SessionState> state,
+      Value<DateTime> startDateTime,
+      Value<int> durationSecs,
+      Value<String> reflection,
+    });
+typedef $$FocusSessionsTableTableUpdateCompanionBuilder =
+    FocusSessionsTableCompanion Function({
+      Value<int> id,
+      Value<SessionType> type,
+      Value<SessionState> state,
+      Value<DateTime> startDateTime,
+      Value<int> durationSecs,
+      Value<String> reflection,
+    });
 
 class $$FocusSessionsTableTableFilterComposer
     extends Composer<_$AppDatabase, $FocusSessionsTableTable> {
@@ -7070,26 +8508,36 @@ class $$FocusSessionsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<SessionType, SessionType, int> get type =>
       $composableBuilder(
-          column: $table.type,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+        column: $table.type,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
 
   ColumnWithTypeConverterFilters<SessionState, SessionState, int> get state =>
       $composableBuilder(
-          column: $table.state,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+        column: $table.state,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
 
   ColumnFilters<DateTime> get startDateTime => $composableBuilder(
-      column: $table.startDateTime, builder: (column) => ColumnFilters(column));
+    column: $table.startDateTime,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get durationSecs => $composableBuilder(
-      column: $table.durationSecs, builder: (column) => ColumnFilters(column));
+    column: $table.durationSecs,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get reflection => $composableBuilder(
-      column: $table.reflection, builder: (column) => ColumnFilters(column));
+    column: $table.reflection,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$FocusSessionsTableTableOrderingComposer
@@ -7102,24 +8550,34 @@ class $$FocusSessionsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get type => $composableBuilder(
-      column: $table.type, builder: (column) => ColumnOrderings(column));
+    column: $table.type,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get state => $composableBuilder(
-      column: $table.state, builder: (column) => ColumnOrderings(column));
+    column: $table.state,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get startDateTime => $composableBuilder(
-      column: $table.startDateTime,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.startDateTime,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get durationSecs => $composableBuilder(
-      column: $table.durationSecs,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.durationSecs,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get reflection => $composableBuilder(
-      column: $table.reflection, builder: (column) => ColumnOrderings(column));
+    column: $table.reflection,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$FocusSessionsTableTableAnnotationComposer
@@ -7141,132 +8599,165 @@ class $$FocusSessionsTableTableAnnotationComposer
       $composableBuilder(column: $table.state, builder: (column) => column);
 
   GeneratedColumn<DateTime> get startDateTime => $composableBuilder(
-      column: $table.startDateTime, builder: (column) => column);
+    column: $table.startDateTime,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get durationSecs => $composableBuilder(
-      column: $table.durationSecs, builder: (column) => column);
+    column: $table.durationSecs,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get reflection => $composableBuilder(
-      column: $table.reflection, builder: (column) => column);
+    column: $table.reflection,
+    builder: (column) => column,
+  );
 }
 
-class $$FocusSessionsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $FocusSessionsTableTable,
-    FocusSession,
-    $$FocusSessionsTableTableFilterComposer,
-    $$FocusSessionsTableTableOrderingComposer,
-    $$FocusSessionsTableTableAnnotationComposer,
-    $$FocusSessionsTableTableCreateCompanionBuilder,
-    $$FocusSessionsTableTableUpdateCompanionBuilder,
-    (
-      FocusSession,
-      BaseReferences<_$AppDatabase, $FocusSessionsTableTable, FocusSession>
-    ),
-    FocusSession,
-    PrefetchHooks Function()> {
+class $$FocusSessionsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FocusSessionsTableTable,
+          FocusSession,
+          $$FocusSessionsTableTableFilterComposer,
+          $$FocusSessionsTableTableOrderingComposer,
+          $$FocusSessionsTableTableAnnotationComposer,
+          $$FocusSessionsTableTableCreateCompanionBuilder,
+          $$FocusSessionsTableTableUpdateCompanionBuilder,
+          (
+            FocusSession,
+            BaseReferences<
+              _$AppDatabase,
+              $FocusSessionsTableTable,
+              FocusSession
+            >,
+          ),
+          FocusSession,
+          PrefetchHooks Function()
+        > {
   $$FocusSessionsTableTableTableManager(
-      _$AppDatabase db, $FocusSessionsTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $FocusSessionsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$FocusSessionsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$FocusSessionsTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$FocusSessionsTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<SessionType> type = const Value.absent(),
-            Value<SessionState> state = const Value.absent(),
-            Value<DateTime> startDateTime = const Value.absent(),
-            Value<int> durationSecs = const Value.absent(),
-            Value<String> reflection = const Value.absent(),
-          }) =>
-              FocusSessionsTableCompanion(
-            id: id,
-            type: type,
-            state: state,
-            startDateTime: startDateTime,
-            durationSecs: durationSecs,
-            reflection: reflection,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<SessionType> type = const Value.absent(),
-            Value<SessionState> state = const Value.absent(),
-            Value<DateTime> startDateTime = const Value.absent(),
-            Value<int> durationSecs = const Value.absent(),
-            Value<String> reflection = const Value.absent(),
-          }) =>
-              FocusSessionsTableCompanion.insert(
-            id: id,
-            type: type,
-            state: state,
-            startDateTime: startDateTime,
-            durationSecs: durationSecs,
-            reflection: reflection,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$FocusSessionsTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$FocusSessionsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$FocusSessionsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<SessionType> type = const Value.absent(),
+                Value<SessionState> state = const Value.absent(),
+                Value<DateTime> startDateTime = const Value.absent(),
+                Value<int> durationSecs = const Value.absent(),
+                Value<String> reflection = const Value.absent(),
+              }) => FocusSessionsTableCompanion(
+                id: id,
+                type: type,
+                state: state,
+                startDateTime: startDateTime,
+                durationSecs: durationSecs,
+                reflection: reflection,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<SessionType> type = const Value.absent(),
+                Value<SessionState> state = const Value.absent(),
+                Value<DateTime> startDateTime = const Value.absent(),
+                Value<int> durationSecs = const Value.absent(),
+                Value<String> reflection = const Value.absent(),
+              }) => FocusSessionsTableCompanion.insert(
+                id: id,
+                type: type,
+                state: state,
+                startDateTime: startDateTime,
+                durationSecs: durationSecs,
+                reflection: reflection,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$FocusSessionsTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $FocusSessionsTableTable,
-    FocusSession,
-    $$FocusSessionsTableTableFilterComposer,
-    $$FocusSessionsTableTableOrderingComposer,
-    $$FocusSessionsTableTableAnnotationComposer,
-    $$FocusSessionsTableTableCreateCompanionBuilder,
-    $$FocusSessionsTableTableUpdateCompanionBuilder,
-    (
+typedef $$FocusSessionsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FocusSessionsTableTable,
       FocusSession,
-      BaseReferences<_$AppDatabase, $FocusSessionsTableTable, FocusSession>
-    ),
-    FocusSession,
-    PrefetchHooks Function()>;
-typedef $$MindfulSettingsTableTableCreateCompanionBuilder
-    = MindfulSettingsTableCompanion Function({
-  Value<int> id,
-  Value<AppThemeMode> themeMode,
-  Value<String> accentColor,
-  Value<String> username,
-  Value<String> localeCode,
-  Value<bool> useAmoledDark,
-  Value<bool> useDynamicColors,
-  Value<DefaultHomeTab> defaultHomeTab,
-  Value<int> usageHistoryWeeks,
-  Value<int> leftEmergencyPasses,
-  Value<DateTime> lastEmergencyUsed,
-  Value<bool> isOnboardingDone,
-  Value<String> appVersion,
-});
-typedef $$MindfulSettingsTableTableUpdateCompanionBuilder
-    = MindfulSettingsTableCompanion Function({
-  Value<int> id,
-  Value<AppThemeMode> themeMode,
-  Value<String> accentColor,
-  Value<String> username,
-  Value<String> localeCode,
-  Value<bool> useAmoledDark,
-  Value<bool> useDynamicColors,
-  Value<DefaultHomeTab> defaultHomeTab,
-  Value<int> usageHistoryWeeks,
-  Value<int> leftEmergencyPasses,
-  Value<DateTime> lastEmergencyUsed,
-  Value<bool> isOnboardingDone,
-  Value<String> appVersion,
-});
+      $$FocusSessionsTableTableFilterComposer,
+      $$FocusSessionsTableTableOrderingComposer,
+      $$FocusSessionsTableTableAnnotationComposer,
+      $$FocusSessionsTableTableCreateCompanionBuilder,
+      $$FocusSessionsTableTableUpdateCompanionBuilder,
+      (
+        FocusSession,
+        BaseReferences<_$AppDatabase, $FocusSessionsTableTable, FocusSession>,
+      ),
+      FocusSession,
+      PrefetchHooks Function()
+    >;
+typedef $$ManoDhyanSettingsTableTableCreateCompanionBuilder =
+    ManoDhyanSettingsTableCompanion Function({
+      Value<int> id,
+      Value<AppThemeMode> themeMode,
+      Value<String> accentColor,
+      Value<String> username,
+      Value<String> localeCode,
+      Value<bool> useAmoledDark,
+      Value<bool> useDynamicColors,
+      Value<DefaultHomeTab> defaultHomeTab,
+      Value<int> usageHistoryWeeks,
+      Value<int> leftEmergencyPasses,
+      Value<DateTime> lastEmergencyUsed,
+      Value<bool> isOnboardingDone,
+      Value<String> appVersion,
+    });
+typedef $$ManoDhyanSettingsTableTableUpdateCompanionBuilder =
+    ManoDhyanSettingsTableCompanion Function({
+      Value<int> id,
+      Value<AppThemeMode> themeMode,
+      Value<String> accentColor,
+      Value<String> username,
+      Value<String> localeCode,
+      Value<bool> useAmoledDark,
+      Value<bool> useDynamicColors,
+      Value<DefaultHomeTab> defaultHomeTab,
+      Value<int> usageHistoryWeeks,
+      Value<int> leftEmergencyPasses,
+      Value<DateTime> lastEmergencyUsed,
+      Value<bool> isOnboardingDone,
+      Value<String> appVersion,
+    });
 
-class $$MindfulSettingsTableTableFilterComposer
-    extends Composer<_$AppDatabase, $MindfulSettingsTableTable> {
-  $$MindfulSettingsTableTableFilterComposer({
+class $$ManoDhyanSettingsTableTableFilterComposer
+    extends Composer<_$AppDatabase, $ManoDhyanSettingsTableTable> {
+  $$ManoDhyanSettingsTableTableFilterComposer({
     required super.$db,
     required super.$table,
     super.joinBuilder,
@@ -7274,57 +8765,76 @@ class $$MindfulSettingsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<AppThemeMode, AppThemeMode, int>
-      get themeMode => $composableBuilder(
-          column: $table.themeMode,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get themeMode => $composableBuilder(
+    column: $table.themeMode,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<String> get accentColor => $composableBuilder(
-      column: $table.accentColor, builder: (column) => ColumnFilters(column));
+    column: $table.accentColor,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get username => $composableBuilder(
-      column: $table.username, builder: (column) => ColumnFilters(column));
+    column: $table.username,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get localeCode => $composableBuilder(
-      column: $table.localeCode, builder: (column) => ColumnFilters(column));
+    column: $table.localeCode,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get useAmoledDark => $composableBuilder(
-      column: $table.useAmoledDark, builder: (column) => ColumnFilters(column));
+    column: $table.useAmoledDark,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get useDynamicColors => $composableBuilder(
-      column: $table.useDynamicColors,
-      builder: (column) => ColumnFilters(column));
+    column: $table.useDynamicColors,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<DefaultHomeTab, DefaultHomeTab, int>
-      get defaultHomeTab => $composableBuilder(
-          column: $table.defaultHomeTab,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get defaultHomeTab => $composableBuilder(
+    column: $table.defaultHomeTab,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<int> get usageHistoryWeeks => $composableBuilder(
-      column: $table.usageHistoryWeeks,
-      builder: (column) => ColumnFilters(column));
+    column: $table.usageHistoryWeeks,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get leftEmergencyPasses => $composableBuilder(
-      column: $table.leftEmergencyPasses,
-      builder: (column) => ColumnFilters(column));
+    column: $table.leftEmergencyPasses,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get lastEmergencyUsed => $composableBuilder(
-      column: $table.lastEmergencyUsed,
-      builder: (column) => ColumnFilters(column));
+    column: $table.lastEmergencyUsed,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isOnboardingDone => $composableBuilder(
-      column: $table.isOnboardingDone,
-      builder: (column) => ColumnFilters(column));
+    column: $table.isOnboardingDone,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get appVersion => $composableBuilder(
-      column: $table.appVersion, builder: (column) => ColumnFilters(column));
+    column: $table.appVersion,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
-class $$MindfulSettingsTableTableOrderingComposer
-    extends Composer<_$AppDatabase, $MindfulSettingsTableTable> {
-  $$MindfulSettingsTableTableOrderingComposer({
+class $$ManoDhyanSettingsTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $ManoDhyanSettingsTableTable> {
+  $$ManoDhyanSettingsTableTableOrderingComposer({
     required super.$db,
     required super.$table,
     super.joinBuilder,
@@ -7332,55 +8842,74 @@ class $$MindfulSettingsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get themeMode => $composableBuilder(
-      column: $table.themeMode, builder: (column) => ColumnOrderings(column));
+    column: $table.themeMode,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get accentColor => $composableBuilder(
-      column: $table.accentColor, builder: (column) => ColumnOrderings(column));
+    column: $table.accentColor,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get username => $composableBuilder(
-      column: $table.username, builder: (column) => ColumnOrderings(column));
+    column: $table.username,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get localeCode => $composableBuilder(
-      column: $table.localeCode, builder: (column) => ColumnOrderings(column));
+    column: $table.localeCode,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get useAmoledDark => $composableBuilder(
-      column: $table.useAmoledDark,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.useAmoledDark,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get useDynamicColors => $composableBuilder(
-      column: $table.useDynamicColors,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.useDynamicColors,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get defaultHomeTab => $composableBuilder(
-      column: $table.defaultHomeTab,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.defaultHomeTab,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get usageHistoryWeeks => $composableBuilder(
-      column: $table.usageHistoryWeeks,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.usageHistoryWeeks,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get leftEmergencyPasses => $composableBuilder(
-      column: $table.leftEmergencyPasses,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.leftEmergencyPasses,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get lastEmergencyUsed => $composableBuilder(
-      column: $table.lastEmergencyUsed,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.lastEmergencyUsed,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isOnboardingDone => $composableBuilder(
-      column: $table.isOnboardingDone,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.isOnboardingDone,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get appVersion => $composableBuilder(
-      column: $table.appVersion, builder: (column) => ColumnOrderings(column));
+    column: $table.appVersion,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
-class $$MindfulSettingsTableTableAnnotationComposer
-    extends Composer<_$AppDatabase, $MindfulSettingsTableTable> {
-  $$MindfulSettingsTableTableAnnotationComposer({
+class $$ManoDhyanSettingsTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ManoDhyanSettingsTableTable> {
+  $$ManoDhyanSettingsTableTableAnnotationComposer({
     required super.$db,
     required super.$table,
     super.joinBuilder,
@@ -7394,182 +8923,230 @@ class $$MindfulSettingsTableTableAnnotationComposer
       $composableBuilder(column: $table.themeMode, builder: (column) => column);
 
   GeneratedColumn<String> get accentColor => $composableBuilder(
-      column: $table.accentColor, builder: (column) => column);
+    column: $table.accentColor,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get username =>
       $composableBuilder(column: $table.username, builder: (column) => column);
 
   GeneratedColumn<String> get localeCode => $composableBuilder(
-      column: $table.localeCode, builder: (column) => column);
+    column: $table.localeCode,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get useAmoledDark => $composableBuilder(
-      column: $table.useAmoledDark, builder: (column) => column);
+    column: $table.useAmoledDark,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get useDynamicColors => $composableBuilder(
-      column: $table.useDynamicColors, builder: (column) => column);
+    column: $table.useDynamicColors,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<DefaultHomeTab, int> get defaultHomeTab =>
       $composableBuilder(
-          column: $table.defaultHomeTab, builder: (column) => column);
+        column: $table.defaultHomeTab,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<int> get usageHistoryWeeks => $composableBuilder(
-      column: $table.usageHistoryWeeks, builder: (column) => column);
+    column: $table.usageHistoryWeeks,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get leftEmergencyPasses => $composableBuilder(
-      column: $table.leftEmergencyPasses, builder: (column) => column);
+    column: $table.leftEmergencyPasses,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get lastEmergencyUsed => $composableBuilder(
-      column: $table.lastEmergencyUsed, builder: (column) => column);
+    column: $table.lastEmergencyUsed,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get isOnboardingDone => $composableBuilder(
-      column: $table.isOnboardingDone, builder: (column) => column);
+    column: $table.isOnboardingDone,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<String> get appVersion => $composableBuilder(
-      column: $table.appVersion, builder: (column) => column);
+    column: $table.appVersion,
+    builder: (column) => column,
+  );
 }
 
-class $$MindfulSettingsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $MindfulSettingsTableTable,
-    MindfulSettings,
-    $$MindfulSettingsTableTableFilterComposer,
-    $$MindfulSettingsTableTableOrderingComposer,
-    $$MindfulSettingsTableTableAnnotationComposer,
-    $$MindfulSettingsTableTableCreateCompanionBuilder,
-    $$MindfulSettingsTableTableUpdateCompanionBuilder,
-    (
-      MindfulSettings,
-      BaseReferences<_$AppDatabase, $MindfulSettingsTableTable, MindfulSettings>
-    ),
-    MindfulSettings,
-    PrefetchHooks Function()> {
-  $$MindfulSettingsTableTableTableManager(
-      _$AppDatabase db, $MindfulSettingsTableTable table)
-      : super(TableManagerState(
+class $$ManoDhyanSettingsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ManoDhyanSettingsTableTable,
+          ManoDhyanSettings,
+          $$ManoDhyanSettingsTableTableFilterComposer,
+          $$ManoDhyanSettingsTableTableOrderingComposer,
+          $$ManoDhyanSettingsTableTableAnnotationComposer,
+          $$ManoDhyanSettingsTableTableCreateCompanionBuilder,
+          $$ManoDhyanSettingsTableTableUpdateCompanionBuilder,
+          (
+            ManoDhyanSettings,
+            BaseReferences<
+              _$AppDatabase,
+              $ManoDhyanSettingsTableTable,
+              ManoDhyanSettings
+            >,
+          ),
+          ManoDhyanSettings,
+          PrefetchHooks Function()
+        > {
+  $$ManoDhyanSettingsTableTableTableManager(
+    _$AppDatabase db,
+    $ManoDhyanSettingsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$MindfulSettingsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$MindfulSettingsTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$MindfulSettingsTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<AppThemeMode> themeMode = const Value.absent(),
-            Value<String> accentColor = const Value.absent(),
-            Value<String> username = const Value.absent(),
-            Value<String> localeCode = const Value.absent(),
-            Value<bool> useAmoledDark = const Value.absent(),
-            Value<bool> useDynamicColors = const Value.absent(),
-            Value<DefaultHomeTab> defaultHomeTab = const Value.absent(),
-            Value<int> usageHistoryWeeks = const Value.absent(),
-            Value<int> leftEmergencyPasses = const Value.absent(),
-            Value<DateTime> lastEmergencyUsed = const Value.absent(),
-            Value<bool> isOnboardingDone = const Value.absent(),
-            Value<String> appVersion = const Value.absent(),
-          }) =>
-              MindfulSettingsTableCompanion(
-            id: id,
-            themeMode: themeMode,
-            accentColor: accentColor,
-            username: username,
-            localeCode: localeCode,
-            useAmoledDark: useAmoledDark,
-            useDynamicColors: useDynamicColors,
-            defaultHomeTab: defaultHomeTab,
-            usageHistoryWeeks: usageHistoryWeeks,
-            leftEmergencyPasses: leftEmergencyPasses,
-            lastEmergencyUsed: lastEmergencyUsed,
-            isOnboardingDone: isOnboardingDone,
-            appVersion: appVersion,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<AppThemeMode> themeMode = const Value.absent(),
-            Value<String> accentColor = const Value.absent(),
-            Value<String> username = const Value.absent(),
-            Value<String> localeCode = const Value.absent(),
-            Value<bool> useAmoledDark = const Value.absent(),
-            Value<bool> useDynamicColors = const Value.absent(),
-            Value<DefaultHomeTab> defaultHomeTab = const Value.absent(),
-            Value<int> usageHistoryWeeks = const Value.absent(),
-            Value<int> leftEmergencyPasses = const Value.absent(),
-            Value<DateTime> lastEmergencyUsed = const Value.absent(),
-            Value<bool> isOnboardingDone = const Value.absent(),
-            Value<String> appVersion = const Value.absent(),
-          }) =>
-              MindfulSettingsTableCompanion.insert(
-            id: id,
-            themeMode: themeMode,
-            accentColor: accentColor,
-            username: username,
-            localeCode: localeCode,
-            useAmoledDark: useAmoledDark,
-            useDynamicColors: useDynamicColors,
-            defaultHomeTab: defaultHomeTab,
-            usageHistoryWeeks: usageHistoryWeeks,
-            leftEmergencyPasses: leftEmergencyPasses,
-            lastEmergencyUsed: lastEmergencyUsed,
-            isOnboardingDone: isOnboardingDone,
-            appVersion: appVersion,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$ManoDhyanSettingsTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$ManoDhyanSettingsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$ManoDhyanSettingsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<AppThemeMode> themeMode = const Value.absent(),
+                Value<String> accentColor = const Value.absent(),
+                Value<String> username = const Value.absent(),
+                Value<String> localeCode = const Value.absent(),
+                Value<bool> useAmoledDark = const Value.absent(),
+                Value<bool> useDynamicColors = const Value.absent(),
+                Value<DefaultHomeTab> defaultHomeTab = const Value.absent(),
+                Value<int> usageHistoryWeeks = const Value.absent(),
+                Value<int> leftEmergencyPasses = const Value.absent(),
+                Value<DateTime> lastEmergencyUsed = const Value.absent(),
+                Value<bool> isOnboardingDone = const Value.absent(),
+                Value<String> appVersion = const Value.absent(),
+              }) => ManoDhyanSettingsTableCompanion(
+                id: id,
+                themeMode: themeMode,
+                accentColor: accentColor,
+                username: username,
+                localeCode: localeCode,
+                useAmoledDark: useAmoledDark,
+                useDynamicColors: useDynamicColors,
+                defaultHomeTab: defaultHomeTab,
+                usageHistoryWeeks: usageHistoryWeeks,
+                leftEmergencyPasses: leftEmergencyPasses,
+                lastEmergencyUsed: lastEmergencyUsed,
+                isOnboardingDone: isOnboardingDone,
+                appVersion: appVersion,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<AppThemeMode> themeMode = const Value.absent(),
+                Value<String> accentColor = const Value.absent(),
+                Value<String> username = const Value.absent(),
+                Value<String> localeCode = const Value.absent(),
+                Value<bool> useAmoledDark = const Value.absent(),
+                Value<bool> useDynamicColors = const Value.absent(),
+                Value<DefaultHomeTab> defaultHomeTab = const Value.absent(),
+                Value<int> usageHistoryWeeks = const Value.absent(),
+                Value<int> leftEmergencyPasses = const Value.absent(),
+                Value<DateTime> lastEmergencyUsed = const Value.absent(),
+                Value<bool> isOnboardingDone = const Value.absent(),
+                Value<String> appVersion = const Value.absent(),
+              }) => ManoDhyanSettingsTableCompanion.insert(
+                id: id,
+                themeMode: themeMode,
+                accentColor: accentColor,
+                username: username,
+                localeCode: localeCode,
+                useAmoledDark: useAmoledDark,
+                useDynamicColors: useDynamicColors,
+                defaultHomeTab: defaultHomeTab,
+                usageHistoryWeeks: usageHistoryWeeks,
+                leftEmergencyPasses: leftEmergencyPasses,
+                lastEmergencyUsed: lastEmergencyUsed,
+                isOnboardingDone: isOnboardingDone,
+                appVersion: appVersion,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$MindfulSettingsTableTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $MindfulSettingsTableTable,
-        MindfulSettings,
-        $$MindfulSettingsTableTableFilterComposer,
-        $$MindfulSettingsTableTableOrderingComposer,
-        $$MindfulSettingsTableTableAnnotationComposer,
-        $$MindfulSettingsTableTableCreateCompanionBuilder,
-        $$MindfulSettingsTableTableUpdateCompanionBuilder,
-        (
-          MindfulSettings,
-          BaseReferences<_$AppDatabase, $MindfulSettingsTableTable,
-              MindfulSettings>
-        ),
-        MindfulSettings,
-        PrefetchHooks Function()>;
-typedef $$ParentalControlsTableTableCreateCompanionBuilder
-    = ParentalControlsTableCompanion Function({
-  Value<int> id,
-  Value<bool> protectedAccess,
-  Value<TimeOfDayAdapter> uninstallWindowTime,
-  Value<bool> isInvincibleModeOn,
-  Value<TimeOfDayAdapter> invincibleWindowTime,
-  Value<bool> includeAppsTimer,
-  Value<bool> includeAppsLaunchLimit,
-  Value<bool> includeAppsActivePeriod,
-  Value<bool> includeGroupsTimer,
-  Value<bool> includeGroupsActivePeriod,
-  Value<bool> includeShortsTimer,
-  Value<bool> includeBedtimeSchedule,
-});
-typedef $$ParentalControlsTableTableUpdateCompanionBuilder
-    = ParentalControlsTableCompanion Function({
-  Value<int> id,
-  Value<bool> protectedAccess,
-  Value<TimeOfDayAdapter> uninstallWindowTime,
-  Value<bool> isInvincibleModeOn,
-  Value<TimeOfDayAdapter> invincibleWindowTime,
-  Value<bool> includeAppsTimer,
-  Value<bool> includeAppsLaunchLimit,
-  Value<bool> includeAppsActivePeriod,
-  Value<bool> includeGroupsTimer,
-  Value<bool> includeGroupsActivePeriod,
-  Value<bool> includeShortsTimer,
-  Value<bool> includeBedtimeSchedule,
-});
+typedef $$ManoDhyanSettingsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ManoDhyanSettingsTableTable,
+      ManoDhyanSettings,
+      $$ManoDhyanSettingsTableTableFilterComposer,
+      $$ManoDhyanSettingsTableTableOrderingComposer,
+      $$ManoDhyanSettingsTableTableAnnotationComposer,
+      $$ManoDhyanSettingsTableTableCreateCompanionBuilder,
+      $$ManoDhyanSettingsTableTableUpdateCompanionBuilder,
+      (
+        ManoDhyanSettings,
+        BaseReferences<
+          _$AppDatabase,
+          $ManoDhyanSettingsTableTable,
+          ManoDhyanSettings
+        >,
+      ),
+      ManoDhyanSettings,
+      PrefetchHooks Function()
+    >;
+typedef $$ParentalControlsTableTableCreateCompanionBuilder =
+    ParentalControlsTableCompanion Function({
+      Value<int> id,
+      Value<bool> protectedAccess,
+      Value<TimeOfDayAdapter> uninstallWindowTime,
+      Value<bool> isInvincibleModeOn,
+      Value<TimeOfDayAdapter> invincibleWindowTime,
+      Value<bool> includeAppsTimer,
+      Value<bool> includeAppsLaunchLimit,
+      Value<bool> includeAppsActivePeriod,
+      Value<bool> includeGroupsTimer,
+      Value<bool> includeGroupsActivePeriod,
+      Value<bool> includeShortsTimer,
+      Value<bool> includeBedtimeSchedule,
+    });
+typedef $$ParentalControlsTableTableUpdateCompanionBuilder =
+    ParentalControlsTableCompanion Function({
+      Value<int> id,
+      Value<bool> protectedAccess,
+      Value<TimeOfDayAdapter> uninstallWindowTime,
+      Value<bool> isInvincibleModeOn,
+      Value<TimeOfDayAdapter> invincibleWindowTime,
+      Value<bool> includeAppsTimer,
+      Value<bool> includeAppsLaunchLimit,
+      Value<bool> includeAppsActivePeriod,
+      Value<bool> includeGroupsTimer,
+      Value<bool> includeGroupsActivePeriod,
+      Value<bool> includeShortsTimer,
+      Value<bool> includeBedtimeSchedule,
+    });
 
 class $$ParentalControlsTableTableFilterComposer
     extends Composer<_$AppDatabase, $ParentalControlsTableTable> {
@@ -7581,53 +9158,66 @@ class $$ParentalControlsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get protectedAccess => $composableBuilder(
-      column: $table.protectedAccess,
-      builder: (column) => ColumnFilters(column));
+    column: $table.protectedAccess,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get uninstallWindowTime => $composableBuilder(
-          column: $table.uninstallWindowTime,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get uninstallWindowTime => $composableBuilder(
+    column: $table.uninstallWindowTime,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<bool> get isInvincibleModeOn => $composableBuilder(
-      column: $table.isInvincibleModeOn,
-      builder: (column) => ColumnFilters(column));
+    column: $table.isInvincibleModeOn,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get invincibleWindowTime => $composableBuilder(
-          column: $table.invincibleWindowTime,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get invincibleWindowTime => $composableBuilder(
+    column: $table.invincibleWindowTime,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<bool> get includeAppsTimer => $composableBuilder(
-      column: $table.includeAppsTimer,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeAppsTimer,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get includeAppsLaunchLimit => $composableBuilder(
-      column: $table.includeAppsLaunchLimit,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeAppsLaunchLimit,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get includeAppsActivePeriod => $composableBuilder(
-      column: $table.includeAppsActivePeriod,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeAppsActivePeriod,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get includeGroupsTimer => $composableBuilder(
-      column: $table.includeGroupsTimer,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeGroupsTimer,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get includeGroupsActivePeriod => $composableBuilder(
-      column: $table.includeGroupsActivePeriod,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeGroupsActivePeriod,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get includeShortsTimer => $composableBuilder(
-      column: $table.includeShortsTimer,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeShortsTimer,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get includeBedtimeSchedule => $composableBuilder(
-      column: $table.includeBedtimeSchedule,
-      builder: (column) => ColumnFilters(column));
+    column: $table.includeBedtimeSchedule,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$ParentalControlsTableTableOrderingComposer
@@ -7640,51 +9230,64 @@ class $$ParentalControlsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get protectedAccess => $composableBuilder(
-      column: $table.protectedAccess,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.protectedAccess,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get uninstallWindowTime => $composableBuilder(
-      column: $table.uninstallWindowTime,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.uninstallWindowTime,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isInvincibleModeOn => $composableBuilder(
-      column: $table.isInvincibleModeOn,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.isInvincibleModeOn,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get invincibleWindowTime => $composableBuilder(
-      column: $table.invincibleWindowTime,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.invincibleWindowTime,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeAppsTimer => $composableBuilder(
-      column: $table.includeAppsTimer,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeAppsTimer,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeAppsLaunchLimit => $composableBuilder(
-      column: $table.includeAppsLaunchLimit,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeAppsLaunchLimit,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeAppsActivePeriod => $composableBuilder(
-      column: $table.includeAppsActivePeriod,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeAppsActivePeriod,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeGroupsTimer => $composableBuilder(
-      column: $table.includeGroupsTimer,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeGroupsTimer,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeGroupsActivePeriod => $composableBuilder(
-      column: $table.includeGroupsActivePeriod,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeGroupsActivePeriod,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeShortsTimer => $composableBuilder(
-      column: $table.includeShortsTimer,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeShortsTimer,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get includeBedtimeSchedule => $composableBuilder(
-      column: $table.includeBedtimeSchedule,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.includeBedtimeSchedule,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$ParentalControlsTableTableAnnotationComposer
@@ -7700,171 +9303,223 @@ class $$ParentalControlsTableTableAnnotationComposer
       $composableBuilder(column: $table.id, builder: (column) => column);
 
   GeneratedColumn<bool> get protectedAccess => $composableBuilder(
-      column: $table.protectedAccess, builder: (column) => column);
+    column: $table.protectedAccess,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      get uninstallWindowTime => $composableBuilder(
-          column: $table.uninstallWindowTime, builder: (column) => column);
+  get uninstallWindowTime => $composableBuilder(
+    column: $table.uninstallWindowTime,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get isInvincibleModeOn => $composableBuilder(
-      column: $table.isInvincibleModeOn, builder: (column) => column);
+    column: $table.isInvincibleModeOn,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      get invincibleWindowTime => $composableBuilder(
-          column: $table.invincibleWindowTime, builder: (column) => column);
+  get invincibleWindowTime => $composableBuilder(
+    column: $table.invincibleWindowTime,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeAppsTimer => $composableBuilder(
-      column: $table.includeAppsTimer, builder: (column) => column);
+    column: $table.includeAppsTimer,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeAppsLaunchLimit => $composableBuilder(
-      column: $table.includeAppsLaunchLimit, builder: (column) => column);
+    column: $table.includeAppsLaunchLimit,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeAppsActivePeriod => $composableBuilder(
-      column: $table.includeAppsActivePeriod, builder: (column) => column);
+    column: $table.includeAppsActivePeriod,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeGroupsTimer => $composableBuilder(
-      column: $table.includeGroupsTimer, builder: (column) => column);
+    column: $table.includeGroupsTimer,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeGroupsActivePeriod => $composableBuilder(
-      column: $table.includeGroupsActivePeriod, builder: (column) => column);
+    column: $table.includeGroupsActivePeriod,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeShortsTimer => $composableBuilder(
-      column: $table.includeShortsTimer, builder: (column) => column);
+    column: $table.includeShortsTimer,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get includeBedtimeSchedule => $composableBuilder(
-      column: $table.includeBedtimeSchedule, builder: (column) => column);
+    column: $table.includeBedtimeSchedule,
+    builder: (column) => column,
+  );
 }
 
-class $$ParentalControlsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $ParentalControlsTableTable,
-    ParentalControls,
-    $$ParentalControlsTableTableFilterComposer,
-    $$ParentalControlsTableTableOrderingComposer,
-    $$ParentalControlsTableTableAnnotationComposer,
-    $$ParentalControlsTableTableCreateCompanionBuilder,
-    $$ParentalControlsTableTableUpdateCompanionBuilder,
-    (
-      ParentalControls,
-      BaseReferences<_$AppDatabase, $ParentalControlsTableTable,
-          ParentalControls>
-    ),
-    ParentalControls,
-    PrefetchHooks Function()> {
+class $$ParentalControlsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ParentalControlsTableTable,
+          ParentalControls,
+          $$ParentalControlsTableTableFilterComposer,
+          $$ParentalControlsTableTableOrderingComposer,
+          $$ParentalControlsTableTableAnnotationComposer,
+          $$ParentalControlsTableTableCreateCompanionBuilder,
+          $$ParentalControlsTableTableUpdateCompanionBuilder,
+          (
+            ParentalControls,
+            BaseReferences<
+              _$AppDatabase,
+              $ParentalControlsTableTable,
+              ParentalControls
+            >,
+          ),
+          ParentalControls,
+          PrefetchHooks Function()
+        > {
   $$ParentalControlsTableTableTableManager(
-      _$AppDatabase db, $ParentalControlsTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $ParentalControlsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$ParentalControlsTableTableFilterComposer(
-                  $db: db, $table: table),
-          createOrderingComposer: () =>
-              $$ParentalControlsTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$ParentalControlsTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<bool> protectedAccess = const Value.absent(),
-            Value<TimeOfDayAdapter> uninstallWindowTime = const Value.absent(),
-            Value<bool> isInvincibleModeOn = const Value.absent(),
-            Value<TimeOfDayAdapter> invincibleWindowTime = const Value.absent(),
-            Value<bool> includeAppsTimer = const Value.absent(),
-            Value<bool> includeAppsLaunchLimit = const Value.absent(),
-            Value<bool> includeAppsActivePeriod = const Value.absent(),
-            Value<bool> includeGroupsTimer = const Value.absent(),
-            Value<bool> includeGroupsActivePeriod = const Value.absent(),
-            Value<bool> includeShortsTimer = const Value.absent(),
-            Value<bool> includeBedtimeSchedule = const Value.absent(),
-          }) =>
-              ParentalControlsTableCompanion(
-            id: id,
-            protectedAccess: protectedAccess,
-            uninstallWindowTime: uninstallWindowTime,
-            isInvincibleModeOn: isInvincibleModeOn,
-            invincibleWindowTime: invincibleWindowTime,
-            includeAppsTimer: includeAppsTimer,
-            includeAppsLaunchLimit: includeAppsLaunchLimit,
-            includeAppsActivePeriod: includeAppsActivePeriod,
-            includeGroupsTimer: includeGroupsTimer,
-            includeGroupsActivePeriod: includeGroupsActivePeriod,
-            includeShortsTimer: includeShortsTimer,
-            includeBedtimeSchedule: includeBedtimeSchedule,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<bool> protectedAccess = const Value.absent(),
-            Value<TimeOfDayAdapter> uninstallWindowTime = const Value.absent(),
-            Value<bool> isInvincibleModeOn = const Value.absent(),
-            Value<TimeOfDayAdapter> invincibleWindowTime = const Value.absent(),
-            Value<bool> includeAppsTimer = const Value.absent(),
-            Value<bool> includeAppsLaunchLimit = const Value.absent(),
-            Value<bool> includeAppsActivePeriod = const Value.absent(),
-            Value<bool> includeGroupsTimer = const Value.absent(),
-            Value<bool> includeGroupsActivePeriod = const Value.absent(),
-            Value<bool> includeShortsTimer = const Value.absent(),
-            Value<bool> includeBedtimeSchedule = const Value.absent(),
-          }) =>
-              ParentalControlsTableCompanion.insert(
-            id: id,
-            protectedAccess: protectedAccess,
-            uninstallWindowTime: uninstallWindowTime,
-            isInvincibleModeOn: isInvincibleModeOn,
-            invincibleWindowTime: invincibleWindowTime,
-            includeAppsTimer: includeAppsTimer,
-            includeAppsLaunchLimit: includeAppsLaunchLimit,
-            includeAppsActivePeriod: includeAppsActivePeriod,
-            includeGroupsTimer: includeGroupsTimer,
-            includeGroupsActivePeriod: includeGroupsActivePeriod,
-            includeShortsTimer: includeShortsTimer,
-            includeBedtimeSchedule: includeBedtimeSchedule,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$ParentalControlsTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$ParentalControlsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$ParentalControlsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<bool> protectedAccess = const Value.absent(),
+                Value<TimeOfDayAdapter> uninstallWindowTime =
+                    const Value.absent(),
+                Value<bool> isInvincibleModeOn = const Value.absent(),
+                Value<TimeOfDayAdapter> invincibleWindowTime =
+                    const Value.absent(),
+                Value<bool> includeAppsTimer = const Value.absent(),
+                Value<bool> includeAppsLaunchLimit = const Value.absent(),
+                Value<bool> includeAppsActivePeriod = const Value.absent(),
+                Value<bool> includeGroupsTimer = const Value.absent(),
+                Value<bool> includeGroupsActivePeriod = const Value.absent(),
+                Value<bool> includeShortsTimer = const Value.absent(),
+                Value<bool> includeBedtimeSchedule = const Value.absent(),
+              }) => ParentalControlsTableCompanion(
+                id: id,
+                protectedAccess: protectedAccess,
+                uninstallWindowTime: uninstallWindowTime,
+                isInvincibleModeOn: isInvincibleModeOn,
+                invincibleWindowTime: invincibleWindowTime,
+                includeAppsTimer: includeAppsTimer,
+                includeAppsLaunchLimit: includeAppsLaunchLimit,
+                includeAppsActivePeriod: includeAppsActivePeriod,
+                includeGroupsTimer: includeGroupsTimer,
+                includeGroupsActivePeriod: includeGroupsActivePeriod,
+                includeShortsTimer: includeShortsTimer,
+                includeBedtimeSchedule: includeBedtimeSchedule,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<bool> protectedAccess = const Value.absent(),
+                Value<TimeOfDayAdapter> uninstallWindowTime =
+                    const Value.absent(),
+                Value<bool> isInvincibleModeOn = const Value.absent(),
+                Value<TimeOfDayAdapter> invincibleWindowTime =
+                    const Value.absent(),
+                Value<bool> includeAppsTimer = const Value.absent(),
+                Value<bool> includeAppsLaunchLimit = const Value.absent(),
+                Value<bool> includeAppsActivePeriod = const Value.absent(),
+                Value<bool> includeGroupsTimer = const Value.absent(),
+                Value<bool> includeGroupsActivePeriod = const Value.absent(),
+                Value<bool> includeShortsTimer = const Value.absent(),
+                Value<bool> includeBedtimeSchedule = const Value.absent(),
+              }) => ParentalControlsTableCompanion.insert(
+                id: id,
+                protectedAccess: protectedAccess,
+                uninstallWindowTime: uninstallWindowTime,
+                isInvincibleModeOn: isInvincibleModeOn,
+                invincibleWindowTime: invincibleWindowTime,
+                includeAppsTimer: includeAppsTimer,
+                includeAppsLaunchLimit: includeAppsLaunchLimit,
+                includeAppsActivePeriod: includeAppsActivePeriod,
+                includeGroupsTimer: includeGroupsTimer,
+                includeGroupsActivePeriod: includeGroupsActivePeriod,
+                includeShortsTimer: includeShortsTimer,
+                includeBedtimeSchedule: includeBedtimeSchedule,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$ParentalControlsTableTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $ParentalControlsTableTable,
+typedef $$ParentalControlsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ParentalControlsTableTable,
+      ParentalControls,
+      $$ParentalControlsTableTableFilterComposer,
+      $$ParentalControlsTableTableOrderingComposer,
+      $$ParentalControlsTableTableAnnotationComposer,
+      $$ParentalControlsTableTableCreateCompanionBuilder,
+      $$ParentalControlsTableTableUpdateCompanionBuilder,
+      (
         ParentalControls,
-        $$ParentalControlsTableTableFilterComposer,
-        $$ParentalControlsTableTableOrderingComposer,
-        $$ParentalControlsTableTableAnnotationComposer,
-        $$ParentalControlsTableTableCreateCompanionBuilder,
-        $$ParentalControlsTableTableUpdateCompanionBuilder,
-        (
-          ParentalControls,
-          BaseReferences<_$AppDatabase, $ParentalControlsTableTable,
-              ParentalControls>
-        ),
-        ParentalControls,
-        PrefetchHooks Function()>;
-typedef $$RestrictionGroupsTableTableCreateCompanionBuilder
-    = RestrictionGroupsTableCompanion Function({
-  Value<int> id,
-  Value<String> groupName,
-  Value<int> timerSec,
-  Value<TimeOfDayAdapter> activePeriodStart,
-  Value<TimeOfDayAdapter> activePeriodEnd,
-  Value<int> periodDurationInMins,
-  Value<List<String>> distractingApps,
-});
-typedef $$RestrictionGroupsTableTableUpdateCompanionBuilder
-    = RestrictionGroupsTableCompanion Function({
-  Value<int> id,
-  Value<String> groupName,
-  Value<int> timerSec,
-  Value<TimeOfDayAdapter> activePeriodStart,
-  Value<TimeOfDayAdapter> activePeriodEnd,
-  Value<int> periodDurationInMins,
-  Value<List<String>> distractingApps,
-});
+        BaseReferences<
+          _$AppDatabase,
+          $ParentalControlsTableTable,
+          ParentalControls
+        >,
+      ),
+      ParentalControls,
+      PrefetchHooks Function()
+    >;
+typedef $$RestrictionGroupsTableTableCreateCompanionBuilder =
+    RestrictionGroupsTableCompanion Function({
+      Value<int> id,
+      Value<String> groupName,
+      Value<int> timerSec,
+      Value<TimeOfDayAdapter> activePeriodStart,
+      Value<TimeOfDayAdapter> activePeriodEnd,
+      Value<int> periodDurationInMins,
+      Value<List<String>> distractingApps,
+    });
+typedef $$RestrictionGroupsTableTableUpdateCompanionBuilder =
+    RestrictionGroupsTableCompanion Function({
+      Value<int> id,
+      Value<String> groupName,
+      Value<int> timerSec,
+      Value<TimeOfDayAdapter> activePeriodStart,
+      Value<TimeOfDayAdapter> activePeriodEnd,
+      Value<int> periodDurationInMins,
+      Value<List<String>> distractingApps,
+    });
 
 class $$RestrictionGroupsTableTableFilterComposer
     extends Composer<_$AppDatabase, $RestrictionGroupsTableTable> {
@@ -7876,32 +9531,42 @@ class $$RestrictionGroupsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get groupName => $composableBuilder(
-      column: $table.groupName, builder: (column) => ColumnFilters(column));
+    column: $table.groupName,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get timerSec => $composableBuilder(
-      column: $table.timerSec, builder: (column) => ColumnFilters(column));
+    column: $table.timerSec,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get activePeriodStart => $composableBuilder(
-          column: $table.activePeriodStart,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get activePeriodStart => $composableBuilder(
+    column: $table.activePeriodStart,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<TimeOfDayAdapter, TimeOfDayAdapter, int>
-      get activePeriodEnd => $composableBuilder(
-          column: $table.activePeriodEnd,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get activePeriodEnd => $composableBuilder(
+    column: $table.activePeriodEnd,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<int> get periodDurationInMins => $composableBuilder(
-      column: $table.periodDurationInMins,
-      builder: (column) => ColumnFilters(column));
+    column: $table.periodDurationInMins,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get distractingApps => $composableBuilder(
-          column: $table.distractingApps,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get distractingApps => $composableBuilder(
+    column: $table.distractingApps,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$RestrictionGroupsTableTableOrderingComposer
@@ -7914,29 +9579,39 @@ class $$RestrictionGroupsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get groupName => $composableBuilder(
-      column: $table.groupName, builder: (column) => ColumnOrderings(column));
+    column: $table.groupName,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get timerSec => $composableBuilder(
-      column: $table.timerSec, builder: (column) => ColumnOrderings(column));
+    column: $table.timerSec,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get activePeriodStart => $composableBuilder(
-      column: $table.activePeriodStart,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.activePeriodStart,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get activePeriodEnd => $composableBuilder(
-      column: $table.activePeriodEnd,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.activePeriodEnd,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get periodDurationInMins => $composableBuilder(
-      column: $table.periodDurationInMins,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.periodDurationInMins,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get distractingApps => $composableBuilder(
-      column: $table.distractingApps,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.distractingApps,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$RestrictionGroupsTableTableAnnotationComposer
@@ -7958,129 +9633,165 @@ class $$RestrictionGroupsTableTableAnnotationComposer
       $composableBuilder(column: $table.timerSec, builder: (column) => column);
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int>
-      get activePeriodStart => $composableBuilder(
-          column: $table.activePeriodStart, builder: (column) => column);
+  get activePeriodStart => $composableBuilder(
+    column: $table.activePeriodStart,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<TimeOfDayAdapter, int> get activePeriodEnd =>
       $composableBuilder(
-          column: $table.activePeriodEnd, builder: (column) => column);
+        column: $table.activePeriodEnd,
+        builder: (column) => column,
+      );
 
   GeneratedColumn<int> get periodDurationInMins => $composableBuilder(
-      column: $table.periodDurationInMins, builder: (column) => column);
+    column: $table.periodDurationInMins,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<String>, String> get distractingApps =>
       $composableBuilder(
-          column: $table.distractingApps, builder: (column) => column);
+        column: $table.distractingApps,
+        builder: (column) => column,
+      );
 }
 
-class $$RestrictionGroupsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $RestrictionGroupsTableTable,
-    RestrictionGroup,
-    $$RestrictionGroupsTableTableFilterComposer,
-    $$RestrictionGroupsTableTableOrderingComposer,
-    $$RestrictionGroupsTableTableAnnotationComposer,
-    $$RestrictionGroupsTableTableCreateCompanionBuilder,
-    $$RestrictionGroupsTableTableUpdateCompanionBuilder,
-    (
-      RestrictionGroup,
-      BaseReferences<_$AppDatabase, $RestrictionGroupsTableTable,
-          RestrictionGroup>
-    ),
-    RestrictionGroup,
-    PrefetchHooks Function()> {
+class $$RestrictionGroupsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $RestrictionGroupsTableTable,
+          RestrictionGroup,
+          $$RestrictionGroupsTableTableFilterComposer,
+          $$RestrictionGroupsTableTableOrderingComposer,
+          $$RestrictionGroupsTableTableAnnotationComposer,
+          $$RestrictionGroupsTableTableCreateCompanionBuilder,
+          $$RestrictionGroupsTableTableUpdateCompanionBuilder,
+          (
+            RestrictionGroup,
+            BaseReferences<
+              _$AppDatabase,
+              $RestrictionGroupsTableTable,
+              RestrictionGroup
+            >,
+          ),
+          RestrictionGroup,
+          PrefetchHooks Function()
+        > {
   $$RestrictionGroupsTableTableTableManager(
-      _$AppDatabase db, $RestrictionGroupsTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $RestrictionGroupsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$RestrictionGroupsTableTableFilterComposer(
-                  $db: db, $table: table),
-          createOrderingComposer: () =>
-              $$RestrictionGroupsTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$RestrictionGroupsTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> groupName = const Value.absent(),
-            Value<int> timerSec = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodStart = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
-            Value<int> periodDurationInMins = const Value.absent(),
-            Value<List<String>> distractingApps = const Value.absent(),
-          }) =>
-              RestrictionGroupsTableCompanion(
-            id: id,
-            groupName: groupName,
-            timerSec: timerSec,
-            activePeriodStart: activePeriodStart,
-            activePeriodEnd: activePeriodEnd,
-            periodDurationInMins: periodDurationInMins,
-            distractingApps: distractingApps,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> groupName = const Value.absent(),
-            Value<int> timerSec = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodStart = const Value.absent(),
-            Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
-            Value<int> periodDurationInMins = const Value.absent(),
-            Value<List<String>> distractingApps = const Value.absent(),
-          }) =>
-              RestrictionGroupsTableCompanion.insert(
-            id: id,
-            groupName: groupName,
-            timerSec: timerSec,
-            activePeriodStart: activePeriodStart,
-            activePeriodEnd: activePeriodEnd,
-            periodDurationInMins: periodDurationInMins,
-            distractingApps: distractingApps,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$RestrictionGroupsTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$RestrictionGroupsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$RestrictionGroupsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> groupName = const Value.absent(),
+                Value<int> timerSec = const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodStart =
+                    const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
+                Value<int> periodDurationInMins = const Value.absent(),
+                Value<List<String>> distractingApps = const Value.absent(),
+              }) => RestrictionGroupsTableCompanion(
+                id: id,
+                groupName: groupName,
+                timerSec: timerSec,
+                activePeriodStart: activePeriodStart,
+                activePeriodEnd: activePeriodEnd,
+                periodDurationInMins: periodDurationInMins,
+                distractingApps: distractingApps,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> groupName = const Value.absent(),
+                Value<int> timerSec = const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodStart =
+                    const Value.absent(),
+                Value<TimeOfDayAdapter> activePeriodEnd = const Value.absent(),
+                Value<int> periodDurationInMins = const Value.absent(),
+                Value<List<String>> distractingApps = const Value.absent(),
+              }) => RestrictionGroupsTableCompanion.insert(
+                id: id,
+                groupName: groupName,
+                timerSec: timerSec,
+                activePeriodStart: activePeriodStart,
+                activePeriodEnd: activePeriodEnd,
+                periodDurationInMins: periodDurationInMins,
+                distractingApps: distractingApps,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$RestrictionGroupsTableTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $RestrictionGroupsTableTable,
+typedef $$RestrictionGroupsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $RestrictionGroupsTableTable,
+      RestrictionGroup,
+      $$RestrictionGroupsTableTableFilterComposer,
+      $$RestrictionGroupsTableTableOrderingComposer,
+      $$RestrictionGroupsTableTableAnnotationComposer,
+      $$RestrictionGroupsTableTableCreateCompanionBuilder,
+      $$RestrictionGroupsTableTableUpdateCompanionBuilder,
+      (
         RestrictionGroup,
-        $$RestrictionGroupsTableTableFilterComposer,
-        $$RestrictionGroupsTableTableOrderingComposer,
-        $$RestrictionGroupsTableTableAnnotationComposer,
-        $$RestrictionGroupsTableTableCreateCompanionBuilder,
-        $$RestrictionGroupsTableTableUpdateCompanionBuilder,
-        (
-          RestrictionGroup,
-          BaseReferences<_$AppDatabase, $RestrictionGroupsTableTable,
-              RestrictionGroup>
-        ),
-        RestrictionGroup,
-        PrefetchHooks Function()>;
-typedef $$WellbeingTableTableCreateCompanionBuilder = WellbeingTableCompanion
-    Function({
-  Value<int> id,
-  Value<int> allowedShortsTimeSec,
-  Value<List<PlatformFeatures>> blockedFeatures,
-  Value<bool> blockNsfwSites,
-  Value<List<String>> blockedWebsites,
-  Value<List<String>> nsfwWebsites,
-});
-typedef $$WellbeingTableTableUpdateCompanionBuilder = WellbeingTableCompanion
-    Function({
-  Value<int> id,
-  Value<int> allowedShortsTimeSec,
-  Value<List<PlatformFeatures>> blockedFeatures,
-  Value<bool> blockNsfwSites,
-  Value<List<String>> blockedWebsites,
-  Value<List<String>> nsfwWebsites,
-});
+        BaseReferences<
+          _$AppDatabase,
+          $RestrictionGroupsTableTable,
+          RestrictionGroup
+        >,
+      ),
+      RestrictionGroup,
+      PrefetchHooks Function()
+    >;
+typedef $$WellbeingTableTableCreateCompanionBuilder =
+    WellbeingTableCompanion Function({
+      Value<int> id,
+      Value<int> allowedShortsTimeSec,
+      Value<List<PlatformFeatures>> blockedFeatures,
+      Value<bool> blockNsfwSites,
+      Value<List<String>> blockedWebsites,
+      Value<List<String>> nsfwWebsites,
+    });
+typedef $$WellbeingTableTableUpdateCompanionBuilder =
+    WellbeingTableCompanion Function({
+      Value<int> id,
+      Value<int> allowedShortsTimeSec,
+      Value<List<PlatformFeatures>> blockedFeatures,
+      Value<bool> blockNsfwSites,
+      Value<List<String>> blockedWebsites,
+      Value<List<String>> nsfwWebsites,
+    });
 
 class $$WellbeingTableTableFilterComposer
     extends Composer<_$AppDatabase, $WellbeingTableTable> {
@@ -8092,31 +9803,41 @@ class $$WellbeingTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get allowedShortsTimeSec => $composableBuilder(
-      column: $table.allowedShortsTimeSec,
-      builder: (column) => ColumnFilters(column));
+    column: $table.allowedShortsTimeSec,
+    builder: (column) => ColumnFilters(column),
+  );
 
-  ColumnWithTypeConverterFilters<List<PlatformFeatures>, List<PlatformFeatures>,
-          String>
-      get blockedFeatures => $composableBuilder(
-          column: $table.blockedFeatures,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  ColumnWithTypeConverterFilters<
+    List<PlatformFeatures>,
+    List<PlatformFeatures>,
+    String
+  >
+  get blockedFeatures => $composableBuilder(
+    column: $table.blockedFeatures,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnFilters<bool> get blockNsfwSites => $composableBuilder(
-      column: $table.blockNsfwSites,
-      builder: (column) => ColumnFilters(column));
+    column: $table.blockNsfwSites,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get blockedWebsites => $composableBuilder(
-          column: $table.blockedWebsites,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get blockedWebsites => $composableBuilder(
+    column: $table.blockedWebsites,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get nsfwWebsites => $composableBuilder(
-          column: $table.nsfwWebsites,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get nsfwWebsites => $composableBuilder(
+    column: $table.nsfwWebsites,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$WellbeingTableTableOrderingComposer
@@ -8129,27 +9850,34 @@ class $$WellbeingTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get allowedShortsTimeSec => $composableBuilder(
-      column: $table.allowedShortsTimeSec,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.allowedShortsTimeSec,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get blockedFeatures => $composableBuilder(
-      column: $table.blockedFeatures,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.blockedFeatures,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get blockNsfwSites => $composableBuilder(
-      column: $table.blockNsfwSites,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.blockNsfwSites,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get blockedWebsites => $composableBuilder(
-      column: $table.blockedWebsites,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.blockedWebsites,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get nsfwWebsites => $composableBuilder(
-      column: $table.nsfwWebsites,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.nsfwWebsites,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$WellbeingTableTableAnnotationComposer
@@ -8165,110 +9893,145 @@ class $$WellbeingTableTableAnnotationComposer
       $composableBuilder(column: $table.id, builder: (column) => column);
 
   GeneratedColumn<int> get allowedShortsTimeSec => $composableBuilder(
-      column: $table.allowedShortsTimeSec, builder: (column) => column);
+    column: $table.allowedShortsTimeSec,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<PlatformFeatures>, String>
-      get blockedFeatures => $composableBuilder(
-          column: $table.blockedFeatures, builder: (column) => column);
+  get blockedFeatures => $composableBuilder(
+    column: $table.blockedFeatures,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get blockNsfwSites => $composableBuilder(
-      column: $table.blockNsfwSites, builder: (column) => column);
+    column: $table.blockNsfwSites,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<String>, String> get blockedWebsites =>
       $composableBuilder(
-          column: $table.blockedWebsites, builder: (column) => column);
+        column: $table.blockedWebsites,
+        builder: (column) => column,
+      );
 
   GeneratedColumnWithTypeConverter<List<String>, String> get nsfwWebsites =>
       $composableBuilder(
-          column: $table.nsfwWebsites, builder: (column) => column);
+        column: $table.nsfwWebsites,
+        builder: (column) => column,
+      );
 }
 
-class $$WellbeingTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $WellbeingTableTable,
-    Wellbeing,
-    $$WellbeingTableTableFilterComposer,
-    $$WellbeingTableTableOrderingComposer,
-    $$WellbeingTableTableAnnotationComposer,
-    $$WellbeingTableTableCreateCompanionBuilder,
-    $$WellbeingTableTableUpdateCompanionBuilder,
-    (Wellbeing, BaseReferences<_$AppDatabase, $WellbeingTableTable, Wellbeing>),
-    Wellbeing,
-    PrefetchHooks Function()> {
+class $$WellbeingTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $WellbeingTableTable,
+          Wellbeing,
+          $$WellbeingTableTableFilterComposer,
+          $$WellbeingTableTableOrderingComposer,
+          $$WellbeingTableTableAnnotationComposer,
+          $$WellbeingTableTableCreateCompanionBuilder,
+          $$WellbeingTableTableUpdateCompanionBuilder,
+          (
+            Wellbeing,
+            BaseReferences<_$AppDatabase, $WellbeingTableTable, Wellbeing>,
+          ),
+          Wellbeing,
+          PrefetchHooks Function()
+        > {
   $$WellbeingTableTableTableManager(
-      _$AppDatabase db, $WellbeingTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $WellbeingTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$WellbeingTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$WellbeingTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$WellbeingTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> allowedShortsTimeSec = const Value.absent(),
-            Value<List<PlatformFeatures>> blockedFeatures =
-                const Value.absent(),
-            Value<bool> blockNsfwSites = const Value.absent(),
-            Value<List<String>> blockedWebsites = const Value.absent(),
-            Value<List<String>> nsfwWebsites = const Value.absent(),
-          }) =>
-              WellbeingTableCompanion(
-            id: id,
-            allowedShortsTimeSec: allowedShortsTimeSec,
-            blockedFeatures: blockedFeatures,
-            blockNsfwSites: blockNsfwSites,
-            blockedWebsites: blockedWebsites,
-            nsfwWebsites: nsfwWebsites,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<int> allowedShortsTimeSec = const Value.absent(),
-            Value<List<PlatformFeatures>> blockedFeatures =
-                const Value.absent(),
-            Value<bool> blockNsfwSites = const Value.absent(),
-            Value<List<String>> blockedWebsites = const Value.absent(),
-            Value<List<String>> nsfwWebsites = const Value.absent(),
-          }) =>
-              WellbeingTableCompanion.insert(
-            id: id,
-            allowedShortsTimeSec: allowedShortsTimeSec,
-            blockedFeatures: blockedFeatures,
-            blockNsfwSites: blockNsfwSites,
-            blockedWebsites: blockedWebsites,
-            nsfwWebsites: nsfwWebsites,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$WellbeingTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$WellbeingTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$WellbeingTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> allowedShortsTimeSec = const Value.absent(),
+                Value<List<PlatformFeatures>> blockedFeatures =
+                    const Value.absent(),
+                Value<bool> blockNsfwSites = const Value.absent(),
+                Value<List<String>> blockedWebsites = const Value.absent(),
+                Value<List<String>> nsfwWebsites = const Value.absent(),
+              }) => WellbeingTableCompanion(
+                id: id,
+                allowedShortsTimeSec: allowedShortsTimeSec,
+                blockedFeatures: blockedFeatures,
+                blockNsfwSites: blockNsfwSites,
+                blockedWebsites: blockedWebsites,
+                nsfwWebsites: nsfwWebsites,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> allowedShortsTimeSec = const Value.absent(),
+                Value<List<PlatformFeatures>> blockedFeatures =
+                    const Value.absent(),
+                Value<bool> blockNsfwSites = const Value.absent(),
+                Value<List<String>> blockedWebsites = const Value.absent(),
+                Value<List<String>> nsfwWebsites = const Value.absent(),
+              }) => WellbeingTableCompanion.insert(
+                id: id,
+                allowedShortsTimeSec: allowedShortsTimeSec,
+                blockedFeatures: blockedFeatures,
+                blockNsfwSites: blockNsfwSites,
+                blockedWebsites: blockedWebsites,
+                nsfwWebsites: nsfwWebsites,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$WellbeingTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $WellbeingTableTable,
-    Wellbeing,
-    $$WellbeingTableTableFilterComposer,
-    $$WellbeingTableTableOrderingComposer,
-    $$WellbeingTableTableAnnotationComposer,
-    $$WellbeingTableTableCreateCompanionBuilder,
-    $$WellbeingTableTableUpdateCompanionBuilder,
-    (Wellbeing, BaseReferences<_$AppDatabase, $WellbeingTableTable, Wellbeing>),
-    Wellbeing,
-    PrefetchHooks Function()>;
-typedef $$SharedUniqueDataTableTableCreateCompanionBuilder
-    = SharedUniqueDataTableCompanion Function({
-  Value<int> id,
-  Value<List<String>> excludedApps,
-});
-typedef $$SharedUniqueDataTableTableUpdateCompanionBuilder
-    = SharedUniqueDataTableCompanion Function({
-  Value<int> id,
-  Value<List<String>> excludedApps,
-});
+typedef $$WellbeingTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $WellbeingTableTable,
+      Wellbeing,
+      $$WellbeingTableTableFilterComposer,
+      $$WellbeingTableTableOrderingComposer,
+      $$WellbeingTableTableAnnotationComposer,
+      $$WellbeingTableTableCreateCompanionBuilder,
+      $$WellbeingTableTableUpdateCompanionBuilder,
+      (
+        Wellbeing,
+        BaseReferences<_$AppDatabase, $WellbeingTableTable, Wellbeing>,
+      ),
+      Wellbeing,
+      PrefetchHooks Function()
+    >;
+typedef $$SharedUniqueDataTableTableCreateCompanionBuilder =
+    SharedUniqueDataTableCompanion Function({
+      Value<int> id,
+      Value<List<String>> excludedApps,
+    });
+typedef $$SharedUniqueDataTableTableUpdateCompanionBuilder =
+    SharedUniqueDataTableCompanion Function({
+      Value<int> id,
+      Value<List<String>> excludedApps,
+    });
 
 class $$SharedUniqueDataTableTableFilterComposer
     extends Composer<_$AppDatabase, $SharedUniqueDataTableTable> {
@@ -8280,12 +10043,15 @@ class $$SharedUniqueDataTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get excludedApps => $composableBuilder(
-          column: $table.excludedApps,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get excludedApps => $composableBuilder(
+    column: $table.excludedApps,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$SharedUniqueDataTableTableOrderingComposer
@@ -8298,11 +10064,14 @@ class $$SharedUniqueDataTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get excludedApps => $composableBuilder(
-      column: $table.excludedApps,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.excludedApps,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$SharedUniqueDataTableTableAnnotationComposer
@@ -8319,97 +10088,125 @@ class $$SharedUniqueDataTableTableAnnotationComposer
 
   GeneratedColumnWithTypeConverter<List<String>, String> get excludedApps =>
       $composableBuilder(
-          column: $table.excludedApps, builder: (column) => column);
+        column: $table.excludedApps,
+        builder: (column) => column,
+      );
 }
 
-class $$SharedUniqueDataTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $SharedUniqueDataTableTable,
-    SharedUniqueData,
-    $$SharedUniqueDataTableTableFilterComposer,
-    $$SharedUniqueDataTableTableOrderingComposer,
-    $$SharedUniqueDataTableTableAnnotationComposer,
-    $$SharedUniqueDataTableTableCreateCompanionBuilder,
-    $$SharedUniqueDataTableTableUpdateCompanionBuilder,
-    (
-      SharedUniqueData,
-      BaseReferences<_$AppDatabase, $SharedUniqueDataTableTable,
-          SharedUniqueData>
-    ),
-    SharedUniqueData,
-    PrefetchHooks Function()> {
+class $$SharedUniqueDataTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $SharedUniqueDataTableTable,
+          SharedUniqueData,
+          $$SharedUniqueDataTableTableFilterComposer,
+          $$SharedUniqueDataTableTableOrderingComposer,
+          $$SharedUniqueDataTableTableAnnotationComposer,
+          $$SharedUniqueDataTableTableCreateCompanionBuilder,
+          $$SharedUniqueDataTableTableUpdateCompanionBuilder,
+          (
+            SharedUniqueData,
+            BaseReferences<
+              _$AppDatabase,
+              $SharedUniqueDataTableTable,
+              SharedUniqueData
+            >,
+          ),
+          SharedUniqueData,
+          PrefetchHooks Function()
+        > {
   $$SharedUniqueDataTableTableTableManager(
-      _$AppDatabase db, $SharedUniqueDataTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $SharedUniqueDataTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$SharedUniqueDataTableTableFilterComposer(
-                  $db: db, $table: table),
-          createOrderingComposer: () =>
-              $$SharedUniqueDataTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$SharedUniqueDataTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<List<String>> excludedApps = const Value.absent(),
-          }) =>
-              SharedUniqueDataTableCompanion(
-            id: id,
-            excludedApps: excludedApps,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<List<String>> excludedApps = const Value.absent(),
-          }) =>
-              SharedUniqueDataTableCompanion.insert(
-            id: id,
-            excludedApps: excludedApps,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$SharedUniqueDataTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$SharedUniqueDataTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$SharedUniqueDataTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<List<String>> excludedApps = const Value.absent(),
+              }) => SharedUniqueDataTableCompanion(
+                id: id,
+                excludedApps: excludedApps,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<List<String>> excludedApps = const Value.absent(),
+              }) => SharedUniqueDataTableCompanion.insert(
+                id: id,
+                excludedApps: excludedApps,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$SharedUniqueDataTableTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $SharedUniqueDataTableTable,
+typedef $$SharedUniqueDataTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $SharedUniqueDataTableTable,
+      SharedUniqueData,
+      $$SharedUniqueDataTableTableFilterComposer,
+      $$SharedUniqueDataTableTableOrderingComposer,
+      $$SharedUniqueDataTableTableAnnotationComposer,
+      $$SharedUniqueDataTableTableCreateCompanionBuilder,
+      $$SharedUniqueDataTableTableUpdateCompanionBuilder,
+      (
         SharedUniqueData,
-        $$SharedUniqueDataTableTableFilterComposer,
-        $$SharedUniqueDataTableTableOrderingComposer,
-        $$SharedUniqueDataTableTableAnnotationComposer,
-        $$SharedUniqueDataTableTableCreateCompanionBuilder,
-        $$SharedUniqueDataTableTableUpdateCompanionBuilder,
-        (
-          SharedUniqueData,
-          BaseReferences<_$AppDatabase, $SharedUniqueDataTableTable,
-              SharedUniqueData>
-        ),
-        SharedUniqueData,
-        PrefetchHooks Function()>;
-typedef $$AppUsageTableTableCreateCompanionBuilder = AppUsageTableCompanion
-    Function({
-  required String packageName,
-  Value<DateTime> date,
-  Value<int> screenTime,
-  Value<int> mobileData,
-  Value<int> wifiData,
-  Value<int> rowid,
-});
-typedef $$AppUsageTableTableUpdateCompanionBuilder = AppUsageTableCompanion
-    Function({
-  Value<String> packageName,
-  Value<DateTime> date,
-  Value<int> screenTime,
-  Value<int> mobileData,
-  Value<int> wifiData,
-  Value<int> rowid,
-});
+        BaseReferences<
+          _$AppDatabase,
+          $SharedUniqueDataTableTable,
+          SharedUniqueData
+        >,
+      ),
+      SharedUniqueData,
+      PrefetchHooks Function()
+    >;
+typedef $$AppUsageTableTableCreateCompanionBuilder =
+    AppUsageTableCompanion Function({
+      required String packageName,
+      Value<DateTime> date,
+      Value<int> screenTime,
+      Value<int> mobileData,
+      Value<int> wifiData,
+      Value<int> rowid,
+    });
+typedef $$AppUsageTableTableUpdateCompanionBuilder =
+    AppUsageTableCompanion Function({
+      Value<String> packageName,
+      Value<DateTime> date,
+      Value<int> screenTime,
+      Value<int> mobileData,
+      Value<int> wifiData,
+      Value<int> rowid,
+    });
 
 class $$AppUsageTableTableFilterComposer
     extends Composer<_$AppDatabase, $AppUsageTableTable> {
@@ -8421,19 +10218,29 @@ class $$AppUsageTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get packageName => $composableBuilder(
-      column: $table.packageName, builder: (column) => ColumnFilters(column));
+    column: $table.packageName,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get date => $composableBuilder(
-      column: $table.date, builder: (column) => ColumnFilters(column));
+    column: $table.date,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get screenTime => $composableBuilder(
-      column: $table.screenTime, builder: (column) => ColumnFilters(column));
+    column: $table.screenTime,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get mobileData => $composableBuilder(
-      column: $table.mobileData, builder: (column) => ColumnFilters(column));
+    column: $table.mobileData,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<int> get wifiData => $composableBuilder(
-      column: $table.wifiData, builder: (column) => ColumnFilters(column));
+    column: $table.wifiData,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$AppUsageTableTableOrderingComposer
@@ -8446,19 +10253,29 @@ class $$AppUsageTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get packageName => $composableBuilder(
-      column: $table.packageName, builder: (column) => ColumnOrderings(column));
+    column: $table.packageName,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get date => $composableBuilder(
-      column: $table.date, builder: (column) => ColumnOrderings(column));
+    column: $table.date,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get screenTime => $composableBuilder(
-      column: $table.screenTime, builder: (column) => ColumnOrderings(column));
+    column: $table.screenTime,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get mobileData => $composableBuilder(
-      column: $table.mobileData, builder: (column) => ColumnOrderings(column));
+    column: $table.mobileData,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get wifiData => $composableBuilder(
-      column: $table.wifiData, builder: (column) => ColumnOrderings(column));
+    column: $table.wifiData,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$AppUsageTableTableAnnotationComposer
@@ -8471,112 +10288,139 @@ class $$AppUsageTableTableAnnotationComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   GeneratedColumn<String> get packageName => $composableBuilder(
-      column: $table.packageName, builder: (column) => column);
+    column: $table.packageName,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get date =>
       $composableBuilder(column: $table.date, builder: (column) => column);
 
   GeneratedColumn<int> get screenTime => $composableBuilder(
-      column: $table.screenTime, builder: (column) => column);
+    column: $table.screenTime,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get mobileData => $composableBuilder(
-      column: $table.mobileData, builder: (column) => column);
+    column: $table.mobileData,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get wifiData =>
       $composableBuilder(column: $table.wifiData, builder: (column) => column);
 }
 
-class $$AppUsageTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $AppUsageTableTable,
-    AppUsage,
-    $$AppUsageTableTableFilterComposer,
-    $$AppUsageTableTableOrderingComposer,
-    $$AppUsageTableTableAnnotationComposer,
-    $$AppUsageTableTableCreateCompanionBuilder,
-    $$AppUsageTableTableUpdateCompanionBuilder,
-    (AppUsage, BaseReferences<_$AppDatabase, $AppUsageTableTable, AppUsage>),
-    AppUsage,
-    PrefetchHooks Function()> {
+class $$AppUsageTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AppUsageTableTable,
+          AppUsage,
+          $$AppUsageTableTableFilterComposer,
+          $$AppUsageTableTableOrderingComposer,
+          $$AppUsageTableTableAnnotationComposer,
+          $$AppUsageTableTableCreateCompanionBuilder,
+          $$AppUsageTableTableUpdateCompanionBuilder,
+          (
+            AppUsage,
+            BaseReferences<_$AppDatabase, $AppUsageTableTable, AppUsage>,
+          ),
+          AppUsage,
+          PrefetchHooks Function()
+        > {
   $$AppUsageTableTableTableManager(_$AppDatabase db, $AppUsageTableTable table)
-      : super(TableManagerState(
+    : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$AppUsageTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$AppUsageTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$AppUsageTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<String> packageName = const Value.absent(),
-            Value<DateTime> date = const Value.absent(),
-            Value<int> screenTime = const Value.absent(),
-            Value<int> mobileData = const Value.absent(),
-            Value<int> wifiData = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              AppUsageTableCompanion(
-            packageName: packageName,
-            date: date,
-            screenTime: screenTime,
-            mobileData: mobileData,
-            wifiData: wifiData,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String packageName,
-            Value<DateTime> date = const Value.absent(),
-            Value<int> screenTime = const Value.absent(),
-            Value<int> mobileData = const Value.absent(),
-            Value<int> wifiData = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
-          }) =>
-              AppUsageTableCompanion.insert(
-            packageName: packageName,
-            date: date,
-            screenTime: screenTime,
-            mobileData: mobileData,
-            wifiData: wifiData,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$AppUsageTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$AppUsageTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$AppUsageTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> packageName = const Value.absent(),
+                Value<DateTime> date = const Value.absent(),
+                Value<int> screenTime = const Value.absent(),
+                Value<int> mobileData = const Value.absent(),
+                Value<int> wifiData = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AppUsageTableCompanion(
+                packageName: packageName,
+                date: date,
+                screenTime: screenTime,
+                mobileData: mobileData,
+                wifiData: wifiData,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String packageName,
+                Value<DateTime> date = const Value.absent(),
+                Value<int> screenTime = const Value.absent(),
+                Value<int> mobileData = const Value.absent(),
+                Value<int> wifiData = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AppUsageTableCompanion.insert(
+                packageName: packageName,
+                date: date,
+                screenTime: screenTime,
+                mobileData: mobileData,
+                wifiData: wifiData,
+                rowid: rowid,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$AppUsageTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $AppUsageTableTable,
-    AppUsage,
-    $$AppUsageTableTableFilterComposer,
-    $$AppUsageTableTableOrderingComposer,
-    $$AppUsageTableTableAnnotationComposer,
-    $$AppUsageTableTableCreateCompanionBuilder,
-    $$AppUsageTableTableUpdateCompanionBuilder,
-    (AppUsage, BaseReferences<_$AppDatabase, $AppUsageTableTable, AppUsage>),
-    AppUsage,
-    PrefetchHooks Function()>;
-typedef $$NotificationSettingsTableTableCreateCompanionBuilder
-    = NotificationSettingsTableCompanion Function({
-  Value<int> id,
-  Value<RecapType> recapType,
-  Value<int> notificationHistoryWeeks,
-  Value<bool> storeNonBatchedToo,
-  Value<List<String>> batchedApps,
-  Value<List<NotificationSchedule>> schedules,
-});
-typedef $$NotificationSettingsTableTableUpdateCompanionBuilder
-    = NotificationSettingsTableCompanion Function({
-  Value<int> id,
-  Value<RecapType> recapType,
-  Value<int> notificationHistoryWeeks,
-  Value<bool> storeNonBatchedToo,
-  Value<List<String>> batchedApps,
-  Value<List<NotificationSchedule>> schedules,
-});
+typedef $$AppUsageTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AppUsageTableTable,
+      AppUsage,
+      $$AppUsageTableTableFilterComposer,
+      $$AppUsageTableTableOrderingComposer,
+      $$AppUsageTableTableAnnotationComposer,
+      $$AppUsageTableTableCreateCompanionBuilder,
+      $$AppUsageTableTableUpdateCompanionBuilder,
+      (AppUsage, BaseReferences<_$AppDatabase, $AppUsageTableTable, AppUsage>),
+      AppUsage,
+      PrefetchHooks Function()
+    >;
+typedef $$NotificationSettingsTableTableCreateCompanionBuilder =
+    NotificationSettingsTableCompanion Function({
+      Value<int> id,
+      Value<RecapType> recapType,
+      Value<int> notificationHistoryWeeks,
+      Value<bool> storeNonBatchedToo,
+      Value<List<String>> batchedApps,
+      Value<List<NotificationSchedule>> schedules,
+    });
+typedef $$NotificationSettingsTableTableUpdateCompanionBuilder =
+    NotificationSettingsTableCompanion Function({
+      Value<int> id,
+      Value<RecapType> recapType,
+      Value<int> notificationHistoryWeeks,
+      Value<bool> storeNonBatchedToo,
+      Value<List<String>> batchedApps,
+      Value<List<NotificationSchedule>> schedules,
+    });
 
 class $$NotificationSettingsTableTableFilterComposer
     extends Composer<_$AppDatabase, $NotificationSettingsTableTable> {
@@ -8588,31 +10432,41 @@ class $$NotificationSettingsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<RecapType, RecapType, int> get recapType =>
       $composableBuilder(
-          column: $table.recapType,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+        column: $table.recapType,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
 
   ColumnFilters<int> get notificationHistoryWeeks => $composableBuilder(
-      column: $table.notificationHistoryWeeks,
-      builder: (column) => ColumnFilters(column));
+    column: $table.notificationHistoryWeeks,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get storeNonBatchedToo => $composableBuilder(
-      column: $table.storeNonBatchedToo,
-      builder: (column) => ColumnFilters(column));
+    column: $table.storeNonBatchedToo,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnWithTypeConverterFilters<List<String>, List<String>, String>
-      get batchedApps => $composableBuilder(
-          column: $table.batchedApps,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  get batchedApps => $composableBuilder(
+    column: $table.batchedApps,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 
-  ColumnWithTypeConverterFilters<List<NotificationSchedule>,
-          List<NotificationSchedule>, String>
-      get schedules => $composableBuilder(
-          column: $table.schedules,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
+  ColumnWithTypeConverterFilters<
+    List<NotificationSchedule>,
+    List<NotificationSchedule>,
+    String
+  >
+  get schedules => $composableBuilder(
+    column: $table.schedules,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
 }
 
 class $$NotificationSettingsTableTableOrderingComposer
@@ -8625,24 +10479,34 @@ class $$NotificationSettingsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get recapType => $composableBuilder(
-      column: $table.recapType, builder: (column) => ColumnOrderings(column));
+    column: $table.recapType,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<int> get notificationHistoryWeeks => $composableBuilder(
-      column: $table.notificationHistoryWeeks,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.notificationHistoryWeeks,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get storeNonBatchedToo => $composableBuilder(
-      column: $table.storeNonBatchedToo,
-      builder: (column) => ColumnOrderings(column));
+    column: $table.storeNonBatchedToo,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get batchedApps => $composableBuilder(
-      column: $table.batchedApps, builder: (column) => ColumnOrderings(column));
+    column: $table.batchedApps,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get schedules => $composableBuilder(
-      column: $table.schedules, builder: (column) => ColumnOrderings(column));
+    column: $table.schedules,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$NotificationSettingsTableTableAnnotationComposer
@@ -8661,128 +10525,162 @@ class $$NotificationSettingsTableTableAnnotationComposer
       $composableBuilder(column: $table.recapType, builder: (column) => column);
 
   GeneratedColumn<int> get notificationHistoryWeeks => $composableBuilder(
-      column: $table.notificationHistoryWeeks, builder: (column) => column);
+    column: $table.notificationHistoryWeeks,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<bool> get storeNonBatchedToo => $composableBuilder(
-      column: $table.storeNonBatchedToo, builder: (column) => column);
+    column: $table.storeNonBatchedToo,
+    builder: (column) => column,
+  );
 
   GeneratedColumnWithTypeConverter<List<String>, String> get batchedApps =>
       $composableBuilder(
-          column: $table.batchedApps, builder: (column) => column);
+        column: $table.batchedApps,
+        builder: (column) => column,
+      );
 
   GeneratedColumnWithTypeConverter<List<NotificationSchedule>, String>
-      get schedules => $composableBuilder(
-          column: $table.schedules, builder: (column) => column);
+  get schedules =>
+      $composableBuilder(column: $table.schedules, builder: (column) => column);
 }
 
-class $$NotificationSettingsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $NotificationSettingsTableTable,
-    NotificationSettings,
-    $$NotificationSettingsTableTableFilterComposer,
-    $$NotificationSettingsTableTableOrderingComposer,
-    $$NotificationSettingsTableTableAnnotationComposer,
-    $$NotificationSettingsTableTableCreateCompanionBuilder,
-    $$NotificationSettingsTableTableUpdateCompanionBuilder,
-    (
-      NotificationSettings,
-      BaseReferences<_$AppDatabase, $NotificationSettingsTableTable,
-          NotificationSettings>
-    ),
-    NotificationSettings,
-    PrefetchHooks Function()> {
+class $$NotificationSettingsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $NotificationSettingsTableTable,
+          NotificationSettings,
+          $$NotificationSettingsTableTableFilterComposer,
+          $$NotificationSettingsTableTableOrderingComposer,
+          $$NotificationSettingsTableTableAnnotationComposer,
+          $$NotificationSettingsTableTableCreateCompanionBuilder,
+          $$NotificationSettingsTableTableUpdateCompanionBuilder,
+          (
+            NotificationSettings,
+            BaseReferences<
+              _$AppDatabase,
+              $NotificationSettingsTableTable,
+              NotificationSettings
+            >,
+          ),
+          NotificationSettings,
+          PrefetchHooks Function()
+        > {
   $$NotificationSettingsTableTableTableManager(
-      _$AppDatabase db, $NotificationSettingsTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $NotificationSettingsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$NotificationSettingsTableTableFilterComposer(
-                  $db: db, $table: table),
-          createOrderingComposer: () =>
-              $$NotificationSettingsTableTableOrderingComposer(
-                  $db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$NotificationSettingsTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<RecapType> recapType = const Value.absent(),
-            Value<int> notificationHistoryWeeks = const Value.absent(),
-            Value<bool> storeNonBatchedToo = const Value.absent(),
-            Value<List<String>> batchedApps = const Value.absent(),
-            Value<List<NotificationSchedule>> schedules = const Value.absent(),
-          }) =>
-              NotificationSettingsTableCompanion(
-            id: id,
-            recapType: recapType,
-            notificationHistoryWeeks: notificationHistoryWeeks,
-            storeNonBatchedToo: storeNonBatchedToo,
-            batchedApps: batchedApps,
-            schedules: schedules,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<RecapType> recapType = const Value.absent(),
-            Value<int> notificationHistoryWeeks = const Value.absent(),
-            Value<bool> storeNonBatchedToo = const Value.absent(),
-            Value<List<String>> batchedApps = const Value.absent(),
-            Value<List<NotificationSchedule>> schedules = const Value.absent(),
-          }) =>
-              NotificationSettingsTableCompanion.insert(
-            id: id,
-            recapType: recapType,
-            notificationHistoryWeeks: notificationHistoryWeeks,
-            storeNonBatchedToo: storeNonBatchedToo,
-            batchedApps: batchedApps,
-            schedules: schedules,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$NotificationSettingsTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$NotificationSettingsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$NotificationSettingsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<RecapType> recapType = const Value.absent(),
+                Value<int> notificationHistoryWeeks = const Value.absent(),
+                Value<bool> storeNonBatchedToo = const Value.absent(),
+                Value<List<String>> batchedApps = const Value.absent(),
+                Value<List<NotificationSchedule>> schedules =
+                    const Value.absent(),
+              }) => NotificationSettingsTableCompanion(
+                id: id,
+                recapType: recapType,
+                notificationHistoryWeeks: notificationHistoryWeeks,
+                storeNonBatchedToo: storeNonBatchedToo,
+                batchedApps: batchedApps,
+                schedules: schedules,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<RecapType> recapType = const Value.absent(),
+                Value<int> notificationHistoryWeeks = const Value.absent(),
+                Value<bool> storeNonBatchedToo = const Value.absent(),
+                Value<List<String>> batchedApps = const Value.absent(),
+                Value<List<NotificationSchedule>> schedules =
+                    const Value.absent(),
+              }) => NotificationSettingsTableCompanion.insert(
+                id: id,
+                recapType: recapType,
+                notificationHistoryWeeks: notificationHistoryWeeks,
+                storeNonBatchedToo: storeNonBatchedToo,
+                batchedApps: batchedApps,
+                schedules: schedules,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$NotificationSettingsTableTableProcessedTableManager
-    = ProcessedTableManager<
-        _$AppDatabase,
-        $NotificationSettingsTableTable,
+typedef $$NotificationSettingsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $NotificationSettingsTableTable,
+      NotificationSettings,
+      $$NotificationSettingsTableTableFilterComposer,
+      $$NotificationSettingsTableTableOrderingComposer,
+      $$NotificationSettingsTableTableAnnotationComposer,
+      $$NotificationSettingsTableTableCreateCompanionBuilder,
+      $$NotificationSettingsTableTableUpdateCompanionBuilder,
+      (
         NotificationSettings,
-        $$NotificationSettingsTableTableFilterComposer,
-        $$NotificationSettingsTableTableOrderingComposer,
-        $$NotificationSettingsTableTableAnnotationComposer,
-        $$NotificationSettingsTableTableCreateCompanionBuilder,
-        $$NotificationSettingsTableTableUpdateCompanionBuilder,
-        (
-          NotificationSettings,
-          BaseReferences<_$AppDatabase, $NotificationSettingsTableTable,
-              NotificationSettings>
-        ),
-        NotificationSettings,
-        PrefetchHooks Function()>;
-typedef $$NotificationsTableTableCreateCompanionBuilder
-    = NotificationsTableCompanion Function({
-  Value<int> id,
-  required String key,
-  required String packageName,
-  Value<DateTime> timeStamp,
-  Value<String> title,
-  Value<String> content,
-  Value<String> category,
-  Value<bool> isRead,
-});
-typedef $$NotificationsTableTableUpdateCompanionBuilder
-    = NotificationsTableCompanion Function({
-  Value<int> id,
-  Value<String> key,
-  Value<String> packageName,
-  Value<DateTime> timeStamp,
-  Value<String> title,
-  Value<String> content,
-  Value<String> category,
-  Value<bool> isRead,
-});
+        BaseReferences<
+          _$AppDatabase,
+          $NotificationSettingsTableTable,
+          NotificationSettings
+        >,
+      ),
+      NotificationSettings,
+      PrefetchHooks Function()
+    >;
+typedef $$NotificationsTableTableCreateCompanionBuilder =
+    NotificationsTableCompanion Function({
+      Value<int> id,
+      required String key,
+      required String packageName,
+      Value<DateTime> timeStamp,
+      Value<String> title,
+      Value<String> content,
+      Value<String> category,
+      Value<bool> isRead,
+    });
+typedef $$NotificationsTableTableUpdateCompanionBuilder =
+    NotificationsTableCompanion Function({
+      Value<int> id,
+      Value<String> key,
+      Value<String> packageName,
+      Value<DateTime> timeStamp,
+      Value<String> title,
+      Value<String> content,
+      Value<String> category,
+      Value<bool> isRead,
+    });
 
 class $$NotificationsTableTableFilterComposer
     extends Composer<_$AppDatabase, $NotificationsTableTable> {
@@ -8794,28 +10692,44 @@ class $$NotificationsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnFilters(column));
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get key => $composableBuilder(
-      column: $table.key, builder: (column) => ColumnFilters(column));
+    column: $table.key,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get packageName => $composableBuilder(
-      column: $table.packageName, builder: (column) => ColumnFilters(column));
+    column: $table.packageName,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<DateTime> get timeStamp => $composableBuilder(
-      column: $table.timeStamp, builder: (column) => ColumnFilters(column));
+    column: $table.timeStamp,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get title => $composableBuilder(
-      column: $table.title, builder: (column) => ColumnFilters(column));
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get content => $composableBuilder(
-      column: $table.content, builder: (column) => ColumnFilters(column));
+    column: $table.content,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<String> get category => $composableBuilder(
-      column: $table.category, builder: (column) => ColumnFilters(column));
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
 
   ColumnFilters<bool> get isRead => $composableBuilder(
-      column: $table.isRead, builder: (column) => ColumnFilters(column));
+    column: $table.isRead,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$NotificationsTableTableOrderingComposer
@@ -8828,28 +10742,44 @@ class $$NotificationsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<int> get id => $composableBuilder(
-      column: $table.id, builder: (column) => ColumnOrderings(column));
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get key => $composableBuilder(
-      column: $table.key, builder: (column) => ColumnOrderings(column));
+    column: $table.key,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get packageName => $composableBuilder(
-      column: $table.packageName, builder: (column) => ColumnOrderings(column));
+    column: $table.packageName,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<DateTime> get timeStamp => $composableBuilder(
-      column: $table.timeStamp, builder: (column) => ColumnOrderings(column));
+    column: $table.timeStamp,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get title => $composableBuilder(
-      column: $table.title, builder: (column) => ColumnOrderings(column));
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get content => $composableBuilder(
-      column: $table.content, builder: (column) => ColumnOrderings(column));
+    column: $table.content,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<String> get category => $composableBuilder(
-      column: $table.category, builder: (column) => ColumnOrderings(column));
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
 
   ColumnOrderings<bool> get isRead => $composableBuilder(
-      column: $table.isRead, builder: (column) => ColumnOrderings(column));
+    column: $table.isRead,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$NotificationsTableTableAnnotationComposer
@@ -8868,7 +10798,9 @@ class $$NotificationsTableTableAnnotationComposer
       $composableBuilder(column: $table.key, builder: (column) => column);
 
   GeneratedColumn<String> get packageName => $composableBuilder(
-      column: $table.packageName, builder: (column) => column);
+    column: $table.packageName,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get timeStamp =>
       $composableBuilder(column: $table.timeStamp, builder: (column) => column);
@@ -8886,95 +10818,122 @@ class $$NotificationsTableTableAnnotationComposer
       $composableBuilder(column: $table.isRead, builder: (column) => column);
 }
 
-class $$NotificationsTableTableTableManager extends RootTableManager<
-    _$AppDatabase,
-    $NotificationsTableTable,
-    Notification,
-    $$NotificationsTableTableFilterComposer,
-    $$NotificationsTableTableOrderingComposer,
-    $$NotificationsTableTableAnnotationComposer,
-    $$NotificationsTableTableCreateCompanionBuilder,
-    $$NotificationsTableTableUpdateCompanionBuilder,
-    (
-      Notification,
-      BaseReferences<_$AppDatabase, $NotificationsTableTable, Notification>
-    ),
-    Notification,
-    PrefetchHooks Function()> {
+class $$NotificationsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $NotificationsTableTable,
+          Notification,
+          $$NotificationsTableTableFilterComposer,
+          $$NotificationsTableTableOrderingComposer,
+          $$NotificationsTableTableAnnotationComposer,
+          $$NotificationsTableTableCreateCompanionBuilder,
+          $$NotificationsTableTableUpdateCompanionBuilder,
+          (
+            Notification,
+            BaseReferences<
+              _$AppDatabase,
+              $NotificationsTableTable,
+              Notification
+            >,
+          ),
+          Notification,
+          PrefetchHooks Function()
+        > {
   $$NotificationsTableTableTableManager(
-      _$AppDatabase db, $NotificationsTableTable table)
-      : super(TableManagerState(
+    _$AppDatabase db,
+    $NotificationsTableTable table,
+  ) : super(
+        TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer: () =>
-              $$NotificationsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$NotificationsTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$NotificationsTableTableAnnotationComposer(
-                  $db: db, $table: table),
-          updateCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            Value<String> key = const Value.absent(),
-            Value<String> packageName = const Value.absent(),
-            Value<DateTime> timeStamp = const Value.absent(),
-            Value<String> title = const Value.absent(),
-            Value<String> content = const Value.absent(),
-            Value<String> category = const Value.absent(),
-            Value<bool> isRead = const Value.absent(),
-          }) =>
-              NotificationsTableCompanion(
-            id: id,
-            key: key,
-            packageName: packageName,
-            timeStamp: timeStamp,
-            title: title,
-            content: content,
-            category: category,
-            isRead: isRead,
-          ),
-          createCompanionCallback: ({
-            Value<int> id = const Value.absent(),
-            required String key,
-            required String packageName,
-            Value<DateTime> timeStamp = const Value.absent(),
-            Value<String> title = const Value.absent(),
-            Value<String> content = const Value.absent(),
-            Value<String> category = const Value.absent(),
-            Value<bool> isRead = const Value.absent(),
-          }) =>
-              NotificationsTableCompanion.insert(
-            id: id,
-            key: key,
-            packageName: packageName,
-            timeStamp: timeStamp,
-            title: title,
-            content: content,
-            category: category,
-            isRead: isRead,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
+          createFilteringComposer:
+              () => $$NotificationsTableTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$NotificationsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$NotificationsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> key = const Value.absent(),
+                Value<String> packageName = const Value.absent(),
+                Value<DateTime> timeStamp = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> content = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<bool> isRead = const Value.absent(),
+              }) => NotificationsTableCompanion(
+                id: id,
+                key: key,
+                packageName: packageName,
+                timeStamp: timeStamp,
+                title: title,
+                content: content,
+                category: category,
+                isRead: isRead,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String key,
+                required String packageName,
+                Value<DateTime> timeStamp = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> content = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<bool> isRead = const Value.absent(),
+              }) => NotificationsTableCompanion.insert(
+                id: id,
+                key: key,
+                packageName: packageName,
+                timeStamp: timeStamp,
+                title: title,
+                content: content,
+                category: category,
+                isRead: isRead,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
           prefetchHooksCallback: null,
-        ));
+        ),
+      );
 }
 
-typedef $$NotificationsTableTableProcessedTableManager = ProcessedTableManager<
-    _$AppDatabase,
-    $NotificationsTableTable,
-    Notification,
-    $$NotificationsTableTableFilterComposer,
-    $$NotificationsTableTableOrderingComposer,
-    $$NotificationsTableTableAnnotationComposer,
-    $$NotificationsTableTableCreateCompanionBuilder,
-    $$NotificationsTableTableUpdateCompanionBuilder,
-    (
+typedef $$NotificationsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $NotificationsTableTable,
       Notification,
-      BaseReferences<_$AppDatabase, $NotificationsTableTable, Notification>
-    ),
-    Notification,
-    PrefetchHooks Function()>;
+      $$NotificationsTableTableFilterComposer,
+      $$NotificationsTableTableOrderingComposer,
+      $$NotificationsTableTableAnnotationComposer,
+      $$NotificationsTableTableCreateCompanionBuilder,
+      $$NotificationsTableTableUpdateCompanionBuilder,
+      (
+        Notification,
+        BaseReferences<_$AppDatabase, $NotificationsTableTable, Notification>,
+      ),
+      Notification,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -8991,13 +10950,18 @@ class $AppDatabaseManager {
       $$FocusProfileTableTableTableManager(_db, _db.focusProfileTable);
   $$FocusSessionsTableTableTableManager get focusSessionsTable =>
       $$FocusSessionsTableTableTableManager(_db, _db.focusSessionsTable);
-  $$MindfulSettingsTableTableTableManager get mindfulSettingsTable =>
-      $$MindfulSettingsTableTableTableManager(_db, _db.mindfulSettingsTable);
+  $$ManoDhyanSettingsTableTableTableManager get manoDhyanSettingsTable =>
+      $$ManoDhyanSettingsTableTableTableManager(
+        _db,
+        _db.manoDhyanSettingsTable,
+      );
   $$ParentalControlsTableTableTableManager get parentalControlsTable =>
       $$ParentalControlsTableTableTableManager(_db, _db.parentalControlsTable);
   $$RestrictionGroupsTableTableTableManager get restrictionGroupsTable =>
       $$RestrictionGroupsTableTableTableManager(
-          _db, _db.restrictionGroupsTable);
+        _db,
+        _db.restrictionGroupsTable,
+      );
   $$WellbeingTableTableTableManager get wellbeingTable =>
       $$WellbeingTableTableTableManager(_db, _db.wellbeingTable);
   $$SharedUniqueDataTableTableTableManager get sharedUniqueDataTable =>
@@ -9006,7 +10970,9 @@ class $AppDatabaseManager {
       $$AppUsageTableTableTableManager(_db, _db.appUsageTable);
   $$NotificationSettingsTableTableTableManager get notificationSettingsTable =>
       $$NotificationSettingsTableTableTableManager(
-          _db, _db.notificationSettingsTable);
+        _db,
+        _db.notificationSettingsTable,
+      );
   $$NotificationsTableTableTableManager get notificationsTable =>
       $$NotificationsTableTableTableManager(_db, _db.notificationsTable);
 }

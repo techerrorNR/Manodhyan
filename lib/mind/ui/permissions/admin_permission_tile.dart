@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -12,17 +12,17 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/config/hero_tags.dart';
-import 'package:mindful/core/database/adapters/time_of_day_adapter.dart';
-import 'package:mindful/core/enums/item_position.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/providers/system/parental_controls_provider.dart';
-import 'package:mindful/providers/system/permissions_provider.dart';
-import 'package:mindful/ui/common/default_list_tile.dart';
-import 'package:mindful/ui/dialogs/confirmation_dialog.dart';
-import 'package:mindful/ui/permissions/accessibility_permission_card.dart';
-import 'package:mindful/ui/permissions/permission_sheet.dart';
-import 'package:mindful/ui/transitions/default_hero.dart';
+import 'package:manodhyan/mind/config/hero_tags.dart';
+import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:manodhyan/mind/core/enums/item_position.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/providers/system/parental_controls_provider.dart';
+import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
+import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
+import 'package:manodhyan/mind/ui/dialogs/confirmation_dialog.dart';
+import 'package:manodhyan/mind/ui/permissions/accessibility_permission_card.dart';
+import 'package:manodhyan/mind/ui/permissions/permission_sheet.dart';
+import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
 
 class AdminPermissionTile extends ConsumerWidget {
   const AdminPermissionTile({super.key});

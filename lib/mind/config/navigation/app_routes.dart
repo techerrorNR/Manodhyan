@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -9,21 +9,22 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:mindful/core/enums/usage_type.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/ui/onboarding/onboarding_screen.dart';
-import 'package:mindful/ui/screens/active_session/active_session_screen.dart';
-import 'package:mindful/ui/screens/app_dashboard/app_dashboard_screen.dart';
-import 'package:mindful/ui/screens/change_logs/change_logs_screen.dart';
-import 'package:mindful/ui/screens/focus/focus_screen.dart';
-import 'package:mindful/ui/screens/home/home_screen.dart';
-import 'package:mindful/ui/screens/parental_controls/parental_controls_screen.dart';
-import 'package:mindful/ui/screens/restriction_groups/restriction_groups_screen.dart';
-import 'package:mindful/ui/screens/settings/settings_screen.dart';
-import 'package:mindful/ui/screens/shorts_blocking/shorts_blocking_screen.dart';
-import 'package:mindful/ui/screens/notifications/notifications_screen.dart';
-import 'package:mindful/ui/screens/websites_blocking/websites_blocking_screen.dart';
-import 'package:mindful/ui/splash_screen.dart';
+import 'package:manodhyan/mind/core/enums/usage_type.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/ui/onboarding/onboarding_screen.dart';
+import 'package:manodhyan/mind/ui/screens/active_session/active_session_screen.dart';
+import 'package:manodhyan/mind/ui/screens/app_dashboard/app_dashboard_screen.dart';
+import 'package:manodhyan/mind/ui/screens/change_logs/change_logs_screen.dart';
+import 'package:manodhyan/mind/ui/screens/focus/focus_screen.dart';
+import 'package:manodhyan/mind/ui/screens/home/home_screen.dart';
+import 'package:manodhyan/mind/ui/screens/parental_controls/parental_controls_screen.dart';
+import 'package:manodhyan/mind/ui/screens/restriction_groups/restriction_groups_screen.dart';
+import 'package:manodhyan/mind/ui/screens/settings/settings_screen.dart';
+import 'package:manodhyan/mind/ui/screens/shorts_blocking/shorts_blocking_screen.dart';
+import 'package:manodhyan/mind/ui/screens/notifications/notifications_screen.dart';
+import 'package:manodhyan/mind/ui/screens/websites_blocking/websites_blocking_screen.dart';
+import 'package:manodhyan/mind/ui/splash_screen.dart';
+import 'package:manodhyan/mind/ui/screens/universal_home.dart';
 
 class AppRoutes {
   static const String rootSplashPath = '/';
@@ -62,9 +63,7 @@ class AppRoutes {
         ),
 
     /// Home screen
-    homePath: (context) => HomeScreen(
-          initialTabIndex: context.resolveParam<int>("tab"),
-        ),
+    homePath: (context) => const UniversalHomeScreen(),
 
     /// Parental controls screen
     parentalControlsPath: (context) => const ParentalControlsScreen(),

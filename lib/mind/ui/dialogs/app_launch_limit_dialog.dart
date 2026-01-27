@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -13,11 +13,11 @@ import 'dart:math';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/ui/transitions/default_hero.dart';
-import 'package:mindful/ui/transitions/hero_page_route.dart';
-import 'package:mindful/ui/common/styled_text.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:manodhyan/mind/ui/transitions/hero_page_route.dart';
+import 'package:manodhyan/mind/ui/common/styled_text.dart';
 
 /// Animates the hero widget to a alert dialog to set app launch limit count
 ///

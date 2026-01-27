@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -12,18 +12,18 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/core/extensions/ext_widget.dart';
-import 'package:mindful/core/utils/widget_utils.dart';
-import 'package:mindful/providers/restrictions/restriction_groups_provider.dart';
-import 'package:mindful/ui/common/default_fab_button.dart';
-import 'package:mindful/ui/common/scaffold_shell.dart';
-import 'package:mindful/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:mindful/ui/common/styled_text.dart';
-import 'package:mindful/ui/screens/restriction_groups/create_update_group_screen.dart';
-import 'package:mindful/ui/screens/restriction_groups/restriction_group_card.dart';
-import 'package:mindful/ui/screens/restriction_groups/sample_restriction_group.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
+import 'package:manodhyan/mind/core/utils/widget_utils.dart';
+import 'package:manodhyan/mind/providers/restrictions/restriction_groups_provider.dart';
+import 'package:manodhyan/mind/ui/common/default_fab_button.dart';
+import 'package:manodhyan/mind/ui/common/scaffold_shell.dart';
+import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:manodhyan/mind/ui/screens/restriction_groups/create_update_group_screen.dart';
+import 'package:manodhyan/mind/ui/screens/restriction_groups/restriction_group_card.dart';
+import 'package:manodhyan/mind/ui/screens/restriction_groups/sample_restriction_group.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class RestrictionGroupsScreen extends ConsumerWidget {

@@ -4,8 +4,8 @@ part of 'unique_records_dao.dart';
 
 // ignore_for_file: type=lint
 mixin _$UniqueRecordsDaoMixin on DatabaseAccessor<AppDatabase> {
-  $MindfulSettingsTableTable get mindfulSettingsTable =>
-      attachedDatabase.mindfulSettingsTable;
+  $ManoDhyanSettingsTableTable get manoDhyanSettingsTable =>
+      attachedDatabase.manoDhyanSettingsTable;
   $ParentalControlsTableTable get parentalControlsTable =>
       attachedDatabase.parentalControlsTable;
   $BedtimeScheduleTableTable get bedtimeScheduleTable =>
@@ -16,4 +16,45 @@ mixin _$UniqueRecordsDaoMixin on DatabaseAccessor<AppDatabase> {
       attachedDatabase.sharedUniqueDataTable;
   $NotificationSettingsTableTable get notificationSettingsTable =>
       attachedDatabase.notificationSettingsTable;
+  UniqueRecordsDaoManager get managers => UniqueRecordsDaoManager(this);
+}
+
+class UniqueRecordsDaoManager {
+  final _$UniqueRecordsDaoMixin _db;
+  UniqueRecordsDaoManager(this._db);
+  $$ManoDhyanSettingsTableTableTableManager get manoDhyanSettingsTable =>
+      $$ManoDhyanSettingsTableTableTableManager(
+        _db.attachedDatabase,
+        _db.manoDhyanSettingsTable,
+      );
+  $$ParentalControlsTableTableTableManager get parentalControlsTable =>
+      $$ParentalControlsTableTableTableManager(
+        _db.attachedDatabase,
+        _db.parentalControlsTable,
+      );
+  $$BedtimeScheduleTableTableTableManager get bedtimeScheduleTable =>
+      $$BedtimeScheduleTableTableTableManager(
+        _db.attachedDatabase,
+        _db.bedtimeScheduleTable,
+      );
+  $$FocusModeTableTableTableManager get focusModeTable =>
+      $$FocusModeTableTableTableManager(
+        _db.attachedDatabase,
+        _db.focusModeTable,
+      );
+  $$WellbeingTableTableTableManager get wellbeingTable =>
+      $$WellbeingTableTableTableManager(
+        _db.attachedDatabase,
+        _db.wellbeingTable,
+      );
+  $$SharedUniqueDataTableTableTableManager get sharedUniqueDataTable =>
+      $$SharedUniqueDataTableTableTableManager(
+        _db.attachedDatabase,
+        _db.sharedUniqueDataTable,
+      );
+  $$NotificationSettingsTableTableTableManager get notificationSettingsTable =>
+      $$NotificationSettingsTableTableTableManager(
+        _db.attachedDatabase,
+        _db.notificationSettingsTable,
+      );
 }

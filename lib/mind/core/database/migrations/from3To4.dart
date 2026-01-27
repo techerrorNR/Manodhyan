@@ -1,11 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:drift/drift.dart';
-import 'package:mindful/core/database/adapters/time_of_day_adapter.dart';
-import 'package:mindful/core/database/app_database.dart';
-import 'package:mindful/core/database/schemas/schema_versions.dart';
-import 'package:mindful/core/database/tables/parental_controls_table.dart';
-import 'package:mindful/core/utils/db_utils.dart';
+import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:manodhyan/mind/core/database/schemas/schema_versions.dart';
+import 'package:manodhyan/mind/core/database/tables/parental_controls_table.dart';
+import 'package:manodhyan/mind/core/utils/db_utils.dart';
 
 Future<void> from3To4(Migrator m, Schema4 schema) async => await runSafe(
       "Migration(3 to 4)",
@@ -22,22 +22,22 @@ Future<void> from3To4(Migrator m, Schema4 schema) async => await runSafe(
           schema.wellbeingTable.nsfwWebsites,
         );
 
-        /// Add usage history weeks column to [MindfulSettingsTable]
+        /// Add usage history weeks column to [ManoDhyanSettingsTable]
         await m.addColumn(
-          schema.mindfulSettingsTable,
-          schema.mindfulSettingsTable.usageHistoryWeeks,
+          schema.ManoDhyanSettingsTable,
+          schema.ManoDhyanSettingsTable.usageHistoryWeeks,
         );
 
-        /// Add app version column to [MindfulSettingsTable]
+        /// Add app version column to [ManoDhyanSettingsTable]
         await m.addColumn(
-          schema.mindfulSettingsTable,
-          schema.mindfulSettingsTable.appVersion,
+          schema.ManoDhyanSettingsTable,
+          schema.ManoDhyanSettingsTable.appVersion,
         );
 
-        /// Move values from [MindfulSettingsTable] and [InvincibleModeTable]  to [ParentalControlsTable]
+        /// Move values from [ManoDhyanSettingsTable] and [InvincibleModeTable]  to [ParentalControlsTable]
         /// Get first record
         final settingsRecord = await m.database
-            .customSelect('SELECT * FROM mindful_settings_table')
+            .customSelect('SELECT * FROM manodhyan_settings_table')
             .getSingleOrNull();
 
         /// Get first record
@@ -99,8 +99,8 @@ Future<void> from3To4(Migrator m, Schema4 schema) async => await runSafe(
               );
         }
 
-        /// Drop columns from [MindfulSettingsTable]
-        await m.alterTable(TableMigration(schema.mindfulSettingsTable));
+        /// Drop columns from [ManoDhyanSettingsTable]
+        await m.alterTable(TableMigration(schema.ManoDhyanSettingsTable));
 
         /// Drop [InvincibleModeTable]
         await m.deleteTable('invincible_mode_table');

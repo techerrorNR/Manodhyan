@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:mindful/core/database/app_database.dart';
-import 'package:mindful/core/database/schemas/schema_versions.dart';
-import 'package:mindful/core/database/tables/shared_unique_data_table.dart';
-import 'package:mindful/core/utils/db_utils.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:manodhyan/mind/core/database/schemas/schema_versions.dart';
+import 'package:manodhyan/mind/core/database/tables/shared_unique_data_table.dart';
+import 'package:manodhyan/mind/core/utils/db_utils.dart';
 
 Future<void> from2To3(Migrator m, Schema3 schema) async => await runSafe(
       "Migration(2 to 3)",
@@ -26,7 +26,7 @@ Future<void> from2To3(Migrator m, Schema3 schema) async => await runSafe(
           /// Get record
           final record = await m.database
               .customSelect(
-                'SELECT excluded_apps FROM mindful_settings_table',
+                'SELECT excluded_apps FROM manodhyan_settings_table',
               )
               .getSingleOrNull();
 
@@ -44,7 +44,7 @@ Future<void> from2To3(Migrator m, Schema3 schema) async => await runSafe(
               );
         }
 
-        /// Drop excluded apps column from [MindfulSettingsTable]
-        await m.alterTable(TableMigration(schema.mindfulSettingsTable));
+        /// Drop excluded apps column from [ManoDhyanSettingsTable]
+        await m.alterTable(TableMigration(schema.ManoDhyanSettingsTable));
       },
     );

@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -11,18 +11,18 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/core/enums/item_position.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/core/extensions/ext_widget.dart';
-import 'package:mindful/providers/restrictions/bedtime_provider.dart';
-import 'package:mindful/providers/system/parental_controls_provider.dart';
-import 'package:mindful/ui/common/default_list_tile.dart';
-import 'package:mindful/ui/common/content_section_header.dart';
-import 'package:mindful/ui/common/styled_text.dart';
-import 'package:mindful/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:mindful/ui/screens/home/bedtime/bedtime_schedule_card.dart';
-import 'package:mindful/ui/screens/home/bedtime/bedtime_quick_actions.dart';
+import 'package:manodhyan/mind/core/enums/item_position.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
+import 'package:manodhyan/mind/providers/restrictions/bedtime_provider.dart';
+import 'package:manodhyan/mind/providers/system/parental_controls_provider.dart';
+import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
+import 'package:manodhyan/mind/ui/common/content_section_header.dart';
+import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:manodhyan/mind/ui/screens/home/bedtime/bedtime_schedule_card.dart';
+import 'package:manodhyan/mind/ui/screens/home/bedtime/bedtime_quick_actions.dart';
 
 class TabBedtime extends ConsumerWidget {
   const TabBedtime({super.key});

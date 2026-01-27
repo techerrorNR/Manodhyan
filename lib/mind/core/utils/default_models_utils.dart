@@ -1,13 +1,13 @@
-import 'package:mindful/core/database/adapters/time_of_day_adapter.dart';
-import 'package:mindful/core/database/app_database.dart';
-import 'package:mindful/core/enums/default_home_tab.dart';
-import 'package:mindful/core/enums/recap_type.dart';
-import 'package:mindful/core/enums/reminder_type.dart';
-import 'package:mindful/core/enums/session_type.dart';
-import 'package:mindful/config/app_constants.dart';
-import 'package:mindful/models/notification_schedule.dart';
+import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:manodhyan/mind/core/enums/default_home_tab.dart';
+import 'package:manodhyan/mind/core/enums/recap_type.dart';
+import 'package:manodhyan/mind/core/enums/reminder_type.dart';
+import 'package:manodhyan/mind/core/enums/session_type.dart';
+import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:manodhyan/mind/models/notification_schedule.dart';
 
-final defaultMindfulSettingsModel = MindfulSettings(
+final defaultManoDhyanSettingsModel = ManoDhyanSettings(
   id: 0,
   defaultHomeTab: DefaultHomeTab.dashboard,
   themeMode: AppConstants.defaultThemeMode,

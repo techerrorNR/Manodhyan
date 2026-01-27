@@ -18,18 +18,35 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+
+
 subprojects {
     plugins.withId("com.android.library") {
-        if (name == "device_installed_apps") {
-            extensions.findByType(LibraryExtension::class.java)?.let { androidExt ->
+        val subProject = project
+        
+        if (subProject.name == "device_installed_apps") {
+            subProject.extensions.findByType(LibraryExtension::class.java)?.let { androidExt ->
                 if (androidExt.namespace.isNullOrBlank()) {
                     androidExt.namespace = "com.hofinity.device_installed_apps"
                 }
             }
         }
+        
+        if (subProject.name == "usage_stats") {
+  subProject.extensions.findByType(LibraryExtension::class.java)?.apply {
+    println("Forcing compileSdk 35 for usage_stats")
+    compileSdk = 35
+    compileOptions {
+      sourceCompatibility = JavaVersion.VERSION_17
+      targetCompatibility = JavaVersion.VERSION_17
+    }
+  }
+}
+
     }
 }
 
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
+

@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -14,16 +14,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/core/database/app_database.dart';
-import 'package:mindful/core/database/daos/dynamic_records_dao.dart';
-import 'package:mindful/core/database/daos/unique_records_dao.dart';
-import 'package:mindful/core/enums/session_state.dart';
-import 'package:mindful/core/enums/session_type.dart';
-import 'package:mindful/core/extensions/ext_date_time.dart';
-import 'package:mindful/core/services/drift_db_service.dart';
-import 'package:mindful/core/services/method_channel_service.dart';
-import 'package:mindful/core/utils/default_models_utils.dart';
-import 'package:mindful/models/focus_mode_model.dart';
+import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:manodhyan/mind/core/database/daos/dynamic_records_dao.dart';
+import 'package:manodhyan/mind/core/database/daos/unique_records_dao.dart';
+import 'package:manodhyan/mind/core/enums/session_state.dart';
+import 'package:manodhyan/mind/core/enums/session_type.dart';
+import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
+import 'package:manodhyan/mind/core/services/drift_db_service.dart';
+import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
+import 'package:manodhyan/mind/models/focus_mode_model.dart';
 
 /// A Riverpod state notifier provider that manages [FocusModeModel].
 final focusModeProvider =

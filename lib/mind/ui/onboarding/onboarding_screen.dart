@@ -1,7 +1,7 @@
 /*
  *
- *  * Copyright (c) 2024 Mindful (https://github.com/akaMrNagar/Mindful)
- *  * Author : Pawan Nagar (https://github.com/akaMrNagar)
+ *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
+ *  * Author : Rakesh Yadav (https://github.com/techerrorNR/Manodhyan)
  *  *
  *  * This source code is licensed under the GPL-2.0 license license found in the
  *  * LICENSE file in the root directory of this source tree.
@@ -13,15 +13,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mindful/config/navigation/navigation_service.dart';
-import 'package:mindful/core/extensions/ext_build_context.dart';
-import 'package:mindful/core/extensions/ext_num.dart';
-import 'package:mindful/config/app_constants.dart';
-import 'package:mindful/models/permissions_model.dart';
-import 'package:mindful/providers/system/mindful_settings_provider.dart';
-import 'package:mindful/providers/system/permissions_provider.dart';
-import 'package:mindful/ui/onboarding/onboarding_page.dart';
-import 'package:mindful/ui/onboarding/permission_page.dart';
+import 'package:manodhyan/mind/config/navigation/navigation_service.dart';
+import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:manodhyan/mind/core/extensions/ext_num.dart';
+import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:manodhyan/mind/models/permissions_model.dart';
+import 'package:manodhyan/mind/providers/system/manodhyan_settings_provider.dart';
+import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
+import 'package:manodhyan/mind/ui/onboarding/onboarding_page.dart';
+import 'package:manodhyan/mind/ui/onboarding/permission_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -98,7 +98,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
 
   void _finishOnboarding() async {
     if (mounted) {
-      ref.read(mindfulSettingsProvider.notifier).markOnboardingDone();
+      ref.read(ManoDhyanSettingsProvider.notifier).markOnboardingDone();
 
       Future.delayed(
         200.ms,

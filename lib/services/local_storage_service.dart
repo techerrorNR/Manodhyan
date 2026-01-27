@@ -44,6 +44,20 @@ class LocalStorageService {
     return prefs.getInt(_keyStreakCount) ?? 0;
   }
 
+  static const String _keyCrystalCount = 'crystal_count';
+
+  /// Save crystal count
+  static Future<void> saveCrystals(int count) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_keyCrystalCount, count);
+  }
+
+  /// Get saved crystal count
+  static Future<int> getCrystals() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_keyCrystalCount) ?? 0;
+  }
+
   /// Clear all saved session data
   static Future<void> clearAll() async {
     final prefs = await SharedPreferences.getInstance();
