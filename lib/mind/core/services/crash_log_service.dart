@@ -12,10 +12,10 @@
 
 import 'package:drift/drift.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
 
 /// A service class responsible for logging Crashes in the Isar database.
 class CrashLogService {

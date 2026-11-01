@@ -11,9 +11,10 @@
 import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes_observer.dart';
-import 'package:manodhyan/mind/initializer.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes_observer.dart';
+import 'package:focusjoy/mind/initializer.dart';
+import 'package:focusjoy/services/alarm_service.dart';
 
 /// A service class responsible for handling deep link and navigation to different routes externally without widget ui.
 class NavigationService {
@@ -24,8 +25,8 @@ class NavigationService {
   static final NavigationService instance = NavigationService._();
 
   /// Global key used for navigation
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> get navigatorKey =>
+      AlarmService.instance.navigatorKey;
 
   // NOTE: To test  => adb shell am start -W -a android.intent.action.VIEW -d "com.manodhyan.android://open/settings?tab=1" com.manodhyan.android.debug
   /// App links package instance
@@ -43,16 +44,11 @@ class NavigationService {
 
     /// Listen to changes and handle deep links when their is a valid link either on app startup
     /// or even when app is active.
-    _appLinks.uriLinkStream.listen(
-      (uri) {
-        if (AppRoutes.routes.keys.contains(uri.path)) {
-          _goToRoute(
-            uri.path,
-            parameters: uri.queryParameters,
-          );
-        }
-      },
-    );
+    _appLinks.uriLinkStream.listen((uri) {
+      if (AppRoutes.routes.keys.contains(uri.path)) {
+        _goToRoute(uri.path, parameters: uri.queryParameters);
+      }
+    });
 
     /// Fetch initial deep link
     final initialUri = await _appLinks.getInitialLink();
@@ -88,10 +84,7 @@ class NavigationService {
           currentRoute != routePath &&
           currentRoute != AppRoutes.rootSplashPath) {
         /// Push on top
-        navigatorKey.currentState?.pushNamed(
-          routePath,
-          arguments: parameters,
-        );
+        navigatorKey.currentState?.pushNamed(routePath, arguments: parameters);
       } else {
         /// Replace top
         navigatorKey.currentState?.pushReplacementNamed(

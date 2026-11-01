@@ -9,10 +9,10 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/ui/common/content_section_header.dart';
+import 'package:focusjoy/mind/ui/common/sliver_tabs_bottom_padding.dart';
 
 /// Opens modal bottom sheet with the passed sliver body
 ///

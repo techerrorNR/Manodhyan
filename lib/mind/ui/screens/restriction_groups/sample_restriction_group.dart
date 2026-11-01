@@ -10,10 +10,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/ui/screens/restriction_groups/restriction_group_card.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/ui/screens/restriction_groups/restriction_group_card.dart';
 
 final _socials = <String>[
   "com.whatsapp",

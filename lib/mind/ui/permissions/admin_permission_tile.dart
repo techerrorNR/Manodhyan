@@ -12,17 +12,17 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/providers/system/parental_controls_provider.dart';
-import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/dialogs/confirmation_dialog.dart';
-import 'package:manodhyan/mind/ui/permissions/accessibility_permission_card.dart';
-import 'package:manodhyan/mind/ui/permissions/permission_sheet.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/providers/system/parental_controls_provider.dart';
+import 'package:focusjoy/mind/providers/system/permissions_provider.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/dialogs/confirmation_dialog.dart';
+import 'package:focusjoy/mind/ui/permissions/accessibility_permission_card.dart';
+import 'package:focusjoy/mind/ui/permissions/permission_sheet.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
 
 class AdminPermissionTile extends ConsumerWidget {
   const AdminPermissionTile({super.key});

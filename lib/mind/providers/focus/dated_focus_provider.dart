@@ -10,14 +10,14 @@
 
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/daos/dynamic_records_dao.dart';
-import 'package:manodhyan/mind/core/enums/session_state.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/models/dated_focus_model.dart';
-import 'package:manodhyan/mind/providers/focus/focus_mode_provider.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/daos/dynamic_records_dao.dart';
+import 'package:focusjoy/mind/core/enums/session_state.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/models/dated_focus_model.dart';
+import 'package:focusjoy/mind/providers/focus/focus_mode_provider.dart';
 
 /// A Riverpod state notifier provider that manages [DatedFocusModel].
 final datedFocusProvider =

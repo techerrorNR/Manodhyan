@@ -9,28 +9,33 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/ui/onboarding/onboarding_screen.dart';
-import 'package:manodhyan/mind/ui/screens/active_session/active_session_screen.dart';
-import 'package:manodhyan/mind/ui/screens/app_dashboard/app_dashboard_screen.dart';
-import 'package:manodhyan/mind/ui/screens/change_logs/change_logs_screen.dart';
-import 'package:manodhyan/mind/ui/screens/focus/focus_screen.dart';
-import 'package:manodhyan/mind/ui/screens/home/home_screen.dart';
-import 'package:manodhyan/mind/ui/screens/parental_controls/parental_controls_screen.dart';
-import 'package:manodhyan/mind/ui/screens/restriction_groups/restriction_groups_screen.dart';
-import 'package:manodhyan/mind/ui/screens/settings/settings_screen.dart';
-import 'package:manodhyan/mind/ui/screens/shorts_blocking/shorts_blocking_screen.dart';
-import 'package:manodhyan/mind/ui/screens/notifications/notifications_screen.dart';
-import 'package:manodhyan/mind/ui/screens/websites_blocking/websites_blocking_screen.dart';
-import 'package:manodhyan/mind/ui/splash_screen.dart';
-import 'package:manodhyan/mind/ui/screens/universal_home.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/ui/onboarding/onboarding_screen.dart';
+import 'package:focusjoy/mind/ui/screens/active_session/active_session_screen.dart';
+import 'package:focusjoy/mind/ui/screens/app_dashboard/app_dashboard_screen.dart';
+import 'package:focusjoy/mind/ui/screens/change_logs/change_logs_screen.dart';
+import 'package:focusjoy/mind/ui/screens/focus/focus_screen.dart';
+import 'package:focusjoy/mind/ui/common/scaffold_shell.dart';
+import 'package:focusjoy/mind/ui/screens/home/bedtime/tab_bedtime.dart';
+import 'package:focusjoy/mind/ui/screens/home/notifications/tab_notifications.dart';
+import 'package:focusjoy/mind/ui/screens/home/notifications/new_notification_schedule_fab.dart';
+import 'package:focusjoy/mind/ui/screens/parental_controls/parental_controls_screen.dart';
+import 'package:focusjoy/mind/ui/screens/restriction_groups/restriction_groups_screen.dart';
+import 'package:focusjoy/mind/ui/screens/settings/settings_screen.dart';
+import 'package:focusjoy/mind/ui/screens/shorts_blocking/shorts_blocking_screen.dart';
+import 'package:focusjoy/mind/ui/screens/notifications/notifications_screen.dart';
+import 'package:focusjoy/mind/ui/screens/websites_blocking/websites_blocking_screen.dart';
+import 'package:focusjoy/mind/ui/splash_screen.dart';
+import 'package:focusjoy/mind/ui/screens/universal_home.dart';
+import 'package:focusjoy/screens/mental_math_screen.dart';
 
 class AppRoutes {
   static const String rootSplashPath = '/';
   static const String onboardingPath = '/onboarding';
   static const String changeLogsPath = '/changeLogs';
   static const String settingsPath = '/settings';
+  static const String mentalMathsPath = '/mental-maths';
 
   static const String homePath = '/home';
   static const String activeSessionPath = '/activeSession';
@@ -43,13 +48,18 @@ class AppRoutes {
 
   static const String appDashboardPath = '/appDashboard';
   static const String notificationsPath = '/notifications';
+  static const String notificationControlsPath = '/notificationControls';
+  static const String bedtimePath = '/bedtime';
 
   static final Map<String, Widget Function(BuildContext)> routes = {
+    mentalMathsPath: (context) => const MentalMathScreen(),
+
     /// Root
     rootSplashPath: (context) => const SplashScreen(),
 
     /// Onboarding screen
-    onboardingPath: (context) => OnboardingScreen(
+    onboardingPath:
+        (context) => OnboardingScreen(
           isOnboardingDone:
               context.resolveParam<bool>("isOnboardingDone") ?? false,
         ),
@@ -58,12 +68,37 @@ class AppRoutes {
     changeLogsPath: (context) => const ChangeLogsScreen(),
 
     /// Settings screen
-    settingsPath: (context) => SettingsScreen(
-          initialTabIndex: context.resolveParam<int>("tab"),
-        ),
+    settingsPath:
+        (context) =>
+            SettingsScreen(initialTabIndex: context.resolveParam<int>("tab")),
 
     /// Home screen
     homePath: (context) => const UniversalHomeScreen(),
+
+    bedtimePath:
+        (context) => const ScaffoldShell(
+          items: [
+            NavbarItem(
+              titleText: 'Bedtime routine',
+              icon: Icons.bedtime_outlined,
+              filledIcon: Icons.bedtime,
+              sliverBody: TabBedtime(),
+            ),
+          ],
+        ),
+
+    notificationControlsPath:
+        (context) => const ScaffoldShell(
+          items: [
+            NavbarItem(
+              titleText: 'Notification controls',
+              icon: Icons.notifications_outlined,
+              filledIcon: Icons.notifications,
+              sliverBody: TabNotifications(),
+              fab: NewNotificationScheduleFab(),
+            ),
+          ],
+        ),
 
     /// Parental controls screen
     parentalControlsPath: (context) => const ParentalControlsScreen(),
@@ -78,23 +113,26 @@ class AppRoutes {
     websitesBlockingPath: (context) => const WebsitesBlockingScreen(),
 
     /// Notifications list screen
-    notificationsPath: (context) => NotificationsScreen(
+    notificationsPath:
+        (context) => NotificationsScreen(
           initialTabIndex: context.resolveParam<int>("tab"),
         ),
 
     /// Focus mode screen
-    focusModePath: (context) => FocusScreen(
-          initialTabIndex: context.resolveParam<int>("tab"),
-        ),
+    focusModePath:
+        (context) =>
+            FocusScreen(initialTabIndex: context.resolveParam<int>("tab")),
 
     /// Active focus session screen
     activeSessionPath: (context) => const ActiveSessionScreen(),
 
     /// App dashboard screen
-    appDashboardPath: (context) => AppDashboardScreen(
+    appDashboardPath:
+        (context) => AppDashboardScreen(
           packageName: context.resolveParam<String>("package") ?? "",
           initialUsageType:
-              UsageType.values[(context.resolveParam<int>("usageType") ?? 0) % 2],
+              UsageType.values[(context.resolveParam<int>("usageType") ?? 0) %
+                  2],
           selectedDay: context.resolveParam<DateTime>("day"),
         ),
   };

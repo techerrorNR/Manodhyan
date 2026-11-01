@@ -8,148 +8,239 @@
  *
  */
 
-import 'dart:math';
-
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/core/utils/widget_utils.dart';
-import 'package:manodhyan/mind/ui/common/breathing_widget.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/sliver_primary_action_container.dart';
-import 'package:manodhyan/mind/ui/common/sliver_app_version_info.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:focusjoy/mind/config/app_palette.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
 
-class TabAbout extends ConsumerWidget {
+/// Company and product information, without contribution or external-action buttons.
+class TabAbout extends StatelessWidget {
   const TabAbout({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+    final version = MethodChannelService.instance.deviceInfo.ManoDhyanVersion;
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        const SliverAppVersionInfo(),
-
-        /// Breathing logo
-        BreathingWidget(
-          dimension: min(360, MediaQuery.of(context).size.width * 0.7),
-          child: RoundedContainer(
-            circularRadius: 120,
-            color: Theme.of(context).colorScheme.secondaryContainer,
-            padding: const EdgeInsets.all(8),
-            child: const Icon(FluentIcons.target_arrow_20_regular, size: 64),
-          ),
-        ).sliver,
-
-        /// Title
-        const StyledText(
-          "ManoDhyan",
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        ).centered.sliver,
-
-        /// Tag line about focus
-        StyledText(
-          context.locale.manodhyan_tagline,
-          fontSize: 16,
-          isSubtitle: true,
-        ).centered.sliver,
-
-        24.vSliverBox,
-
-        /// Donation box
-        SliverPrimaryActionContainer(
-          isVisible: true,
-          radius: getBorderRadiusFromPosition(ItemPosition.top),
-          icon: FluentIcons.handshake_20_regular,
-          title: context.locale.donation_card_title,
-          information: context.locale.donation_card_info,
-          positiveBtn: FilledButton.icon(
-            icon: const Icon(FluentIcons.heart_20_filled),
-            label: Text(context.locale.donation_card_button_donate),
-            onPressed: () => MethodChannelService.instance
-                .launchUrl(AppConstants.githubFeedbackSectionUrl),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(4, 20, 4, 120),
+          sliver: SliverList.list(
+            children: [
+              Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(26),
+                  child: Image.asset(
+                    'assets/logo/focusjoy-app-icon.png',
+                    width: 104,
+                    height: 104,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'FocusJoy',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -0.7,
+                ),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Focus with purpose.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white70, fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Version $version',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.white54, fontSize: 12),
+              ),
+              const SizedBox(height: 28),
+              const _AboutCard(
+                icon: Icons.center_focus_strong_rounded,
+                title: 'About the app',
+                child: Text(
+                  'FocusJoy brings focus sessions, gem rewards, app restrictions, tasks, alarms, and notes together to help you build a more intentional day.',
+                  style: TextStyle(color: Colors.white70, height: 1.6),
+                ),
+              ),
+              const SizedBox(height: 14),
+              const _AboutCard(
+                icon: Icons.business_outlined,
+                title: 'Continued development',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Shree Ji Technovation',
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.w700,
+                        color: AppPalette.primaryLight,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'A Mumbai-based technology company building websites, mobile applications, dashboards, SaaS platforms, business automation systems, and custom software for businesses across India.',
+                      style: TextStyle(color: Colors.white70, height: 1.6),
+                    ),
+                    SizedBox(height: 12),
+                    Text(
+                      'Shree Ji Technovation is building on the existing foundation with new features, interface improvements, and future enhancements for this edition of FocusJoy.',
+                      style: TextStyle(color: Colors.white70, height: 1.6),
+                    ),
+                    SizedBox(height: 20),
+                    _CompanyDetail(
+                      label: 'Owner ? Shree Ji Technovation',
+                      value: 'Rakesh Yadav',
+                    ),
+                    SizedBox(height: 14),
+                    _CompanyDetail(
+                      label: 'GitHub ? @techerrorNR',
+                      value: 'https://github.com/techerrorNR',
+                    ),
+                    SizedBox(height: 14),
+                    _CompanyDetail(label: 'Location', value: 'Mumbai, India'),
+                    SizedBox(height: 14),
+                    _CompanyDetail(
+                      label: 'Website',
+                      value: 'https://sjtechnovation.in/',
+                    ),
+                    SizedBox(height: 14),
+                    _CompanyDetail(
+                      label: 'Contact',
+                      value: 'contact@sjtechnovation.in',
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 14),
+              const _AboutCard(
+                icon: Icons.favorite_outline_rounded,
+                title: 'With respect & gratitude',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Pawan Nagar',
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.w700,
+                        color: AppPalette.primaryLight,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Creator of Mindful, the open-source project that provides a foundation for this app.',
+                      style: TextStyle(color: Colors.white70, height: 1.6),
+                    ),
+                    SizedBox(height: 12),
+                    Text(
+                      'A heartfelt salute to Pawan Nagar and the Mindful contributors for their dedication and generosity in sharing their work openly. We gratefully acknowledge their contribution and respect the original authorship as we continue building new features.',
+                      style: TextStyle(color: Colors.white70, height: 1.6),
+                    ),
+                    SizedBox(height: 20),
+                    _CompanyDetail(
+                      label: 'Original developer on GitHub',
+                      value: 'https://github.com/akaMrNagar',
+                    ),
+                    SizedBox(height: 14),
+                    _CompanyDetail(
+                      label: 'Original project · Mindful',
+                      value: 'https://github.com/akaMrNagar/Mindful',
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 14),
+              const _AboutCard(
+                icon: Icons.description_outlined,
+                title: 'Open-source acknowledgement',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'FocusJoy includes code from Mindful released under the GNU General Public License v2. Original copyright and license notices continue to apply. Our new features do not replace or remove those notices.',
+                      style: TextStyle(color: Colors.white70, height: 1.6),
+                    ),
+                    SizedBox(height: 14),
+                    _CompanyDetail(
+                      label: 'Upstream license',
+                      value:
+                          'https://github.com/akaMrNagar/Mindful/blob/main/LICENSE',
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-
-        /// Change log
-        DefaultListTile(
-          position: ItemPosition.bottom,
-          leadingIcon: FluentIcons.slide_text_20_regular,
-          titleText: context.locale.changelog_tile_title,
-          subtitleText: context.locale.changelog_tile_subtitle,
-          trailing: const Icon(FluentIcons.chevron_right_20_regular),
-          onPressed: () =>
-              Navigator.of(context).pushNamed(AppRoutes.changeLogsPath),
-        ).sliver,
-
-        /// Contribute
-        ContentSectionHeader(title: context.locale.contribute_heading).sliver,
-
-        /// Source code
-        DefaultListTile(
-          position: ItemPosition.top,
-          leadingIcon: FluentIcons.code_20_regular,
-          titleText: context.locale.github_tile_title,
-          subtitleText: context.locale.github_tile_subtitle,
-          onPressed: () =>
-              MethodChannelService.instance.launchUrl(AppConstants.githubUrl),
-        ).sliver,
-
-        /// Issue
-        DefaultListTile(
-          position: ItemPosition.mid,
-          leadingIcon: FluentIcons.bug_20_regular,
-          titleText: context.locale.report_issue_tile_title,
-          subtitleText: context.locale.redirected_to_github_subtitle,
-          onPressed: () => MethodChannelService.instance
-              .launchUrl(AppConstants.githubIssueDirectUrl),
-        ).sliver,
-
-        /// Idea
-        DefaultListTile(
-          position: ItemPosition.mid,
-          leadingIcon: FluentIcons.lightbulb_filament_20_regular,
-          titleText: context.locale.suggest_idea_tile_title,
-          subtitleText: context.locale.redirected_to_github_subtitle,
-          onPressed: () => MethodChannelService.instance
-              .launchUrl(AppConstants.githubSuggestionDirectUrl),
-        ).sliver,
-
-        /// Email
-        DefaultListTile(
-          position: ItemPosition.bottom,
-          leadingIcon: FluentIcons.mail_20_regular,
-          titleText: context.locale.write_email_tile_title,
-          subtitleText: context.locale.write_email_tile_subtitle,
-          onPressed: () => MethodChannelService.instance
-              .launchUrl(AppConstants.supportEmailUrl),
-        ).sliver,
-
-        /// Privacy policy
-        ContentSectionHeader(title: context.locale.privacy_policy_heading)
-            .sliver,
-        StyledText(context.locale.privacy_policy_info).sliver,
-        12.vSliverBox,
-        FilledButton.tonalIcon(
-          icon: const Icon(FluentIcons.info_20_regular),
-          label: Text(context.locale.more_details_button),
-          onPressed: () => MethodChannelService.instance
-              .launchUrl(AppConstants.privacyPolicyUrl),
-        ).rightCentered.sliver,
-
-        const SliverTabsBottomPadding(),
       ],
     );
   }
+}
+
+class _AboutCard extends StatelessWidget {
+  const _AboutCard({
+    required this.icon,
+    required this.title,
+    required this.child,
+  });
+  final IconData icon;
+  final String title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    padding: const EdgeInsets.all(22),
+    decoration: BoxDecoration(
+      color: AppPalette.card,
+      borderRadius: BorderRadius.circular(24),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Icon(icon, color: AppPalette.secondary, size: 21),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        child,
+      ],
+    ),
+  );
+}
+
+class _CompanyDetail extends StatelessWidget {
+  const _CompanyDetail({required this.label, required this.value});
+  final String label, value;
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(label, style: const TextStyle(color: Colors.white54, fontSize: 11)),
+      const SizedBox(height: 4),
+      SelectableText(
+        value,
+        style: const TextStyle(color: Colors.white, fontSize: 14, height: 1.4),
+      ),
+    ],
+  );
 }

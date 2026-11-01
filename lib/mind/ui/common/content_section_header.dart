@@ -9,7 +9,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 
 class ContentSectionHeader extends StatelessWidget {
   /// Global title text with primary accent mainly used as a header for different sections in a list of widgets

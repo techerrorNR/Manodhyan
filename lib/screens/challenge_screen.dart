@@ -1,16 +1,17 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/providers/usage/weekly_device_usage_provider.dart';
-import 'package:manodhyan/mind/ui/common/meta_combo_chart.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/providers/usage/weekly_device_usage_provider.dart';
+import 'package:focusjoy/mind/ui/common/meta_combo_chart.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
 
-import 'package:manodhyan/mind/providers/usage/daily_apps_usage_provider.dart';
-import 'package:manodhyan/mind/ui/common/application_icon.dart';
-import 'package:manodhyan/services/app_name_resolver.dart';
-import 'package:manodhyan/mind/models/app_info.dart';
+import 'package:focusjoy/mind/providers/usage/daily_apps_usage_provider.dart';
+import 'package:focusjoy/mind/ui/common/application_icon.dart';
+import 'package:focusjoy/services/app_name_resolver.dart';
+import 'package:focusjoy/mind/models/app_info.dart';
 
 class ChallengeScreen extends ConsumerStatefulWidget {
   const ChallengeScreen({super.key});
@@ -109,12 +110,12 @@ class _ChallengeScreenState extends ConsumerState<ChallengeScreen> {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1B192F),
+                  color: AppPalette.card,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
                   children: [
-                    const Icon(Icons.auto_awesome, color: Colors.amber, size: 40),
+                    const Icon(Icons.auto_awesome, color: AppPalette.highlight, size: 40),
                     const SizedBox(height: 16),
                     const Text(
                       "Crystal Challenges",
@@ -217,7 +218,7 @@ class _AppUsageItem extends StatelessWidget {
                            child: Container(
                              height: 6,
                              decoration: BoxDecoration(
-                               color: Colors.deepPurpleAccent,
+                               color: AppPalette.primary,
                                borderRadius: BorderRadius.circular(3),
                              ),
                            ),

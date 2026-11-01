@@ -10,13 +10,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/providers/restrictions/wellbeing_provider.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/default_slide_to_remove.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/providers/restrictions/wellbeing_provider.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/default_slide_to_remove.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
 
 class WebsiteTile extends ConsumerWidget {
   const WebsiteTile({

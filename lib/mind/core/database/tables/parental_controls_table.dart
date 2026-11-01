@@ -9,7 +9,7 @@
  */
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
 
 @DataClassName("ParentalControls")
 class ParentalControlsTable extends Table {

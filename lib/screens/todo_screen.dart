@@ -1,557 +1,798 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart' show WatchContext;
 import '../controllers/task_controller.dart';
+import '../controllers/alarm_controller.dart';
+import '../controllers/notes_controller.dart';
 import '../models/task_model.dart';
+import '../models/alarm_model.dart';
+import '../models/note_model.dart';
+import '../mind/config/app_palette.dart';
+import '../mind/ui/controllers/planner_navigation_provider.dart';
 import 'create_task_modal.dart';
+import 'edit_alarm_modal.dart';
+import 'note_editor.dart';
 
-class TodoScreen extends StatelessWidget {
+/// One planning page inside the main shell; it owns no second bottom bar or FAB.
+class TodoScreen extends ConsumerStatefulWidget {
   const TodoScreen({super.key});
-
   @override
-  Widget build(BuildContext context) {
-    final controller = context.watch<TaskController>();
-    final tasks = controller.todaysTasks;
-    final todayPoints = controller.todaysPoints;
-    final totalPoints = controller.totalPoints;
-    final streak = controller.streak;
-
-    final recentDays = List.generate(7, (index) {
-      final date = DateTime.now().subtract(Duration(days: 6 - index));
-      final dayTasks = controller.tasksForDate(date);
-      final completed = dayTasks.where((task) => task.isCompleted).length;
-      return _DaySummary(
-        date: date,
-        order: index + 1,
-        tasks: dayTasks,
-        completed: completed,
-      );
-    });
-
-    final completedToday = tasks.where((task) => task.isCompleted).length;
-    final failedToday = tasks.length - completedToday;
-
-    return Scaffold(
-      backgroundColor: const Color(0xFF0F0D21),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurpleAccent,
-        onPressed: () => showCreateTaskModal(context),
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
-      body: Container(
-        color: const Color(0xFF0F0D21),
-        child: RefreshIndicator(
-          onRefresh: () async => controller.refresh(),
-          child: ListView(
-            physics: const AlwaysScrollableScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            children: [
-              _HeroCard(
-                onAddTask: () => showCreateTaskModal(context),
-                recentDays: recentDays,
-              ),
-              const SizedBox(height: 20),
-              _StatsRow(
-                todayPoints: todayPoints,
-                totalPoints: totalPoints,
-                streak: streak,
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: _SummaryBox(
-                      label: 'Completed',
-                      value: '$completedToday',
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _SummaryBox(
-                      label: 'Failed',
-                      value: '$failedToday',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              if (tasks.isEmpty)
-                Container(
-                  padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1B192F),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: const Text(
-                    'No tasks for today.\nAdd at least one task to keep your streak alive.',
-                    style: TextStyle(color: Colors.white70),
-                    textAlign: TextAlign.center,
-                  ),
-                )
-              else
-                ...tasks.map(
-                  (task) => _TaskTile(
-                    task: task,
-                    onToggle: (value) => context
-                        .read<TaskController>()
-                        .toggleTask(task.id, value),
-                    onDelete: () =>
-                        context.read<TaskController>().deleteTask(task.id),
-                  ),
-                ),
-              const SizedBox(height: 32),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1B192F),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Crystal Progress',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Complete all tasks to earn task crystals. Meditation crystals still depend on focus session duration.',
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  ConsumerState<TodoScreen> createState() => _TodoScreenState();
 }
 
-class _StatsRow extends StatelessWidget {
-  const _StatsRow({
-    required this.todayPoints,
-    required this.totalPoints,
-    required this.streak,
-  });
-
-  final double todayPoints;
-  final double totalPoints;
-  final int streak;
+class _TodoScreenState extends ConsumerState<TodoScreen> {
+  String _query = '';
+  final _search = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: _StatCard(
-            label: 'Today\'s Points',
-            value: todayPoints.toStringAsFixed(1),
-            icon: Icons.star,
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: _StatCard(
-            label: 'Total Points',
-            value: totalPoints.toStringAsFixed(1),
-            icon: Icons.auto_graph,
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: _StatCard(
-            label: 'Streak',
-            value: '${streak}d',
-            icon: Icons.local_fire_department,
-          ),
-        ),
-      ],
-    );
+  void dispose() {
+    _search.dispose();
+    super.dispose();
   }
-}
 
-class _StatCard extends StatelessWidget {
-  const _StatCard({
-    required this.label,
-    required this.value,
-    required this.icon,
-  });
-
-  final String label;
-  final String value;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFF1B192F),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: Colors.deepPurpleAccent),
-          const SizedBox(height: 12),
-          Text(
-            value,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: const TextStyle(color: Colors.white70),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _TaskTile extends StatelessWidget {
-  const _TaskTile({
-    required this.task,
-    required this.onToggle,
-    required this.onDelete,
-  });
-
-  final TaskModel task;
-  final ValueChanged<bool> onToggle;
-  final Future<void> Function() onDelete;
-
-  Future<void> _confirmDelete(BuildContext context) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Delete task?'),
-        content: Text('Remove "${task.title}" from today?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Delete'),
-          ),
-        ],
-      ),
-    );
-    if (confirmed == true) {
-      await onDelete();
-      if (context.mounted) {
+  Future<void> _run(Future<void> Function() action) async {
+    try {
+      await action();
+    } catch (_) {
+      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Task "${task.title}" deleted'),
-            duration: const Duration(seconds: 2),
+          const SnackBar(
+            content: Text('Unable to save this change. Please try again.'),
           ),
         );
       }
     }
   }
 
+  Future<void> _delete(String title, Future<void> Function() action) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder:
+          (ctx) => AlertDialog(
+            title: Text('Delete $title?'),
+            content: const Text('This cannot be undone.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, true),
+                child: const Text(
+                  'Delete',
+                  style: TextStyle(color: AppPalette.error),
+                ),
+              ),
+            ],
+          ),
+    );
+    if (confirmed == true && mounted) await _run(action);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFF1B192F),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    final taskController = context.watch<TaskController>();
+    final alarmController = context.watch<AlarmController>();
+    final noteController = context.watch<NotesController>();
+    final section = ref.watch(plannerSectionProvider);
+    final tasks = taskController.todaysTasks;
+    final completed = tasks.where((task) => task.isCompleted).length;
+    final alarms = [...alarmController.alarms]..sort((a, b) {
+      if (a.isEnabled != b.isEnabled) return a.isEnabled ? -1 : 1;
+      return (a.hour * 60 + a.minute).compareTo(b.hour * 60 + b.minute);
+    });
+    final notes =
+        noteController.notes
+            .where(
+              (note) => '${note.title} ${note.body}'.toLowerCase().contains(
+                _query.toLowerCase(),
+              ),
+            )
+            .toList();
+    final now = DateTime.now();
+    final upcoming =
+        alarms
+            .map((alarm) => alarm.nextTrigger(now))
+            .whereType<DateTime>()
+            .toList()
+          ..sort();
+
+    void add() {
+      switch (section) {
+        case PlannerSection.tasks:
+          showCreateTaskModal(context);
+        case PlannerSection.alarms:
+          showAlarmEditor(context);
+        case PlannerSection.notes:
+          showNoteEditor(context);
+      }
+    }
+
+    return RefreshIndicator(
+      onRefresh: () async {
+        await taskController.refresh();
+        await noteController.reload();
+      },
+      child: ListView(
+        key: PageStorageKey('planner-${section.name}'),
+        physics: const AlwaysScrollableScrollPhysics(),
+        padding: const EdgeInsets.fromLTRB(4, 12, 4, 120),
         children: [
-          Checkbox(
-            value: task.isCompleted,
-            onChanged: (value) =>
-                onToggle(value ?? task.isCompleted),
-            activeColor: Colors.deepPurpleAccent,
-          ),
-          const SizedBox(width: 8),
-          Expanded(
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [AppPalette.primaryContainer, AppPalette.card],
+              ),
+              borderRadius: BorderRadius.circular(28),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  task.title,
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.calendar_month_rounded,
+                      color: AppPalette.secondary,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        MaterialLocalizations.of(context).formatMediumDate(now),
+                        style: const TextStyle(color: AppPalette.primaryLight),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'A little structure. A clearer mind.',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    decoration: task.isCompleted
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none,
+                    fontSize: 27,
+                    height: 1.2,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -0.7,
                   ),
                 ),
-                if (task.description.isNotEmpty) ...[
-                  const SizedBox(height: 4),
+                const SizedBox(height: 12),
+                const Text(
+                  'Your tasks, reminders, and ideas ? together.',
+                  style: TextStyle(color: Colors.white70, height: 1.5),
+                ),
+                const SizedBox(height: 20),
+                Wrap(
+                  spacing: 16,
+                  runSpacing: 12,
+                  children: [
+                    _Summary(
+                      value: '${tasks.length - completed}',
+                      label: 'Tasks left',
+                    ),
+                    _Summary(
+                      value:
+                          '${alarms.where((alarm) => alarm.isEnabled).length}',
+                      label: 'Active alarms',
+                    ),
+                    _Summary(
+                      value:
+                          noteController.isLoading
+                              ? '?'
+                              : noteController.loadError != null
+                              ? '?'
+                              : '${noteController.notes.length}',
+                      label: 'Saved notes',
+                    ),
+                  ],
+                ),
+                if (upcoming.isNotEmpty) ...[
+                  const SizedBox(height: 20),
                   Text(
-                    task.description,
-                    style: TextStyle(
-                      color: Colors.white70,
-                      decoration: task.isCompleted
-                          ? TextDecoration.lineThrough
-                          : TextDecoration.none,
+                    'Next alarm: ${_alarmDate(context, upcoming.first)}',
+                    style: const TextStyle(
+                      color: AppPalette.secondary,
+                      fontSize: 12,
                     ),
                   ),
                 ],
               ],
             ),
           ),
-          IconButton(
-            onPressed: () => _confirmDelete(context),
-            icon: const Icon(Icons.delete_outline, color: Colors.white70),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            child: SegmentedButton<PlannerSection>(
+              showSelectedIcon: false,
+              style: const ButtonStyle(visualDensity: VisualDensity.compact),
+              segments: const [
+                ButtonSegment(
+                  value: PlannerSection.tasks,
+                  icon: Icon(Icons.checklist_rounded, size: 18),
+                  label: Text('Tasks'),
+                ),
+                ButtonSegment(
+                  value: PlannerSection.alarms,
+                  icon: Icon(Icons.alarm_rounded, size: 18),
+                  label: Text('Alarms'),
+                ),
+                ButtonSegment(
+                  value: PlannerSection.notes,
+                  icon: Icon(Icons.edit_note_rounded, size: 18),
+                  label: Text('Notes'),
+                ),
+              ],
+              selected: {section},
+              onSelectionChanged:
+                  (selection) =>
+                      ref.read(plannerSectionProvider.notifier).state =
+                          selection.single,
+            ),
           ),
+          const SizedBox(height: 24),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  switch (section) {
+                    PlannerSection.tasks => 'Today?s tasks',
+                    PlannerSection.alarms => 'Your alarms',
+                    PlannerSection.notes => 'Your notes',
+                  },
+                  style: const TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              FilledButton.icon(
+                onPressed:
+                    section == PlannerSection.notes &&
+                            (noteController.isLoading ||
+                                noteController.loadError != null)
+                        ? null
+                        : add,
+                icon: const Icon(Icons.add_rounded, size: 18),
+                label: Text(switch (section) {
+                  PlannerSection.tasks => 'Task',
+                  PlannerSection.alarms => 'Alarm',
+                  PlannerSection.notes => 'Note',
+                }),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          if (section == PlannerSection.tasks) ...[
+            _Surface(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '$completed of ${tasks.length} completed',
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Text(
+                        '${taskController.streak} day streak',
+                        style: const TextStyle(
+                          color: AppPalette.secondary,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  LinearProgressIndicator(
+                    value: tasks.isEmpty ? 0 : completed / tasks.length,
+                    minHeight: 6,
+                    borderRadius: BorderRadius.circular(8),
+                    backgroundColor: AppPalette.background,
+                    color: AppPalette.primary,
+                  ),
+                  const SizedBox(height: 14),
+                  Wrap(
+                    spacing: 16,
+                    runSpacing: 8,
+                    children: [
+                      Text(
+                        'Today: ${taskController.todaysPoints.toStringAsFixed(1)} task points',
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        'Total: ${taskController.totalPoints.toStringAsFixed(1)}',
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            if (tasks.isEmpty)
+              _Empty(
+                icon: Icons.checklist_rounded,
+                title: 'Make space for what matters',
+                description: 'Add your first task for today.',
+                action: 'Add task',
+                onTap: add,
+              ),
+            for (final task in tasks)
+              _TaskCard(
+                task: task,
+                onToggle:
+                    (value) =>
+                        _run(() => taskController.toggleTask(task.id, value)),
+                onDelete:
+                    () => _delete(
+                      'task',
+                      () => taskController.deleteTask(task.id),
+                    ),
+              ),
+            const SizedBox(height: 12),
+            const Text(
+              'Your last 7 days',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 12),
+            _Surface(
+              child: Row(
+                children: List.generate(7, (index) {
+                  final day = DateTime(
+                    now.year,
+                    now.month,
+                    now.day - (6 - index),
+                  );
+                  final daily = taskController.tasksForDate(day);
+                  final done = daily.where((task) => task.isCompleted).length;
+                  final color =
+                      daily.isEmpty
+                          ? Colors.white24
+                          : done == daily.length
+                          ? AppPalette.primaryLight
+                          : AppPalette.secondary;
+                  return Expanded(
+                    child: Semantics(
+                      label:
+                          '${day.day}/${day.month}: $done of ${daily.length} tasks completed',
+                      child: Column(
+                        children: [
+                          Text(
+                            ['M', 'T', 'W', 'T', 'F', 'S', 'S'][day.weekday -
+                                1],
+                            style: const TextStyle(
+                              color: Colors.white54,
+                              fontSize: 11,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Container(
+                            padding: const EdgeInsets.all(7),
+                            decoration: BoxDecoration(
+                              color:
+                                  index == 6
+                                      ? AppPalette.primary
+                                      : Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Text(
+                              '${day.day}',
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Icon(
+                            daily.isNotEmpty && done == daily.length
+                                ? Icons.check_circle_rounded
+                                : Icons.circle,
+                            color: color,
+                            size: 8,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
+              ),
+            ),
+          ],
+          if (section == PlannerSection.alarms) ...[
+            if (alarms.isEmpty)
+              _Empty(
+                icon: Icons.alarm_add_rounded,
+                title: 'Never miss your next step',
+                description: 'Set a one-time reminder or a daily alarm.',
+                action: 'Set alarm',
+                onTap: add,
+              ),
+            for (final alarm in alarms)
+              _AlarmCard(
+                alarm: alarm,
+                onEdit: () => showAlarmEditor(context, alarm: alarm),
+                onToggle:
+                    (value) => _run(
+                      () => alarmController.toggleAlarm(alarm.id, value),
+                    ),
+                onDelete:
+                    () => _delete(
+                      'alarm',
+                      () => alarmController.deleteAlarm(alarm.id),
+                    ),
+              ),
+          ],
+          if (section == PlannerSection.notes) ...[
+            TextField(
+              controller: _search,
+              decoration: const InputDecoration(
+                hintText: 'Search your notes',
+                prefixIcon: Icon(Icons.search_rounded),
+                filled: true,
+                fillColor: AppPalette.card,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(18)),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+              onChanged: (value) => setState(() => _query = value),
+            ),
+            const SizedBox(height: 16),
+            if (noteController.isLoading)
+              const Padding(
+                padding: EdgeInsets.all(32),
+                child: Center(child: CircularProgressIndicator()),
+              )
+            else if (noteController.loadError != null)
+              _Empty(
+                icon: Icons.error_outline_rounded,
+                title: 'Your notes could not be loaded',
+                description:
+                    'Your saved notes have not been changed. Try loading them again.',
+                action: 'Retry',
+                onTap: noteController.reload,
+              )
+            else if (notes.isEmpty)
+              _Empty(
+                icon: Icons.edit_note_rounded,
+                title:
+                    _query.isEmpty
+                        ? 'An idea worth keeping?'
+                        : 'No matching notes',
+                description:
+                    _query.isEmpty
+                        ? 'Capture thoughts, plans, and reflections here.'
+                        : 'Try another title or word.',
+                action: 'New note',
+                onTap: add,
+              ),
+            for (final note in notes)
+              _NoteCard(
+                note: note,
+                onEdit: () => showNoteEditor(context, note: note),
+                onDelete:
+                    () => _delete(
+                      'note',
+                      () => noteController.deleteNote(note.id),
+                    ),
+              ),
+          ],
         ],
       ),
     );
   }
 }
 
-class _HeroCard extends StatelessWidget {
-  const _HeroCard({
-    required this.onAddTask,
-    required this.recentDays,
-  });
+String _alarmDate(BuildContext context, DateTime date) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final tomorrow = DateTime(now.year, now.month, now.day + 1);
+  final day = DateTime(date.year, date.month, date.day);
+  final label =
+      day == today
+          ? 'Today'
+          : day == tomorrow
+          ? 'Tomorrow'
+          : MaterialLocalizations.of(context).formatShortDate(date);
+  return '$label, ${TimeOfDay.fromDateTime(date).format(context)}';
+}
 
-  final VoidCallback onAddTask;
-  final List<_DaySummary> recentDays;
-
+class _Surface extends StatelessWidget {
+  const _Surface({required this.child});
+  final Widget child;
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFF4227B8), Color(0xFF21123A)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(24),
-        image: const DecorationImage(
-          image: AssetImage('assets/crystals/amber.png'),
-          alignment: Alignment.topRight,
-          opacity: 0.2,
-        ),
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    padding: const EdgeInsets.all(18),
+    decoration: BoxDecoration(
+      color: AppPalette.card,
+      borderRadius: BorderRadius.circular(22),
+    ),
+    child: child,
+  );
+}
+
+class _Summary extends StatelessWidget {
+  const _Summary({required this.value, required this.label});
+  final String value, label;
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        value,
+        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
       ),
-      child: Column(
+      const SizedBox(height: 4),
+      Text(label, style: const TextStyle(color: Colors.white60, fontSize: 11)),
+    ],
+  );
+}
+
+class _TaskCard extends StatelessWidget {
+  const _TaskCard({
+    required this.task,
+    required this.onToggle,
+    required this.onDelete,
+  });
+  final TaskModel task;
+  final ValueChanged<bool> onToggle;
+  final VoidCallback onDelete;
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 10),
+    child: _Surface(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Checkbox(
+            value: task.isCompleted,
+            onChanged: (value) => onToggle(value ?? false),
+          ),
+          const SizedBox(width: 4),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 9),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    task.title,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: task.isCompleted ? Colors.white54 : Colors.white,
+                      decoration:
+                          task.isCompleted ? TextDecoration.lineThrough : null,
+                    ),
+                  ),
+                  if (task.description.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Text(
+                      task.description,
+                      style: const TextStyle(
+                        color: Colors.white60,
+                        height: 1.4,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          IconButton(
+            onPressed: onDelete,
+            tooltip: 'Delete task',
+            icon: const Icon(
+              Icons.delete_outline_rounded,
+              color: Colors.white54,
+              size: 20,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+class _AlarmCard extends StatelessWidget {
+  const _AlarmCard({
+    required this.alarm,
+    required this.onEdit,
+    required this.onToggle,
+    required this.onDelete,
+  });
+  final AlarmModel alarm;
+  final VoidCallback onEdit, onDelete;
+  final ValueChanged<bool> onToggle;
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 12),
+    child: _Surface(
+      child: Column(
+        children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Challenge info',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+              Expanded(
+                child: InkWell(
+                  onTap: onEdit,
+                  borderRadius: BorderRadius.circular(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        alarm.timeOfDay.format(context),
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w700,
+                          color:
+                              alarm.isEnabled ? Colors.white : Colors.white38,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        alarm.label,
+                        style: const TextStyle(color: Colors.white70),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              IconButton(
-                onPressed: onAddTask,
-                icon: const Icon(Icons.add, color: Colors.white),
-              ),
+              Switch(value: alarm.isEnabled, onChanged: onToggle),
             ],
           ),
           const SizedBox(height: 8),
           Row(
-            children: const [
-              _LegendDot(color: Colors.green, label: 'All complete'),
-              SizedBox(width: 12),
-              _LegendDot(color: Colors.amber, label: 'Partial'),
-              SizedBox(width: 12),
-              _LegendDot(color: Colors.white54, label: 'No tasks'),
-            ],
-          ),
-          const SizedBox(height: 16),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: recentDays
-                  .map((day) => Padding(
-                        padding: const EdgeInsets.only(right: 12),
-                        child: _DayChip(summary: day),
-                      ))
-                  .toList(),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _LegendDot extends StatelessWidget {
-  const _LegendDot({required this.color, required this.label});
-
-  final Color color;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 10,
-          height: 10,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
-        ),
-        const SizedBox(width: 4),
-        Text(
-          label,
-          style: const TextStyle(color: Colors.white70, fontSize: 12),
-        ),
-      ],
-    );
-  }
-}
-
-class _DayChip extends StatelessWidget {
-  const _DayChip({required this.summary});
-
-  final _DaySummary summary;
-
-  @override
-  Widget build(BuildContext context) {
-    Color background;
-    Color textColor = Colors.white;
-    if (!summary.hasTasks) {
-      background = Colors.white24;
-      textColor = Colors.white70;
-    } else if (summary.completed == summary.tasks.length) {
-      background = Colors.green;
-    } else {
-      background = Colors.amber;
-      textColor = Colors.black87;
-    }
-    if (summary.isToday) {
-      background = Colors.deepPurpleAccent;
-      textColor = Colors.white;
-    }
-    return Column(
-      children: [
-        Container(
-          width: 56,
-          height: 56,
-          decoration: BoxDecoration(
-            color: background,
-            shape: BoxShape.circle,
-            border: summary.isToday
-                ? Border.all(color: Colors.white, width: 2)
-                : null,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                summary.weekday,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+              Expanded(
+                child: Text(
+                  alarm.repeatDaily ? 'Repeats daily' : 'One-time alarm',
+                  style: const TextStyle(
+                    color: AppPalette.secondary,
+                    fontSize: 12,
+                  ),
                 ),
               ),
-              Text(
-                summary.dayLabel,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+              IconButton(
+                onPressed: onEdit,
+                tooltip: 'Edit alarm',
+                icon: const Icon(
+                  Icons.edit_outlined,
+                  size: 19,
+                  color: Colors.white54,
+                ),
+              ),
+              IconButton(
+                onPressed: onDelete,
+                tooltip: 'Delete alarm',
+                icon: const Icon(
+                  Icons.delete_outline_rounded,
+                  size: 19,
+                  color: Colors.white54,
                 ),
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          summary.dayCountLabel,
-          style: const TextStyle(color: Colors.white54, fontSize: 12),
-        ),
-      ],
-    );
-  }
-}
-
-class _DaySummary {
-  _DaySummary({
-    required this.date,
-    required this.order,
-    required this.tasks,
-    required this.completed,
-  });
-
-  final DateTime date;
-  final int order;
-  final List<TaskModel> tasks;
-  final int completed;
-
-  bool get hasTasks => tasks.isNotEmpty;
-  bool get isToday {
-    final now = DateTime.now();
-    return now.year == date.year &&
-        now.month == date.month &&
-        now.day == date.day;
-  }
-
-  String get weekday =>
-      ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'][date.weekday - 1];
-
-  String get dayLabel => date.day.toString();
-
-  String get dayCountLabel => 'day $order';
-}
-
-class _SummaryBox extends StatelessWidget {
-  const _SummaryBox({
-    required this.label,
-    required this.value,
-  });
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFF1B192F),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            value,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: const TextStyle(color: Colors.white70),
-          ),
         ],
       ),
-    );
-  }
+    ),
+  );
+}
+
+class _NoteCard extends StatelessWidget {
+  const _NoteCard({
+    required this.note,
+    required this.onEdit,
+    required this.onDelete,
+  });
+  final NoteModel note;
+  final VoidCallback onEdit, onDelete;
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 12),
+    child: Material(
+      color: AppPalette.card,
+      borderRadius: BorderRadius.circular(22),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onEdit,
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(
+                    Icons.notes_rounded,
+                    size: 20,
+                    color: AppPalette.primaryLight,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      note.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: onDelete,
+                    tooltip: 'Delete note',
+                    icon: const Icon(
+                      Icons.delete_outline_rounded,
+                      size: 19,
+                      color: Colors.white54,
+                    ),
+                  ),
+                ],
+              ),
+              if (note.body.isNotEmpty) ...[
+                const SizedBox(height: 6),
+                Text(
+                  note.body,
+                  maxLines: 4,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(color: Colors.white70, height: 1.5),
+                ),
+              ],
+              const SizedBox(height: 14),
+              Text(
+                'Edited ${MaterialLocalizations.of(context).formatShortDate(note.updatedAt)}',
+                style: const TextStyle(color: Colors.white38, fontSize: 11),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+class _Empty extends StatelessWidget {
+  const _Empty({
+    required this.icon,
+    required this.title,
+    required this.description,
+    required this.action,
+    required this.onTap,
+  });
+  final IconData icon;
+  final String title, description, action;
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) => _Surface(
+    child: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Column(
+        children: [
+          Icon(icon, color: AppPalette.primaryLight, size: 38),
+          const SizedBox(height: 16),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            description,
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.white60, height: 1.5),
+          ),
+          const SizedBox(height: 12),
+          TextButton(onPressed: onTap, child: Text(action)),
+        ],
+      ),
+    ),
+  );
 }

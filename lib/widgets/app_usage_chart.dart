@@ -1,3 +1,4 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class AppUsageChart extends StatelessWidget {
               BarChartRodData(
                 toY: topApps[i].value / 1000 / 60, // minutes
                 width: 14,
-                color: Colors.deepPurpleAccent,
+                color: AppPalette.primary,
               )
             ],
           );

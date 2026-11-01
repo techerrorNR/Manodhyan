@@ -12,17 +12,17 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_duration.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/providers/restrictions/wellbeing_provider.dart';
-import 'package:manodhyan/mind/providers/system/parental_controls_provider.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/time_text_short.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/dialogs/timer_picker_dialog.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_duration.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/providers/restrictions/wellbeing_provider.dart';
+import 'package:focusjoy/mind/providers/system/parental_controls_provider.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/common/time_text_short.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/dialogs/timer_picker_dialog.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
 
 class ShortsTimerChart extends ConsumerWidget {
   const ShortsTimerChart({

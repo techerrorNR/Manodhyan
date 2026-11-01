@@ -9,7 +9,7 @@
  */
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
 
 /// Short content's screen time in SECONDS provider
 final shortsScreenTimeProvider = FutureProvider.autoDispose<int>(

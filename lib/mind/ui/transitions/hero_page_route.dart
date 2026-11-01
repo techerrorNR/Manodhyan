@@ -9,7 +9,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
 
 class HeroPageRoute<T> extends PageRoute<T> {
   HeroPageRoute({

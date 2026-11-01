@@ -1,11 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/schemas/schema_versions.dart';
-import 'package:manodhyan/mind/core/database/tables/parental_controls_table.dart';
-import 'package:manodhyan/mind/core/utils/db_utils.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/schemas/schema_versions.dart';
+import 'package:focusjoy/mind/core/database/tables/parental_controls_table.dart';
+import 'package:focusjoy/mind/core/utils/db_utils.dart';
 
 Future<void> from3To4(Migrator m, Schema4 schema) async => await runSafe(
       "Migration(3 to 4)",

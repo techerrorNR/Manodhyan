@@ -10,7 +10,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
 
 /// A model containing both [FocusMode] and [FocusProfile] along with nullable active [FocusSession].
 @immutable

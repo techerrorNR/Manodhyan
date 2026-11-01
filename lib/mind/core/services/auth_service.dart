@@ -35,7 +35,7 @@ class AuthService {
       if (availableBiometrics.isEmpty) return null;
 
       /// Return status
-      return await _auth.authenticate(localizedReason: "ManoDhyan");
+      return await _auth.authenticate(localizedReason: "FocusJoy");
     } catch (e) {
       debugPrint("Failed to authenticate : ${e.toString()}");
       return false;

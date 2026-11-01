@@ -11,14 +11,14 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
-import 'package:manodhyan/mind/providers/restrictions/wellbeing_provider.dart';
-import 'package:manodhyan/mind/ui/common/default_fab_button.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/dialogs/input_field_dialog.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/providers/system/permissions_provider.dart';
+import 'package:focusjoy/mind/providers/restrictions/wellbeing_provider.dart';
+import 'package:focusjoy/mind/ui/common/default_fab_button.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/dialogs/input_field_dialog.dart';
 
 class AddWebsitesFAB extends ConsumerWidget {
   const AddWebsitesFAB({super.key});

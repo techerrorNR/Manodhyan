@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/schemas/schema_versions.dart';
-import 'package:manodhyan/mind/core/database/tables/shared_unique_data_table.dart';
-import 'package:manodhyan/mind/core/utils/db_utils.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/schemas/schema_versions.dart';
+import 'package:focusjoy/mind/core/database/tables/shared_unique_data_table.dart';
+import 'package:focusjoy/mind/core/utils/db_utils.dart';
 
 Future<void> from2To3(Migrator m, Schema3 schema) async => await runSafe(
       "Migration(2 to 3)",

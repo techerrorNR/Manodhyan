@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
@@ -32,7 +33,7 @@
 
     <application
 
-        android:label="manodhyan"
+        android:label="@string/app_name"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -80,9 +81,9 @@
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
-            android:name="com.innovray.manodhyan.android.services.accessibility.ManoDhyanAccessibilityService"
+            android:name="com.sjtechnovation.focusjoy.android.services.accessibility.ManoDhyanAccessibilityService"
             android:enabled="true"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -93,6 +94,101 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/mindful_accessibility_config" />
         </service>
+
+        <!-- These components must be in this manifest, not under kotlin/.
+             Android discovers special-access permissions from these entries. -->
+        <service
+            android:name="com.sjtechnovation.focusjoy.android.services.notification.ManoDhyanNotificationListenerService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.sjtechnovation.focusjoy.android.receivers.DeviceAdminReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:description="@string/admin_description"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/mindful_admin_config" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Existing focus and restriction services used by the method channel. -->
+        <service
+            android:name="com.sjtechnovation.focusjoy.android.services.tracking.ManoDhyanTrackerService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-enabled app usage tracking and distraction blocking" />
+        </service>
+        <service
+            android:name="com.sjtechnovation.focusjoy.android.services.timer.FocusSessionService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-started focus session timer and app restrictions" />
+        </service>
+        <service
+            android:name="com.sjtechnovation.focusjoy.android.services.timer.EmergencyPauseService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-requested temporary pause of app restrictions" />
+        </service>
+        <service
+            android:name="com.sjtechnovation.focusjoy.android.services.vpn.ManoDhyanVpnService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-enabled local VPN for website and app internet blocking" />
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="false" />
+        </service>
+
+        <receiver
+            android:name="com.sjtechnovation.focusjoy.android.receivers.DeviceBootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.sjtechnovation.focusjoy.android.receivers.alarm.BedtimeRoutineReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name="com.sjtechnovation.focusjoy.android.receivers.alarm.MidnightResetReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name="com.sjtechnovation.focusjoy.android.receivers.alarm.NotificationBatchReceiver"
+            android:enabled="true"
+            android:exported="false" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

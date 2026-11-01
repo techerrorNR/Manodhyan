@@ -4,12 +4,12 @@ import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/services/crash_log_service.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/initializer.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/services/crash_log_service.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/initializer.dart';
 
 /// This class handles the Flutter method channel and is responsible for invoking flutter code.
 ///

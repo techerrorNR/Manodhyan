@@ -9,8 +9,8 @@
  */
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
 
 final searchedNotificationsProvider =
     FutureProvider.family<List<Notification>, String>(

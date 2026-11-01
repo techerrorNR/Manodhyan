@@ -10,10 +10,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_duration.dart';
-import 'package:manodhyan/mind/providers/focus/lifetime_focus_provider.dart';
-import 'package:manodhyan/mind/ui/common/usage_glance_card.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_duration.dart';
+import 'package:focusjoy/mind/providers/focus/lifetime_focus_provider.dart';
+import 'package:focusjoy/mind/ui/common/usage_glance_card.dart';
 
 class FocusLifetimeGlance extends ConsumerWidget {
   const FocusLifetimeGlance({super.key});

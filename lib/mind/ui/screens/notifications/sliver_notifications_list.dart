@@ -12,22 +12,22 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
-import 'package:manodhyan/mind/providers/notifications/dated_conversation_provider.dart';
-import 'package:manodhyan/mind/providers/notifications/dated_notifications_provider.dart';
-import 'package:manodhyan/mind/ui/common/application_icon.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/default_segmented_button.dart';
-import 'package:manodhyan/mind/ui/common/empty_list_indicator.dart';
-import 'package:manodhyan/mind/ui/common/sliver_implicitly_animated_list.dart';
-import 'package:manodhyan/mind/ui/common/sliver_shimmer_list.dart';
-import 'package:manodhyan/mind/ui/screens/notifications/conversation_tile.dart';
-import 'package:manodhyan/mind/ui/screens/notifications/notification_tile.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/providers/apps/apps_info_provider.dart';
+import 'package:focusjoy/mind/providers/notifications/dated_conversation_provider.dart';
+import 'package:focusjoy/mind/providers/notifications/dated_notifications_provider.dart';
+import 'package:focusjoy/mind/ui/common/application_icon.dart';
+import 'package:focusjoy/mind/ui/common/content_section_header.dart';
+import 'package:focusjoy/mind/ui/common/default_segmented_button.dart';
+import 'package:focusjoy/mind/ui/common/empty_list_indicator.dart';
+import 'package:focusjoy/mind/ui/common/sliver_implicitly_animated_list.dart';
+import 'package:focusjoy/mind/ui/common/sliver_shimmer_list.dart';
+import 'package:focusjoy/mind/ui/screens/notifications/conversation_tile.dart';
+import 'package:focusjoy/mind/ui/screens/notifications/notification_tile.dart';
 import 'package:sliver_tools/sliver_tools.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart' as db;
+import 'package:focusjoy/mind/core/database/app_database.dart' as db;
 
 class SliverNotificationsList extends ConsumerStatefulWidget {
   const SliverNotificationsList({

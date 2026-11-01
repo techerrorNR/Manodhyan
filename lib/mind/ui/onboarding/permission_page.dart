@@ -9,15 +9,15 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/ui/onboarding/onboarding_page.dart';
-import 'package:manodhyan/mind/ui/permissions/alarm_permission_tile.dart';
-import 'package:manodhyan/mind/ui/permissions/battery_permission_tile.dart';
-import 'package:manodhyan/mind/ui/permissions/display_overlay_permission_tile.dart';
-import 'package:manodhyan/mind/ui/permissions/notification_permission_tile.dart';
-import 'package:manodhyan/mind/ui/permissions/usage_access_permission_tile.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/ui/onboarding/onboarding_page.dart';
+import 'package:focusjoy/mind/ui/permissions/alarm_permission_tile.dart';
+import 'package:focusjoy/mind/ui/permissions/battery_permission_tile.dart';
+import 'package:focusjoy/mind/ui/permissions/display_overlay_permission_tile.dart';
+import 'package:focusjoy/mind/ui/permissions/notification_permission_tile.dart';
+import 'package:focusjoy/mind/ui/permissions/usage_access_permission_tile.dart';
 
 class PermissionsPage extends StatelessWidget {
   const PermissionsPage({

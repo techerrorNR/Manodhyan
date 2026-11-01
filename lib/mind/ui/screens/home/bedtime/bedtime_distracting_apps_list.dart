@@ -10,9 +10,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/providers/restrictions/bedtime_provider.dart';
-import 'package:manodhyan/mind/ui/common/sliver_distracting_apps_list.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/providers/restrictions/bedtime_provider.dart';
+import 'package:focusjoy/mind/ui/common/sliver_distracting_apps_list.dart';
 
 class BedtimeDistractingAppsList extends ConsumerWidget {
   const BedtimeDistractingAppsList({

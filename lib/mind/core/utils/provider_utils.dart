@@ -1,6 +1,6 @@
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
 
 /// Generates a Map<DateTime, int> for the 7 days of the week starting
 /// from the given date's start of the week, initializing all values to 0.

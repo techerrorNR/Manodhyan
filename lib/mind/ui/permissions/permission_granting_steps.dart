@@ -10,11 +10,11 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 
 class PermissionGrantingSteps extends StatelessWidget {
   const PermissionGrantingSteps({
@@ -61,7 +61,7 @@ class PermissionGrantingSteps extends StatelessWidget {
                 size: 32,
               ),
             ),
-            titleText: "ManoDhyan",
+            titleText: "FocusJoy",
             subtitleText: isAccessibilityPerm
                 ? context.locale.permission_status_off
                 : context.locale.permission_status_not_allowed,

@@ -9,10 +9,10 @@
  */
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/models/usage_filter_model.dart';
-import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
-import 'package:manodhyan/mind/providers/usage/dated_apps_usage_provider.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/models/usage_filter_model.dart';
+import 'package:focusjoy/mind/providers/apps/apps_info_provider.dart';
+import 'package:focusjoy/mind/providers/usage/dated_apps_usage_provider.dart';
 
 /// A provider that filters and sorts app packages based on [UsageFilterModel]
 final filteredPackagesProvider =

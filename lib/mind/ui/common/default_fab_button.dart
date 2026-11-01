@@ -10,8 +10,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
 
 class DefaultFabButton extends StatelessWidget {
   const DefaultFabButton({

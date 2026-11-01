@@ -11,7 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
 
 extension ExtDateTime on DateTime {
   /// Returns the number of milliseconds since the "Unix epoch" 1970-01-01T00:00:00Z (UTC).

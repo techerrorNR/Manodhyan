@@ -10,16 +10,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/core/utils/widget_utils.dart';
-import 'package:manodhyan/mind/models/notification_schedule.dart';
-import 'package:manodhyan/mind/providers/notifications/notification_settings_provider.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/default_slide_to_remove.dart';
-import 'package:manodhyan/mind/ui/common/sliver_implicitly_animated_list.dart';
-import 'package:manodhyan/mind/ui/common/time_card.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/core/utils/widget_utils.dart';
+import 'package:focusjoy/mind/models/notification_schedule.dart';
+import 'package:focusjoy/mind/providers/notifications/notification_settings_provider.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/default_slide_to_remove.dart';
+import 'package:focusjoy/mind/ui/common/sliver_implicitly_animated_list.dart';
+import 'package:focusjoy/mind/ui/common/time_card.dart';
 
 class SliverSchedulesList extends ConsumerWidget {
   const SliverSchedulesList({

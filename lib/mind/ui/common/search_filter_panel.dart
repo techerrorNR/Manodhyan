@@ -10,10 +10,10 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/models/usage_filter_model.dart';
-import 'package:manodhyan/mind/ui/common/search_bar.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/models/usage_filter_model.dart';
+import 'package:focusjoy/mind/ui/common/search_bar.dart';
 
 class SearchFilterPanel extends StatelessWidget {
   const SearchFilterPanel({

@@ -9,8 +9,8 @@
  */
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/models/app_info.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/models/app_info.dart';
 
 /// A state notifier provider that manages a map of Package and installed Android application's info.
 final appsInfoProvider =

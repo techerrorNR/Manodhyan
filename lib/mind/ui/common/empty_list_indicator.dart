@@ -10,8 +10,8 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 
 class EmptyListIndicator extends StatelessWidget {
   const EmptyListIndicator({

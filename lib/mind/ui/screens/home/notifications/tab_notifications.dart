@@ -11,30 +11,30 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/enums/recap_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/providers/notifications/dated_notifications_provider.dart';
-import 'package:manodhyan/mind/providers/notifications/notification_settings_provider.dart';
-import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/default_dropdown_tile.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/default_refresh_indicator.dart';
-import 'package:manodhyan/mind/ui/common/go_to_badge_icon.dart';
-import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:manodhyan/mind/ui/common/status_label.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/common/usage_glance_card.dart';
-import 'package:manodhyan/mind/ui/dialogs/modal_bottom_sheet.dart';
-import 'package:manodhyan/mind/ui/permissions/notification_access_permission_card.dart';
-import 'package:manodhyan/mind/ui/screens/home/notifications/sliver_batched_apps_list.dart';
-import 'package:manodhyan/mind/ui/screens/home/notifications/sliver_schedules_list.dart';
-import 'package:manodhyan/screens/alarm_screen.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/enums/recap_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/providers/notifications/dated_notifications_provider.dart';
+import 'package:focusjoy/mind/providers/notifications/notification_settings_provider.dart';
+import 'package:focusjoy/mind/providers/system/permissions_provider.dart';
+import 'package:focusjoy/mind/ui/common/content_section_header.dart';
+import 'package:focusjoy/mind/ui/common/default_dropdown_tile.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/default_refresh_indicator.dart';
+import 'package:focusjoy/mind/ui/common/go_to_badge_icon.dart';
+import 'package:focusjoy/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:focusjoy/mind/ui/common/status_label.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/common/usage_glance_card.dart';
+import 'package:focusjoy/mind/ui/dialogs/modal_bottom_sheet.dart';
+import 'package:focusjoy/mind/ui/permissions/notification_access_permission_card.dart';
+import 'package:focusjoy/mind/ui/screens/home/notifications/sliver_batched_apps_list.dart';
+import 'package:focusjoy/mind/ui/screens/home/notifications/sliver_schedules_list.dart';
+import 'package:focusjoy/mind/ui/controllers/planner_navigation_provider.dart';
 
 class TabNotifications extends ConsumerStatefulWidget {
   const TabNotifications({super.key});
@@ -48,17 +48,18 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
   DateTimeRange _last24Hours = DateTime.now().last24Hours;
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     final havePermission = ref.watch(
-        permissionProvider.select((v) => v.haveNotificationAccessPermission));
+      permissionProvider.select((v) => v.haveNotificationAccessPermission),
+    );
 
     final settings = ref.watch(notificationSettingsProvider);
 
     final notificationsCount = ref.watch(
-        datedNotificationsProvider(_last24Hours)
-            .select((v) => v.value?.length ?? 0));
+      datedNotificationsProvider(
+        _last24Hours,
+      ).select((v) => v.value?.length ?? 0),
+    );
 
     return DefaultRefreshIndicator(
       onRefresh: () async {
@@ -77,23 +78,22 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
           /// Information about notification groups
           StyledText(context.locale.notifications_tab_info).sliver,
 
-              16.vSliverBox,
-              
-              /// Alarms Link
-              UsageGlanceCard(
-                isPrimary: true,
-                badge: const GoToBadgeIcon(),
-                position: ItemPosition.top,
-                icon: FluentIcons.clock_alarm_20_regular,
-                title: "My Alarms",
-                info: "Set reminders",
-                onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const AlarmScreen())),
-              ).sliver,
+          16.vSliverBox,
 
-              8.vSliverBox,
+          /// Alarms Link
+          UsageGlanceCard(
+            isPrimary: true,
+            badge: const GoToBadgeIcon(),
+            position: ItemPosition.top,
+            icon: FluentIcons.clock_alarm_20_regular,
+            title: "My Alarms",
+            info: "Set reminders",
+            onTap: () => openPlanner(ref, section: PlannerSection.alarms),
+          ).sliver,
 
-              16.vSliverBox,
+          8.vSliverBox,
+
+          16.vSliverBox,
 
           /// Upcoming notifications and Batched apps
           IntrinsicHeight(
@@ -108,8 +108,10 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
                     icon: FluentIcons.alert_badge_20_regular,
                     title: context.locale.notifications_tab_title,
                     info: notificationsCount.toString(),
-                    onTap: () => Navigator.of(context)
-                        .pushNamed(AppRoutes.notificationsPath),
+                    onTap:
+                        () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.notificationsPath),
                   ),
                 ),
                 4.hBox,
@@ -123,10 +125,11 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
                     icon: FluentIcons.app_recent_20_regular,
                     title: context.locale.batched_apps_tile_title,
                     info: settings.batchedApps.length.toString(),
-                    onTap: () => showDefaultBottomSheet(
-                      context: context,
-                      sliverBody: const SliverBatchedAppsList(),
-                    ),
+                    onTap:
+                        () => showDefaultBottomSheet(
+                          context: context,
+                          sliverBody: const SliverBatchedAppsList(),
+                        ),
                   ),
                 ),
               ],
@@ -143,9 +146,10 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
             switchValue: settings.storeNonBatchedToo,
             titleText: context.locale.store_all_tile_title,
             subtitleText: context.locale.store_all_tile_subtitle,
-            onPressed: ref
-                .read(notificationSettingsProvider.notifier)
-                .toggleStoreNonBatched,
+            onPressed:
+                ref
+                    .read(notificationSettingsProvider.notifier)
+                    .toggleStoreNonBatched,
           ).sliver,
 
           /// Usage history in weeks
@@ -154,9 +158,10 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
             titleText: context.locale.notification_history_tile_title,
             dialogIcon: FluentIcons.history_20_filled,
             value: settings.notificationHistoryWeeks,
-            onSelected: ref
-                .read(notificationSettingsProvider.notifier)
-                .changeNotificationHistoryWeeks,
+            onSelected:
+                ref
+                    .read(notificationSettingsProvider.notifier)
+                    .changeNotificationHistoryWeeks,
             items: [
               // 15 days = 2 weeks
               DefaultDropdownItem(
@@ -213,9 +218,7 @@ class _TabNotificationsState extends ConsumerState<TabNotifications> {
 
           /// Daily Schedules
           ContentSectionHeader(title: context.locale.schedules_heading).sliver,
-          SliverSchedulesList(
-            haveNotificationAccessPermission: havePermission,
-          ),
+          SliverSchedulesList(haveNotificationAccessPermission: havePermission),
 
           const SliverTabsBottomPadding(),
         ],

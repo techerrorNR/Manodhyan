@@ -8,26 +8,19 @@
  *
  */
 
-import 'dart:math';
-
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/services/auth_service.dart';
-import 'package:manodhyan/mind/config/navigation/navigation_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/providers/system/manodhyan_settings_provider.dart';
-import 'package:manodhyan/mind/providers/system/parental_controls_provider.dart';
-import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
-import 'package:manodhyan/mind/ui/common/breathing_widget.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/transitions/default_effects.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/services/auth_service.dart';
+import 'package:focusjoy/mind/config/navigation/navigation_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/providers/system/manodhyan_settings_provider.dart';
+import 'package:focusjoy/mind/providers/system/parental_controls_provider.dart';
+import 'package:focusjoy/mind/providers/system/permissions_provider.dart';
+import 'package:focusjoy/widgets/focusjoy_splash.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -54,13 +47,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
     final settings = await ref.read(ManoDhyanSettingsProvider.notifier).init();
     _isOnboardingDone = settings.isOnboardingDone;
-    _isAppUpdated = settings.appVersion !=
+    _isAppUpdated =
+        settings.appVersion !=
         MethodChannelService.instance.deviceInfo.ManoDhyanVersion;
 
     _isAccessProtected =
         (await ref.read(parentalControlsProvider.notifier).init())
             .protectedAccess;
-    _haveAllEssentialPermissions = perms.haveUsageAccessPermission &&
+    _haveAllEssentialPermissions =
+        perms.haveUsageAccessPermission &&
         perms.haveDisplayOverlayPermission &&
         perms.haveAlarmsPermission &&
         perms.haveNotificationPermission;
@@ -70,7 +65,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   }
 
   void _goToNextScreen(bool shouldDelay) async {
-    if (shouldDelay) await Future.delayed(250.ms);
+    if (shouldDelay) {
+      await Future.delayed(const Duration(milliseconds: 250));
+    }
     if (!mounted) return;
 
     if (_haveAllEssentialPermissions && _isOnboardingDone) {
@@ -116,66 +113,25 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     return PopScope(
       onPopInvokedWithResult: (didPop, _) => SystemNavigator.pop(),
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          toolbarHeight: 0,
-          scrolledUnderElevation: 0,
-          automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).colorScheme.surface,
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        body: Stack(
+          fit: StackFit.expand,
           children: [
-            /// Breathing logo
-            BreathingWidget(
-              dimension: min(420, MediaQuery.of(context).size.width * 0.8),
-              child: RoundedContainer(
-                circularRadius: 420,
-                color: Theme.of(context).colorScheme.secondaryContainer,
-                padding: const EdgeInsets.all(8),
-                child: const Icon(
-                  FluentIcons.target_arrow_20_regular,
-                  size: 64,
+            const FocusJoySplash(),
+            if (_isAccessProtected)
+              SafeArea(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: FilledButton.icon(
+                      icon: const Icon(FluentIcons.fingerprint_20_regular),
+                      label: Text(context.locale.unlock_button_label),
+                      onPressed: _authenticate,
+                    ),
+                  ),
                 ),
               ),
-            ),
-
-            Column(
-              children: [
-                /// Title
-                const StyledText(
-                  "ManoDhyan",
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  height: 1,
-                ),
-
-                /// Tag line
-                StyledText(
-                  context.locale.manodhyan_tagline,
-                  fontSize: 16,
-                  isSubtitle: true,
-                ),
-              ],
-            ),
-
-            const Divider(color: Colors.transparent),
-            _isAccessProtected
-                ? FilledButton.icon(
-                    icon: const Icon(FluentIcons.fingerprint_20_regular),
-                    label: Text(context.locale.unlock_button_label),
-                    onPressed: _authenticate,
-                  )
-                : 0.vBox,
-
-            /// Make
-            // Text removed
-            0.vBox,
-          ].animate(
-            effects: DefaultEffects.transitionIn,
-            delay: 100.ms,
-            interval: 100.ms,
-          ),
+          ],
         ),
       ),
     );

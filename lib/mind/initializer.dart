@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
 
 /// Initializer to initialize necessary things.
 class Initializer {

@@ -9,11 +9,12 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/ui/transitions/default_page_transition_builder.dart';
+import 'package:focusjoy/mind/config/app_palette.dart';
+import 'package:focusjoy/mind/ui/transitions/default_page_transition_builder.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class AppTheme {
-  static const _kSeedColor = Colors.deepPurple;
+  static const _kSeedColor = AppPalette.primary;
 
   static final _kShimmerEffect = ShimmerEffect(
     highlightColor: Colors.white.withValues(alpha: 0.6),
@@ -53,22 +54,63 @@ class AppTheme {
         colorScheme: ColorScheme.fromSeed(
           seedColor: seedColor ?? _kSeedColor,
           brightness: Brightness.dark,
-          surface: isAmoled ? Colors.black : null,
+        ).copyWith(
+          primary: seedColor ?? AppPalette.primary,
+          onPrimary: AppPalette.textPrimary,
+          primaryContainer: AppPalette.primaryContainer,
+          onPrimaryContainer: AppPalette.textPrimary,
+          secondary: AppPalette.secondary,
+          onSecondary: AppPalette.background,
+          secondaryContainer: AppPalette.secondaryContainer,
+          onSecondaryContainer: AppPalette.textPrimary,
+          tertiary: AppPalette.highlight,
+          onTertiary: AppPalette.background,
+          tertiaryContainer: AppPalette.secondaryContainer,
+          onTertiaryContainer: AppPalette.textPrimary,
+          surface: isAmoled ? Colors.black : AppPalette.card,
+          onSurface: AppPalette.textPrimary,
+          onSurfaceVariant: AppPalette.textSecondary,
+          surfaceDim: AppPalette.background,
+          surfaceBright: AppPalette.primaryContainer,
+          surfaceContainerLowest: AppPalette.background,
+          surfaceContainerLow: AppPalette.background,
+          surfaceContainer: AppPalette.card,
+          surfaceContainerHigh: AppPalette.primaryContainer,
+          surfaceContainerHighest: AppPalette.primaryContainer,
+          outline: Colors.white24,
+          outlineVariant: AppPalette.divider,
+          error: AppPalette.error,
+          onError: AppPalette.background,
+          surfaceTint: Colors.transparent,
         ),
       ).copyWith(
         pageTransitionsTheme: _kPageTransitionTheme,
-        scaffoldBackgroundColor: isAmoled ? Colors.black : null,
+        scaffoldBackgroundColor:
+            isAmoled ? Colors.black : AppPalette.background,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppPalette.card,
+          foregroundColor: AppPalette.textPrimary,
+          surfaceTintColor: Colors.transparent,
+        ),
+        cardTheme: const CardThemeData(
+          color: AppPalette.card,
+          surfaceTintColor: Colors.transparent,
+        ),
+        bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: AppPalette.card,
+          surfaceTintColor: Colors.transparent,
+        ),
         extensions: [SkeletonizerConfigData.dark(effect: _kShimmerEffect)],
       );
 
   static ThemeData lightTheme({Color? seedColor}) => ThemeData.from(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: seedColor ?? _kSeedColor,
-          brightness: Brightness.light,
-        ),
-      ).copyWith(
-        pageTransitionsTheme: _kPageTransitionTheme,
-        extensions: [SkeletonizerConfigData(effect: _kShimmerEffect)],
-      );
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: seedColor ?? _kSeedColor,
+      brightness: Brightness.light,
+    ),
+  ).copyWith(
+    pageTransitionsTheme: _kPageTransitionTheme,
+    extensions: [SkeletonizerConfigData(effect: _kShimmerEffect)],
+  );
 }

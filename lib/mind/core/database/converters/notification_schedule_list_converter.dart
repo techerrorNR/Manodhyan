@@ -11,7 +11,7 @@
 import 'package:drift/drift.dart';
 import 'dart:convert';
 
-import 'package:manodhyan/mind/models/notification_schedule.dart';
+import 'package:focusjoy/mind/models/notification_schedule.dart';
 
 class NotificationScheduleListConverter
     extends TypeConverter<List<NotificationSchedule>, String> {

@@ -12,7 +12,7 @@ import 'dart:async';
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
 
 class DefaultSearchBar extends StatefulWidget {
   const DefaultSearchBar({

@@ -10,15 +10,15 @@
 
 import 'package:drift/drift.dart';
 
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/tables/bedtime_schedule_table.dart';
-import 'package:manodhyan/mind/core/database/tables/focus_mode_table.dart';
-import 'package:manodhyan/mind/core/database/tables/notification_settings_table.dart';
-import 'package:manodhyan/mind/core/database/tables/parental_controls_table.dart';
-import 'package:manodhyan/mind/core/database/tables/manodhyan_settings_table.dart';
-import 'package:manodhyan/mind/core/database/tables/shared_unique_data_table.dart';
-import 'package:manodhyan/mind/core/database/tables/wellbeing_table.dart';
-import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/tables/bedtime_schedule_table.dart';
+import 'package:focusjoy/mind/core/database/tables/focus_mode_table.dart';
+import 'package:focusjoy/mind/core/database/tables/notification_settings_table.dart';
+import 'package:focusjoy/mind/core/database/tables/parental_controls_table.dart';
+import 'package:focusjoy/mind/core/database/tables/manodhyan_settings_table.dart';
+import 'package:focusjoy/mind/core/database/tables/shared_unique_data_table.dart';
+import 'package:focusjoy/mind/core/database/tables/wellbeing_table.dart';
+import 'package:focusjoy/mind/core/utils/default_models_utils.dart';
 
 part 'unique_records_dao.g.dart';
 

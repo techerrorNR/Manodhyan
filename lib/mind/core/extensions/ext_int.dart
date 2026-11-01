@@ -8,7 +8,7 @@
  *
  */
 
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
 
 extension ExtInt on int {
   /// Converts KB to MB

@@ -14,10 +14,10 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
-import 'package:manodhyan/mind/models/app_info.dart';
-import 'package:manodhyan/mind/models/device_info_model.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/models/app_info.dart';
+import 'package:focusjoy/mind/models/device_info_model.dart';
 
 /// This class handles the Flutter method channel and is responsible for invoking native Android Java code.
 ///

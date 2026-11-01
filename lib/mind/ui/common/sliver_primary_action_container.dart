@@ -9,11 +9,11 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class SliverPrimaryActionContainer extends StatelessWidget {

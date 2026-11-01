@@ -1,11 +1,11 @@
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/enums/default_home_tab.dart';
-import 'package:manodhyan/mind/core/enums/recap_type.dart';
-import 'package:manodhyan/mind/core/enums/reminder_type.dart';
-import 'package:manodhyan/mind/core/enums/session_type.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/models/notification_schedule.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/enums/default_home_tab.dart';
+import 'package:focusjoy/mind/core/enums/recap_type.dart';
+import 'package:focusjoy/mind/core/enums/reminder_type.dart';
+import 'package:focusjoy/mind/core/enums/session_type.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/models/notification_schedule.dart';
 
 final defaultManoDhyanSettingsModel = ManoDhyanSettings(
   id: 0,

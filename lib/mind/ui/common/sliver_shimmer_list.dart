@@ -9,9 +9,9 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/utils/widget_utils.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/utils/widget_utils.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class SliverShimmerList extends StatelessWidget {

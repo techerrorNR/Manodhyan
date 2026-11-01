@@ -1,52 +1,68 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:focusjoy/mind/ui/controllers/home_tab_provider.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:manodhyan/mind/ui/common/scaffold_shell.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/tab_dashboard.dart';
-import 'package:manodhyan/mind/ui/screens/home/notifications/tab_notifications.dart';
-import 'package:manodhyan/screens/challenge_screen.dart';
-import 'package:manodhyan/screens/home_screen.dart' as mano_home;
-import 'package:manodhyan/screens/todo_screen.dart';
-import 'package:manodhyan/screens/create_task_modal.dart';
+import 'package:focusjoy/mind/ui/common/scaffold_shell.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/tab_dashboard.dart';
+import 'package:focusjoy/mind/ui/screens/home/tools/tab_tools.dart';
+import 'package:focusjoy/screens/challenge_screen.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/screens/home_screen.dart' as crystal_home;
+import 'package:focusjoy/screens/todo_screen.dart';
 
-class UniversalHomeScreen extends StatelessWidget {
+class UniversalHomeScreen extends ConsumerWidget {
   const UniversalHomeScreen({super.key, this.initialTab});
+
+  static const dashboardTab = 0;
+  static const tasksTab = 1;
+  static const focusTab = 2;
 
   final int? initialTab;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedTab = ref.watch(homeTabProvider);
     return ScaffoldShell(
-      initialTab: initialTab,
-      appBarExpandedHeight: 120, // Reduced height as some screens have their own headers
+      initialTab: initialTab ?? selectedTab,
+      onTabChanged: (index) {
+        if (ref.read(homeTabProvider) != index) {
+          ref.read(homeTabProvider.notifier).state = index;
+        }
+      },
+      canGoBack: false,
+      usePillNavigation: true,
+      appBarExpandedHeight:
+          120, // Reduced height as some screens have their own headers
       items: [
-        // 1. Focus (Manodhyan Timer)
-        NavbarItem(
-          titleText: "Focus",
-          icon: LucideIcons.target,
-          filledIcon: LucideIcons.target,
-          sliverBody: const mano_home.HomeScreen(),
-        ),
-
-        // 2. Tasks (Manodhyan Todo)
-        NavbarItem(
-          titleText: "Tasks",
-          icon: LucideIcons.listTodo,
-          filledIcon: LucideIcons.listTodo,
-          sliverBody: const TodoScreen(),
-          fab: FloatingActionButton(
-            backgroundColor: Colors.deepPurpleAccent,
-            child: const Icon(Icons.add, color: Colors.white),
-            onPressed: () => showCreateTaskModal(context),
-          ),
-        ),
-
-        // 3. Dashboard (Mindful Glance)
         NavbarItem(
           titleText: "Dashboard",
           icon: FluentIcons.home_20_regular,
           filledIcon: FluentIcons.home_20_filled,
           sliverBody: const TabDashboard(),
+        ),
+        NavbarItem(
+          titleText: "Planner",
+          icon: LucideIcons.listTodo,
+          filledIcon: LucideIcons.listTodo,
+          sliverBody: const TodoScreen(),
+        ),
+        // Use the same focus profiles, blocking service, and session as Focus Mode.
+        NavbarItem(
+          titleText: "Focus",
+          icon: LucideIcons.target,
+          filledIcon: LucideIcons.target,
+          sliverBody: const crystal_home.HomeScreen(),
+          actions: [
+            IconButton(
+              tooltip: 'Focus timeline',
+              icon: const Icon(Icons.history),
+              onPressed:
+                  () => Navigator.of(
+                    context,
+                  ).pushNamed(AppRoutes.focusModePath, arguments: {'tab': '1'}),
+            ),
+          ],
         ),
 
         // 4. Activity (Manodhyan Insights)
@@ -57,12 +73,12 @@ class UniversalHomeScreen extends StatelessWidget {
           sliverBody: const ChallengeScreen(),
         ),
 
-        // 5. Tools / Notifications
+        // 5. All device controls and restriction settings.
         NavbarItem(
           titleText: "Tools",
-          icon: FluentIcons.alert_urgent_20_regular,
-          filledIcon: FluentIcons.alert_urgent_20_filled,
-          sliverBody: const TabNotifications(),
+          icon: Icons.tune_outlined,
+          filledIcon: Icons.tune_rounded,
+          sliverBody: const TabTools(),
         ),
       ],
     );

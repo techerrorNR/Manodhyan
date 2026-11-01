@@ -1,9 +1,10 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
-import 'package:manodhyan/mind/ui/common/default_bar_chart.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/core/extensions/ext_int.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/ui/common/default_bar_chart.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/core/extensions/ext_int.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
 class MetaComboChart extends StatelessWidget {
@@ -45,7 +46,7 @@ class MetaComboChart extends StatelessWidget {
       height: height,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1B192F), // ManoDhyan Card Color
+        color: AppPalette.card, // ManoDhyan Card Color
         borderRadius: BorderRadius.circular(24),
       ),
       child: Column(
@@ -68,7 +69,7 @@ class MetaComboChart extends StatelessWidget {
                         child: CircularProgressIndicator(
                           value: 1.0,
                           strokeWidth: 12,
-                          valueColor: AlwaysStoppedAnimation(Colors.deepPurple.withOpacity(0.2)),
+                          valueColor: AlwaysStoppedAnimation(AppPalette.primary.withOpacity(0.2)),
                         ),
                       ),
                       // Outer Ring Value (Screen Time)
@@ -79,7 +80,7 @@ class MetaComboChart extends StatelessWidget {
                           value: screenPercent,
                           strokeWidth: 12,
                           strokeCap: StrokeCap.round,
-                          valueColor: const AlwaysStoppedAnimation(Colors.deepPurpleAccent),
+                          valueColor: const AlwaysStoppedAnimation(AppPalette.primary),
                         ),
                       ),
                       // Inner Ring Background
@@ -89,7 +90,7 @@ class MetaComboChart extends StatelessWidget {
                         child: CircularProgressIndicator(
                           value: 1.0,
                           strokeWidth: 12,
-                          valueColor: AlwaysStoppedAnimation(Colors.orange.withOpacity(0.2)),
+                          valueColor: AlwaysStoppedAnimation(AppPalette.secondary.withOpacity(0.2)),
                         ),
                       ),
                       // Inner Ring Value (Data/Other)
@@ -100,7 +101,7 @@ class MetaComboChart extends StatelessWidget {
                           value: 0.4, // Static for now as placeholder or data usage
                           strokeWidth: 12,
                           strokeCap: StrokeCap.round,
-                          valueColor: const AlwaysStoppedAnimation(Colors.orangeAccent),
+                          valueColor: const AlwaysStoppedAnimation(AppPalette.secondary),
                         ),
                       ),
                       // Center Icon
@@ -116,14 +117,14 @@ class MetaComboChart extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _StatLegend(
-                        color: Colors.deepPurpleAccent,
+                        color: AppPalette.primary,
                         label: 'Screen',
                         value: _formatTime(screenTime),
                         icon: FluentIcons.phone_24_filled,
                       ),
                       const SizedBox(height: 16),
                       const _StatLegend(
-                        color: Colors.orangeAccent,
+                        color: AppPalette.secondary,
                         label: 'Goal',
                         value: '8h 0m',
                         icon: FluentIcons.target_24_filled,

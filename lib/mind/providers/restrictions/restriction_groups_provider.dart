@@ -9,12 +9,12 @@
  */
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/daos/dynamic_records_dao.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/daos/dynamic_records_dao.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/providers/apps/apps_info_provider.dart';
 
 /// A Riverpod state notifier provider that manages a map of group IDs and [RestrictionGroup].
 final restrictionGroupsProvider = StateNotifierProvider<

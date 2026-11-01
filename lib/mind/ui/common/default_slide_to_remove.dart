@@ -11,10 +11,10 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/utils/widget_utils.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/utils/widget_utils.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 
 class DefaultSlideToRemove extends StatelessWidget {
   const DefaultSlideToRemove({

@@ -9,12 +9,12 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/glance_cards/data_mobile_glance.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/glance_cards/data_total_glance.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/glance_cards/data_wifi_glance.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/glance_cards/focus_lifetime_glance.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/glance_cards/focus_monthly_glance.dart';
-import 'package:manodhyan/mind/ui/screens/home/dashboard/glance_cards/focus_weekly_glance.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/glance_cards/data_mobile_glance.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/glance_cards/data_total_glance.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/glance_cards/data_wifi_glance.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/glance_cards/focus_lifetime_glance.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/glance_cards/focus_monthly_glance.dart';
+import 'package:focusjoy/mind/ui/screens/home/dashboard/glance_cards/focus_weekly_glance.dart';
 
 class GlanceCardsGrid extends StatelessWidget {
   const GlanceCardsGrid({super.key});

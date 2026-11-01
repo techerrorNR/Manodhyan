@@ -1,3 +1,4 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
@@ -177,7 +178,7 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: AppPalette.background,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(24.0),
@@ -203,10 +204,10 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
                     color:
-                        Colors.deepPurpleAccent.withValues(alpha: 0.2),
+                        AppPalette.primary.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(
-                      color: _isWrong ? Colors.red : Colors.deepPurpleAccent,
+                      color: _isWrong ? AppPalette.error : AppPalette.primary,
                       width: 2,
                     ),
                   ),
@@ -240,7 +241,7 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
                       const SizedBox(height: 24),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepPurpleAccent,
+                          backgroundColor: AppPalette.primary,
                           padding: const EdgeInsets.symmetric(
                             horizontal: 48,
                             vertical: 16,
@@ -259,7 +260,7 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
                         const SizedBox(height: 16),
                         const Text(
                           'Wrong answer. Try again!',
-                          style: TextStyle(color: Colors.redAccent),
+                          style: TextStyle(color: AppPalette.error),
                         ),
                       ],
                     ],

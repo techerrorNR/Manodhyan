@@ -1,8 +1,8 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
 
 @immutable
 class ChangeLog {
@@ -87,7 +87,7 @@ class ChangeLogsData {
     ),
     const ChangeLog(
       icon: FluentIcons.app_title_20_filled,
-      label: "ManoDhyan overlay",
+      label: "FocusJoy overlay",
       bulletPoints: [
         "New app paused overlay with more info.",
         "Clearly see why an app is blocked.",

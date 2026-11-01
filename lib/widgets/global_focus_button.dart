@@ -1,15 +1,33 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/routes.dart';
-import 'package:manodhyan/services/alarm_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:focusjoy/mind/ui/controllers/home_tab_provider.dart';
+import 'package:focusjoy/mind/ui/screens/universal_home.dart';
+import 'package:focusjoy/services/alarm_service.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes_observer.dart';
 
-/// Floating shortcut that can launch the ManoDhyan focus stack
-/// from anywhere inside the app.
-class GlobalFocusButton extends StatelessWidget {
+/// Returns to the crystal Focus tab in the existing home navigation bar.
+class GlobalFocusButton extends ConsumerWidget {
   const GlobalFocusButton({super.key});
 
+  void _openFocus(WidgetRef ref) {
+    final navigator = AlarmService.instance.navigatorKey.currentState;
+    if (navigator == null) return;
+    ref.read(homeTabProvider.notifier).state = UniversalHomeScreen.focusTab;
+    navigator.popUntil((route) => route.isFirst);
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ValueListenableBuilder<bool>(
+      valueListenable: AppRoutesObserver.instance.showFocusShortcut,
+      builder:
+          (context, visible, _) =>
+              visible ? _button(context, ref) : const SizedBox.shrink(),
+    );
+  }
+
+  Widget _button(BuildContext context, WidgetRef ref) {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Align(
@@ -23,11 +41,12 @@ class GlobalFocusButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(28),
             child: InkWell(
               borderRadius: BorderRadius.circular(28),
-              onTap: () => AlarmService.instance.navigatorKey.currentState
-                  ?.pushNamed(AppRoutes.ManoDhyanFocus),
+              onTap: () => _openFocus(ref),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 14,
+                ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -38,10 +57,9 @@ class GlobalFocusButton extends StatelessWidget {
                     const SizedBox(width: 8),
                     Text(
                       'Focus',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(color: colorScheme.onPrimary),
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: colorScheme.onPrimary,
+                      ),
                     ),
                   ],
                 ),

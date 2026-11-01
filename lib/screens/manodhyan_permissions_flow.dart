@@ -2,14 +2,14 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/models/permissions_model.dart';
-import 'package:manodhyan/mind/providers/system/manodhyan_settings_provider.dart';
-import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
-import 'package:manodhyan/mind/ui/onboarding/onboarding_page.dart';
-import 'package:manodhyan/mind/ui/onboarding/permission_page.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/models/permissions_model.dart';
+import 'package:focusjoy/mind/providers/system/manodhyan_settings_provider.dart';
+import 'package:focusjoy/mind/providers/system/permissions_provider.dart';
+import 'package:focusjoy/mind/ui/onboarding/onboarding_page.dart';
+import 'package:focusjoy/mind/ui/onboarding/permission_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 /// Embeds ManoDhyan's onboarding pages + permission checks inside ManoDhyan.

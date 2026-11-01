@@ -1,7 +1,7 @@
 import 'package:device_installed_apps/app_info.dart' as device_apps;
 import 'package:device_installed_apps/device_installed_apps.dart';
 import 'package:flutter/foundation.dart';
-import 'package:manodhyan/mind/models/app_info.dart';
+import 'package:focusjoy/mind/models/app_info.dart';
 
 class AppNameResolver {
   static final Map<String, String> _cachedNames = {};

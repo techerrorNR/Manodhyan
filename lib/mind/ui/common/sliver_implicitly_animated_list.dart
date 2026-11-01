@@ -10,9 +10,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/core/utils/widget_utils.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/core/utils/widget_utils.dart';
 
 class SliverImplicitlyAnimatedList<T> extends StatefulWidget {
   const SliverImplicitlyAnimatedList({

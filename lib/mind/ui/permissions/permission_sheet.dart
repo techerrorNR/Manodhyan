@@ -1,3 +1,4 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 /*
  *
  *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
@@ -9,12 +10,12 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/permissions/permission_granting_steps.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/permissions/permission_granting_steps.dart';
 
 class PermissionSheet extends StatelessWidget {
   const PermissionSheet({
@@ -89,9 +90,7 @@ class PermissionSheet extends StatelessWidget {
               StyledText(
                 context.locale.permission_sheet_privacy_info,
                 fontSize: 13,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.green[900]
-                    : Colors.green[300],
+                color: AppPalette.secondary,
               ),
               40.vBox,
 

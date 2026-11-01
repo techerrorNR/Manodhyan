@@ -10,19 +10,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/models/usage_filter_model.dart';
-import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
-import 'package:manodhyan/mind/providers/apps/filtered_packages_provider.dart';
-import 'package:manodhyan/mind/ui/common/application_icon.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/search_filter_panel.dart';
-import 'package:manodhyan/mind/ui/common/sliver_implicitly_animated_list.dart';
-import 'package:manodhyan/mind/ui/common/sliver_shimmer_list.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/models/usage_filter_model.dart';
+import 'package:focusjoy/mind/providers/apps/apps_info_provider.dart';
+import 'package:focusjoy/mind/providers/apps/filtered_packages_provider.dart';
+import 'package:focusjoy/mind/ui/common/application_icon.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/content_section_header.dart';
+import 'package:focusjoy/mind/ui/common/search_filter_panel.dart';
+import 'package:focusjoy/mind/ui/common/sliver_implicitly_animated_list.dart';
+import 'package:focusjoy/mind/ui/common/sliver_shimmer_list.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class SliverDistractingAppsList extends ConsumerStatefulWidget {

@@ -10,7 +10,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
 
 class BreathingWidget extends StatelessWidget {
   /// Puts the child widget on top of breathing animating containers in a stack

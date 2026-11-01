@@ -10,14 +10,14 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/enums/default_home_tab.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/utils/widget_utils.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/controllers/tab_controller_provider.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/enums/default_home_tab.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/utils/widget_utils.dart';
+import 'package:focusjoy/mind/ui/common/content_section_header.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/controllers/tab_controller_provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 class SliverTipsAndTricks extends StatefulWidget {

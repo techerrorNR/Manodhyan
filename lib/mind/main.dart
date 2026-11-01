@@ -12,11 +12,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/services/bg_executor_service.dart';
-import 'package:manodhyan/mind/core/services/crash_log_service.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/manodhyan_app.dart';
+import 'package:focusjoy/mind/core/services/bg_executor_service.dart';
+import 'package:focusjoy/mind/core/services/crash_log_service.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/manodhyan_app.dart';
 
 /// Dart background
 @pragma('vm:entry-point')

@@ -10,12 +10,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/providers/restrictions/wellbeing_provider.dart';
-import 'package:manodhyan/mind/ui/common/empty_list_indicator.dart';
-import 'package:manodhyan/mind/ui/common/sliver_implicitly_animated_list.dart';
-import 'package:manodhyan/mind/ui/screens/websites_blocking/website_tile.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/providers/restrictions/wellbeing_provider.dart';
+import 'package:focusjoy/mind/ui/common/empty_list_indicator.dart';
+import 'package:focusjoy/mind/ui/common/sliver_implicitly_animated_list.dart';
+import 'package:focusjoy/mind/ui/screens/websites_blocking/website_tile.dart';
 
 class SliverBlockedWebsitesList extends ConsumerWidget {
   const SliverBlockedWebsitesList({super.key});

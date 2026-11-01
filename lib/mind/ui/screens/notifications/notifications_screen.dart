@@ -10,11 +10,11 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/ui/common/scaffold_shell.dart';
-import 'package:manodhyan/mind/ui/screens/notifications/notifications_timeline/search_notification_button.dart';
-import 'package:manodhyan/mind/ui/screens/notifications/notifications_timeline/tab_notifications_timeline.dart';
-import 'package:manodhyan/mind/ui/screens/notifications/todays_notifications/tab_todays_notifications.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/ui/common/scaffold_shell.dart';
+import 'package:focusjoy/mind/ui/screens/notifications/notifications_timeline/search_notification_button.dart';
+import 'package:focusjoy/mind/ui/screens/notifications/notifications_timeline/tab_notifications_timeline.dart';
+import 'package:focusjoy/mind/ui/screens/notifications/todays_notifications/tab_todays_notifications.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({

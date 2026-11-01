@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
 
 /// Boots ManoDhyan's platform stack (method channel + Drift DB) once so its
 /// modules can run safely inside ManoDhyan.

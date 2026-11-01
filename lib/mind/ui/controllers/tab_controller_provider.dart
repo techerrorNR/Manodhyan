@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
 
 /// To get =>  TabControllerProvider.of(context)?.controller;
 class TabControllerProvider extends InheritedWidget {

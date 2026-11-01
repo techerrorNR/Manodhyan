@@ -9,9 +9,9 @@
  */
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/enums/app_theme_mode.dart';
-import 'package:manodhyan/mind/core/enums/default_home_tab.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/core/enums/app_theme_mode.dart';
+import 'package:focusjoy/mind/core/enums/default_home_tab.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
 
 @DataClassName("ManoDhyanSettings")
 class ManoDhyanSettingsTable extends Table {

@@ -11,10 +11,10 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/converters/notification_schedule_list_converter.dart';
-import 'package:manodhyan/mind/core/database/converters/string_list_converter.dart';
-import 'package:manodhyan/mind/core/enums/recap_type.dart';
-import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
+import 'package:focusjoy/mind/core/database/converters/notification_schedule_list_converter.dart';
+import 'package:focusjoy/mind/core/database/converters/string_list_converter.dart';
+import 'package:focusjoy/mind/core/enums/recap_type.dart';
+import 'package:focusjoy/mind/core/utils/default_models_utils.dart';
 
 @DataClassName("NotificationSettings")
 class NotificationSettingsTable extends Table {

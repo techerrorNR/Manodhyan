@@ -11,9 +11,9 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/l10n/generated/app_localizations.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/l10n/generated/app_localizations.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 
 extension ExtBuildContext on BuildContext {
   /// Returns the [AppLocalizations] instance for the current context.

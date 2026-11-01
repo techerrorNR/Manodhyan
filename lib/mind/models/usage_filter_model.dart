@@ -9,9 +9,9 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
 
 /// Filtering model to filter apps based on different filtering parameters.
 @immutable

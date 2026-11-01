@@ -9,7 +9,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
 
 extension ExtDuration on Duration {
   /// Returns a [Duration] when adding [other] to

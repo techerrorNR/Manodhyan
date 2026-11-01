@@ -9,7 +9,7 @@
  */
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/enums/session_type.dart';
+import 'package:focusjoy/mind/core/enums/session_type.dart';
 
 @DataClassName("FocusMode")
 class FocusModeTable extends Table {

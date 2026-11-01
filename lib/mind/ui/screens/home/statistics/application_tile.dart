@@ -11,24 +11,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/enums/usage_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_duration.dart';
-import 'package:manodhyan/mind/core/extensions/ext_int.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
-import 'package:manodhyan/mind/providers/restrictions/apps_restrictions_provider.dart';
-import 'package:manodhyan/mind/providers/apps/apps_info_provider.dart';
-import 'package:manodhyan/mind/providers/usage/dated_apps_usage_provider.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/common/application_icon.dart';
-import 'package:manodhyan/mind/ui/screens/app_dashboard/app_internet_tile.dart';
-import 'package:manodhyan/mind/ui/screens/app_dashboard/app_timer_tile.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/enums/usage_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_duration.dart';
+import 'package:focusjoy/mind/core/extensions/ext_int.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/providers/restrictions/apps_restrictions_provider.dart';
+import 'package:focusjoy/mind/providers/apps/apps_info_provider.dart';
+import 'package:focusjoy/mind/providers/usage/dated_apps_usage_provider.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/common/application_icon.dart';
+import 'package:focusjoy/mind/ui/screens/app_dashboard/app_internet_tile.dart';
+import 'package:focusjoy/mind/ui/screens/app_dashboard/app_timer_tile.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
 
 /// List tile used for displaying app usage info based on the bool [selectedUsageType]
 class ApplicationTile extends ConsumerWidget {

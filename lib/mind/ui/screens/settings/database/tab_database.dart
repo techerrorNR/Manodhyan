@@ -10,9 +10,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:manodhyan/mind/ui/screens/settings/database/export_clear_crash_logs.dart';
-import 'package:manodhyan/mind/ui/screens/settings/database/import_export_db.dart';
+import 'package:focusjoy/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:focusjoy/mind/ui/screens/settings/database/export_clear_crash_logs.dart';
+import 'package:focusjoy/mind/ui/screens/settings/database/import_export_db.dart';
 
 class TabDatabase extends ConsumerWidget {
   const TabDatabase({super.key});

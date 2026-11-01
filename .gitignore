@@ -2,7 +2,16 @@
 *.class
 *.log
 *.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
 *.swp
+*.tmp
+*.temp
+*.bak
+*~
 .DS_Store
 .atom/
 .build/
@@ -31,7 +40,39 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+**/build/
+coverage/
+test-results/
+*.lcov
+
+# Local build logs, crash dumps, and source backups
+build_log*.txt
+build_output*.txt
+hs_err_pid*
+replay_pid*
+*.hprof
+/lib.zip
+
+# Local configuration and signing material
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+**/local.properties
+**/key.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.mobileprovision
+
+# Platform-generated dependencies and intermediates
+**/.gradle/
+**/.cxx/
+**/ephemeral/
+**/Pods/
+**/.symlinks/
 
 # Symbolication related
 app.*.symbols

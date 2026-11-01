@@ -1,3 +1,4 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 /*
  *
  *  * Copyright (c) 2024 ManoDhyan (https://github.com/techerrorNR)
@@ -17,8 +18,8 @@ import 'package:flutter/material.dart';
 class SineWave extends StatefulWidget {
   const SineWave({
     super.key,
-    this.sinColor = Colors.deepPurpleAccent,
-    this.cosColor = Colors.cyanAccent,
+    this.sinColor = AppPalette.primary,
+    this.cosColor = AppPalette.primaryLight,
   });
 
   final Color sinColor;

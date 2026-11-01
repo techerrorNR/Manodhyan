@@ -12,14 +12,14 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_duration.dart';
-import 'package:manodhyan/mind/core/extensions/ext_int.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/providers/focus/monthly_focus_provider.dart';
-import 'package:manodhyan/mind/ui/common/progress_percentage_indicator.dart';
-import 'package:manodhyan/mind/ui/common/usage_glance_card.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_duration.dart';
+import 'package:focusjoy/mind/core/extensions/ext_int.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/providers/focus/monthly_focus_provider.dart';
+import 'package:focusjoy/mind/ui/common/progress_percentage_indicator.dart';
+import 'package:focusjoy/mind/ui/common/usage_glance_card.dart';
 
 class FocusDailyGlance extends ConsumerWidget {
   const FocusDailyGlance({super.key});

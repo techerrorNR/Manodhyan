@@ -10,7 +10,7 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
 
 class CustomizeGlanceCards extends StatelessWidget {
   const CustomizeGlanceCards({super.key});

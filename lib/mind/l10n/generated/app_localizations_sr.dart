@@ -37,7 +37,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_sheet_privacy_info =>
-      'ManoDhyan је 100% сигуран и ради ван мреже. Не прикупљамо, нити чувамо било какве личне податке.';
+      'FocusJoy је 100% сигуран и ради ван мреже. Не прикупљамо, нити чувамо било какве личне податке.';
 
   @override
   String permission_grant_step_one(String button_label) {
@@ -46,7 +46,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_grant_step_two =>
-      '2. Изабери ManoDhyan на следећем екрану.';
+      '2. Изабери FocusJoy на следећем екрану.';
 
   @override
   String get permission_grant_step_three =>
@@ -60,7 +60,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_alarms_info =>
-      'Молимо те да одобриш дозволу за постављање аларма и подсећања. Ово ће омогућити ManoDhyan да на време започне твој распоред за спавање. Такође, апликација ће дневно ресетовати тајмере у поноћ и помоћи ти да останеш на правом путу.';
+      'Молимо те да одобриш дозволу за постављање аларма и подсећања. Ово ће омогућити FocusJoy да на време започне твој распоред за спавање. Такође, апликација ће дневно ресетовати тајмере у поноћ и помоћи ти да останеш на правом путу.';
 
   @override
   String get permission_alarms_device_tile_label =>
@@ -71,7 +71,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_usage_info =>
-      'Молимо дозволите приступ подацима о коришћењу. Ово ће омогућити да ManoDhyan прати употребу апликација и управља приступом одређеним апликацијама, обезбеђујући фокусираније и контролисаније дигитално окружење.';
+      'Молимо дозволите приступ подацима о коришћењу. Ово ће омогућити да FocusJoy прати употребу апликација и управља приступом одређеним апликацијама, обезбеђујући фокусираније и контролисаније дигитално окружење.';
 
   @override
   String get permission_usage_device_tile_label => 'Дозволи приступ коришћењу';
@@ -92,21 +92,21 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_accessibility_info =>
-      'Молимо одобрите дозволу за приступачност. Ово ће омогућити апликацији ManoDhyan да ограничи приступ кратком видео садржају (нпр. Reels, Shorts) у оквиру апликација друштвених мрежа и интернет прегледача, као и да филтрира непримерене веб-сајтове.';
+      'Молимо одобрите дозволу за приступачност. Ово ће омогућити апликацији FocusJoy да ограничи приступ кратком видео садржају (нпр. Reels, Shorts) у оквиру апликација друштвених мрежа и интернет прегледача, као и да филтрира непримерене веб-сајтове.';
 
   @override
   String get permission_accessibility_required =>
-      'ManoDhyan захтева дозволу за приступачност како би ефикасно блокирао кратки садржај и веб-сајтове.';
+      'FocusJoy захтева дозволу за приступачност како би ефикасно блокирао кратки садржај и веб-сајтове.';
 
   @override
-  String get permission_accessibility_device_tile_label => 'Користи ManoDhyan';
+  String get permission_accessibility_device_tile_label => 'Користи FocusJoy';
 
   @override
   String get permission_dnd_title => 'Не ометај';
 
   @override
   String get permission_dnd_info =>
-      'Дозволи приступ за режим „Не ометај“. Ово ће омогућити ManoDhyan да покрене и заустави режим „Не ометај“ током распореда за спавање.';
+      'Дозволи приступ за режим „Не ометај“. Ово ће омогућити FocusJoy да покрене и заустави режим „Не ометај“ током распореда за спавање.';
 
   @override
   String get permission_dnd_tile_title => 'Покрени DND (Не ометај)';
@@ -135,7 +135,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_vpn_info =>
-      'Одобри дозволу за креирање виртуелне приватне мреже (VPN). Ово ће омогућити апликацији ManoDhyan да ограничи приступ интернету за одређене апликације креирањем локалне VPN мреже на уређају.';
+      'Одобри дозволу за креирање виртуелне приватне мреже (VPN). Ово ће омогућити апликацији FocusJoy да ограничи приступ интернету за одређене апликације креирањем локалне VPN мреже на уређају.';
 
   @override
   String get permission_admin_title => 'Админ';
@@ -153,11 +153,11 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get permission_notification_access_info =>
-      'Молимо те да одобриш дозволу за приступ обавештењима. Ово ће омогућити ManoDhyan да организује твоја обавештења и достави их по твом распореду.';
+      'Молимо те да одобриш дозволу за приступ обавештењима. Ово ће омогућити FocusJoy да организује твоја обавештења и достави их по твом распореду.';
 
   @override
   String get permission_notification_access_required =>
-      'Апликација ManoDhyan захтева приступ обавештењима како би груписао и заказивао обавештења.';
+      'Апликација FocusJoy захтева приступ обавештењима како би груписао и заказивао обавештења.';
 
   @override
   String get permission_notification_access_device_tile_label =>
@@ -279,7 +279,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get development_dialog_info =>
-      'ManoDhyan је тренутно у развоју и могуће је да садржи грешке или непотпуне функције. Ако наиђеш на проблем, пријави га како бисмо могли да побољшамо апликацију.\n\nХвала на повратним информацијама!';
+      'FocusJoy је тренутно у развоју и могуће је да садржи грешке или непотпуне функције. Ако наиђеш на проблем, пријави га како бисмо могли да побољшамо апликацију.\n\nХвала на повратним информацијама!';
 
   @override
   String get development_dialog_button_report_issue => 'Пријави проблем';
@@ -331,11 +331,11 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get donation_card_info =>
-      'ManoDhyan је бесплатна апликација отвореног кода, развијана месецима уз велику посвећеност. Ако ти је била од помоћи, донација би нам значила пуно. Сваки допринос нам помаже да наставимо са унапређивањем и одржавањем апликације за све.';
+      'FocusJoy је бесплатна апликација отвореног кода, развијана месецима уз велику посвећеност. Ако ти је била од помоћи, донација би нам значила пуно. Сваки допринос нам помаже да наставимо са унапређивањем и одржавањем апликације за све.';
 
   @override
   String get operation_failed_snack_alert =>
-      'ManoDhyan је бесплатна апликација отвореног кода, развијана месецима уз велику посвећеност. Ако ти је била од помоћи, донација би нам значила пуно. Сваки допринос нам помаже да наставимо са унапређивањем и одржавањем апликације за све.\n';
+      'FocusJoy је бесплатна апликација отвореног кода, развијана месецима уз велику посвећеност. Ако ти је била од помоћи, донација би нам значила пуно. Сваки допринос нам помаже да наставимо са унапређивањем и одржавањем апликације за све.\n';
 
   @override
   String get donation_card_button_donate => 'Донирај';
@@ -345,15 +345,15 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get app_restart_dialog_info =>
-      'ManoDhyan ће се аутоматски поново покренути када се одбројавање заврши. Молимо за стрпљење док се измене примењују.';
+      'FocusJoy ће се аутоматски поново покренути када се одбројавање заврши. Молимо за стрпљење док се измене примењују.';
 
   @override
   String get accessibility_tip =>
-      'Желиш паметније блокирање које троши мање батерије? Одобри дозволу за приступачност за апликацију ManoDhyan да би све радило боље и ефикасније.';
+      'Желиш паметније блокирање које троши мање батерије? Одобри дозволу за приступачност за апликацију FocusJoy да би све радило боље и ефикасније.';
 
   @override
   String get battery_optimization_tip =>
-      'ManoDhyan не ради како треба?\nДозволи „Игнориши оптимизацију батерије“ у подешавањима како би ManoDhyan несметано радио у позадини.';
+      'FocusJoy не ради како треба?\nДозволи „Игнориши оптимизацију батерије“ у подешавањима како би FocusJoy несметано радио у позадини.';
 
   @override
   String get invincible_mode_tip =>
@@ -361,15 +361,15 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get glance_usage_tip =>
-      'Желиш увид у своје навике?\nManoDhyan нуди одељак преглед где можеш да сазнаш како проводиш време на телефону.';
+      'Желиш увид у своје навике?\nFocusJoy нуди одељак преглед где можеш да сазнаш како проводиш време на телефону.';
 
   @override
   String get tamper_protection_tip =>
-      'Желиш да деинсталираш ManoDhyan? Прво укључи прозор за деинсталацију да би безбедно искључио заштиту од уклањања.';
+      'Желиш да деинсталираш FocusJoy? Прво укључи прозор за деинсталацију да би безбедно искључио заштиту од уклањања.';
 
   @override
   String get notification_blocking_tip =>
-      'Желиш мање ометања? ManoDhyan ти нуди опцију блокирања обавештења како би утишао жељене апликације.';
+      'Желиш мање ометања? FocusJoy ти нуди опцију блокирања обавештења како би утишао жељене апликације.';
 
   @override
   String get usage_history_tip =>
@@ -462,7 +462,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get onboarding_page_one_info =>
-      'Паузирај апликације које те ометају, блокирај кратак садржај и остани фокусиран уз флексибилне фокус сесије. Без обзира да ли радиш, учиш или се одмараш, ManoDhyan ти помаже да задржиш контролу.';
+      'Паузирај апликације које те ометају, блокирај кратак садржај и остани фокусиран уз флексибилне фокус сесије. Без обзира да ли радиш, учиш или се одмараш, FocusJoy ти помаже да задржиш контролу.';
 
   @override
   String get onboarding_page_two_title => 'Блокирај ометања.';
@@ -476,14 +476,14 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get onboarding_page_three_info =>
-      'ManoDhyan је у 100% отвореног кода и ради потпуно офлајн. Не прикупљамо нити делимо било какве личне податке — твоја приватност је у потпуности загарантована.';
+      'FocusJoy је у 100% отвореног кода и ради потпуно офлајн. Не прикупљамо нити делимо било какве личне податке — твоја приватност је у потпуности загарантована.';
 
   @override
   String get onboarding_page_permissions_title => 'Основне дозволе.';
 
   @override
   String get onboarding_page_permissions_info =>
-      'ManoDhyan захтева следеће основне дозволе како би могао да прати и управља временом проведеним испред екрана, смањи ометања и побољша фокус.';
+      'FocusJoy захтева следеће основне дозволе како би могао да прати и управља временом проведеним испред екрана, смањи ометања и побољша фокус.';
 
   @override
   String get dashboard_tab_title => 'Контролна табла';
@@ -757,7 +757,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get protected_access_tile_subtitle =>
-      'Заштити апликацију ManoDhyan помоћу закључавања уређаја.';
+      'Заштити апликацију FocusJoy помоћу закључавања уређаја.';
 
   @override
   String get protected_access_no_lock_snack_alert =>
@@ -780,7 +780,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get tamper_protection_confirmation_dialog_info =>
-      'Када буде омогућено, нећеш моћи да деинсталираш, принудно зауставиш или очистиш податке апликације ManoDhyan, осим током изабраног периода за деинсталацију. Нема заобилазних решења.\n\nНастави на своју одговорност.';
+      'Када буде омогућено, нећеш моћи да деинсталираш, принудно зауставиш или очистиш податке апликације FocusJoy, осим током изабраног периода за деинсталацију. Нема заобилазних решења.\n\nНастави на своју одговорност.';
 
   @override
   String get uninstall_window_tile_title => 'Прозор за деинсталацију';
@@ -1424,14 +1424,14 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get service_stopping_warning =>
-      'Ако ManoDhyan престане да ради изненада, молимо те да доделиш дозволу \'Игнориши оптимизацију батерије\' како би апликација наставила да ради у позадини. Ако то не реши проблем, покушај да ставиш ManoDhyan на белу листу за неометан рад.';
+      'Ако FocusJoy престане да ради изненада, молимо те да доделиш дозволу \'Игнориши оптимизацију батерије\' како би апликација наставила да ради у позадини. Ако то не реши проблем, покушај да ставиш FocusJoy на белу листу за неометан рад.';
 
   @override
-  String get whitelist_app_tile_title => 'Додај ManoDhyan на белу листу';
+  String get whitelist_app_tile_title => 'Додај FocusJoy на белу листу';
 
   @override
   String get whitelist_app_tile_subtitle =>
-      'Одобри да се ManoDhyan аутоматски покреће.';
+      'Одобри да се FocusJoy аутоматски покреће.';
 
   @override
   String get whitelist_app_unsupported_snack_alert =>
@@ -1532,7 +1532,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get privacy_policy_info =>
-      'ManoDhyan је посвећен заштити твоје приватности. Не прикупљамо, не чувамо и не делимо било какве податке наших корисника. Апликација ради потпуно офлајн и не захтева интернет везу. Твоје личне информације остају приватне и безбедне на твом уређају. Као апликација отвореног кода (FOSS), ManoDhyan гарантује потпуну транспарентност и контролу корисника над сопственим подацима.';
+      'FocusJoy је посвећен заштити твоје приватности. Не прикупљамо, не чувамо и не делимо било какве податке наших корисника. Апликација ради потпуно офлајн и не захтева интернет везу. Твоје личне информације остају приватне и безбедне на твом уређају. Као апликација отвореног кода (FOSS), FocusJoy гарантује потпуну транспарентност и контролу корисника над сопственим подацима.';
 
   @override
   String get more_details_button => 'Још детаља';

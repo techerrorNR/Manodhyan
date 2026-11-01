@@ -11,11 +11,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/daos/dynamic_records_dao.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/models/monthly_focus_model.dart';
-import 'package:manodhyan/mind/providers/focus/dated_focus_provider.dart';
+import 'package:focusjoy/mind/core/database/daos/dynamic_records_dao.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/models/monthly_focus_model.dart';
+import 'package:focusjoy/mind/providers/focus/dated_focus_provider.dart';
 
 /// A Riverpod state notifier provider that manages [MonthlyFocusModel].
 final monthlyFocusProvider = StateNotifierProvider.family<FocusModeNotifier,

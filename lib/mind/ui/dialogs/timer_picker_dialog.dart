@@ -12,13 +12,13 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/models/app_info.dart';
-import 'package:manodhyan/mind/ui/common/application_icon.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
-import 'package:manodhyan/mind/ui/transitions/hero_page_route.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/models/app_info.dart';
+import 'package:focusjoy/mind/ui/common/application_icon.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/ui/transitions/hero_page_route.dart';
 
 /// Animates the hero widget to a alert dialog containing duration picker with the provided configurations
 ///

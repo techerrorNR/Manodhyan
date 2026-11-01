@@ -14,36 +14,40 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/daos/dynamic_records_dao.dart';
-import 'package:manodhyan/mind/core/database/daos/unique_records_dao.dart';
-import 'package:manodhyan/mind/core/enums/session_state.dart';
-import 'package:manodhyan/mind/core/enums/session_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
-import 'package:manodhyan/mind/models/focus_mode_model.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/daos/dynamic_records_dao.dart';
+import 'package:focusjoy/mind/core/database/daos/unique_records_dao.dart';
+import 'package:focusjoy/mind/core/enums/session_state.dart';
+import 'package:focusjoy/mind/core/enums/session_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/utils/default_models_utils.dart';
+import 'package:focusjoy/mind/models/focus_mode_model.dart';
 
 /// A Riverpod state notifier provider that manages [FocusModeModel].
 final focusModeProvider =
     StateNotifierProvider<FocusModeNotifier, FocusModeModel>(
-  (ref) => FocusModeNotifier(),
-);
+      (ref) => FocusModeNotifier(),
+    );
 
 class FocusModeNotifier extends StateNotifier<FocusModeModel>
     with WidgetsBindingObserver {
   late DynamicRecordsDao _dynamicDao;
   late UniqueRecordsDao _uniqueDao;
   Timer? _activeSessionTimer;
-  VoidCallback? _sessionSuccessCallback;
+  ValueChanged<FocusSession>? _sessionSuccessCallback;
   bool _isAppPaused = false;
+  bool _isStartingSession = false;
+  bool _isFinishingSession = false;
 
   FocusModeNotifier()
-      : super(FocusModeModel(
+    : super(
+        FocusModeModel(
           focusMode: defaultFocusModeModel,
           focusProfile: defaultFocusProfileModel,
-        )) {
+        ),
+      ) {
     _init();
   }
 
@@ -55,8 +59,9 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
 
     /// load from database
     final focusMode = await _uniqueDao.loadFocusModeSettings();
-    final focusProfile =
-        await _dynamicDao.fetchFocusProfileBySessionType(focusMode.sessionType);
+    final focusProfile = await _dynamicDao.fetchFocusProfileBySessionType(
+      focusMode.sessionType,
+    );
     final activeSession = await _dynamicDao.fetchLastActiveFocusSession();
 
     /// update state
@@ -84,6 +89,10 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
   ///
   /// If the session duration is set to zero, an infinite timer is started.
   void _startSessionServiceAndTimer(FocusSession session) async {
+    if (_isFinishingSession ||
+        state.activeSession.valueOrNull?.id != session.id) {
+      return;
+    }
     _activeSessionTimer?.cancel();
     final isFiniteSession = session.durationSecs > 0;
     final elapsedSeconds =
@@ -103,30 +112,32 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
       session: session,
       profile: state.focusProfile,
     );
+    if (!mounted ||
+        _isFinishingSession ||
+        state.activeSession.valueOrNull?.id != session.id) {
+      return;
+    }
 
     /// Start timer
-    _activeSessionTimer = Timer.periodic(
-      1.seconds,
-      (timer) async {
-        /// Update elapsed time
-        state = state.copyWith(
-          elapsedTimeSec:
-              DateTime.now().difference(session.startDateTime).inSeconds,
-        );
+    _activeSessionTimer = Timer.periodic(1.seconds, (timer) async {
+      /// Update elapsed time
+      state = state.copyWith(
+        elapsedTimeSec:
+            DateTime.now().difference(session.startDateTime).inSeconds,
+      );
 
-        /// Check for completion if session is finite
-        if (isFiniteSession && state.elapsedTimeSec >= session.durationSecs) {
-          giveUpOrFinishFocusSession(
-            isTheSessionSuccessful: true,
-            isFiniteSession: isFiniteSession,
-          );
-        }
-      },
-    );
+      /// Check for completion if session is finite
+      if (isFiniteSession && state.elapsedTimeSec >= session.durationSecs) {
+        giveUpOrFinishFocusSession(
+          isTheSessionSuccessful: true,
+          isFiniteSession: isFiniteSession,
+        );
+      }
+    });
   }
 
   /// Sets a callback function to be executed when a session completes successfully.
-  void setSessionSuccessCallback(VoidCallback callback) =>
+  void setSessionSuccessCallback(ValueChanged<FocusSession> callback) =>
       _sessionSuccessCallback = callback;
 
   /// set the duration for the session
@@ -175,12 +186,14 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
   void insertRemoveDistractingApp(String appPackage, bool shouldInsert) async {
     state = state.copyWith(
       focusProfile: state.focusProfile.copyWith(
-        distractingApps: shouldInsert
-            ? [...state.focusProfile.distractingApps, appPackage]
-            : [
-                ...state.focusProfile.distractingApps
-                    .where((e) => e != appPackage)
-              ],
+        distractingApps:
+            shouldInsert
+                ? [...state.focusProfile.distractingApps, appPackage]
+                : [
+                  ...state.focusProfile.distractingApps.where(
+                    (e) => e != appPackage,
+                  ),
+                ],
       ),
     );
 
@@ -199,8 +212,9 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
   void setSessionType(SessionType sessionType) async {
     state = state.copyWith(
       focusMode: state.focusMode.copyWith(sessionType: sessionType),
-      focusProfile:
-          await _dynamicDao.fetchFocusProfileBySessionType(sessionType),
+      focusProfile: await _dynamicDao.fetchFocusProfileBySessionType(
+        sessionType,
+      ),
     );
 
     /// Update db
@@ -211,18 +225,26 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
   ///
   /// Returns a [FocusSession] object representing the newly started session.
   Future<void> startNewSession() async {
-    /// Insert session to database
-    final session = await _dynamicDao.insertFocusSession(
-      type: state.focusMode.sessionType,
-      durationSecs: state.focusProfile.sessionDuration,
-    );
+    if (_isStartingSession ||
+        _isFinishingSession ||
+        state.activeSession.isLoading ||
+        state.activeSession.valueOrNull != null) {
+      return;
+    }
+    _isStartingSession = true;
+    try {
+      /// Insert session to database
+      final session = await _dynamicDao.insertFocusSession(
+        type: state.focusMode.sessionType,
+        durationSecs: state.focusProfile.sessionDuration,
+      );
 
-    /// Update state and start service and timer
-    state = state.copyWith(
-      activeSession: session,
-      elapsedTimeSec: 0,
-    );
-    _startSessionServiceAndTimer(session);
+      /// Update state and start service and timer
+      state = state.copyWith(activeSession: session, elapsedTimeSec: 0);
+      _startSessionServiceAndTimer(session);
+    } finally {
+      _isStartingSession = false;
+    }
   }
 
   /// Ends the active focus session, updating its status based on success or failure.
@@ -232,40 +254,48 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
     required bool isTheSessionSuccessful,
     required bool isFiniteSession,
   }) async {
-    if (state.activeSession.value == null) return;
+    final session = state.activeSession.valueOrNull;
+    if (session == null || _isFinishingSession) return;
+    _isFinishingSession = true;
+    try {
+      /// Cancel active session timer
+      _activeSessionTimer?.cancel();
 
-    /// Cancel active session timer
-    _activeSessionTimer?.cancel();
+      /// The difference from the session start and now
+      final diffFromNow = max(
+        0,
+        DateTime.now().difference(session.startDateTime).inSeconds,
+      );
+      final isFinite = session.durationSecs > 0;
+      // A finite session must reach its target before it can earn rewards.
+      final successful =
+          isTheSessionSuccessful &&
+          (!isFinite || diffFromNow >= session.durationSecs);
 
-    /// The difference from the session start and now
-    final diffFromNow = DateTime.now()
-        .difference(state.activeSession.value!.startDateTime)
-        .inSeconds;
+      /// Valid duration for finite session must be <= active session's duration
+      final validDuration =
+          isFinite ? min(session.durationSecs, diffFromNow) : diffFromNow;
 
-    /// Valid duration for finite session must be <= active session's duration
-    final validDuration = isFiniteSession
-        ? min(state.activeSession.value!.durationSecs, diffFromNow)
-        : diffFromNow;
+      final updatedSession = session.copyWith(
+        state: successful ? SessionState.successful : SessionState.failed,
+        durationSecs: validDuration,
+      );
 
-    final updatedSession = state.activeSession.value!.copyWith(
-      state: isTheSessionSuccessful
-          ? SessionState.successful
-          : SessionState.failed,
-      durationSecs: validDuration,
-    );
+      /// Update session in database and stop service
+      await _dynamicDao.updateFocusSessionById(updatedSession);
 
-    /// Update session in database and stop service
-    await _dynamicDao.updateFocusSessionById(updatedSession);
-    await MethodChannelService.instance.giveUpOrFinishFocusSession(
-      isTheSessionSuccessful: isTheSessionSuccessful,
-    );
+      /// Set active session to null
+      state = state.removeActiveSession();
 
-    /// Set active session to null
-    state = state.removeActiveSession();
-
-    if (isTheSessionSuccessful) {
-      _incrementOrResetStreaks();
-      _sessionSuccessCallback?.call();
+      if (successful) {
+        _incrementOrResetStreaks();
+        _sessionSuccessCallback?.call(updatedSession);
+      }
+      await MethodChannelService.instance.giveUpOrFinishFocusSession(
+        isTheSessionSuccessful: successful,
+      );
+    } finally {
+      _isFinishingSession = false;
     }
   }
 
@@ -281,9 +311,10 @@ class FocusModeNotifier extends StateNotifier<FocusModeModel>
 
     /// Reset if have gap in streak
     final oldStreak = state.focusMode.currentStreak;
-    final newStreak = shouldIncrement
-        ? oldStreak + 1
-        : today.difference(lastUpdatedDay).inDays > 1
+    final newStreak =
+        shouldIncrement
+            ? oldStreak + 1
+            : today.difference(lastUpdatedDay).inDays > 1
             ? 0
             : oldStreak;
 

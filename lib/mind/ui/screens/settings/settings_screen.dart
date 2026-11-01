@@ -10,11 +10,11 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/ui/common/scaffold_shell.dart';
-import 'package:manodhyan/mind/ui/screens/settings/about/tab_about.dart';
-import 'package:manodhyan/mind/ui/screens/settings/database/tab_database.dart';
-import 'package:manodhyan/mind/ui/screens/settings/general/tab_general.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/ui/common/scaffold_shell.dart';
+import 'package:focusjoy/mind/ui/screens/settings/about/tab_about.dart';
+import 'package:focusjoy/mind/ui/screens/settings/database/tab_database.dart';
+import 'package:focusjoy/mind/ui/screens/settings/general/tab_general.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({

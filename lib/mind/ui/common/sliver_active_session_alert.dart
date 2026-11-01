@@ -11,10 +11,10 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/providers/focus/focus_mode_provider.dart';
-import 'package:manodhyan/mind/ui/common/sliver_primary_action_container.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/providers/focus/focus_mode_provider.dart';
+import 'package:focusjoy/mind/ui/common/sliver_primary_action_container.dart';
 
 class SliverActiveSessionAlert extends ConsumerWidget {
   const SliverActiveSessionAlert({

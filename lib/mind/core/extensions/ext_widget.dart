@@ -11,7 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/providers/animated_flags_provider.dart';
+import 'package:focusjoy/mind/providers/animated_flags_provider.dart';
 
 extension ExtWidget on Widget {
   /// Wraps the widget with [SliverToBoxAdapter] and returns it

@@ -11,21 +11,21 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/hero_tags.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/providers/restrictions/wellbeing_provider.dart';
-import 'package:manodhyan/mind/providers/system/permissions_provider.dart';
-import 'package:manodhyan/mind/ui/common/content_section_header.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/scaffold_shell.dart';
-import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/dialogs/confirmation_dialog.dart';
-import 'package:manodhyan/mind/ui/permissions/accessibility_permission_card.dart';
-import 'package:manodhyan/mind/ui/screens/websites_blocking/add_websites_fab.dart';
-import 'package:manodhyan/mind/ui/screens/websites_blocking/sliver_blocked_websites_list.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/config/hero_tags.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/providers/restrictions/wellbeing_provider.dart';
+import 'package:focusjoy/mind/providers/system/permissions_provider.dart';
+import 'package:focusjoy/mind/ui/common/content_section_header.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/scaffold_shell.dart';
+import 'package:focusjoy/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/dialogs/confirmation_dialog.dart';
+import 'package:focusjoy/mind/ui/permissions/accessibility_permission_card.dart';
+import 'package:focusjoy/mind/ui/screens/websites_blocking/add_websites_fab.dart';
+import 'package:focusjoy/mind/ui/screens/websites_blocking/sliver_blocked_websites_list.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
 
 class WebsitesBlockingScreen extends ConsumerWidget {
   const WebsitesBlockingScreen({super.key});

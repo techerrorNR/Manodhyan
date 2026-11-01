@@ -13,12 +13,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/config/app_themes.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes_observer.dart';
-import 'package:manodhyan/mind/config/navigation/navigation_service.dart';
-import 'package:manodhyan/mind/l10n/generated/app_localizations.dart';
-import 'package:manodhyan/mind/providers/system/manodhyan_settings_provider.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/config/app_themes.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes_observer.dart';
+import 'package:focusjoy/mind/config/navigation/navigation_service.dart';
+import 'package:focusjoy/mind/l10n/generated/app_localizations.dart';
+import 'package:focusjoy/mind/providers/system/manodhyan_settings_provider.dart';
 
 class ManoDhyanApp extends ConsumerWidget {
   const ManoDhyanApp({super.key});

@@ -10,14 +10,14 @@
 
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/enums/app_theme_mode.dart';
-import 'package:manodhyan/mind/core/enums/default_home_tab.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
-import 'package:manodhyan/mind/l10n/generated/app_localizations.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/enums/app_theme_mode.dart';
+import 'package:focusjoy/mind/core/enums/default_home_tab.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/utils/default_models_utils.dart';
+import 'package:focusjoy/mind/l10n/generated/app_localizations.dart';
 
 /// A Riverpod state notifier provider that manages [ManoDhyanSettings].
 final ManoDhyanSettingsProvider =

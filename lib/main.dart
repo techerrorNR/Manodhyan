@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
+import 'package:flutter_riverpod/flutter_riverpod.dart'
+    hide ChangeNotifierProvider;
 import 'package:provider/provider.dart';
 
 import 'controllers/alarm_controller.dart';
 import 'controllers/task_controller.dart';
+import 'controllers/notes_controller.dart';
 import 'controllers/timer_controller.dart';
 import 'mind/config/navigation/app_routes.dart' as manodhyan_nav;
+import 'mind/config/navigation/app_routes_observer.dart';
+import 'mind/config/app_themes.dart';
 import 'mind/l10n/generated/app_localizations.dart';
 import 'mind/providers/system/permissions_provider.dart';
 import 'mind/models/permissions_model.dart';
@@ -19,6 +23,7 @@ import 'screens/manodhyan_feature_shell.dart';
 import 'screens/manodhyan_permissions_screen.dart';
 import 'services/alarm_service.dart';
 import 'widgets/global_focus_button.dart';
+import 'widgets/focusjoy_splash.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +34,13 @@ Future<void> main() async {
     ProviderScope(
       child: MultiProvider(
         providers: [
+          ChangeNotifierProvider(
+            create: (_) {
+              final controller = NotesController();
+              controller.initialize();
+              return controller;
+            },
+          ),
           ChangeNotifierProvider(
             create: (_) => TimerController(alarmService: alarmService),
           ),
@@ -63,6 +75,7 @@ class ManoDhyanApp extends ConsumerStatefulWidget {
 class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
   ProviderSubscription? _permissionSubscription;
   bool _permissionRouteVisible = false;
+  bool _showLaunchSplash = true;
 
   @override
   void initState() {
@@ -83,6 +96,7 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
       perms.haveNotificationPermission;
 
   void _maybePromptForPermissions(PermissionsModel perms) {
+    if (_showLaunchSplash) return;
     if (_hasAllEssentialPermissions(perms)) {
       _permissionRouteVisible = false;
       return;
@@ -94,9 +108,9 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
       if (navigator == null) return;
       navigator
           .pushNamed(AppRoutes.ManoDhyanPermissions)
-          .whenComplete(() => _maybePromptForPermissions(
-                ref.read(permissionProvider),
-              ));
+          .whenComplete(
+            () => _maybePromptForPermissions(ref.read(permissionProvider)),
+          );
     });
   }
 
@@ -109,17 +123,40 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ManoDhyan',
+      title: 'FocusJoy',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: AppTheme.darkTheme(
+        isAmoled: false,
+      ).copyWith(pageTransitionsTheme: ThemeData.dark().pageTransitionsTheme),
       navigatorKey: AlarmService.instance.navigatorKey,
-      home: const UniversalHomeScreen(),
-      builder: (context, child) => Stack(
-        children: [
-          if (child != null) child,
-          const GlobalFocusButton(),
-        ],
+      navigatorObservers: [AppRoutesObserver.instance],
+      home: const ManoDhyanFeatureShell(
+        initialRoute: manodhyan_nav.AppRoutes.homePath,
       ),
+      builder:
+          (context, child) => Stack(
+            children: [
+              if (child != null)
+                ExcludeSemantics(
+                  excluding: _showLaunchSplash,
+                  child: IgnorePointer(
+                    ignoring: _showLaunchSplash,
+                    child: child,
+                  ),
+                ),
+              if (!_showLaunchSplash) const GlobalFocusButton(),
+              if (_showLaunchSplash)
+                Positioned.fill(
+                  child: FocusJoySplash(
+                    onComplete: () {
+                      if (!mounted) return;
+                      setState(() => _showLaunchSplash = false);
+                      _maybePromptForPermissions(ref.read(permissionProvider));
+                    },
+                  ),
+                ),
+            ],
+          ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -143,71 +180,45 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
             settings: settings,
           );
         }
-        if (settings.name == AppRoutes.ManoDhyanDashboard) {
-          return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.homePath,
-              parameters: {"tab": "0"},
-            ),
-            settings: settings,
-          );
-        }
         if (settings.name == AppRoutes.ManoDhyanTasks) {
           return MaterialPageRoute(
-            builder: (_) => const UniversalHomeScreen(
-              initialTab: 1,
-            ),
+            builder:
+                (_) => const ManoDhyanFeatureShell(
+                  initialRoute: manodhyan_nav.AppRoutes.homePath,
+                  child: UniversalHomeScreen(
+                    initialTab: UniversalHomeScreen.tasksTab,
+                  ),
+                ),
             settings: settings,
           );
         }
-        if (settings.name == AppRoutes.ManoDhyanFocus) {
+        const featureRoutes = {
+          AppRoutes.ManoDhyanDashboard: manodhyan_nav.AppRoutes.homePath,
+          AppRoutes.ManoDhyanFocus: manodhyan_nav.AppRoutes.focusModePath,
+          AppRoutes.ManoDhyanRestrictionGroups:
+              manodhyan_nav.AppRoutes.restrictionGroupsPath,
+          AppRoutes.ManoDhyanShortsBlocking:
+              manodhyan_nav.AppRoutes.shortsBlockingPath,
+          AppRoutes.ManoDhyanWebsitesBlocking:
+              manodhyan_nav.AppRoutes.websitesBlockingPath,
+          AppRoutes.ManoDhyanNotifications:
+              manodhyan_nav.AppRoutes.notificationControlsPath,
+          AppRoutes.ManoDhyanBedtime: manodhyan_nav.AppRoutes.bedtimePath,
+        };
+        final path = featureRoutes[settings.name] ?? settings.name;
+        if (manodhyan_nav.AppRoutes.routes.containsKey(path)) {
           return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.focusModePath,
-              parameters: {"tab": "0"},
-            ),
-            settings: settings,
-          );
-        }
-        if (settings.name == AppRoutes.ManoDhyanRestrictionGroups) {
-          return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.restrictionGroupsPath,
-            ),
-            settings: settings,
-          );
-        }
-        if (settings.name == AppRoutes.ManoDhyanShortsBlocking) {
-          return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.shortsBlockingPath,
-            ),
-            settings: settings,
-          );
-        }
-        if (settings.name == AppRoutes.ManoDhyanWebsitesBlocking) {
-          return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.websitesBlockingPath,
-            ),
-            settings: settings,
-          );
-        }
-        if (settings.name == AppRoutes.ManoDhyanNotifications) {
-          return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.notificationsPath,
-            ),
-            settings: settings,
-          );
-        }
-        if (settings.name == AppRoutes.ManoDhyanBedtime) {
-          return MaterialPageRoute(
-            builder: (_) => const ManoDhyanFeatureShell(
-              initialRoute: manodhyan_nav.AppRoutes.homePath,
-              parameters: {"tab": "2"},
-            ),
-            settings: settings,
+            builder:
+                (_) => ManoDhyanFeatureShell(
+                  initialRoute: path!,
+                  child:
+                      settings.name == AppRoutes.ManoDhyanDashboard
+                          ? const UniversalHomeScreen(
+                            initialTab: UniversalHomeScreen.dashboardTab,
+                          )
+                          : null,
+                ),
+            settings: RouteSettings(name: path, arguments: settings.arguments),
           );
         }
         return null;

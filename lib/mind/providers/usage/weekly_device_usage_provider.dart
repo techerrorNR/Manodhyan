@@ -12,14 +12,14 @@ import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/services/drift_db_service.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/core/utils/date_time_utils.dart';
-import 'package:manodhyan/mind/core/utils/provider_utils.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
-import 'package:manodhyan/mind/providers/usage/todays_apps_usage_provider.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/services/drift_db_service.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/core/utils/date_time_utils.dart';
+import 'package:focusjoy/mind/core/utils/provider_utils.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/providers/usage/todays_apps_usage_provider.dart';
 
 /// Provides aggregated device usage based on day for current week.
 /// This includes screen time, wifi usage, and mobile usage

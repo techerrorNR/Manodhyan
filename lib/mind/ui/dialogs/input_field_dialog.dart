@@ -10,11 +10,11 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/ui/transitions/default_hero.dart';
-import 'package:manodhyan/mind/ui/transitions/hero_page_route.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/ui/transitions/default_hero.dart';
+import 'package:focusjoy/mind/ui/transitions/hero_page_route.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
 
 /// Animates the hero widget to a alert dialog with input field to enter website url
 ///

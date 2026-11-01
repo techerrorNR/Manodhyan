@@ -9,9 +9,9 @@
  */
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/enums/reminder_type.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/enums/reminder_type.dart';
 
 @DataClassName("AppRestriction")
 class AppRestrictionTable extends Table {

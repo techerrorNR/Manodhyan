@@ -9,7 +9,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
 
 // Offset from offscreen to the right to fully on screen.
 final Animatable<Offset> _kRightMiddleTween = Tween<Offset>(

@@ -11,8 +11,8 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/database/converters/string_list_converter.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/database/converters/string_list_converter.dart';
 
 @DataClassName("RestrictionGroup")
 class RestrictionGroupsTable extends Table {

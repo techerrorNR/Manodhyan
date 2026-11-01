@@ -13,29 +13,34 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/config/navigation/app_routes.dart';
-import 'package:manodhyan/mind/core/enums/item_position.dart';
-import 'package:manodhyan/mind/core/extensions/ext_build_context.dart';
-import 'package:manodhyan/mind/core/extensions/ext_num.dart';
-import 'package:manodhyan/mind/core/extensions/ext_widget.dart';
-import 'package:manodhyan/mind/providers/focus/focus_mode_provider.dart';
-import 'package:manodhyan/mind/ui/common/default_list_tile.dart';
-import 'package:manodhyan/mind/ui/common/rounded_container.dart';
-import 'package:manodhyan/mind/ui/common/sliver_active_session_alert.dart';
-import 'package:manodhyan/mind/ui/common/sliver_tabs_bottom_padding.dart';
-import 'package:manodhyan/mind/ui/common/styled_text.dart';
-import 'package:manodhyan/mind/ui/screens/focus/focus_mode/focus_distracting_apps_list.dart';
-import 'package:manodhyan/mind/ui/screens/focus/focus_mode/focus_configurations.dart';
+import 'package:focusjoy/mind/config/navigation/app_routes.dart';
+import 'package:focusjoy/mind/core/enums/item_position.dart';
+import 'package:focusjoy/mind/core/extensions/ext_build_context.dart';
+import 'package:focusjoy/mind/core/extensions/ext_num.dart';
+import 'package:focusjoy/mind/core/extensions/ext_widget.dart';
+import 'package:focusjoy/mind/providers/focus/focus_mode_provider.dart';
+import 'package:focusjoy/mind/ui/common/default_list_tile.dart';
+import 'package:focusjoy/mind/ui/common/rounded_container.dart';
+import 'package:focusjoy/mind/ui/common/sliver_active_session_alert.dart';
+import 'package:focusjoy/mind/ui/common/sliver_tabs_bottom_padding.dart';
+import 'package:focusjoy/mind/ui/common/styled_text.dart';
+import 'package:focusjoy/mind/ui/screens/focus/focus_mode/focus_distracting_apps_list.dart';
+import 'package:focusjoy/mind/ui/screens/focus/focus_mode/focus_configurations.dart';
 import 'package:slide_action/slide_action.dart';
 
 class TabFocus extends StatelessWidget {
-  const TabFocus({super.key});
+  const TabFocus({super.key, this.header, this.footer});
+
+  final Widget? header;
+  final Widget? footer;
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
+        if (header != null) header!.sliver,
+
         /// Information
         StyledText(context.locale.focus_tab_info).sliver,
 
@@ -57,32 +62,35 @@ class TabFocus extends StatelessWidget {
               stretchThumb: true,
               thumbWidth: thumbWidth,
               thumbDragStartBehavior: DragStartBehavior.down,
-              trackBuilder: (context, currentState) => DefaultListTile(
-                margin: EdgeInsets.zero,
-                color: Theme.of(context).colorScheme.primary,
-                position: ItemPosition.bottom,
-                title: Padding(
-                  padding: EdgeInsets.only(left: thumbWidth),
-                  child: StyledText(
-                    context.locale.focus_session_start_button,
-                    color: Theme.of(context).colorScheme.onPrimary,
-                    fontSize: 16,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.w500,
+              trackBuilder:
+                  (context, currentState) => DefaultListTile(
+                    margin: EdgeInsets.zero,
+                    color: Theme.of(context).colorScheme.primary,
+                    position: ItemPosition.bottom,
+                    title: Padding(
+                      padding: EdgeInsets.only(left: thumbWidth),
+                      child: StyledText(
+                        context.locale.focus_session_start_button,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontSize: 16,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              thumbBuilder: (context, currentState) => RoundedContainer(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                margin: EdgeInsets.all(0),
-                borderRadius:
-                    BorderRadius.only(bottomLeft: Radius.circular(24)),
-                child: Icon(
-                  FluentIcons.chevron_right_20_filled,
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                ),
-              ),
+              thumbBuilder:
+                  (context, currentState) => RoundedContainer(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    margin: EdgeInsets.all(0),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(24),
+                    ),
+                    child: Icon(
+                      FluentIcons.chevron_right_20_filled,
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
+                  ),
               action: () => _startFocusSession(context, ref),
             );
           },
@@ -90,6 +98,8 @@ class TabFocus extends StatelessWidget {
 
         40.vSliverBox,
         const FocusDistractingAppsList(),
+
+        if (footer != null) footer!.sliver,
 
         const SliverTabsBottomPadding(),
       ],

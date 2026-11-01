@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/schemas/schema_versions.dart';
-import 'package:manodhyan/mind/core/utils/db_utils.dart';
+import 'package:focusjoy/mind/core/database/schemas/schema_versions.dart';
+import 'package:focusjoy/mind/core/utils/db_utils.dart';
 
 Future<void> from5To6(Migrator m, Schema6 schema) async => await runSafe(
       "Migration(5 to 6)",

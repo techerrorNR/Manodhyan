@@ -1,3 +1,4 @@
+import 'package:focusjoy/mind/config/app_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'home_screen.dart';
@@ -37,10 +38,10 @@ class _NavScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F0D21),
+      backgroundColor: AppPalette.background,
       body: SafeArea(child: _pages[_currentIndex]),
       bottomNavigationBar: BottomAppBar(
-        color: const Color(0xFF1B192F),
+        color: AppPalette.card,
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: Row(
@@ -67,7 +68,7 @@ class _NavScreenState extends State<NavScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: AppPalette.primary,
         onPressed: () => _onTabTapped(2),
         child: const Icon(Icons.add, color: Colors.white),
       ),

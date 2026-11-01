@@ -8,7 +8,7 @@ import '../services/alarm_storage_service.dart';
 
 class AlarmController extends ChangeNotifier {
   AlarmController({AlarmService? alarmService})
-      : alarmService = alarmService ?? AlarmService.instance;
+    : alarmService = alarmService ?? AlarmService.instance;
 
   final AlarmService alarmService;
   final List<AlarmModel> _alarms = [];
@@ -94,11 +94,14 @@ class AlarmController extends ChangeNotifier {
       }
     }
 
+    // Only the next alarm is scheduled. Remove the previous one when a toggle,
+    // deletion, or edit changes which alarm should ring next.
+    if (_scheduledAlarmId != null && _scheduledAlarmId != nextAlarm?.id) {
+      await alarmService.cancelAlarmById(_scheduledAlarmId!);
+      _scheduledAlarmId = null;
+    }
+
     if (nextAlarm == null || fireAt == null) {
-      if (_scheduledAlarmId != null) {
-        await alarmService.cancelAlarmById(_scheduledAlarmId!);
-        _scheduledAlarmId = null;
-      }
       return;
     }
 
@@ -116,9 +119,10 @@ class AlarmController extends ChangeNotifier {
     final index = _alarms.indexWhere((alarm) => alarm.id == payload.alarmId);
     if (index == -1) return;
     final alarm = _alarms[index];
-    _alarms[index] = alarm.repeatDaily
-        ? alarm.copyWith(clearOverride: true)
-        : alarm.copyWith(isEnabled: false, clearOverride: true);
+    _alarms[index] =
+        alarm.repeatDaily
+            ? alarm.copyWith(clearOverride: true)
+            : alarm.copyWith(isEnabled: false, clearOverride: true);
     _scheduledAlarmId = null;
     await _persist();
     await _scheduleNextAlarm();

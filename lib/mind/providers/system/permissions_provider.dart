@@ -11,9 +11,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/enums/permission_type.dart';
-import 'package:manodhyan/mind/core/services/method_channel_service.dart';
-import 'package:manodhyan/mind/models/permissions_model.dart';
+import 'package:focusjoy/mind/core/enums/permission_type.dart';
+import 'package:focusjoy/mind/core/services/method_channel_service.dart';
+import 'package:focusjoy/mind/models/permissions_model.dart';
 
 /// A Riverpod state notifier provider that manages and requests various permissions required by the app.
 final permissionProvider =

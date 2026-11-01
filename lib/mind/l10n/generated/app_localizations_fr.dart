@@ -37,7 +37,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_sheet_privacy_info =>
-      'ManoDhyan est 100% sécurisé et fonctionne hors ligne. Nous ne collectons ni stockons aucune donnée personnelle.';
+      'FocusJoy est 100% sécurisé et fonctionne hors ligne. Nous ne collectons ni stockons aucune donnée personnelle.';
 
   @override
   String permission_grant_step_one(String button_label) {
@@ -46,7 +46,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_grant_step_two =>
-      '2. Sélectionnez ManoDhyan sur l\'écran suivant.';
+      '2. Sélectionnez FocusJoy sur l\'écran suivant.';
 
   @override
   String get permission_grant_step_three =>
@@ -60,7 +60,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_alarms_info =>
-      'Veuillez accorder la permission de régler les alarmes et les rappels. Cela permettra à ManoDhyan de démarrer votre horaire de coucher à l\'heure, de réinitialiser les minuteurs de l\'application tous les jours à minuit et de vous aider à rester sur la bonne voie.';
+      'Veuillez accorder la permission de régler les alarmes et les rappels. Cela permettra à FocusJoy de démarrer votre horaire de coucher à l\'heure, de réinitialiser les minuteurs de l\'application tous les jours à minuit et de vous aider à rester sur la bonne voie.';
 
   @override
   String get permission_alarms_device_tile_label =>
@@ -71,7 +71,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_usage_info =>
-      'Veuillez accorder l\'autorisation d\'accès aux données d\'utilisation. Cela permettra à ManoDhyan de surveiller l\'utilisation des applications et de gérer l\'accès à certaines applications, pour un environnement numérique plus contrôlé et propice à la concentration.';
+      'Veuillez accorder l\'autorisation d\'accès aux données d\'utilisation. Cela permettra à FocusJoy de surveiller l\'utilisation des applications et de gérer l\'accès à certaines applications, pour un environnement numérique plus contrôlé et propice à la concentration.';
 
   @override
   String get permission_usage_device_tile_label =>
@@ -82,7 +82,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_overlay_info =>
-      'Veuillez accorder la permission d\'afficher la superposition. Cela permettra à ManoDhyan d\'afficher une surcouche quand une application en pause est ouverte, ce qui vous aidera à rester concentré et à maintenir votre planning.';
+      'Veuillez accorder la permission d\'afficher la superposition. Cela permettra à FocusJoy d\'afficher une surcouche quand une application en pause est ouverte, ce qui vous aidera à rester concentré et à maintenir votre planning.';
 
   @override
   String get permission_overlay_device_tile_label =>
@@ -93,21 +93,21 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_accessibility_info =>
-      'Veuillez accorder l\'autorisation d\'accessibilité. Cela permettra à ManoDhyan de restreindre l\'accès au contenu vidéo court (ex : Reels, Shorts) dans les applications de réseaux sociaux et les navigateurs, et filtrer les sites Web inappropriés.';
+      'Veuillez accorder l\'autorisation d\'accessibilité. Cela permettra à FocusJoy de restreindre l\'accès au contenu vidéo court (ex : Reels, Shorts) dans les applications de réseaux sociaux et les navigateurs, et filtrer les sites Web inappropriés.';
 
   @override
   String get permission_accessibility_required =>
-      'ManoDhyan a besoin des permissions d\'accessibilité pour mieux bloquer les sites internet et les formats courts.';
+      'FocusJoy a besoin des permissions d\'accessibilité pour mieux bloquer les sites internet et les formats courts.';
 
   @override
-  String get permission_accessibility_device_tile_label => 'Utiliser ManoDhyan';
+  String get permission_accessibility_device_tile_label => 'Utiliser FocusJoy';
 
   @override
   String get permission_dnd_title => 'Ne pas déranger';
 
   @override
   String get permission_dnd_info =>
-      'Veuillez autoriser l\'accès au mode Ne pas déranger. Cela permettra à ManoDhyan de démarrer et d\'arrêter le mode Ne pas déranger pendant l\'horaire du sommeil.';
+      'Veuillez autoriser l\'accès au mode Ne pas déranger. Cela permettra à FocusJoy de démarrer et d\'arrêter le mode Ne pas déranger pendant l\'horaire du sommeil.';
 
   @override
   String get permission_dnd_tile_title => 'Lancer Ne pas déranger';
@@ -137,7 +137,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_vpn_info =>
-      'Veuillez accorder la permission de créer une connexion au réseau privé virtuel (VPN). Cela permettra à ManoDhyan de restreindre l\'accès à Internet pour les applications désignées en créant un VPN local sur le périphérique.';
+      'Veuillez accorder la permission de créer une connexion au réseau privé virtuel (VPN). Cela permettra à FocusJoy de restreindre l\'accès à Internet pour les applications désignées en créant un VPN local sur le périphérique.';
 
   @override
   String get permission_admin_title => 'Admin';
@@ -155,11 +155,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get permission_notification_access_info =>
-      'Veuillez accorder l\'autorisation d\'accès aux notifications. Cela permettra à ManoDhyan d\'organiser vos notifications et de les envoyer selon votre planning.';
+      'Veuillez accorder l\'autorisation d\'accès aux notifications. Cela permettra à FocusJoy d\'organiser vos notifications et de les envoyer selon votre planning.';
 
   @override
   String get permission_notification_access_required =>
-      'ManoDhyan nécessite un accès aux notifications pour regrouper et planifier les notifications.';
+      'FocusJoy nécessite un accès aux notifications pour regrouper et planifier les notifications.';
 
   @override
   String get permission_notification_access_device_tile_label =>
@@ -281,7 +281,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get development_dialog_info =>
-      'ManoDhyan est actuellement en cours de développement et peut avoir des bugs ou des fonctionnalités incomplètes. Si vous rencontrez des problèmes, merci de les signaler pour nous aider à nous améliorer.\n\nMerci pour vos retours !';
+      'FocusJoy est actuellement en cours de développement et peut avoir des bugs ou des fonctionnalités incomplètes. Si vous rencontrez des problèmes, merci de les signaler pour nous aider à nous améliorer.\n\nMerci pour vos retours !';
 
   @override
   String get development_dialog_button_report_issue => 'Signaler un problème';
@@ -333,7 +333,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get donation_card_info =>
-      'ManoDhyan est une application gratuite et open-source, développée avec dévouement durant des mois. Si elle vous a aidé, votre don signifierait beaucoup pour nous. Chaque don nous permet de continuer à l\'améliorer et la maintenir pour tous.';
+      'FocusJoy est une application gratuite et open-source, développée avec dévouement durant des mois. Si elle vous a aidé, votre don signifierait beaucoup pour nous. Chaque don nous permet de continuer à l\'améliorer et la maintenir pour tous.';
 
   @override
   String get operation_failed_snack_alert =>
@@ -347,15 +347,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get app_restart_dialog_info =>
-      'ManoDhyan redémarrera automatiquement à la fin du compte à rebours. Merci de patienter le temps que les modifications soient appliquées.';
+      'FocusJoy redémarrera automatiquement à la fin du compte à rebours. Merci de patienter le temps que les modifications soient appliquées.';
 
   @override
   String get accessibility_tip =>
-      'Want smarter, more battery-friendly blocking? Enable Accessibility permission for ManoDhyan.';
+      'Want smarter, more battery-friendly blocking? Enable Accessibility permission for FocusJoy.';
 
   @override
   String get battery_optimization_tip =>
-      'ManoDhyan not working? Allow \'Ignore Battery Optimization\' in Settings to keep it running smoothly.';
+      'FocusJoy not working? Allow \'Ignore Battery Optimization\' in Settings to keep it running smoothly.';
 
   @override
   String get invincible_mode_tip =>
@@ -367,7 +367,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tamper_protection_tip =>
-      'Uninstalling ManoDhyan? Enable the Uninstall Window to safely disable tamper protection first.';
+      'Uninstalling FocusJoy? Enable the Uninstall Window to safely disable tamper protection first.';
 
   @override
   String get notification_blocking_tip =>
@@ -464,7 +464,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get onboarding_page_one_info =>
-      'Que vous travailliez, étudiiez, ou que vous reposiez, ManoDhyan met en pause les distractions et vous permet de garder le contrôle avec des sessions de concentration personnalisables.';
+      'Que vous travailliez, étudiiez, ou que vous reposiez, FocusJoy met en pause les distractions et vous permet de garder le contrôle avec des sessions de concentration personnalisables.';
 
   @override
   String get onboarding_page_two_title => 'Bloquer les distractions.';
@@ -478,14 +478,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get onboarding_page_three_info =>
-      'ManoDhyan est 100% open-source et fonctionne entièrement hors ligne. Nous ne collectons ni ne partageons pas vos données personnelles — votre vie privée est garantie à tous les niveaux.';
+      'FocusJoy est 100% open-source et fonctionne entièrement hors ligne. Nous ne collectons ni ne partageons pas vos données personnelles — votre vie privée est garantie à tous les niveaux.';
 
   @override
   String get onboarding_page_permissions_title => 'Permissions indispensables.';
 
   @override
   String get onboarding_page_permissions_info =>
-      'ManoDhyan a besoin des autorisations suivantes pour suivre et gérer votre temps d\'écran, vous aider à réduire les distractions et améliorer votre concentration.';
+      'FocusJoy a besoin des autorisations suivantes pour suivre et gérer votre temps d\'écran, vous aider à réduire les distractions et améliorer votre concentration.';
 
   @override
   String get dashboard_tab_title => 'Tableau de bord';
@@ -761,7 +761,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get protected_access_tile_subtitle =>
-      'Protect ManoDhyan with your device lock.';
+      'Protect FocusJoy with your device lock.';
 
   @override
   String get protected_access_no_lock_snack_alert =>
@@ -784,7 +784,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tamper_protection_confirmation_dialog_info =>
-      'Once enabled, you won\'t be able to uninstall, force stop, or clear ManoDhyan\'s data, except during the selected uninstall window. There are no workarounds.\n\nProceed at your own risk.';
+      'Once enabled, you won\'t be able to uninstall, force stop, or clear FocusJoy\'s data, except during the selected uninstall window. There are no workarounds.\n\nProceed at your own risk.';
 
   @override
   String get uninstall_window_tile_title => 'Uninstall window';
@@ -1422,13 +1422,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get service_stopping_warning =>
-      'If ManoDhyan stops working unexpectedly, please grant the \'Ignore Battery Optimization\' permission to keep it running in the background. If the issue continues, try whitelisting ManoDhyan for uninterrupted performance.';
+      'If FocusJoy stops working unexpectedly, please grant the \'Ignore Battery Optimization\' permission to keep it running in the background. If the issue continues, try whitelisting FocusJoy for uninterrupted performance.';
 
   @override
-  String get whitelist_app_tile_title => 'Whitelist ManoDhyan';
+  String get whitelist_app_tile_title => 'Whitelist FocusJoy';
 
   @override
-  String get whitelist_app_tile_subtitle => 'Allow ManoDhyan to auto start.';
+  String get whitelist_app_tile_subtitle => 'Allow FocusJoy to auto start.';
 
   @override
   String get whitelist_app_unsupported_snack_alert =>
@@ -1529,7 +1529,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get privacy_policy_info =>
-      'ManoDhyan is committed to protecting your privacy. We do not collect, store, or transfer any type of user data. The app operates entirely offline and does not require an internet connection, ensuring that your personal information remains private and secure on your device. As a Free and Open Source Software (FOSS) application, ManoDhyan guarantees complete transparency and user control over their data.';
+      'FocusJoy is committed to protecting your privacy. We do not collect, store, or transfer any type of user data. The app operates entirely offline and does not require an internet connection, ensuring that your personal information remains private and secure on your device. As a Free and Open Source Software (FOSS) application, FocusJoy guarantees complete transparency and user control over their data.';
 
   @override
   String get more_details_button => 'More details';

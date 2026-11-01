@@ -11,9 +11,9 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:manodhyan/mind/core/database/converters/enum_list_converter.dart';
-import 'package:manodhyan/mind/core/database/converters/string_list_converter.dart';
-import 'package:manodhyan/mind/core/enums/platform_features.dart';
+import 'package:focusjoy/mind/core/database/converters/enum_list_converter.dart';
+import 'package:focusjoy/mind/core/database/converters/string_list_converter.dart';
+import 'package:focusjoy/mind/core/enums/platform_features.dart';
 
 @DataClassName("Wellbeing")
 class WellbeingTable extends Table {

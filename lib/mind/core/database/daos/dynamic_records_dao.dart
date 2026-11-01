@@ -12,21 +12,21 @@ import 'package:drift/drift.dart';
 import 'package:flutter/material.dart' as m;
 import 'package:flutter_animate/flutter_animate.dart';
 
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/database/tables/app_restriction_table.dart';
-import 'package:manodhyan/mind/core/database/tables/app_usage_table.dart';
-import 'package:manodhyan/mind/core/database/tables/crash_logs_table.dart';
-import 'package:manodhyan/mind/core/database/tables/focus_profile_table.dart';
-import 'package:manodhyan/mind/core/database/tables/focus_sessions_table.dart';
-import 'package:manodhyan/mind/core/database/tables/notifications_table.dart';
-import 'package:manodhyan/mind/core/database/tables/restriction_groups_table.dart';
-import 'package:manodhyan/mind/core/database/adapters/time_of_day_adapter.dart';
-import 'package:manodhyan/mind/core/enums/session_state.dart';
-import 'package:manodhyan/mind/core/enums/session_type.dart';
-import 'package:manodhyan/mind/core/extensions/ext_date_time.dart';
-import 'package:manodhyan/mind/core/utils/default_models_utils.dart';
-import 'package:manodhyan/mind/core/utils/provider_utils.dart';
-import 'package:manodhyan/mind/models/usage_model.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/database/tables/app_restriction_table.dart';
+import 'package:focusjoy/mind/core/database/tables/app_usage_table.dart';
+import 'package:focusjoy/mind/core/database/tables/crash_logs_table.dart';
+import 'package:focusjoy/mind/core/database/tables/focus_profile_table.dart';
+import 'package:focusjoy/mind/core/database/tables/focus_sessions_table.dart';
+import 'package:focusjoy/mind/core/database/tables/notifications_table.dart';
+import 'package:focusjoy/mind/core/database/tables/restriction_groups_table.dart';
+import 'package:focusjoy/mind/core/database/adapters/time_of_day_adapter.dart';
+import 'package:focusjoy/mind/core/enums/session_state.dart';
+import 'package:focusjoy/mind/core/enums/session_type.dart';
+import 'package:focusjoy/mind/core/extensions/ext_date_time.dart';
+import 'package:focusjoy/mind/core/utils/default_models_utils.dart';
+import 'package:focusjoy/mind/core/utils/provider_utils.dart';
+import 'package:focusjoy/mind/models/usage_model.dart';
 
 part 'dynamic_records_dao.g.dart';
 
@@ -52,7 +52,7 @@ class DynamicRecordsDao extends DatabaseAccessor<AppDatabase>
   /// Loads Map of [DateTime] and [UsageModel]  aggregated for the given interval
   /// Used to load and aggregated 7 days usage of all apps.
   ///
-  /// returns (bool, Map<DateTime, UsageModel>) where the [bool] indicates if the
+  /// returns `(bool, Map<DateTime, UsageModel>)` where the [bool] indicates if the
   /// database contains any usage records or not and [Map<DateTime, UsageModel>]
   /// contains one [UsageModel] for each day of week.
   Future<(bool, Map<DateTime, UsageModel>)> fetchWeeklyDeviceUsage({
@@ -318,6 +318,12 @@ class DynamicRecordsDao extends DatabaseAccessor<AppDatabase>
         .map((row) => row.read(focusSessionsTable.id.count()) ?? 0)
         .getSingle();
   }
+
+  /// Completed session history persists the gem and ranking-point rewards.
+  Stream<List<FocusSession>> watchSuccessfulFocusSessions() =>
+      (select(focusSessionsTable)
+            ..where((row) => row.state.equalsValue(SessionState.successful)))
+          .watch();
 
   /// Loads the total duration for all the [FocusSession] in the database
   ///

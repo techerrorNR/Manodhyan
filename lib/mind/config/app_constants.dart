@@ -11,7 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
-import 'package:manodhyan/mind/core/enums/app_theme_mode.dart';
+import 'package:focusjoy/mind/core/enums/app_theme_mode.dart';
 
 class AppConstants {
   // App Defaults

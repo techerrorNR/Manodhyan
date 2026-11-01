@@ -10,8 +10,8 @@
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:manodhyan/mind/config/app_constants.dart';
-import 'package:manodhyan/mind/models/app_info.dart';
+import 'package:focusjoy/mind/config/app_constants.dart';
+import 'package:focusjoy/mind/models/app_info.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ApplicationIcon extends StatelessWidget {

@@ -10,9 +10,9 @@
 
 import 'package:flutter/material.dart' as m;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manodhyan/mind/core/database/app_database.dart';
-import 'package:manodhyan/mind/core/utils/string_utils.dart';
-import 'package:manodhyan/mind/providers/notifications/dated_notifications_provider.dart';
+import 'package:focusjoy/mind/core/database/app_database.dart';
+import 'package:focusjoy/mind/core/utils/string_utils.dart';
+import 'package:focusjoy/mind/providers/notifications/dated_notifications_provider.dart';
 
 final datedConversationProvider = StateNotifierProvider.family<
     GroupedNotificationsNotifier,
