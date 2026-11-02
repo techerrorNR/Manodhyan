@@ -4,6 +4,7 @@ import 'package:focusjoy/mind/config/navigation/app_routes.dart';
 import 'package:focusjoy/routes.dart' as root_routes;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:focusjoy/mind/ui/controllers/planner_navigation_provider.dart';
+import 'package:focusjoy/widgets/floating_focus_settings.dart';
 
 class TabTools extends ConsumerWidget {
   const TabTools({super.key});
@@ -117,6 +118,8 @@ class TabTools extends ConsumerWidget {
                 route: AppRoutes.mentalMathsPath,
               ),
               const _SectionTitle('App preferences'),
+              const FloatingFocusSettings(),
+              const SizedBox(height: 12),
               _ToolTile(
                 icon: Icons.shield_outlined,
                 color: AppPalette.primaryLight,

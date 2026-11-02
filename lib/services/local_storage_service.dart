@@ -67,13 +67,17 @@ class LocalStorageService {
   }
 
   static Future<void> saveScheduledAlarms(
-      Map<String, Map<String, dynamic>> alarms) async {
+    Map<String, Map<String, dynamic>> alarms,
+  ) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_keyActiveAlarmData, jsonEncode(alarms));
+    if (!await prefs.setString(_keyActiveAlarmData, jsonEncode(alarms))) {
+      throw StateError('Unable to save scheduled alarms');
+    }
   }
 
   static Future<Map<String, Map<String, dynamic>>> getScheduledAlarms() async {
     final prefs = await SharedPreferences.getInstance();
+    await prefs.reload();
     final raw = prefs.getString(_keyActiveAlarmData);
     if (raw == null) return {};
     try {
@@ -82,24 +86,21 @@ class LocalStorageService {
         // Legacy single-alarm payload support
         if (decoded.containsKey('androidId') &&
             decoded.containsKey('payload')) {
-          final payloadMap = (decoded['payload'] as Map<dynamic, dynamic>?)
-                  ?.map((key, value) => MapEntry(key.toString(), value)) ??
+          final payloadMap =
+              (decoded['payload'] as Map<dynamic, dynamic>?)?.map(
+                (key, value) => MapEntry(key.toString(), value),
+              ) ??
               <String, dynamic>{};
           final alarmId =
               payloadMap['alarmId']?.toString() ?? 'legacy_alarm_id';
           return {
-            alarmId: {
-              'androidId': decoded['androidId'],
-              'payload': payloadMap,
-            },
+            alarmId: {'androidId': decoded['androidId'], 'payload': payloadMap},
           };
         }
         final result = <String, Map<String, dynamic>>{};
         decoded.forEach((key, value) {
           if (value is Map) {
-            result[key] = value.map(
-              (k, v) => MapEntry(k.toString(), v),
-            );
+            result[key] = value.map((k, v) => MapEntry(k.toString(), v));
           }
         });
         return result;

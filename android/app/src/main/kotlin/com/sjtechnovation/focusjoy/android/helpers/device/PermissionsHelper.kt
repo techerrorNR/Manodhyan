@@ -187,12 +187,18 @@ object PermissionsHelper {
                     .setData(Uri.parse("package:${context.packageName}"))
 
                 context.startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                // Some OEMs do not provide the package-specific special-access page.
+                try {
+                    context.startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
+                } catch (_: ActivityNotFoundException) {
+                    context.startActivity(
+                        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                            .setData(Uri.parse("package:${context.packageName}"))
+                    )
+                }
             } catch (e: Exception) {
-                Log.e(
-                    TAG,
-                    "getAndAskExactAlarmPermission: Unable to open device EXACT ALARM settings",
-                    e
-                )
+                Log.e(TAG, "Unable to open Alarms & reminders settings", e)
             }
         }
         return false

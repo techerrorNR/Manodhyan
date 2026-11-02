@@ -104,9 +104,7 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
   }
 
   void _lockScreenState() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   }
 
@@ -150,7 +148,8 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
       _isSubmitting = true;
     });
     await _stopAudio();
-    final payload = widget.payload ??
+    final payload =
+        widget.payload ??
         AlarmService.instance.activePayload ??
         AlarmPayload(
           alarmId: 'unknown',
@@ -159,7 +158,10 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
         );
     await AlarmService.instance.markCompleted(payload.alarmId);
     if (mounted) {
-      await context.read<TimerController>().completeSession(success: true);
+      final timer = context.read<TimerController>();
+      if (timer.pendingPayload?.alarmId == payload.alarmId) {
+        await timer.completeSession(success: true);
+      }
       if (mounted) {
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
@@ -168,7 +170,8 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final payload = widget.payload ??
+    final payload =
+        widget.payload ??
         AlarmService.instance.activePayload ??
         AlarmPayload(
           alarmId: 'unknown',
@@ -188,10 +191,9 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
                 const SizedBox(height: 16),
                 Text(
                   'Solve to stop the alarm',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall
-                      ?.copyWith(color: Colors.white),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineSmall?.copyWith(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 12),
@@ -203,8 +205,7 @@ class _MathChallengeScreenState extends State<MathChallengeScreen> {
                 Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color:
-                        AppPalette.primary.withValues(alpha: 0.2),
+                    color: AppPalette.primary.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(
                       color: _isWrong ? AppPalette.error : AppPalette.primary,

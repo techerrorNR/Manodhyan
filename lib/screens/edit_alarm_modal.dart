@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../controllers/alarm_controller.dart';
 import '../models/alarm_model.dart';
 import '../mind/config/app_palette.dart';
+import '../services/alarm_service.dart';
 
 Future<void> showAlarmEditor(BuildContext context, {AlarmModel? alarm}) async {
   final controller = context.read<AlarmController>();
@@ -29,12 +30,14 @@ Future<void> showAlarmEditor(BuildContext context, {AlarmModel? alarm}) async {
         ),
       );
     }
-  } catch (_) {
+  } catch (error) {
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            'Unable to schedule this alarm. Check alarm permissions and try again.',
+            error is AlarmSchedulingException
+                ? error.message
+                : 'Unable to schedule this alarm. Please try again.',
           ),
         ),
       );
@@ -109,6 +112,11 @@ class _AlarmEditorState extends State<_AlarmEditor> {
           subtitle: const Text('Turn off for a one-time alarm'),
           value: _daily,
           onChanged: (value) => setState(() => _daily = value),
+        ),
+        const SizedBox(height: 12),
+        const Text(
+          'Android must allow alarms and notifications. If prompted, allow FocusJoy to set alarms and reminders.',
+          style: TextStyle(color: Colors.white60, fontSize: 12, height: 1.5),
         ),
       ],
     ),

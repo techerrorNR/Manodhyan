@@ -8,6 +8,7 @@ import '../models/task_model.dart';
 import '../models/alarm_model.dart';
 import '../models/note_model.dart';
 import '../mind/config/app_palette.dart';
+import '../services/alarm_service.dart';
 import '../mind/ui/controllers/planner_navigation_provider.dart';
 import 'create_task_modal.dart';
 import 'edit_alarm_modal.dart';
@@ -33,11 +34,15 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
   Future<void> _run(Future<void> Function() action) async {
     try {
       await action();
-    } catch (_) {
+    } catch (error) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Unable to save this change. Please try again.'),
+          SnackBar(
+            content: Text(
+              error is AlarmSchedulingException
+                  ? error.message
+                  : 'Unable to save this change. Please try again.',
+            ),
           ),
         );
       }
@@ -172,7 +177,7 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
                     _Summary(
                       value:
                           '${alarms.where((alarm) => alarm.isEnabled).length}',
-                      label: 'Active alarms',
+                      label: 'Enabled alarms',
                     ),
                     _Summary(
                       value:
@@ -185,7 +190,8 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
                     ),
                   ],
                 ),
-                if (upcoming.isNotEmpty) ...[
+                if (upcoming.isNotEmpty &&
+                    alarmController.schedulingError == null) ...[
                   const SizedBox(height: 20),
                   Text(
                     'Next alarm: ${_alarmDate(context, upcoming.first)}',
@@ -404,6 +410,48 @@ class _TodoScreenState extends ConsumerState<TodoScreen> {
             ),
           ],
           if (section == PlannerSection.alarms) ...[
+            if (alarmController.schedulingError != null)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Container(
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: AppPalette.card,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Alarms need your attention',
+                        style: TextStyle(
+                          color: AppPalette.secondary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        alarmController.schedulingError!,
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          height: 1.5,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      TextButton.icon(
+                        onPressed:
+                            () => _run(
+                              () => alarmController.refreshScheduling(
+                                requestPermissions: true,
+                              ),
+                            ),
+                        icon: const Icon(Icons.alarm_on_rounded),
+                        label: const Text('Allow & retry alarms'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             if (alarms.isEmpty)
               _Empty(
                 icon: Icons.alarm_add_rounded,

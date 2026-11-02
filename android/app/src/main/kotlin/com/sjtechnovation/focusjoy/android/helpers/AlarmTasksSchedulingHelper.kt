@@ -49,6 +49,12 @@ object AlarmTasksSchedulingHelper {
      * @param checkBeforeScheduling Flag indicating whether to check if the task is already scheduled.
      */
     fun scheduleMidnightResetTask(context: Context, checkBeforeScheduling: Boolean) {
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+            // Do not create a PendingIntent that falsely looks like a registered alarm.
+            Log.d(TAG, "Midnight reset deferred until exact alarm access is granted")
+            return
+        }
         if (checkBeforeScheduling) {
             val intent =
                 Intent(context.applicationContext, MidnightResetReceiver::class.java).setAction(

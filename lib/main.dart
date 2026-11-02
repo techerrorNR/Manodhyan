@@ -24,9 +24,12 @@ import 'screens/manodhyan_permissions_screen.dart';
 import 'services/alarm_service.dart';
 import 'widgets/global_focus_button.dart';
 import 'widgets/focusjoy_splash.dart';
+import 'services/floating_focus_service.dart';
+import 'mind/ui/controllers/home_tab_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await FloatingFocusService.instance.initialize();
   await ManoDhyanBootstrap.instance.ensureInitialized();
   final alarmService = AlarmService.instance;
   await alarmService.initialize();
@@ -76,10 +79,16 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
   ProviderSubscription? _permissionSubscription;
   bool _permissionRouteVisible = false;
   bool _showLaunchSplash = true;
+  bool _handlingFocusShortcut = false;
 
   @override
   void initState() {
     super.initState();
+    FloatingFocusService.instance.addListener(_onFloatingFocusChanged);
+    AppRoutesObserver.instance.showFocusShortcut.addListener(
+      _syncFloatingFocusVisibility,
+    );
+    _syncFloatingFocusVisibility();
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => _maybePromptForPermissions(ref.read(permissionProvider)),
     );
@@ -87,6 +96,40 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
       permissionProvider,
       (_, next) => _maybePromptForPermissions(next),
     );
+  }
+
+  void _syncFloatingFocusVisibility() {
+    FloatingFocusService.instance.setInAppVisible(
+      !_showLaunchSplash && AppRoutesObserver.instance.showFocusShortcut.value,
+    );
+  }
+
+  void _onFloatingFocusChanged() {
+    final shortcut = FloatingFocusService.instance;
+    if (!mounted ||
+        _showLaunchSplash ||
+        !shortcut.pendingOpenFocus ||
+        _handlingFocusShortcut) {
+      return;
+    }
+    _handlingFocusShortcut = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      try {
+        if (!mounted ||
+            AlarmService.instance.navigatorKey.currentState == null) {
+          return;
+        }
+        await shortcut.consumeFocusRequest();
+        if (!mounted) return;
+        ref.read(homeTabProvider.notifier).state = UniversalHomeScreen.focusTab;
+        AlarmService.instance.navigatorKey.currentState?.popUntil(
+          (route) => route.isFirst,
+        );
+      } finally {
+        _handlingFocusShortcut = false;
+      }
+    });
+    WidgetsBinding.instance.ensureVisualUpdate();
   }
 
   bool _hasAllEssentialPermissions(PermissionsModel perms) =>
@@ -116,6 +159,10 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
 
   @override
   void dispose() {
+    FloatingFocusService.instance.removeListener(_onFloatingFocusChanged);
+    AppRoutesObserver.instance.showFocusShortcut.removeListener(
+      _syncFloatingFocusVisibility,
+    );
     _permissionSubscription?.close();
     super.dispose();
   }
@@ -151,6 +198,9 @@ class _ManoDhyanAppState extends ConsumerState<ManoDhyanApp> {
                     onComplete: () {
                       if (!mounted) return;
                       setState(() => _showLaunchSplash = false);
+                      _syncFloatingFocusVisibility();
+                      FloatingFocusService.instance.refresh();
+                      _onFloatingFocusChanged();
                       _maybePromptForPermissions(ref.read(permissionProvider));
                     },
                   ),

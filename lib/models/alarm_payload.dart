@@ -8,6 +8,8 @@ class AlarmPayload {
   final String? crystalType;
   final List<String> allowedApps;
   final DateTime fireAt;
+  final bool isAlarmClock;
+  final int? notificationId;
 
   const AlarmPayload({
     required this.alarmId,
@@ -17,6 +19,8 @@ class AlarmPayload {
     this.crystalTarget = 0,
     this.crystalType,
     this.allowedApps = const [],
+    this.isAlarmClock = false,
+    this.notificationId,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,6 +32,8 @@ class AlarmPayload {
       'crystalType': crystalType,
       'allowedApps': allowedApps,
       'fireAt': fireAt.toIso8601String(),
+      'isAlarmClock': isAlarmClock,
+      'notificationId': notificationId,
     };
   }
 
@@ -37,18 +43,39 @@ class AlarmPayload {
     return AlarmPayload(
       alarmId: map['alarmId'] as String,
       taskId: map['taskId'] as String?,
+      isAlarmClock: map['isAlarmClock'] as bool? ?? false,
+      notificationId: map['notificationId'] as int?,
       durationSeconds: map['durationSeconds'] as int? ?? 0,
       crystalTarget: map['crystalTarget'] as int? ?? 0,
       crystalType: map['crystalType'] as String?,
-      allowedApps: (map['allowedApps'] as List<dynamic>? ?? const [])
-          .map((value) => value.toString())
-          .toList(),
-      fireAt: map['fireAt'] != null
-          ? DateTime.tryParse(map['fireAt'] as String) ?? DateTime.now()
-          : DateTime.now(),
+      allowedApps:
+          (map['allowedApps'] as List<dynamic>? ?? const [])
+              .map((value) => value.toString())
+              .toList(),
+      fireAt:
+          map['fireAt'] != null
+              ? DateTime.tryParse(map['fireAt'] as String) ?? DateTime.now()
+              : DateTime.now(),
     );
   }
 
   factory AlarmPayload.fromJson(String source) =>
       AlarmPayload.fromMap(jsonDecode(source) as Map<String, dynamic>);
+
+  AlarmPayload copyWith({
+    DateTime? fireAt,
+    int? durationSeconds,
+    bool? isAlarmClock,
+    int? notificationId,
+  }) => AlarmPayload(
+    alarmId: alarmId,
+    durationSeconds: durationSeconds ?? this.durationSeconds,
+    fireAt: fireAt ?? this.fireAt,
+    taskId: taskId,
+    crystalTarget: crystalTarget,
+    crystalType: crystalType,
+    allowedApps: allowedApps,
+    isAlarmClock: isAlarmClock ?? this.isAlarmClock,
+    notificationId: notificationId ?? this.notificationId,
+  );
 }
