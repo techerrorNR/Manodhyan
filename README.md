@@ -128,6 +128,10 @@ Have a better idea? Open an issue describing who it helps, how it works, and how
 
 FocusJoy builds on **[Mindful](https://github.com/akaMrNagar/Mindful)** by **[Pawan Nagar (@akaMrNagar)](https://github.com/akaMrNagar)** and its contributors. A respectful salute and sincere thanks for sharing the foundation openly. Their work and original authorship deserve clear recognition as this project grows.
 
+Connect with Pawan: [LinkedIn](https://www.linkedin.com/in/akamrnagar) · [Portfolio](https://akamrnagar.vercel.app/) · [GitHub](https://github.com/akaMrNagar).
+
 Continued development and FocusJoy features are led by **[Rakesh Yadav (@techerrorNR)](https://github.com/techerrorNR)** of **[Shree Ji Technovation](https://sjtechnovation.in/)**, with contributions welcome from the community.
+
+Explore our work: [Rakesh Yadav's portfolio](https://rakeshkumaryadav.in/) · [Shree Ji Technovation website](https://sjtechnovation.in/) · [GitHub](https://github.com/techerrorNR).
 
 This repository is shared under the **GNU General Public License v2**, provided in [LICENSE](LICENSE). Preserve applicable copyright, attribution, and license notices when contributing or redistributing. Third-party dependencies retain their respective licenses.
